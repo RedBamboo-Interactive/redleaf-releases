@@ -39,8 +39,9 @@
           </div>
 
           <p class="trust-note" id="trust-note">
-            Preview builds are signed inside RedLeaf’s release system. Windows publisher signing is
-            being added before the Stable launch.
+            Nightly preview. RedLeaf verifies every downloaded component against its signed release
+            feed. The Windows launcher is not yet publisher-signed, so SmartScreen may show
+            “Unknown publisher.”
           </p>
         </div>
 
@@ -93,7 +94,7 @@
           </li>
           <li>
             <span class="step-number">03</span>
-            <div><h3>Connect Codex</h3><p>RedLeaf installs OpenAI’s signed Codex package for your account, then opens the ChatGPT sign-in flow.</p></div>
+            <div><h3>Connect Codex</h3><p>RedLeaf runs OpenAI’s verified Codex installer for your account, then opens the ChatGPT sign-in flow.</p></div>
           </li>
           <li>
             <span class="step-number">04</span>
@@ -105,12 +106,13 @@
       <section class="requirements" aria-labelledby="requirements-title">
         <div>
           <p class="eyebrow">Before you start</p>
-          <h2 id="requirements-title">A clean, explicit setup.</h2>
+          <h2 id="requirements-title">Know every prompt.</h2>
         </div>
         <ul>
           <li><b>Windows x64</b><span>The current release target.</span></li>
           <li><b>Internet access</b><span>Required to download components and authenticate providers.</span></li>
-          <li><b>One Windows approval</b><span>WinFsp may request permission while workspace support is installed.</span></li>
+          <li><b>Preview warning</b><span>SmartScreen may show “Unknown publisher” until Windows publisher signing ships.</span></li>
+          <li><b>One admin approval</b><span>WinFsp may request permission while Nova’s local workspace support is installed.</span></li>
           <li><b>A Codex credential</b><span>Use a ChatGPT sign-in or another authentication method supported by Codex.</span></li>
         </ul>
       </section>
