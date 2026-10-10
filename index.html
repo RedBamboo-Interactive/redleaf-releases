@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Download RedLeaf for Windows and meet Nova, your private AI collaborator." />
+    <meta name="theme-color" content="#10110f" />
+    <title>RedLeaf for Windows</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="RedLeaf home">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span>RedLeaf</span>
+      </a>
+      <a class="quiet-link" href="#install">Installation guide</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">AI-native workspace for Windows</p>
+          <h1 id="hero-title">Meet Nova.<br />Keep the context.</h1>
+          <p class="lede">
+            RedLeaf brings your conversations, projects, tools, and AI providers into one private
+            workspace. Nova stays with the work and remembers what matters.
+          </p>
+
+          <div class="download-panel" aria-live="polite">
+            <a class="download-button is-loading" id="download-button" aria-disabled="true">
+              <span id="download-label">Checking the latest release…</span>
+              <span class="button-meta" id="download-meta">Windows x64</span>
+            </a>
+            <p class="release-note" id="release-note">Reading the signed RedLeaf release feed.</p>
+            <button class="hash-toggle" id="hash-toggle" type="button" hidden>Show SHA-256</button>
+            <code class="hash" id="release-hash" hidden></code>
+          </div>
+
+          <p class="trust-note" id="trust-note">
+            Preview builds are signed inside RedLeaf’s release system. Windows publisher signing is
+            being added before the Stable launch.
+          </p>
+        </div>
+
+        <div class="product-frame" aria-label="A preview of Nova inside RedLeaf">
+          <div class="frame-bar">
+            <span></span><span></span><span></span>
+            <b>RedLeaf</b>
+          </div>
+          <div class="product-layout">
+            <aside>
+              <p class="aside-label">Workspace</p>
+              <div class="nav-item active"><i></i>Nova</div>
+              <div class="nav-item"><i></i>Projects</div>
+              <div class="nav-item"><i></i>Code</div>
+              <div class="nav-item"><i></i>Automations</div>
+            </aside>
+            <div class="conversation">
+              <div class="nova-orb">N</div>
+              <p class="speaker">Nova</p>
+              <p class="message">I have the project context. Where do you want to push next?</p>
+              <div class="context-strip">
+                <span>Project memory</span><span>Codex connected</span><span>Local workspace</span>
+              </div>
+              <div class="composer">Ask Nova anything… <b>↑</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof" aria-label="RedLeaf product principles">
+        <article><strong>One installer</strong><span>RedLeaf brings the core suite with it.</span></article>
+        <article><strong>Your machine</strong><span>Application data and workspaces remain local.</span></article>
+        <article><strong>Your provider</strong><span>Connect Codex with your own ChatGPT account.</span></article>
+      </section>
+
+      <section class="install" id="install" aria-labelledby="install-title">
+        <div class="section-heading">
+          <p class="eyebrow">First run</p>
+          <h2 id="install-title">From download to conversation.</h2>
+          <p>RedLeaf guides the setup. No source checkout, Docker, or separate database install.</p>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="step-number">01</span>
+            <div><h3>Run RedLeaf Setup</h3><p>The launcher verifies and installs the signed component graph for your Windows account.</p></div>
+          </li>
+          <li>
+            <span class="step-number">02</span>
+            <div><h3>Create your local account</h3><p>RedLeaf provisions its managed database, then asks you to create the first administrator.</p></div>
+          </li>
+          <li>
+            <span class="step-number">03</span>
+            <div><h3>Connect Codex</h3><p>Sign in with ChatGPT in your browser. Device-code login is available when a browser callback cannot return.</p></div>
+          </li>
+          <li>
+            <span class="step-number">04</span>
+            <div><h3>Meet Nova</h3><p>Create your workspace, send the first message, and reopen the same context from the Start menu later.</p></div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="requirements" aria-labelledby="requirements-title">
+        <div>
+          <p class="eyebrow">Before you start</p>
+          <h2 id="requirements-title">A clean, explicit setup.</h2>
+        </div>
+        <ul>
+          <li><b>Windows x64</b><span>The current release target.</span></li>
+          <li><b>Internet access</b><span>Required to download components and authenticate providers.</span></li>
+          <li><b>One Windows approval</b><span>WinFsp may request permission while workspace support is installed.</span></li>
+          <li><b>A Codex credential</b><span>Use a ChatGPT sign-in or another authentication method supported by Codex.</span></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <span>RedLeaf by RedBamboo Interactive</span>
+      <span id="footer-version">Current Windows release</span>
+    </footer>
+  </body>
+</html>
