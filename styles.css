@@ -30,9 +30,10 @@ button { color: inherit; font: inherit; }
 .brand { display: flex; align-items: center; gap: 10px; color: #60646d; font-size: 1rem; font-weight: 750; text-decoration: none; }
 .brand img { width: 29px; height: 29px; border-radius: 7px; }
 .brand span span { color: var(--green); }
-.github-link { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: .79rem; font-weight: 650; text-decoration: none; }
-.github-link svg { width: 18px; height: 18px; fill: currentColor; }
-.github-link:hover, .github-link:focus-visible { color: var(--ink); }
+.header-links { display: flex; align-items: center; gap: 22px; }
+.header-link { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: .79rem; font-weight: 650; text-decoration: none; }
+.header-link svg { width: 18px; height: 18px; fill: currentColor; }
+.header-link:hover, .header-link:focus-visible { color: var(--ink); }
 
 .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 18px; color: var(--muted); font-size: .67rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
 .eyebrow > span { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 5px rgba(79,167,100,.11); }
