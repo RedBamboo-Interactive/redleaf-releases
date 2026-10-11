@@ -14,7 +14,10 @@
     <header class="topbar">
       <div class="page-width topbar-inner">
         <a class="brand" href="#top" aria-label="RedLeaf home"><img src="./favicon.svg" alt="" /><span>Red<span>Leaf</span></span></a>
-        <nav aria-label="Page navigation"><a href="#inside">Inside RedLeaf</a><a href="#install">Install</a><a href="https://github.com/RedBamboo-Interactive/redleaf-releases">GitHub</a></nav>
+        <a class="github-link" href="https://github.com/RedBamboo-Interactive/redleaf-releases" aria-label="RedLeaf Releases on GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.75a9.5 9.5 0 0 0-3 18.51c.48.09.65-.21.65-.46v-1.67c-2.67.58-3.23-1.13-3.23-1.13-.44-1.11-1.07-1.4-1.07-1.4-.87-.6.07-.59.07-.59.96.07 1.47.99 1.47.99.86 1.46 2.24 1.04 2.79.8.09-.62.34-1.04.61-1.28-2.13-.24-4.37-1.06-4.37-4.75 0-1.05.38-1.91.99-2.58-.1-.24-.43-1.22.09-2.54 0 0 .8-.26 2.61.98A9.1 9.1 0 0 1 12 7.35a9.1 9.1 0 0 1 2.38.32c1.81-1.24 2.61-.98 2.61-.98.52 1.32.19 2.3.09 2.54.62.67.99 1.53.99 2.58 0 3.69-2.24 4.5-4.38 4.74.35.3.65.88.65 1.78v2.47c0 .25.17.55.66.46A9.5 9.5 0 0 0 12 2.75Z" /></svg>
+          <span>GitHub</span>
+        </a>
       </div>
     </header>
 
@@ -24,9 +27,6 @@
           <p class="eyebrow"><span></span>Local agent system for Windows</p>
           <h1 id="hero-title">One place for the work that keeps moving.</h1>
           <p class="lede">Talk with Nova, move between parallel conversations, inspect repositories with Code, and keep each agent’s workspace on your own machine.</p>
-          <div class="proof-line" aria-label="Validated installation journey">
-            <span>Tested in a clean Windows Sandbox</span><i></i><span>Owner setup</span><i></i><span>Real Codex conversation</span><i></i><span>Cold restart</span>
-          </div>
         </div>
 
         <aside class="release-card" aria-label="Current RedLeaf release">
@@ -111,13 +111,13 @@
       </section>
 
       <section class="install page-width" id="install" aria-labelledby="install-title">
-        <div class="install-heading"><p class="eyebrow"><span></span>First run</p><h2 id="install-title">From setup to a real conversation.</h2><p>The tested path starts from a clean Windows Sandbox and ends after RedLeaf is closed, reopened, and the Nova conversation is still there.</p></div>
-        <ol class="install-steps"><li><span>01</span><div><h3>Run RedLeaf Setup</h3><p>The launcher resolves the signed Nightly component feed and installs the suite.</p></div></li><li><span>02</span><div><h3>Approve the agent filesystem</h3><p>Windows asks once for administrator approval while WinFsp is installed.</p></div></li><li><span>03</span><div><h3>Create the local owner</h3><p>Your RedLeaf account and agent workspace stay on this machine.</p></div></li><li><span>04</span><div><h3>Connect Codex and meet Nova</h3><p>Sign in to Codex, open a fresh discussion, and start working.</p></div></li></ol>
+        <div class="install-heading"><p class="eyebrow"><span></span>First run</p><h2 id="install-title">Install RedLeaf.</h2><p>Setup installs the suite, prepares the local agent workspace, and guides you through account and AI provider configuration.</p></div>
+        <ol class="install-steps"><li><span>01</span><div><h3>Run RedLeaf Setup</h3><p>The launcher resolves the signed Nightly component feed and installs the suite.</p></div></li><li><span>02</span><div><h3>Approve the agent filesystem</h3><p>Windows asks once for administrator approval while WinFsp is installed.</p></div></li><li><span>03</span><div><h3>Create the local owner</h3><p>Your RedLeaf account and agent workspace stay on this machine.</p></div></li><li><span>04</span><div><h3>Connect an AI provider</h3><p>Choose an available provider, complete its sign-in flow, and open your first Nova discussion.</p></div></li></ol>
       </section>
 
       <section class="requirements page-width" aria-labelledby="requirements-title">
-        <div><p class="eyebrow"><span></span>Before you install</p><h2 id="requirements-title">The honest requirements.</h2></div>
-        <div class="requirement-list"><article><b>Windows x64</b><p>The current public build target.</p></article><article><b>Internet access</b><p>Used to download components and sign in to your AI provider.</p></article><article><b>Administrator approval</b><p>Required once for WinFsp, which provides agent workspace drives.</p></article><article><b>Codex access</b><p>A ChatGPT or supported Codex credential is needed for the default Nova provider.</p></article><article><b>Git for Windows</b><p>Needed when Code inspects local repositories. The current installer does not install Git for you.</p></article><article><b>Preview warnings</b><p>The launcher is not publisher-signed yet, so SmartScreen can show “Unknown publisher.”</p></article></div>
+        <div><p class="eyebrow"><span></span>Before you install</p><h2 id="requirements-title">Requirements and dependencies.</h2></div>
+        <div class="requirement-list"><article><b>Windows x64</b><p>The current public build target.</p></article><article><b>Internet access</b><p>Used to download components and sign in to your AI provider.</p></article><article><b>Administrator approval</b><p>Required once for WinFsp, which provides agent workspace drives.</p></article><article><b>AI provider account</b><p>Use the credentials and sign-in flow for the supported provider you choose.</p></article><article><b>Git for Windows</b><p>Required when Code inspects local repositories. RedLeaf does not currently install Git.</p></article><article><b>Preview warning</b><p>The launcher is not publisher-signed yet, so SmartScreen can show “Unknown publisher.”</p></article></div>
       </section>
     </main>
 

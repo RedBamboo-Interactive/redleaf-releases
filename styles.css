@@ -30,17 +30,15 @@ button { color: inherit; font: inherit; }
 .brand { display: flex; align-items: center; gap: 10px; color: #60646d; font-size: 1rem; font-weight: 750; text-decoration: none; }
 .brand img { width: 29px; height: 29px; border-radius: 7px; }
 .brand span span { color: var(--green); }
-.topbar nav { display: flex; gap: 26px; }
-.topbar nav a { color: var(--muted); font-size: .79rem; text-decoration: none; }
-.topbar nav a:hover, .topbar nav a:focus-visible { color: var(--ink); }
+.github-link { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: .79rem; font-weight: 650; text-decoration: none; }
+.github-link svg { width: 18px; height: 18px; fill: currentColor; }
+.github-link:hover, .github-link:focus-visible { color: var(--ink); }
 
 .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 18px; color: var(--muted); font-size: .67rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
 .eyebrow > span { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 5px rgba(79,167,100,.11); }
 .hero { min-height: 610px; display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(60px,9vw,128px); align-items: center; padding-block: 88px 110px; }
 .hero h1 { max-width: 11ch; margin: 0; font-size: clamp(4rem,7.3vw,6.75rem); line-height: .91; letter-spacing: -.069em; }
 .lede { max-width: 670px; margin: 29px 0 0; color: var(--muted); font-size: 1.12rem; line-height: 1.72; }
-.proof-line { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-top: 28px; color: var(--muted); font-size: .69rem; }
-.proof-line i { width: 3px; height: 3px; border-radius: 50%; background: var(--green); }
 
 .release-card { padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); box-shadow: 0 13px 42px rgba(31,35,40,.06); }
 .release-card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 13px; }
@@ -65,6 +63,7 @@ button { color: inherit; font: inherit; }
 .product-section { padding-bottom: 126px; }
 .section-heading { display: grid; grid-template-columns: 1fr .72fr; gap: 70px; align-items: end; margin-bottom: 32px; }
 .section-heading h2, .install h2, .requirements h2 { margin: 0; font-size: clamp(2.8rem,5vw,4.5rem); line-height: .98; letter-spacing: -.057em; }
+.requirements h2 { font-size: clamp(2.65rem,4vw,3.35rem); }
 .section-heading > p { max-width: 500px; margin: 0 0 5px; color: var(--muted); line-height: 1.65; }
 .demo-tabs { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 12px; }
 .demo-tabs button { position: relative; min-height: 72px; display: grid; grid-template-columns: 38px 1fr; grid-template-rows: 1fr 1fr; column-gap: 11px; align-items: center; padding: 13px 16px; border: 1px solid var(--line); border-radius: 12px; color: var(--muted); background: var(--card); cursor: pointer; text-align: left; }
@@ -237,7 +236,6 @@ footer.page-width { display: flex; justify-content: space-between; padding-block
 }
 
 @media (max-width: 700px) {
-  .topbar nav a:first-child { display: none; }
   .demo-tabs { grid-template-columns: 1fr; }
   .demo-tabs button { min-height: 60px; }
   .app-identity { min-width: auto; border-right: 0; }
@@ -259,8 +257,6 @@ footer.page-width { display: flex; justify-content: space-between; padding-block
 
 @media (max-width: 520px) {
   .page-width { width: min(100% - 28px,1200px); }
-  .topbar nav { gap: 16px; }
-  .topbar nav a:nth-child(1) { display: none; }
   .hero { min-height: 0; padding-block: 58px 82px; }
   .hero h1 { font-size: clamp(3.3rem,16vw,4.7rem); }
   .lede { font-size: .98rem; }
