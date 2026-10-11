@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Download RedLeaf for Windows. Keep agent conversations, repositories, and workspaces in one local system." />
-    <meta name="theme-color" content="#FAFBFC" />
+    <meta name="description" content="Download RedLeaf for Windows: the local home for Nova, agent conversations, code sessions, repositories, and durable workspaces." />
+    <meta name="theme-color" content="#f7f8fa" />
     <title>RedLeaf for Windows</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./styles.css" />
@@ -13,230 +13,114 @@
   <body>
     <header class="topbar">
       <div class="page-width topbar-inner">
-        <a class="brand" href="#top" aria-label="RedLeaf home">
-          <img src="./favicon.svg" alt="" width="30" height="30" />
-          <span>Red<span>Leaf</span></span>
-        </a>
-        <nav aria-label="Page navigation">
-          <a href="#product">See RedLeaf work</a>
-          <a href="#install">Install</a>
-          <a href="https://github.com/RedBamboo-Interactive/redleaf-releases">Source</a>
-        </nav>
+        <a class="brand" href="#top" aria-label="RedLeaf home"><img src="./favicon.svg" alt="" /><span>Red<span>Leaf</span></span></a>
+        <nav aria-label="Page navigation"><a href="#inside">Inside RedLeaf</a><a href="#install">Install</a><a href="https://github.com/RedBamboo-Interactive/redleaf-releases">GitHub</a></nav>
       </div>
     </header>
 
     <main id="top">
       <section class="hero page-width" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow"><span aria-hidden="true"></span>Local agent workspace for Windows</p>
-          <h1 id="hero-title">Your agents keep the thread.</h1>
-          <p class="lede">
-            RedLeaf keeps conversations, repositories, and Agent workspaces in one local system.
-            Nova can coordinate the context while specialist agents work beside her.
-          </p>
+          <p class="eyebrow"><span></span>Local agent system for Windows</p>
+          <h1 id="hero-title">One place for the work that keeps moving.</h1>
+          <p class="lede">Talk with Nova, move between parallel conversations, inspect repositories with Code, and keep each agent’s workspace on your own machine.</p>
+          <div class="proof-line" aria-label="Validated installation journey">
+            <span>Tested in a clean Windows Sandbox</span><i></i><span>Owner setup</span><i></i><span>Real Codex conversation</span><i></i><span>Cold restart</span>
+          </div>
         </div>
 
         <aside class="release-card" aria-label="Current RedLeaf release">
-          <p class="release-card-label">Current preview</p>
-          <div class="download-panel" aria-live="polite">
-            <a class="download-button is-loading" id="download-button" aria-disabled="true">
-              <span class="download-copy">
-                <span id="download-label">Checking the latest release…</span>
-                <span class="download-platform">Windows x64</span>
-              </span>
-              <span class="button-meta" id="download-meta">Windows x64</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14" /></svg>
-            </a>
-            <p class="release-note" id="release-note">Reading the signed RedLeaf release feed.</p>
-            <button class="hash-toggle" id="hash-toggle" type="button" hidden>Show SHA-256</button>
-            <code class="hash" id="release-hash" hidden></code>
-          </div>
-          <div class="trust-note" id="trust-note">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5.5 5.8v5.4c0 4.2 2.7 8 6.5 9.8 3.8-1.8 6.5-5.6 6.5-9.8V5.8L12 3Z" /><path d="m9 12 2 2 4-4" /></svg>
-            <p><strong>Nightly preview.</strong> The launcher is not yet Windows publisher-signed, so SmartScreen may show “Unknown publisher.”</p>
-          </div>
+          <div class="release-card-head"><span class="release-dot"></span><p>Windows preview</p></div>
+          <a class="download-button is-loading" id="download-button" aria-disabled="true">
+            <span><b id="download-label">Checking the latest release…</b><small>Windows x64</small></span>
+            <em id="download-meta">Windows x64</em>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14" /></svg>
+          </a>
+          <p class="release-note" id="release-note">Reading the signed RedLeaf release feed.</p>
+          <button class="hash-toggle" id="hash-toggle" type="button" hidden>Show SHA-256</button>
+          <code class="hash" id="release-hash" hidden></code>
+          <div class="trust-note" id="trust-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5.5 5.8v5.4c0 4.2 2.7 8 6.5 9.8 3.8-1.8 6.5-5.6 6.5-9.8V5.8L12 3Z" /><path d="m9 12 2 2 4-4" /></svg><p><strong>Nightly preview.</strong> SmartScreen may say “Unknown publisher” while Windows signing is still pending.</p></div>
         </aside>
       </section>
 
-      <section class="product-section page-width" id="product" aria-labelledby="product-title">
-        <div class="product-heading">
-          <div>
-            <p class="eyebrow"><span aria-hidden="true"></span>Interactive product model</p>
-            <h2 id="product-title">See the work move.</h2>
-          </div>
-          <p>Follow a task across conversations, GitHub repositories, and Agent files without losing its context.</p>
+      <section class="product-section page-width" id="inside" aria-labelledby="product-title">
+        <div class="section-heading">
+          <div><p class="eyebrow"><span></span>The actual product</p><h2 id="product-title">Follow the same work through RedLeaf.</h2></div>
+          <p>This model uses the same navigation, panels, controls, and hierarchy as the installed suite. Choose a surface to inspect it.</p>
         </div>
 
-        <div class="demo-tabs" role="tablist" aria-label="RedLeaf product demonstration">
-          <button type="button" role="tab" aria-selected="true" aria-controls="scene-conversations" id="tab-conversations" data-demo-phase="conversations">
-            <span>01</span>Conversations
-          </button>
-          <button type="button" role="tab" aria-selected="false" aria-controls="scene-repositories" id="tab-repositories" data-demo-phase="repositories" tabindex="-1">
-            <span>02</span>GitHub repositories
-          </button>
-          <button type="button" role="tab" aria-selected="false" aria-controls="scene-workspaces" id="tab-workspaces" data-demo-phase="workspaces" tabindex="-1">
-            <span>03</span>Agent workspaces
-          </button>
+        <div class="demo-tabs" role="tablist" aria-label="RedLeaf product surfaces">
+          <button type="button" role="tab" aria-selected="true" aria-controls="scene-nova" id="tab-nova" data-demo-phase="nova"><span class="tab-icon rose">✦</span><b>Nova</b><small>Conversations and agents</small></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="scene-code" id="tab-code" data-demo-phase="code" tabindex="-1"><span class="tab-icon blue">⌘</span><b>Code</b><small>Repositories and sessions</small></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="scene-workspace" id="tab-workspace" data-demo-phase="workspace" tabindex="-1"><span class="tab-icon green">◈</span><b>Workspace</b><small>Durable agent context</small></button>
         </div>
 
-        <div class="product-demo" id="product-demo" data-phase="conversations" data-autoplay="on">
-          <div class="demo-window-bar">
-            <div class="demo-brand"><img src="./favicon.svg" alt="" />Red<span>Leaf</span></div>
-            <div class="demo-address"><span></span>Local workspace</div>
-            <div class="demo-menu" aria-hidden="true"><i></i><i></i><i></i></div>
-          </div>
-
-          <section class="demo-scene active" id="scene-conversations" role="tabpanel" aria-labelledby="tab-conversations" data-scene="conversations">
-            <aside class="scene-sidebar">
-              <div class="sidebar-heading"><span>Conversations</span><button type="button" aria-label="New conversation">+</button></div>
-              <div class="conversation-row active-row">
-                <div class="avatar-stack"><img src="./nova-onboarding.png" alt="" /><b class="code-avatar">C</b></div>
-                <span><strong>Windows install smoke</strong><small>Nova + Code · working</small></span><i class="status-pulse"></i>
-              </div>
-              <div class="conversation-row">
-                <div class="agent-avatar code-avatar">C</div>
-                <span><strong>Provider recovery</strong><small>Code · checking tests</small></span><i></i>
-              </div>
-              <div class="conversation-row">
-                <img class="agent-avatar" src="./nova-onboarding.png" alt="" />
-                <span><strong>Release notes</strong><small>Nova · ready</small></span><i></i>
-              </div>
-              <div class="conversation-row">
-                <div class="agent-avatar leni-avatar">L</div>
-                <span><strong>Deutsch mit Leni</strong><small>Leni · scheduled</small></span><i></i>
-              </div>
-            </aside>
-            <div class="scene-main conversation-scene">
-              <header class="scene-header">
-                <div><strong>Windows installation smoke test</strong><span>Nova coordinating Code in RedLeaf Releases</span></div>
-                <div class="header-avatars"><img src="./nova-onboarding.png" alt="Nova" /><b class="code-avatar" aria-label="Code">C</b></div>
-              </header>
-              <div class="conversation-flow">
-                <article class="message user-message"><span>L</span><p>Can we honestly tell a stranger the installation is smooth?</p></article>
-                <article class="message agent-message nova-message">
-                  <img src="./nova-onboarding.png" alt="" />
-                  <div><b>Nova</b><p>I’m taking the public installer through a clean Windows journey. Code is isolating the provider recovery defect beside me.</p></div>
-                </article>
-                <article class="delegation-card">
-                  <div class="agent-avatar code-avatar">C</div>
-                  <div><b>Code · RedLeaf</b><p>Provider recovery tests are green. Preparing the exact source checkpoint.</p><span class="task-progress"><i></i></span></div>
-                </article>
-                <article class="message agent-message nova-message final-message">
-                  <img src="./nova-onboarding.png" alt="" />
-                  <div><b>Nova</b><p>The complete journey passed, including cold restart and persisted conversation. Four release gates remain.</p></div>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="demo-scene" id="scene-repositories" role="tabpanel" aria-labelledby="tab-repositories" data-scene="repositories" aria-hidden="true">
-            <aside class="scene-sidebar repository-sidebar">
-              <div class="sidebar-heading"><span>Repositories</span><button type="button" aria-label="Add repository">+</button></div>
-              <div class="repo-row active-row"><span class="repo-icon">⌘</span><span><strong>redleaf-releases</strong><small>main · clean</small></span><i class="clean-dot"></i></div>
-              <div class="repo-row"><span class="repo-icon">⌘</span><span><strong>redleaf</strong><small>main · clean</small></span><i class="clean-dot"></i></div>
-              <div class="repo-row"><span class="repo-icon">⌘</span><span><strong>nova</strong><small>main · clean</small></span><i class="clean-dot"></i></div>
-              <div class="repo-row"><span class="repo-icon">⌘</span><span><strong>redcompute</strong><small>main</small></span><i></i></div>
-            </aside>
-            <div class="scene-main repository-scene">
-              <header class="scene-header">
-                <div><strong>redleaf-releases</strong><span>RedBamboo-Interactive · main</span></div>
-                <span class="branch-chip">main</span>
-              </header>
-              <div class="repository-grid">
-                <article class="commit-panel">
-                  <p class="panel-label">Latest change</p>
-                  <h3>Align download page with RedLeaf</h3>
-                  <div class="commit-meta"><b class="code-avatar">C</b><span><strong>Code</strong><small>committed to main</small></span><code>ffb9af3</code></div>
-                  <div class="file-list">
-                    <div><span>+</span>index.html<small>product demonstration</small></div>
-                    <div><span>+</span>styles.css<small>shared design tokens</small></div>
-                    <div><span>+</span>app.js<small>accessible phase controls</small></div>
-                  </div>
-                </article>
-                <article class="checks-panel">
-                  <p class="panel-label">Checks</p>
-                  <div class="check-row"><i></i><span><b>Desktop and mobile</b><small>Playwright</small></span><strong>Passed</strong></div>
-                  <div class="check-row second"><i></i><span><b>Signed release feed</b><small>Launcher resolved</small></span><strong>Passed</strong></div>
-                  <div class="check-row third"><i></i><span><b>GitHub Pages</b><small>Public deployment</small></span><strong>Passed</strong></div>
-                  <div class="deployment-line"><span></span><b>Published</b><small>redbamboo-interactive.github.io</small></div>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="demo-scene" id="scene-workspaces" role="tabpanel" aria-labelledby="tab-workspaces" data-scene="workspaces" aria-hidden="true">
-            <aside class="scene-sidebar workspace-sidebar">
-              <div class="sidebar-heading"><span>Nova’s workspace</span></div>
-              <div class="tree-row root"><span>⌄</span><b>Nova</b></div>
-              <div class="tree-row depth-1"><span>⌄</span><b>memory</b></div>
-              <div class="tree-row depth-2"><span>⌄</span><b>projects</b></div>
-              <div class="tree-row depth-3 active-row"><span>◇</span><b>RedLeaf Release Mode.md</b></div>
-              <div class="tree-row depth-2"><span>›</span><b>conversations</b></div>
-              <div class="tree-row depth-1"><span>›</span><b>config</b></div>
-              <div class="tree-row depth-1"><span>›</span><b>skills</b></div>
-            </aside>
-            <div class="scene-main workspace-scene">
-              <header class="scene-header">
-                <div><strong>RedLeaf Release Mode.md</strong><span>Nova / memory / projects</span></div>
-                <span class="saved-chip">Saved locally</span>
-              </header>
-              <div class="workspace-document">
-                <div class="document-main">
-                  <p class="document-path">PROJECT MEMORY</p>
-                  <h3>Windows stranger-install smoke test</h3>
-                  <p>The public installer completed setup, real Codex verification, ordinary Nova use, cold relaunch, and persisted conversation.</p>
-                  <h4>Remaining gates</h4>
-                  <ul>
-                    <li><i></i>Windows publisher signing</li>
-                    <li><i></i>Interactive UAC acceptance</li>
-                    <li><i></i>Fresh Codex login</li>
-                    <li class="resolved"><i>✓</i>Public download surface</li>
-                  </ul>
+        <div class="product-demo" id="product-demo" data-phase="nova" data-autoplay="on">
+          <section class="demo-scene active" id="scene-nova" role="tabpanel" aria-labelledby="tab-nova" data-scene="nova">
+            <header class="app-header"><button class="app-identity"><span class="app-icon rose">✦</span><b>Nova</b><i>⌄</i></button><nav><span class="active">Chat</span></nav><button class="hamburger" aria-label="Open RedLeaf menu">☰</button></header>
+            <div class="app-body nova-body">
+              <aside class="app-sidebar discussions">
+                <div class="panel-title"><b>Discussions</b><span>＋ New</span></div>
+                <button class="discussion live-row"><span class="presence-mark">●</span><span><b>Live</b><small>now</small></span></button>
+                <button class="discussion selected"><img src="./nova-onboarding.png" alt="" /><span><b>Plan the first release</b><small>Nova · just now</small></span></button>
+                <button class="discussion"><span class="mini-agent cobalt">C</span><span><b>Review the installer</b><small>Code · 8 min ago</small></span></button>
+                <button class="discussion"><span class="mini-agent amber">L</span><span><b>Practice German</b><small>Leni · yesterday</small></span></button>
+              </aside>
+              <div class="nova-main">
+                <div class="mode-tabs"><span class="active">Live</span><span>Heartbeat</span></div>
+                <div class="thread">
+                  <div class="bubble user"><span>You</span><p>Check the release, then keep the result for tomorrow.</p></div>
+                  <div class="bubble nova"><img src="./nova-onboarding.png" alt="" /><div><span>Nova</span><p>I’ll inspect the repository in Code and keep the verified result in my workspace.</p></div></div>
+                  <div class="work-event"><span class="event-icon cobalt">⌘</span><div><b>Code · redleaf-releases</b><small>Reading branch, commits, and checks</small><div class="scan-line"><i></i></div></div><em>working</em></div>
+                  <div class="bubble nova final"><img src="./nova-onboarding.png" alt="" /><div><span>Nova</span><p>Main is clean. The public build passed, and I saved the release checkpoint.</p></div></div>
                 </div>
-                <aside class="context-panel">
-                  <p class="panel-label">Linked context</p>
-                  <div class="context-card"><span class="context-icon nova-context-icon"><img src="./nova-onboarding.png" alt="" /></span><span><b>Discussion</b><small>Windows install smoke</small></span></div>
-                  <div class="context-card"><span class="context-icon repo-context-icon">⌘</span><span><b>Repository</b><small>redleaf-releases</small></span></div>
-                  <div class="context-card"><span class="context-icon file-context-icon">◇</span><span><b>Evidence</b><small>Acceptance report</small></span></div>
-                  <div class="context-status"><i></i><span><b>Context current</b><small>Across conversations and restarts</small></span></div>
-                </aside>
+                <div class="composer"><span>Talk to Nova…</span><i>△</i></div>
+                <img class="nova-portrait" src="./nova-onboarding.png" alt="Nova" />
+                <div class="agent-picker" aria-hidden="true"><h3>New Discussion</h3><button class="picked"><img src="./nova-onboarding.png" alt="" /><span><b>Nova</b><small>Personal assistant and coordinator</small></span></button><button><span class="picker-avatar amber">L</span><span><b>Leni</b><small>German practice companion</small></span></button><footer><span>Codex</span><span>Standard</span><b>Go</b></footer></div>
               </div>
             </div>
           </section>
+
+          <section class="demo-scene" id="scene-code" role="tabpanel" aria-labelledby="tab-code" data-scene="code" aria-hidden="true">
+            <header class="app-header"><button class="app-identity"><span class="app-icon blue">⌘</span><b>Code</b><i>⌄</i></button><nav><span>Sessions</span><span class="active">GitHub</span><span>Code</span></nav><button class="hamburger" aria-label="Open RedLeaf menu">☰</button></header>
+            <div class="app-body code-body">
+              <aside class="app-sidebar repos"><div class="panel-title"><b>Repos</b><span>Recent&nbsp;&nbsp;＋</span></div><button class="repo selected"><i class="repo-state clean"></i><span><b>redleaf-releases</b><small>⌘ main</small></span></button><button class="repo"><i class="repo-state busy"></i><span><b>redleaf</b><small>⌘ main · 2 changes</small></span></button><button class="repo"><i class="repo-state clean"></i><span><b>nova</b><small>⌘ main</small></span></button></aside>
+              <div class="repo-main">
+                <div class="repo-header"><span><b>redleaf-releases</b><small>⌘ main</small></span><button>▣ New Session</button><i>↻</i></div>
+                <div class="repo-tabs"><span class="active">Commits</span><span>Issues</span><span>Tests</span></div>
+                <div class="repo-filters"><span>Branch⌄</span><span>⌕&nbsp; Search commits…</span><span>♙&nbsp; Author…</span><small>1 / 1</small></div>
+                <div class="commit-list">
+                  <article><i class="commit-node"></i><div><b>Build the public Windows download surface</b><small>Nova · main · today</small></div><code>a746064</code><em class="check">✓ passed</em></article>
+                  <article><i class="commit-node"></i><div><b>Recover providers after package activation</b><small>Code · main · yesterday</small></div><code>a7f7cec</code><em class="check">✓ passed</em></article>
+                  <article><i class="commit-node"></i><div><b>Keep conversation state through cold restart</b><small>Code · main</small></div><code>5b76fc8</code><em>reviewed</em></article>
+                </div>
+                <div class="repo-scan"><span></span><b>Repository refreshed</b><small>branch, working tree, commits, issues, and tests</small></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="demo-scene" id="scene-workspace" role="tabpanel" aria-labelledby="tab-workspace" data-scene="workspace" aria-hidden="true">
+            <header class="app-header"><button class="app-identity"><span class="app-icon green">◈</span><b>Workspace</b><i>⌄</i></button><nav></nav><button class="hamburger" aria-label="Open RedLeaf menu">☰</button></header>
+            <div class="app-body workspace-body">
+              <aside class="app-sidebar workspace-nav"><div class="workspace-owner"><img src="./nova-onboarding.png" alt="" /><span><b>Nova</b><small>Nova’s durable workspace</small></span></div><button class="workspace-item selected"><i>◇</i><span><b>memory</b><small>Long-running context</small></span></button><button class="workspace-item"><i>◇</i><span><b>config</b><small>Identity and behavior</small></span></button></aside>
+              <div class="workspace-main"><div class="workspace-crumb">Workspace&nbsp;&nbsp;/&nbsp;&nbsp;Nova&nbsp;&nbsp;/&nbsp;&nbsp;<b>memory</b></div><article class="entity-page"><div class="entity-icon">◇</div><p class="entity-type">PAGE</p><h3>memory</h3><p>Durable context follows the agent across conversations and restarts.</p><div class="memory-grid"><section><span>PROJECT</span><b>RedLeaf release</b><small>Installer state, decisions, open gates</small></section><section><span>CONVERSATION</span><b>Windows smoke test</b><small>Acceptance evidence and corrections</small></section><section><span>PREFERENCE</span><b>How Laurent works</b><small>Stable collaboration context</small></section></div></article><div class="workspace-cursor"><i></i></div></div>
+            </div>
+          </section>
         </div>
+        <p class="demo-caption"><span></span>The animated content is illustrative. The structure and interaction model are taken from the current Windows build.</p>
       </section>
 
       <section class="install page-width" id="install" aria-labelledby="install-title">
-        <div class="install-heading">
-          <p class="eyebrow"><span aria-hidden="true"></span>First run</p>
-          <h2 id="install-title">Install. Connect. Start.</h2>
-          <p>No source checkout, Docker, or separate database installation.</p>
-        </div>
-        <ol class="install-steps">
-          <li><span>1</span><div><h3>Run the Windows setup</h3><p>RedLeaf verifies and installs its signed component graph.</p></div></li>
-          <li><span>2</span><div><h3>Create your local space</h3><p>Choose an AI provider and sign in with your own credential.</p></div></li>
-          <li><span>3</span><div><h3>Open the first conversation</h3><p>Your Agent workspace and conversation context are ready to keep.</p></div></li>
-        </ol>
+        <div class="install-heading"><p class="eyebrow"><span></span>First run</p><h2 id="install-title">From setup to a real conversation.</h2><p>The tested path starts from a clean Windows Sandbox and ends after RedLeaf is closed, reopened, and the Nova conversation is still there.</p></div>
+        <ol class="install-steps"><li><span>01</span><div><h3>Run RedLeaf Setup</h3><p>The launcher resolves the signed Nightly component feed and installs the suite.</p></div></li><li><span>02</span><div><h3>Approve the agent filesystem</h3><p>Windows asks once for administrator approval while WinFsp is installed.</p></div></li><li><span>03</span><div><h3>Create the local owner</h3><p>Your RedLeaf account and agent workspace stay on this machine.</p></div></li><li><span>04</span><div><h3>Connect Codex and meet Nova</h3><p>Sign in to Codex, open a fresh discussion, and start working.</p></div></li></ol>
       </section>
 
       <section class="requirements page-width" aria-labelledby="requirements-title">
-        <div>
-          <p class="eyebrow"><span aria-hidden="true"></span>Before downloading</p>
-          <h2 id="requirements-title">What Windows will ask.</h2>
-        </div>
-        <ul>
-          <li><b>Windows x64</b><span>The current release target.</span></li>
-          <li><b>Internet access</b><span>For components and provider sign-in.</span></li>
-          <li><b>Preview warning</b><span>SmartScreen may show “Unknown publisher” until publisher signing ships.</span></li>
-          <li><b>One admin approval</b><span>WinFsp may request permission for Agent workspace support.</span></li>
-          <li><b>A Codex credential</b><span>ChatGPT sign-in or another method supported by Codex.</span></li>
-        </ul>
+        <div><p class="eyebrow"><span></span>Before you install</p><h2 id="requirements-title">The honest requirements.</h2></div>
+        <div class="requirement-list"><article><b>Windows x64</b><p>The current public build target.</p></article><article><b>Internet access</b><p>Used to download components and sign in to your AI provider.</p></article><article><b>Administrator approval</b><p>Required once for WinFsp, which provides agent workspace drives.</p></article><article><b>Codex access</b><p>A ChatGPT or supported Codex credential is needed for the default Nova provider.</p></article><article><b>Git for Windows</b><p>Needed when Code inspects local repositories. The current installer does not install Git for you.</p></article><article><b>Preview warnings</b><p>The launcher is not publisher-signed yet, so SmartScreen can show “Unknown publisher.”</p></article></div>
       </section>
     </main>
 
-    <footer class="page-width">
-      <span>RedLeaf by RedBamboo Interactive</span>
-      <span id="footer-version">Current Windows release</span>
-    </footer>
+    <footer class="page-width"><span>RedLeaf by RedBamboo Interactive</span><span id="footer-version">Current Windows release</span></footer>
   </body>
 </html>

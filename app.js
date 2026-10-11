@@ -1,5 +1,4 @@
 const feedBase = "https://raw.githubusercontent.com/RedBamboo-Interactive/redleaf-releases/release-feed";
-// Switch this single public-page preference to "stable" only after the Stable pointer exists.
 const channels = ["nightly"];
 
 const downloadButton = document.querySelector("#download-button");
@@ -30,70 +29,63 @@ async function resolveRelease() {
   throw new Error("No release channel is available.");
 }
 
-function formatBytes(bytes) {
-  return `${(bytes / 1024 / 1024).toFixed(0)} MB`;
-}
+const formatBytes = (bytes) => `${(bytes / 1024 / 1024).toFixed(0)} MB`;
 
-resolveRelease()
-  .then(({ channel, release }) => {
-    const channelName = channel[0].toUpperCase() + channel.slice(1);
-    downloadButton.href = release.artifact.url;
-    downloadButton.download = "RedLeaf-Setup.exe";
-    downloadButton.removeAttribute("aria-disabled");
-    downloadButton.classList.remove("is-loading");
-    downloadLabel.textContent = `Download ${channelName} for Windows`;
-    downloadMeta.textContent = `v${release.version} · ${formatBytes(release.artifact.sizeBytes)}`;
-    releaseNote.textContent = `${channelName} · Windows x64 · Published ${new Date(release.publishedAt).toLocaleDateString()}`;
-    releaseHash.textContent = release.artifact.sha256;
-    hashToggle.hidden = false;
-    footerVersion.textContent = `RedLeaf Setup ${release.version} · ${channelName}`;
-    if (channel === "stable") {
-      trustNote.querySelector("p").innerHTML = "<strong>Verified release.</strong> The installer and every downloaded component are checked against RedLeaf’s signed release feed.";
-    }
-  })
-  .catch(() => {
-    downloadButton.removeAttribute("href");
-    downloadButton.setAttribute("aria-disabled", "true");
-    downloadLabel.textContent = "Download temporarily unavailable";
-    downloadMeta.textContent = "Try again later";
-    releaseNote.textContent = "The release feed could not be reached. No unverified fallback will be offered.";
-  });
+resolveRelease().then(({ channel, release }) => {
+  const channelName = channel[0].toUpperCase() + channel.slice(1);
+  downloadButton.href = release.artifact.url;
+  downloadButton.download = "RedLeaf-Setup.exe";
+  downloadButton.removeAttribute("aria-disabled");
+  downloadButton.classList.remove("is-loading");
+  downloadLabel.textContent = `Download ${channelName}`;
+  downloadMeta.textContent = `v${release.version} · ${formatBytes(release.artifact.sizeBytes)}`;
+  releaseNote.textContent = `${channelName} · Windows x64 · Published ${new Date(release.publishedAt).toLocaleDateString()}`;
+  releaseHash.textContent = release.artifact.sha256;
+  hashToggle.hidden = false;
+  footerVersion.textContent = `RedLeaf Setup ${release.version} · ${channelName}`;
+  if (channel === "stable") trustNote.querySelector("p").innerHTML = "<strong>Verified release.</strong> The installer and downloaded components are checked against RedLeaf’s signed release feed.";
+}).catch(() => {
+  downloadButton.removeAttribute("href");
+  downloadButton.setAttribute("aria-disabled", "true");
+  downloadLabel.textContent = "Download temporarily unavailable";
+  downloadMeta.textContent = "Try again later";
+  releaseNote.textContent = "The signed release feed could not be reached. No unverified fallback is offered.";
+});
 
 hashToggle.addEventListener("click", () => {
-  const willShow = releaseHash.hidden;
-  releaseHash.hidden = !willShow;
-  hashToggle.textContent = willShow ? "Hide SHA-256" : "Show SHA-256";
+  const show = releaseHash.hidden;
+  releaseHash.hidden = !show;
+  hashToggle.textContent = show ? "Hide SHA-256" : "Show SHA-256";
 });
 
 const demo = document.querySelector("#product-demo");
-const demoRegion = document.querySelector("#product");
-const demoTabs = Array.from(document.querySelectorAll("[data-demo-phase]"));
-const demoScenes = Array.from(document.querySelectorAll("[data-scene]"));
-const phases = demoTabs.map((tab) => tab.dataset.demoPhase);
+const demoRegion = document.querySelector("#inside");
+const tabList = document.querySelector(".demo-tabs");
+const tabs = [...document.querySelectorAll("[data-demo-phase]")];
+const scenes = [...document.querySelectorAll("[data-scene]")];
+const phases = tabs.map((tab) => tab.dataset.demoPhase);
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 let activePhase = phases[0];
 let autoplayTimer = null;
 let interactionPaused = false;
 
 function setAutoplayState(enabled) {
-  const state = enabled ? "on" : "off";
-  demo.dataset.autoplay = state;
-  document.querySelector(".demo-tabs").dataset.autoplay = state;
+  const value = enabled ? "on" : "off";
+  demo.dataset.autoplay = value;
+  tabList.dataset.autoplay = value;
 }
 
-function setDemoPhase(phase, moveFocus = false) {
+function setDemoPhase(phase, focus = false) {
   if (!phases.includes(phase)) return;
   activePhase = phase;
   demo.dataset.phase = phase;
-
-  demoTabs.forEach((tab) => {
+  tabs.forEach((tab) => {
     const selected = tab.dataset.demoPhase === phase;
     tab.setAttribute("aria-selected", String(selected));
     tab.tabIndex = selected ? 0 : -1;
-    if (selected && moveFocus) tab.focus();
+    if (selected && focus) tab.focus();
   });
-
-  demoScenes.forEach((scene) => {
+  scenes.forEach((scene) => {
     const selected = scene.dataset.scene === phase;
     scene.classList.toggle("active", selected);
     scene.setAttribute("aria-hidden", String(!selected));
@@ -101,59 +93,33 @@ function setDemoPhase(phase, moveFocus = false) {
 }
 
 function stopAutoplay() {
-  if (autoplayTimer !== null) window.clearInterval(autoplayTimer);
+  if (autoplayTimer !== null) clearInterval(autoplayTimer);
   autoplayTimer = null;
   setAutoplayState(false);
 }
 
 function startAutoplay() {
-  if (reducedMotion.matches || interactionPaused || document.hidden) {
-    stopAutoplay();
-    return;
-  }
-  if (autoplayTimer !== null) window.clearInterval(autoplayTimer);
+  if (reducedMotion.matches || interactionPaused || document.hidden) return stopAutoplay();
+  if (autoplayTimer !== null) clearInterval(autoplayTimer);
   setAutoplayState(true);
-  autoplayTimer = window.setInterval(() => {
-    const nextIndex = (phases.indexOf(activePhase) + 1) % phases.length;
-    setDemoPhase(phases[nextIndex]);
-  }, 5200);
+  autoplayTimer = setInterval(() => setDemoPhase(phases[(phases.indexOf(activePhase) + 1) % phases.length]), 6400);
 }
 
-demoTabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    setDemoPhase(tab.dataset.demoPhase);
-    startAutoplay();
-  });
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => { setDemoPhase(tab.dataset.demoPhase); startAutoplay(); });
   tab.addEventListener("keydown", (event) => {
-    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
     event.preventDefault();
     const current = phases.indexOf(activePhase);
-    let next = current;
-    if (event.key === 'ArrowLeft') next = (current - 1 + phases.length) % phases.length;
-    if (event.key === 'ArrowRight') next = (current + 1) % phases.length;
-    if (event.key === 'Home') next = 0;
-    if (event.key === 'End') next = phases.length - 1;
+    const next = event.key === "Home" ? 0 : event.key === "End" ? phases.length - 1 : event.key === "ArrowLeft" ? (current - 1 + phases.length) % phases.length : (current + 1) % phases.length;
     setDemoPhase(phases[next], true);
   });
 });
 
-demoRegion.addEventListener("pointerenter", () => {
-  interactionPaused = true;
-  stopAutoplay();
-});
-demoRegion.addEventListener("pointerleave", () => {
-  interactionPaused = false;
-  startAutoplay();
-});
-demoRegion.addEventListener("focusin", () => {
-  interactionPaused = true;
-  stopAutoplay();
-});
-demoRegion.addEventListener("focusout", (event) => {
-  if (demoRegion.contains(event.relatedTarget)) return;
-  interactionPaused = false;
-  startAutoplay();
-});
+demoRegion.addEventListener("pointerenter", () => { interactionPaused = true; stopAutoplay(); });
+demoRegion.addEventListener("pointerleave", () => { interactionPaused = false; startAutoplay(); });
+demoRegion.addEventListener("focusin", () => { interactionPaused = true; stopAutoplay(); });
+demoRegion.addEventListener("focusout", (event) => { if (!demoRegion.contains(event.relatedTarget)) { interactionPaused = false; startAutoplay(); } });
 reducedMotion.addEventListener("change", startAutoplay);
 document.addEventListener("visibilitychange", startAutoplay);
 
