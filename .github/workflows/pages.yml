@@ -9,6 +9,7 @@ on:
       - app.js
       - favicon.svg
       - nova-onboarding.png
+      - privacy/**
       - .github/workflows/pages.yml
   workflow_dispatch:
 

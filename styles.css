@@ -207,6 +207,17 @@ button { color: inherit; font: inherit; }
 .requirement-list b { font-size: .76rem; }
 .requirement-list p { margin: 6px 0 0; color: var(--muted); font-size: .7rem; line-height: 1.48; }
 footer.page-width { display: flex; justify-content: space-between; padding-block: 28px 42px; border-top: 1px solid var(--line-soft); color: var(--muted); font-size: .7rem; }
+footer.page-width a { color: var(--muted); text-decoration: none; }
+footer.page-width a:hover, footer.page-width a:focus-visible { color: var(--ink); }
+
+.legal { max-width: 760px; padding-block: 72px 96px; }
+.legal-head { margin-bottom: 44px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+.legal h1 { margin: 0; font-size: clamp(2.4rem,5vw,3.6rem); line-height: 1; letter-spacing: -.05em; }
+.legal-updated { margin: 18px 0 0; color: var(--muted); font-size: .8rem; }
+.legal section + section { margin-top: 30px; }
+.legal h2 { margin: 0 0 9px; font-size: 1.02rem; letter-spacing: -.01em; }
+.legal section p { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.72; }
+.legal section a { color: var(--green-deep); text-underline-offset: 3px; }
 
 @keyframes tab-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes scene-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
@@ -223,6 +234,7 @@ footer.page-width { display: flex; justify-content: space-between; padding-block
   .app-header, .app-sidebar, .discussion.selected, .repo.selected, .workspace-item.selected, .bubble p, .agent-picker button, .memory-grid section { background-color: #32353d; }
   .nova-main, .agent-picker { background-color: #2d3038; }
   .download-button { color: white; }
+  .legal section a { color: var(--green); }
 }
 
 @media (max-width: 920px) {
