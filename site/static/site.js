@@ -518,3 +518,28 @@ if (!storage.get()) {
     $("[data-lang-dismiss]", offer)?.addEventListener("click", () => { offer.hidden = true; storage.set(lang); });
   }
 }
+
+// The language menus are <details>: they open without this script. This adds what a menu should do:
+// one open at a time, close on an outside click or Escape, and arrow keys between languages.
+const langMenus = $$("[data-lang-menu]");
+langMenus.forEach((menu) => {
+  const summary = $("summary", menu);
+  const links = $$("a", menu);
+  menu.addEventListener("toggle", () => {
+    if (!menu.open) return;
+    langMenus.forEach((other) => { if (other !== menu) other.open = false; });
+    if (summary.matches(":focus-visible")) ($("a[aria-current]", menu) || links[0])?.focus();
+  });
+  menu.addEventListener("keydown", (event) => {
+    if (!menu.open) return;
+    if (event.key === "Escape") { event.preventDefault(); menu.open = false; summary.focus(); return; }
+    if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
+    event.preventDefault();
+    const at = links.indexOf(document.activeElement);
+    const step = event.key === "ArrowDown" ? 1 : -1;
+    links[(at + step + links.length) % links.length].focus();
+  });
+});
+document.addEventListener("click", (event) => {
+  langMenus.forEach((menu) => { if (menu.open && !menu.contains(event.target)) menu.open = false; });
+});

@@ -1193,14 +1193,6 @@ img { max-width: 100%; }
 .doc-table .sq { display: inline-block; margin-right: 7px; vertical-align: -1px; }
 
 /* ---- Languages: header switch, footer list, one-time suggestion, untranslated notice ---- */
-.lang-switch { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: .84rem; font-weight: 600; }
-.lang-switch .i { width: 17px; height: 17px; }
-.lang-switch a { color: inherit; text-decoration: none; }
-.lang-switch:hover, .lang-switch a:hover { color: var(--fg); }
-.footer-langs { display: inline-flex; gap: 14px; }
-.footer-langs b { color: var(--muted); font-weight: 600; }
-.footer-langs a { color: var(--dim); text-decoration: none; }
-.footer-langs a:hover { color: var(--fg); }
 .lang-suggest { position: relative; z-index: 60; border-bottom: 1px solid var(--line); background: var(--surface); font-size: .88rem; }
 .lang-suggest > div { display: flex; align-items: center; gap: 14px; min-height: 44px; }
 .lang-suggest p { margin: 0; color: var(--muted); }
@@ -1212,10 +1204,41 @@ img { max-width: 100%; }
 body.layout-landing .lang-suggest:not([hidden]) ~ .topbar-over { top: 45px; }
 .untranslated { margin: 0 0 22px; padding: 10px 14px; border: 1px solid var(--line); border-left: 3px solid var(--amber); border-radius: 10px; color: var(--muted); background: var(--surface); font-size: .9rem; }
 @media (prefers-color-scheme: light) { .lang-suggest a { color: #2f8a45; } }
-@media (max-width: 860px) { .lang-switch a { font-size: .8rem; } .header-links { gap: 14px; } }
 @media (max-width: 860px) {
   .doc-table { display: block; overflow-x: auto; }
   .doc-table td:first-child { white-space: normal; min-width: 7.5em; }
   .lang-suggest { font-size: .8rem; }
   .lang-suggest > div { gap: 10px; padding-top: 6px; padding-bottom: 6px; }
+}
+
+/* ---- Language menu (header opens down, footer opens up) ---- */
+.lang-menu { position: relative; }
+.lang-menu summary { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 10px; border: 1px solid transparent; border-radius: 10px; color: var(--muted); font-size: .84rem; font-weight: 600; list-style: none; cursor: pointer; user-select: none; transition: color .15s, background .15s, border-color .15s; }
+.lang-menu summary::-webkit-details-marker { display: none; }
+.lang-menu summary:hover, .lang-menu[open] summary { color: var(--fg); background: var(--tint-2); }
+.lang-menu summary:focus-visible { outline: 2px solid var(--green-bright); outline-offset: 2px; }
+.lang-menu summary .i { width: 17px; height: 17px; }
+.lang-menu .lang-caret { width: 12px; height: 12px; transition: transform .2s; }
+.lang-menu[open] .lang-caret { transform: rotate(180deg); }
+.lang-menu .lang-code { display: none; }
+.lang-panel { position: absolute; z-index: 80; right: 0; top: calc(100% + 8px); min-width: 210px; padding: 6px; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--surface); box-shadow: 0 18px 50px rgba(0,0,0,.35); animation: lang-in .16s ease-out both; }
+.lang-menu-up .lang-panel { top: auto; bottom: calc(100% + 8px); right: auto; left: 0; animation-name: lang-up; }
+.lang-panel p { margin: 6px 10px 6px; color: var(--dim); font-size: .7rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+.lang-panel ul { margin: 0; padding: 0; list-style: none; }
+.lang-panel a { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 9px; color: var(--text-2); font-size: .9rem; font-weight: 550; text-decoration: none; }
+.lang-panel a:hover, .lang-panel a:focus-visible { color: var(--fg); background: var(--tint-2); outline: none; }
+.lang-panel a[aria-current] { color: var(--fg); }
+.lang-panel a span { flex: 1; }
+.lang-panel small { color: var(--dim); font: 600 .7rem var(--font-mono); letter-spacing: .06em; }
+.lang-panel .lang-tick { width: 15px; height: 15px; color: var(--green-bright); }
+@keyframes lang-in { from { opacity: 0; transform: translateY(-4px); } }
+@keyframes lang-up { from { opacity: 0; transform: translateY(4px); } }
+.footer-base .lang-menu summary { height: 30px; margin: -6px 0; font-size: .8rem; }
+@media (prefers-color-scheme: light) { .lang-panel { box-shadow: 0 18px 50px rgba(30,40,50,.16); } .lang-panel .lang-tick { color: #2f8a45; } }
+@media (max-width: 860px) {
+  .header-links { gap: 12px; }
+  .topbar .lang-menu .lang-name { display: none; }
+  .topbar .lang-menu .lang-code { display: inline; }
+  .topbar .lang-menu summary { padding: 0 8px; }
+  .footer-base .lang-menu { align-self: flex-start; }
 }

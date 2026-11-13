@@ -39,11 +39,21 @@ const githubPath = "M12 2.75a9.5 9.5 0 0 0-3 18.51c.48.09.65-.21.65-.46v-1.67c-2
 
 const escapeAttr = (value) => String(value).replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;");
 
-/** One link per other language, to this page's counterpart. With two languages it reads as a single switch. */
-function languageSwitch(ctx) {
-  const others = ctx.alternates.filter((a) => a.code !== ctx.locale);
-  return `<nav class="lang-switch" aria-label="${ctx.t.language}">${icon("globe-simple")}${others.map((a) =>
-    `<a href="${a.rel}" hreflang="${a.code}" lang="${a.code}" data-lang-choice="${a.code}">${a.name}</a>`).join("")}</nav>`;
+/**
+ * Language menu: every language, each named in itself and linking to this page's counterpart, the
+ * current one ticked. A native <details> so it opens without JavaScript; site.js adds outside-click,
+ * Escape and arrow keys. `place` is "down" in the header and "up" in the footer.
+ */
+function languageMenu(ctx, place) {
+  const current = ctx.alternates.find((a) => a.code === ctx.locale);
+  const items = ctx.alternates.map((a) => {
+    const here = a.code === ctx.locale;
+    return `<li><a href="${a.rel}" hreflang="${a.code}" lang="${a.code}" data-lang-choice="${a.code}"${here ? ' aria-current="true"' : ""}><span>${a.name}</span><small>${a.code.toUpperCase()}</small>${here ? icon("check", "lang-tick") : ""}</a></li>`;
+  }).join("");
+  return `<details class="lang-menu lang-menu-${place}" data-lang-menu>
+      <summary aria-label="${ctx.t.language}: ${current.name}">${icon("globe-simple")}<span class="lang-name">${current.name}</span><span class="lang-code">${current.code.toUpperCase()}</span>${icon("caret-down", "lang-caret")}</summary>
+      <div class="lang-panel"><p>${ctx.t.language}</p><ul>${items}</ul></div>
+    </details>`;
 }
 
 /** Hidden offers to switch language, each written in its own language; site.js shows one when the browser prefers it. */
@@ -69,7 +79,7 @@ ${languageSuggestions(ctx)}
       <a href="{{root}}#download"${current("download")}>${t.nav.download}</a>
     </nav>
     <div class="header-links">
-      ${languageSwitch(ctx)}
+      ${languageMenu(ctx, "down")}
       <a class="header-link" href="${DISCORD_URL}" aria-label="${t.discordLabel}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${discordPath}" /></svg><span>Discord</span></a>
       <a class="header-link" href="${GITHUB_URL}" aria-label="${t.githubLabel}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${githubPath}" /></svg><span>GitHub</span></a>
     </div>
@@ -90,7 +100,7 @@ function footer(ctx) {
     <nav aria-label="${f.community}"><h2>${f.community}</h2><a href="${DISCORD_URL}">${f.discord}</a><a href="${GITHUB_URL}">${f.github}</a><a href="{{root}}legal/security/">${f.vulnerability}</a></nav>
     <nav aria-label="${f.legal}"><h2>${f.legal}</h2>${legalPages.map((l) => `<a href="{{root}}${l.href}">${t.legal[l.key]}</a>`).join("")}<a href="{{root}}privacy/usage-sharing/">${f.usageNotice}</a></nav>
   </div>
-  <div class="page-width footer-base"><span>${f.copyright}</span><span class="footer-langs">${ctx.alternates.map((a) => a.code === ctx.locale ? `<b>${a.name}</b>` : `<a href="${a.rel}" hreflang="${a.code}" lang="${a.code}" data-lang-choice="${a.code}">${a.name}</a>`).join("")}</span><span id="footer-version">${f.version}</span></div>
+  <div class="page-width footer-base"><span>${f.copyright}</span>${languageMenu(ctx, "up")}<span id="footer-version">${f.version}</span></div>
 </footer>`;
 }
 
