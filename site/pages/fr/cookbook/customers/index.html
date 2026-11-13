@@ -1,0 +1,104 @@
+<!--page {"title": "Clients : chaque rendez-vous client, déjà préparé · Cas d'usage RedLeaf", "description": "Gardez vos comptes comme votre propre type dans Database. Avant un rendez-vous, Nova fait le point à partir du compte, de vos notes et de vos mails ; après, elle met le compte à jour et programme la relance.", "layout": "doc", "section": "cookbook", "slug": "customers"}-->
+<header>
+  <p class="eyebrow">Cas d'usage · Clients</p>
+  <h1>Chaque rendez-vous client, déjà préparé.</h1>
+  <p class="doc-lede">Créez un type Compte dans Database, avec les champs dont votre travail commercial a besoin. Avant un rendez-vous, Nova lit le compte, vos notes d'appel et, avec l'extension Mail, les e-mails, puis vous donne les trois choses qui comptent. Après l'appel, racontez-lui ce qui s'est passé : elle met le compte à jour et programme le rappel.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:database}}Database</span><span>{{icon:clock}}Planifications</span></div>
+</header>
+
+<div class="recipe-demo work-demo demo-customers" data-demo aria-label="Reconstitution animée : Nova fait le point avant un appel client, puis met le compte à jour et programme la relance">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen cu-chat active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Brightwell Foods</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Northwind Café</b><small>Nova · Tuesday</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Pipeline T4</b><small>Nova · Monday</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Brightwell Foods</b><small>Nova · tes comptes clients</small></span></div>
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="350"><p>Je vois Brightwell Foods à 14&nbsp;h. Fais-moi le point.</p></div>
+            <div class="msg nova" data-step="20" data-wait="400"><div>
+              <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:60ms"></i><i class="sq t" style="--d:120ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq p" style="--d:240ms"></i></div>
+              <p data-step="20" data-fx="stream">D'après leur fiche, tes notes d'appel et les mails du mois dernier :</p></div></div>
+            <div class="plan-card" data-step="24" data-wait="400">
+              <div class="plan-head">{{icon:buildings}}<b>Brightwell Foods</b><small>Compte · 3 sites · client depuis 2024</small></div>
+              <div class="plan-days">
+                <div data-step="25" data-wait="300"><span>Aujourd'hui</span><b>40 postes, renouvelés en mars</b><small>Paiements à l'heure</small></div>
+                <div data-step="26" data-wait="300"><span>En suspens</span><b>Deux demandes sur le SSO</b><small>Marta, responsable des opérations</small></div>
+                <div data-step="27" data-wait="300"><span>Piste</span><b>Un nouveau site à Lyon en janvier</b><small>De ton dernier appel</small></div>
+              </div>
+            </div>
+            <div class="msg user" data-step="40" data-wait="1100"><p>C'est fait. Ils veulent 25 postes de plus et le SSO, avec un devis d'ici jeudi.</p></div>
+            <div class="msg nova" data-step="44" data-wait="400"><div>
+              <div class="frieze"><i class="sq g"></i><i class="sq g" style="--d:70ms"></i></div>
+              <p data-step="44" data-fx="stream">J'ai mis à jour le compte et programmé un rappel jeudi à 9&nbsp;h.</p></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen cu-page no-side" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <article class="page-view">
+          <p class="crumb">Workspace / Ventes / Comptes / <b>Brightwell Foods</b></p>
+          <p class="entity-type">COMPTE</p>
+          <h3>Brightwell Foods</h3>
+          <table class="mini-table">
+            <tr><th>Champ</th><th>Valeur</th></tr>
+            <tr data-step="54" data-wait="180"><td>Étape</td><td><span class="chip review">extension</span></td></tr>
+            <tr data-step="55" data-wait="180"><td>Postes</td><td>40, et 25 de plus dans le devis</td></tr>
+            <tr data-step="56" data-wait="180"><td>Contact</td><td>Marta Ruiz, responsable des opérations</td></tr>
+            <tr data-step="57" data-wait="400"><td>Prochaine étape</td><td>Devis avec SSO, d'ici jeudi</td></tr>
+          </table>
+          <div class="heartbeat-card note" data-step="60" data-wait="1300">{{icon:bell}}<div><b>Jeudi à 9&nbsp;h</b><small>Envoyer le devis à Brightwell. Je l'ai commencé à partir de celui de mars.</small></div></div>
+        </article>
+      </div>
+    </section>
+    <i data-step="50" data-wait="600" data-fx="mark" data-remove=".cu-chat|active" data-add=".cu-page|active"></i>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Le point</button></li>
+      <li><button type="button" data-seek="40"><span>02</span>Après l'appel</button></li>
+      <li><button type="button" data-seek="50"><span>03</span>Le compte</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Mettre la démo en pause">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Rejouer la démo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">Une reconstitution simplifiée de RedLeaf. Le client est un exemple.</p>
+</div>
+
+<div class="prose">
+  <h2>Ce que vous pouvez demander</h2>
+  <ul class="prompt-list">
+    <li>Je vois Brightwell Foods à 14 h. Fais-moi le point.</li>
+    <li>Quels comptes n'ont pas eu de nouvelles de nous depuis un mois ?</li>
+    <li>C'est fait. Ils veulent 25 postes de plus et le SSO, avec un devis d'ici jeudi.</li>
+    <li>Montre-moi tous les comptes en phase d'extension.</li>
+  </ul>
+
+  <h2>Comment ça marche</h2>
+  <ol class="steps">
+    <li><b>Faites-le à votre façon</b>Dans Database, choisissez New type et ajoutez les champs qu'il vous faut : l'étape en Select, les postes en Number, le contact et la prochaine étape.</li>
+    <li><b>Voyez-le comme vous travaillez</b>Dans un projet Workspace, ajoutez une liste de vos comptes, ou un tableau regroupé par étape.</li>
+    <li><b>Préparé avant, à jour après</b>Demandez un point et Nova lit le compte et son historique. Racontez-lui l'appel et elle met les champs à jour.</li>
+    <li><b>Des relances qui ne glissent pas</b>Demandez un rappel et Nova crée une planification. Quand elle se déclenche, Nova poste dans Live avec le contexte.</li>
+  </ol>
+
+  <div class="callout">{{icon:shield-check}}<p><strong>Votre fichier clients reste sur votre ordinateur.</strong> Les comptes vivent dans RedLeaf, sur votre machine, pas dans un CRM hébergé. Ce qui en sort, c'est ce que Nova envoie à votre fournisseur d'IA pour vous répondre.</p></div>
+
+  <h2>Ce qu'il vous faut</h2>
+  <div class="needs">
+    <div><b>Un type Compte</b><span>Créé une fois dans Database, avec vos propres champs.</span></div>
+    <div><b>Un fournisseur d'IA</b><span>Tout fournisseur de chat pris en charge.</span></div>
+    <div><b>L'extension Mail, en option</b><span>Pour intégrer les e-mails au point.</span></div>
+  </div>
+</div>

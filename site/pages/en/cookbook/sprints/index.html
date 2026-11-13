@@ -1,0 +1,103 @@
+<!--page {"title": "Sprints: a sprint board that keeps up with the team · RedLeaf cookbook", "description": "Make a Ticket type and a board in Workspace. Nova runs the standup from the board and your repository, moves the cards and flags what's at risk.", "layout": "doc", "section": "cookbook", "slug": "sprints"}-->
+<header>
+  <p class="eyebrow">Use case · Sprints</p>
+  <h1>A sprint board that keeps up with the team.</h1>
+  <p class="doc-lede">Tickets are your own type in Database, with a status, points and an owner. A board in Workspace shows them by status. Nova reads the board and what happened in your repositories, gives you the standup in a few lines, and moves the cards that moved.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:kanban}}Board</span><span>{{icon:terminal-window}}Code</span></div>
+</header>
+
+<div class="recipe-demo work-demo demo-sprints" data-demo aria-label="Animated recreation: Nova gives the sprint standup and moves the cards on the board">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen sr-chat active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Sprint 14</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Sprint 13 retro</b><small>Nova · last Friday</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Sprint 14</b><small>Nova · the Ledgerly team</small></span></div>
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="350"><p>Standup. Where are we on sprint 14?</p></div>
+            <div class="msg nova" data-step="20" data-wait="400"><div>
+              <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:60ms"></i><i class="sq t" style="--d:120ms"></i><i class="sq g" style="--d:180ms"></i><i class="sq g" style="--d:240ms"></i></div>
+              <p data-step="20" data-fx="stream">Day 6 of 10, and 21 of 34 points done. Bank import merged overnight, and the invoice editor is waiting for review. One risk: mobile login is blocked on the API change. I moved the cards.</p></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen sr-board no-side" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <div class="board-view">
+          <div class="view-head">{{icon:kanban}}<b>Sprint 14</b><small>Tickets · day 6 of 10 · <span class="sr-pts-a">13</span><span class="sr-pts-b">21</span> of 34 points</small></div>
+          <div class="board">
+            <div class="board-col"><p>To do <i>2</i></p>
+              <div class="board-card"><b>{{icon:file-text}}Mobile login</b><span class="chip warn">blocked · API change</span></div>
+              <div class="board-card"><b>{{icon:file-text}}Export to Excel</b><span class="chip">3 pts</span></div>
+            </div>
+            <div class="board-col"><p>In progress <i><span class="cnt-a">3</span><span class="cnt-b">1</span></i></p>
+              <div class="board-card sr-bank"><b>{{icon:git-branch}}Bank import</b><span class="chip">8 pts</span></div>
+              <div class="board-card sr-editor"><b>{{icon:git-branch}}Invoice editor</b><span class="chip">5 pts</span></div>
+              <div class="board-card"><b>{{icon:git-branch}}Reminder emails</b><span class="chip">3 pts</span></div>
+            </div>
+            <div class="board-col"><p>Review <i><span class="cnt-a">0</span><span class="cnt-b">1</span></i></p>
+              <div class="board-card moved" data-step="54" data-wait="600"><b>{{icon:eye}}Invoice editor</b><span class="chip review">needs a reviewer</span></div>
+            </div>
+            <div class="board-col"><p>Done <i><span class="cnt-a">2</span><span class="cnt-b">3</span></i></p>
+              <div class="board-card moved" data-step="52" data-wait="450"><b>{{icon:check-circle}}Bank import</b><span class="chip ok">merged</span></div>
+              <div class="board-card"><b>{{icon:check-circle}}Team roles</b></div>
+              <div class="board-card"><b>{{icon:check-circle}}Dark mode</b></div>
+            </div>
+          </div>
+          <i data-step="52" data-fx="mark" data-add=".sr-bank|gone"></i>
+          <i data-step="54" data-fx="mark" data-add=".sr-editor|gone; .sr-board .board|settled; .sr-board|scored"></i>
+        </div>
+      </div>
+    </section>
+    <i data-step="40" data-wait="600" data-fx="mark" data-remove=".sr-chat|active" data-add=".sr-board|active"></i>
+    <div class="toast" data-step="58" data-wait="1100"><img class="avatar" src="{{root}}nova-avatar.webp" alt="" /><span><b>Standup posted for the team</b><small>Two cards moved, one risk flagged: mobile login.</small></span></div>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Standup</button></li>
+      <li><button type="button" data-seek="40"><span>02</span>The board</button></li>
+      <li><button type="button" data-seek="52"><span>03</span>Cards move</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Replay demo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">A simplified recreation of RedLeaf. The sprint is an example.</p>
+</div>
+
+<div class="prose">
+  <h2>What you can ask</h2>
+  <ul class="prompt-list">
+    <li>Standup. Where are we on sprint 14?</li>
+    <li>Bank import merged overnight. Move it to Done.</li>
+    <li>What's at risk if mobile login slips another two days?</li>
+    <li>Write the sprint 14 retro from the board and the commits.</li>
+  </ul>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><b>Make a Ticket type</b>In Database, add a Ticket type with a Select field for the status, a Number for the points, and whatever else your team tracks.</li>
+    <li><b>Add a board</b>In a Workspace project, add a board of your tickets, grouped by status. Drag a card to another column to change its status.</li>
+    <li><b>The standup in a few lines</b>Nova reads the board and, through Code, what was merged and what's waiting for review. She tells you where the sprint stands and what's at risk.</li>
+    <li><b>Cards that follow the work</b>When she sees work land, Nova updates the ticket's status, and the board follows.</li>
+  </ol>
+
+  <div class="callout">{{icon:lightbulb}}<p><strong>Coming from Jira or Linear?</strong> There's no import or sync. Start with the sprint you're in: a few tickets are enough, and Nova can create them from a list you paste.</p></div>
+
+  <h2>What you need</h2>
+  <div class="needs">
+    <div><b>A Ticket type</b><span>Created once in Database. The board groups by its Select field.</span></div>
+    <div><b>A board view</b><span>Added to a project in Workspace.</span></div>
+    <div><b>Code, optional</b><span>So Nova can see what was merged and what is in review.</span></div>
+  </div>
+</div>

@@ -1,0 +1,103 @@
+<!--page {"title": "Ship: from a bug report to a reviewed pull request · RedLeaf cookbook", "description": "Hand a GitHub issue to Auto Tackle: it works on its own branch, runs the tests and opens a pull request. Check it with Auto Review and Health Check, then approve and merge.", "layout": "doc", "section": "cookbook", "slug": "ship"}-->
+<header>
+  <p class="eyebrow">Use case · Ship</p>
+  <h1>From a bug report to a reviewed pull request.</h1>
+  <p class="doc-lede">Your product has users, and users find bugs. Code shows your repository's open issues next to its commits and tests. Hand an issue to Auto Tackle and it comes back as a pull request on its own branch, tested and waiting for you. Nothing reaches your main branch until you merge it.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:terminal-window}}Code</span><span>{{icon:github-logo}}GitHub</span></div>
+</header>
+
+<div class="recipe-demo work-demo demo-ship" data-demo aria-label="Animated recreation: Nova finds the issue, Auto Tackle opens a pull request, and you review and merge it">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen sp-chat active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Ledgerly</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Pricing page copy</b><small>Nova · Tuesday</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Release notes 2.4</b><small>Nova · last week</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Ledgerly</b><small>Nova · your invoicing app</small></span></div>
+          <div class="thread">
+            <div class="msg user"><p>How did yesterday's release go?</p></div>
+            <div class="msg nova"><div><div class="frieze"><i class="sq t"></i><i class="sq t"></i></div><p>Clean. 2.4 is live, no new errors overnight, and the changelog went out with it.</p></div></div>
+            <div class="msg user" data-step="10" data-wait="350"><p>Two customers say CSV exports lose their accents. Can we fix it today?</p></div>
+            <div class="msg nova" data-step="20" data-wait="400"><div>
+              <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:70ms"></i><i class="sq p" style="--d:140ms"></i></div>
+              <p data-step="20" data-fx="stream">That's issue #142. Let's tackle it: it gets its own branch, the tests run, and you review the pull request before anything merges.</p></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen sp-code no-side" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon blue">{{icon:terminal-window}}</span><b>Code</b>{{icon:caret-down}}</span><nav><span>{{icon:terminal-window}}Sessions</span><span class="active">{{icon:github-logo}}GitHub</span><span>{{icon:code}}Code</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <div class="board-view gh-view">
+          <div class="view-head">{{icon:github-logo}}<b>ledgerly</b><small>main · 3 open issues</small></div>
+          <div class="gh-tabs"><span>Commits</span><span class="active">Issues</span><span>Tests</span><span>Worktrees</span></div>
+          <div class="gh-body">
+            <table class="mini-table gh-issues">
+              <tr><th>Issue</th><th>Label</th><th></th></tr>
+              <tr><td><b>#142</b> CSV export drops accents</td><td><span class="chip warn">bug</span></td><td class="gh-act"><span class="pm-btn go sp-tackle">{{icon:lightning}}Auto Tackle<i class="fake-cursor" data-step="32" data-wait="450"></i></span><em class="badge working session-badge sp-badge" data-step="34" data-wait="250"><span class="when-running">{{icon:circle-notch}}tackling</span><span class="when-done">{{icon:git-pull-request}}PR #143</span></em></td></tr>
+              <tr><td><b>#139</b> Dark mode for PDF invoices</td><td><span class="chip">feature</span></td><td class="gh-act"><span class="pm-btn">{{icon:lightning}}Auto Tackle</span></td></tr>
+              <tr><td><b>#137</b> Dashboard slow past 10,000 invoices</td><td><span class="chip">performance</span></td><td class="gh-act"><span class="pm-btn">{{icon:lightning}}Auto Tackle</span></td></tr>
+            </table>
+            <div class="sched-card review-card" data-step="44" data-wait="500">
+              <div class="sched-head"><span class="app-icon blue">{{icon:git-pull-request}}</span><span><b>#143 Keep accents in CSV exports</b><small>{{icon:git-branch}}fix/csv-accents · from Auto Tackle</small></span><em class="badge ok">{{icon:check-circle}}Approve</em></div>
+              <dl><dt>Auto Review</dt><dd>No blocking findings. One suggestion: also test the semicolon CSVs that Excel writes.</dd><dt>Health Check</dt><dd data-step="46" data-wait="450">3 suites, 412 tests passed</dd></dl>
+              <div class="review-actions"><span class="pm-btn">Dismiss</span><span class="pm-btn go sp-merge">{{icon:git-merge}}Merge<i class="fake-cursor" data-step="50" data-wait="700"></i></span><span class="chip ok" data-step="52" data-wait="350">{{icon:check-circle}}merged into main</span></div>
+            </div>
+          </div>
+          <i data-step="34" data-fx="mark" data-add=".sp-tackle|gone"></i>
+          <i data-step="40" data-wait="1100" data-fx="mark" data-add=".sp-badge|ok" data-remove=".sp-badge|working"></i>
+          <i data-step="52" data-fx="mark" data-add=".sp-merge|gone"></i>
+        </div>
+      </div>
+    </section>
+    <i data-step="30" data-wait="450" data-fx="mark" data-remove=".sp-chat|active" data-add=".sp-code|active"></i>
+    <div class="toast" data-step="56" data-wait="500"><img class="avatar" src="{{root}}nova-avatar.webp" alt="" /><span><b>#142 is fixed in main</b><small>It ships with your next release. I added it to the 2.5 notes.</small></span></div>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>The report</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>Auto Tackle</button></li>
+      <li><button type="button" data-seek="44"><span>03</span>Review and merge</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Replay demo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">A simplified recreation of RedLeaf. The product and its issues are examples.</p>
+</div>
+
+<div class="prose">
+  <h2>What you can ask</h2>
+  <ul class="prompt-list">
+    <li>Two customers say CSV exports lose their accents. Find the issue and tackle it.</li>
+    <li>Write an issue for the slow dashboard, with what you'd check first.</li>
+    <li>Review the last three commits on main before I tag the release.</li>
+    <li>What's merged since 2.4? Draft the release notes.</li>
+  </ul>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><b>Register the repository</b>In Code's GitHub tab, add your project's folder. Issues and pull requests need the GitHub CLI, signed in; commits, tests and reviews only need Git.</li>
+    <li><b>Turn reports into issues</b>New Issue writes a full issue from your short description, with context and acceptance criteria. Or ask Nova to write it from what your users reported.</li>
+    <li><b>Auto Tackle it</b>An AI works on the issue: it creates a branch, implements the fix, runs the tests and opens a pull request.</li>
+    <li><b>Review, then merge</b>On a commit, Auto Review gives an AI verdict with findings, and Health Check runs every test suite, with no AI. Approve the tackle, then Merge it, or Dismiss it.</li>
+    <li><b>Keep the release notes</b>Ask Nova what went in since the last version. She reads the history and writes the notes as a page you can edit.</li>
+  </ol>
+
+  <div class="callout">{{icon:shield-check}}<p><strong>Your main branch stays yours.</strong> Every tackle works on its own branch. Nothing is merged until you choose Merge, and a tackle you dismiss never touches the project.</p></div>
+
+  <h2>What you need</h2>
+  <div class="needs">
+    <div><b>Git</b><span>Git for Windows, or your distribution's git package.</span></div>
+    <div><b>The GitHub CLI</b><span><code>gh</code>, signed in with <code>gh auth login</code>, for issues, pull requests and tackles.</span></div>
+    <div><b>A coding provider</b><span>For example Codex or Anthropic, connected during setup.</span></div>
+  </div>
+</div>

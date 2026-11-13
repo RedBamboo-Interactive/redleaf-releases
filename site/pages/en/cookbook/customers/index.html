@@ -1,0 +1,104 @@
+<!--page {"title": "Customers: walk into every call already briefed · RedLeaf cookbook", "description": "Keep your accounts as your own type in Database. Before a meeting, Nova briefs you from the account, your notes and your mail; after it, she updates the account and sets the follow-up.", "layout": "doc", "section": "cookbook", "slug": "customers"}-->
+<header>
+  <p class="eyebrow">Use case · Customers</p>
+  <h1>Walk into every call already briefed.</h1>
+  <p class="doc-lede">Create an Account type in Database with the fields your sales work needs. Before a meeting, Nova reads the account, your call notes and, with the Mail extension, the emails, and gives you the three things that matter. After the call, tell her what happened: she updates the account and sets the reminder.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:database}}Database</span><span>{{icon:clock}}Schedules</span></div>
+</header>
+
+<div class="recipe-demo work-demo demo-customers" data-demo aria-label="Animated recreation: Nova briefs you before a customer call, then updates the account and sets the follow-up">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen cu-chat active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Brightwell Foods</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Northwind Café</b><small>Nova · Tuesday</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Q4 pipeline</b><small>Nova · Monday</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Brightwell Foods</b><small>Nova · your accounts</small></span></div>
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="350"><p>I'm seeing Brightwell Foods at 2. Brief me.</p></div>
+            <div class="msg nova" data-step="20" data-wait="400"><div>
+              <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:60ms"></i><i class="sq t" style="--d:120ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq p" style="--d:240ms"></i></div>
+              <p data-step="20" data-fx="stream">From their account, your call notes and last month's emails:</p></div></div>
+            <div class="plan-card" data-step="24" data-wait="400">
+              <div class="plan-head">{{icon:buildings}}<b>Brightwell Foods</b><small>Account · 3 sites · customer since 2024</small></div>
+              <div class="plan-days">
+                <div data-step="25" data-wait="300"><span>Where you are</span><b>40 seats, renewed in March</b><small>Paid on time</small></div>
+                <div data-step="26" data-wait="300"><span>Open</span><b>Asked twice about single sign-on</b><small>Marta, head of operations</small></div>
+                <div data-step="27" data-wait="300"><span>Angle</span><b>A new site in Lyon in January</b><small>From your last call</small></div>
+              </div>
+            </div>
+            <div class="msg user" data-step="40" data-wait="1100"><p>Done. They want 25 more seats and single sign-on, with a quote by Thursday.</p></div>
+            <div class="msg nova" data-step="44" data-wait="400"><div>
+              <div class="frieze"><i class="sq g"></i><i class="sq g" style="--d:70ms"></i></div>
+              <p data-step="44" data-fx="stream">I updated the account and set a reminder for Thursday at 9.</p></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen cu-page no-side" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <article class="page-view">
+          <p class="crumb">Workspace / Sales / Accounts / <b>Brightwell Foods</b></p>
+          <p class="entity-type">ACCOUNT</p>
+          <h3>Brightwell Foods</h3>
+          <table class="mini-table">
+            <tr><th>Field</th><th>Value</th></tr>
+            <tr data-step="54" data-wait="180"><td>Stage</td><td><span class="chip review">expansion</span></td></tr>
+            <tr data-step="55" data-wait="180"><td>Seats</td><td>40, with 25 more in the quote</td></tr>
+            <tr data-step="56" data-wait="180"><td>Contact</td><td>Marta Ruiz, head of operations</td></tr>
+            <tr data-step="57" data-wait="400"><td>Next step</td><td>Quote with single sign-on, by Thursday</td></tr>
+          </table>
+          <div class="heartbeat-card note" data-step="60" data-wait="1300">{{icon:bell}}<div><b>Thursday at 9:00</b><small>Send Brightwell the quote. I started it from the March one.</small></div></div>
+        </article>
+      </div>
+    </section>
+    <i data-step="50" data-wait="600" data-fx="mark" data-remove=".cu-chat|active" data-add=".cu-page|active"></i>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>The brief</button></li>
+      <li><button type="button" data-seek="40"><span>02</span>After the call</button></li>
+      <li><button type="button" data-seek="50"><span>03</span>The account</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Replay demo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">A simplified recreation of RedLeaf. The customer is an example.</p>
+</div>
+
+<div class="prose">
+  <h2>What you can ask</h2>
+  <ul class="prompt-list">
+    <li>I'm seeing Brightwell Foods at 2. Brief me.</li>
+    <li>Which accounts haven't heard from us in a month?</li>
+    <li>Done. They want 25 more seats and single sign-on, with a quote by Thursday.</li>
+    <li>Show me every account in the expansion stage.</li>
+  </ul>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><b>Make it your own</b>In Database, choose New type and add the fields you need: the stage as a Select, the seats as a Number, the contact and the next step.</li>
+    <li><b>See it the way you work</b>In a Workspace project, add a list of your accounts, or a board grouped by stage.</li>
+    <li><b>Briefed before, updated after</b>Ask for a brief and Nova reads the account and its history. Tell her how the call went and she updates the fields.</li>
+    <li><b>Follow-ups that don't slip</b>Ask for a reminder and Nova creates a schedule. When it fires, she posts in Live with the context.</li>
+  </ol>
+
+  <div class="callout">{{icon:shield-check}}<p><strong>Your customer list stays on your computer.</strong> Accounts live in RedLeaf on your machine, not in a hosted CRM. What leaves it is what Nova sends your AI provider to answer you.</p></div>
+
+  <h2>What you need</h2>
+  <div class="needs">
+    <div><b>An Account type</b><span>Created once in Database, with your own fields.</span></div>
+    <div><b>An AI provider</b><span>Any supported chat provider.</span></div>
+    <div><b>The Mail extension, optional</b><span>To bring the emails into the brief.</span></div>
+  </div>
+</div>

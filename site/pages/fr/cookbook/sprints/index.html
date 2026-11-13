@@ -1,0 +1,103 @@
+<!--page {"title": "Sprints : un tableau de sprint qui suit l'équipe · Cas d'usage RedLeaf", "description": "Créez un type Ticket et un tableau dans Workspace. Nova anime le standup à partir du tableau et de votre dépôt, déplace les cartes et signale ce qui est en danger.", "layout": "doc", "section": "cookbook", "slug": "sprints"}-->
+<header>
+  <p class="eyebrow">Cas d'usage · Sprints</p>
+  <h1>Un tableau de sprint qui suit l'équipe.</h1>
+  <p class="doc-lede">Les tickets sont votre propre type dans Database, avec un statut, des points et un responsable. Un tableau dans Workspace les montre par statut. Nova lit le tableau et ce qui s'est passé dans vos dépôts, vous donne le standup en quelques lignes et déplace les cartes qui ont bougé.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:kanban}}Tableau</span><span>{{icon:terminal-window}}Code</span></div>
+</header>
+
+<div class="recipe-demo work-demo demo-sprints" data-demo aria-label="Reconstitution animée : Nova fait le standup du sprint et déplace les cartes sur le tableau">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen sr-chat active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Sprint 14</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Rétro du sprint 13</b><small>Nova · last Friday</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Sprint 14</b><small>Nova · l'équipe Ledgerly</small></span></div>
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="350"><p>Standup. On en est où sur le sprint 14 ?</p></div>
+            <div class="msg nova" data-step="20" data-wait="400"><div>
+              <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:60ms"></i><i class="sq t" style="--d:120ms"></i><i class="sq g" style="--d:180ms"></i><i class="sq g" style="--d:240ms"></i></div>
+              <p data-step="20" data-fx="stream">Jour 6 sur 10, et 21 points sur 34 terminés. L'import bancaire a été fusionné cette nuit, et l'éditeur de factures attend une relecture. Un risque : la connexion mobile est bloquée par le changement d'API. J'ai déplacé les cartes.</p></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen sr-board no-side" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <div class="board-view">
+          <div class="view-head">{{icon:kanban}}<b>Sprint 14</b><small>Tickets · jour 6 sur 10 · <span class="sr-pts-a">13</span><span class="sr-pts-b">21</span> points sur 34</small></div>
+          <div class="board">
+            <div class="board-col"><p>À faire <i>2</i></p>
+              <div class="board-card"><b>{{icon:file-text}}Connexion mobile</b><span class="chip warn">bloqué · changement d'API</span></div>
+              <div class="board-card"><b>{{icon:file-text}}Export vers Excel</b><span class="chip">3 pts</span></div>
+            </div>
+            <div class="board-col"><p>En cours <i><span class="cnt-a">3</span><span class="cnt-b">1</span></i></p>
+              <div class="board-card sr-bank"><b>{{icon:git-branch}}Import bancaire</b><span class="chip">8 pts</span></div>
+              <div class="board-card sr-editor"><b>{{icon:git-branch}}Éditeur de factures</b><span class="chip">5 pts</span></div>
+              <div class="board-card"><b>{{icon:git-branch}}E-mails de relance</b><span class="chip">3 pts</span></div>
+            </div>
+            <div class="board-col"><p>Relecture <i><span class="cnt-a">0</span><span class="cnt-b">1</span></i></p>
+              <div class="board-card moved" data-step="54" data-wait="600"><b>{{icon:eye}}Éditeur de factures</b><span class="chip review">relecteur recherché</span></div>
+            </div>
+            <div class="board-col"><p>Terminé <i><span class="cnt-a">2</span><span class="cnt-b">3</span></i></p>
+              <div class="board-card moved" data-step="52" data-wait="450"><b>{{icon:check-circle}}Import bancaire</b><span class="chip ok">fusionné</span></div>
+              <div class="board-card"><b>{{icon:check-circle}}Rôles d'équipe</b></div>
+              <div class="board-card"><b>{{icon:check-circle}}Mode sombre</b></div>
+            </div>
+          </div>
+          <i data-step="52" data-fx="mark" data-add=".sr-bank|gone"></i>
+          <i data-step="54" data-fx="mark" data-add=".sr-editor|gone; .sr-board .board|settled; .sr-board|scored"></i>
+        </div>
+      </div>
+    </section>
+    <i data-step="40" data-wait="600" data-fx="mark" data-remove=".sr-chat|active" data-add=".sr-board|active"></i>
+    <div class="toast" data-step="58" data-wait="1100"><img class="avatar" src="{{root}}nova-avatar.webp" alt="" /><span><b>Standup posté pour l'équipe</b><small>Deux cartes déplacées, un risque signalé : la connexion mobile.</small></span></div>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Standup</button></li>
+      <li><button type="button" data-seek="40"><span>02</span>Le tableau</button></li>
+      <li><button type="button" data-seek="52"><span>03</span>Les cartes bougent</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Mettre la démo en pause">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Rejouer la démo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">Une reconstitution simplifiée de RedLeaf. Le sprint est un exemple.</p>
+</div>
+
+<div class="prose">
+  <h2>Ce que vous pouvez demander</h2>
+  <ul class="prompt-list">
+    <li>Standup. On en est où sur le sprint 14 ?</li>
+    <li>L'import bancaire a été fusionné cette nuit. Passe-le en Terminé.</li>
+    <li>Que risque-t-on si la connexion mobile glisse encore de deux jours ?</li>
+    <li>Rédige la rétro du sprint 14 à partir du tableau et des commits.</li>
+  </ul>
+
+  <h2>Comment ça marche</h2>
+  <ol class="steps">
+    <li><b>Créez un type Ticket</b>Dans Database, ajoutez un type Ticket avec un champ Select pour le statut, un Number pour les points, et tout ce que votre équipe suit d'autre.</li>
+    <li><b>Ajoutez un tableau</b>Dans un projet Workspace, ajoutez un tableau de vos tickets, regroupé par statut. Faites glisser une carte dans une autre colonne pour changer son statut.</li>
+    <li><b>Le standup en quelques lignes</b>Nova lit le tableau et, grâce à Code, ce qui a été fusionné et ce qui attend une relecture. Elle vous dit où en est le sprint et ce qui est en danger.</li>
+    <li><b>Des cartes qui suivent le travail</b>Quand elle voit du travail aboutir, Nova met à jour le statut du ticket, et le tableau suit.</li>
+  </ol>
+
+  <div class="callout">{{icon:lightbulb}}<p><strong>Vous venez de Jira ou de Linear ?</strong> Il n'y a ni import ni synchronisation. Commencez par le sprint en cours : quelques tickets suffisent, et Nova peut les créer à partir d'une liste que vous collez.</p></div>
+
+  <h2>Ce qu'il vous faut</h2>
+  <div class="needs">
+    <div><b>Un type Ticket</b><span>Créé une fois dans Database. Le tableau se regroupe selon son champ Select.</span></div>
+    <div><b>Une vue tableau</b><span>Ajoutée à un projet dans Workspace.</span></div>
+    <div><b>Code, en option</b><span>Pour que Nova voie ce qui a été fusionné et ce qui est en relecture.</span></div>
+  </div>
+</div>

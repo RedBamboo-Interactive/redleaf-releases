@@ -1,0 +1,95 @@
+<!--page {"title": "Report: the weekly numbers, written up and flagged · RedLeaf cookbook", "description": "Ask once, and a schedule turns your weekly export into a one-page report every Monday, with a note when a number moves more than you said.", "layout": "doc", "section": "cookbook", "slug": "report"}-->
+<header>
+  <p class="eyebrow">Use case · Report</p>
+  <h1>The weekly numbers, written up and flagged.</h1>
+  <p class="doc-lede">Put your export in a folder, say what you want to know and when. Nova turns it into a schedule that reads the file, writes a one-page report in Workspace, and tells you in Live only when something moved more than you said.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:clock}}Schedules</span><span>{{icon:folder-simple}}Workspace</span></div>
+</header>
+
+<div class="recipe-demo work-demo demo-report" data-demo aria-label="Animated recreation: Nova schedules a Monday report, writes it as a page and flags the number that moved">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen rp-chat active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Weekly numbers</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Board meeting deck</b><small>Nova · last week</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Weekly numbers</b><small>Nova · Claude Code · Standard</small></span></div>
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="350"><p>Every Monday at 8, turn the sales export in Reports into a one-page summary. Flag anything that moved more than 10%.</p></div>
+            <div class="msg nova" data-step="20" data-wait="400"><div>
+              <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:70ms"></i><i class="sq g" style="--d:140ms"></i></div>
+              <p data-step="20" data-fx="stream">Done. It's a schedule now, so it runs even when we're not talking.</p></div></div>
+            <div class="sched-card" data-step="24" data-wait="700">
+              <div class="sched-head"><span class="app-icon amber">{{icon:clock}}</span><span><b>Monday report</b><small>Automation · Nova</small></span><em class="badge ok">{{icon:check-circle}}active</em></div>
+              <dl><dt>When</dt><dd>Every Monday, 08:00</dd><dt>Reads</dt><dd>Reports/sales-week.csv</dd><dt>Writes</dt><dd>A report page, and a note in Live when something moved more than 10%</dd></dl>
+            </div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen rp-page no-side" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <article class="page-view">
+          <p class="crumb">Workspace / Reports / <b>Week 46</b></p>
+          <p class="entity-type">PAGE</p>
+          <h3>Week 46 report</h3>
+          <table class="mini-table">
+            <tr><th>Metric</th><th>Week 46</th><th>vs week 45</th></tr>
+            <tr data-step="34" data-wait="180"><td>Revenue</td><td>€48,200</td><td><span class="chip ok">+6%</span></td></tr>
+            <tr data-step="35" data-wait="180"><td>New customers</td><td>31</td><td><span class="chip ok">+3%</span></td></tr>
+            <tr data-step="36" data-wait="180"><td>Cancellations</td><td>7</td><td><span class="chip warn">+40%</span></td></tr>
+            <tr data-step="37" data-wait="400"><td>Refunds</td><td>€1,120</td><td><span class="chip">−2%</span></td></tr>
+          </table>
+          <div class="heartbeat-card note" data-step="40" data-wait="900">{{icon:warning}}<div><b>One thing to look at</b><small>Cancellations are up 40%. Five of the seven came the day after the price email.</small></div></div>
+        </article>
+      </div>
+    </section>
+    <i data-step="30" data-wait="700" data-fx="mark" data-remove=".rp-chat|active" data-add=".rp-page|active"></i>
+    <div class="toast" data-step="44" data-wait="600"><img class="avatar" src="{{root}}nova-avatar.webp" alt="" /><span><b>Monday report ran at 08:00</b><small>Week 46 is ready, with one flag.</small></span></div>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Ask once</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>The report</button></li>
+      <li><button type="button" data-seek="40"><span>03</span>The flag</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Replay demo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">A simplified recreation of RedLeaf. The numbers are examples.</p>
+</div>
+
+<div class="prose">
+  <h2>What you can ask</h2>
+  <ul class="prompt-list">
+    <li>Every Monday at 8, turn the sales export in Reports into a one-page summary. Flag anything that moved more than 10%.</li>
+    <li>Why are cancellations up? Look at the dates.</li>
+    <li>Compare this quarter with the same quarter last year.</li>
+    <li>Move the report to Friday afternoon, and skip August.</li>
+  </ul>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><b>Put the data where Nova can read it</b>Workspace is a real folder on your disk. Save the export there, by hand or from the tool that makes it.</li>
+    <li><b>Ask once</b>Say what the report should cover and when it should run. Nova creates the schedule and shows it to you.</li>
+    <li><b>It runs on its own</b>At the set time, Nova reads the latest file and writes the report as a page. Last week's page stays, so the history builds up.</li>
+    <li><b>Only the news reaches you</b>When a number moves past your threshold, Nova says so in Live, with what she thinks caused it.</li>
+  </ol>
+
+  <div class="callout">{{icon:star}}<p><strong>Ask why.</strong> The report is where the conversation starts. Ask Nova what's behind a number; the files are right there.</p></div>
+
+  <h2>What you need</h2>
+  <div class="needs">
+    <div><b>An AI provider</b><span>Any supported chat provider.</span></div>
+    <div><b>RedLeaf running</b><span>Schedules run while RedLeaf is running on your computer.</span></div>
+  </div>
+</div>

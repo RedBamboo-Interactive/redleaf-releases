@@ -1,0 +1,90 @@
+<!--page {"title": "Boîte mail : la boîte du lundi, triée avant le café · Cas d'usage RedLeaf", "description": "Nova lit votre Gmail grâce à l'extension Mail, trie ce qui est arrivé et prépare les réponses sur une page. Elle n'envoie jamais rien : c'est vous qui envoyez.", "layout": "doc", "section": "cookbook", "slug": "inbox"}-->
+<header>
+  <p class="eyebrow">Cas d'usage · Boîte mail</p>
+  <h1>La boîte du lundi, triée avant le café.</h1>
+  <p class="doc-lede">L'extension Mail permet à Nova de lire votre Gmail, et seulement de le lire. Elle passe en revue ce qui est arrivé, vous dit ce qui a besoin de vous et prépare les réponses sur une page dans Workspace. Vous les relisez, vous changez ce que vous voulez, et vous les envoyez vous-même depuis Gmail.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:envelope-simple}}Mail</span><span>{{icon:folder-simple}}Workspace</span></div>
+</header>
+
+<div class="recipe-demo work-demo demo-inbox" data-demo aria-label="Reconstitution animée : Nova trie le courrier d'un week-end et prépare les réponses sur une page">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen ib-chat active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Boîte mail</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Contrats fournisseurs</b><small>Nova · Tuesday</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Boîte mail</b><small>Nova · lit ton Gmail</small></span></div>
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="350"><p>Je suis de retour. Fais le tour de ma boîte depuis vendredi.</p></div>
+            <div class="msg nova" data-step="20" data-wait="400"><div>
+              <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:50ms"></i><i class="sq t" style="--d:100ms"></i><i class="sq t" style="--d:150ms"></i><i class="sq t" style="--d:200ms"></i><i class="sq t" style="--d:250ms"></i><i class="sq p" style="--d:300ms"></i><i class="sq g" style="--d:350ms"></i></div>
+              <p data-step="20" data-fx="stream">112 nouveaux messages depuis vendredi. 9 t'attendent, 3 sont des factures, et le reste peut attendre. J'ai préparé les 9 réponses sur une page, prêtes à envoyer depuis Gmail.</p></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen ib-page no-side" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <article class="page-view">
+          <p class="crumb">Workspace / Nova / <b>Boîte mail · lundi</b></p>
+          <p class="entity-type">PAGE</p>
+          <h3>Boîte mail · lundi</h3>
+          <table class="mini-table">
+            <tr><th>De</th><th>Objet</th><th></th></tr>
+            <tr data-step="34" data-wait="180"><td>Marta, Brightwell Foods</td><td>Devis pour 25 postes de plus</td><td><span class="chip ok">brouillon prêt</span></td></tr>
+            <tr data-step="35" data-wait="180"><td>Ton cabinet comptable</td><td>Chiffres de TVA du T3</td><td><span class="chip warn">pour jeudi</span></td></tr>
+            <tr data-step="36" data-wait="180"><td>Paul, prestataire</td><td>Facture 2291, 1&#8239;450&nbsp;€</td><td><span class="chip">facture</span></td></tr>
+            <tr data-step="37" data-wait="400"><td>Meetup SaaS de Lyon</td><td>Une intervention en mars</td><td><span class="chip ok">brouillon prêt</span></td></tr>
+          </table>
+          <div class="heartbeat-card note" data-step="40" data-wait="1300">{{icon:bell}}<div><b>Chaque jour de semaine à 8&nbsp;h&nbsp;30</b><small>Je trierai ce qui arrive et je le posterai dans Live. Je n'envoie jamais rien à ta place.</small></div></div>
+        </article>
+      </div>
+    </section>
+    <i data-step="30" data-wait="500" data-fx="mark" data-remove=".ib-chat|active" data-add=".ib-page|active"></i>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Retour le lundi</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>Les brouillons</button></li>
+      <li><button type="button" data-seek="40"><span>03</span>Chaque matin</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Mettre la démo en pause">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Rejouer la démo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">Une reconstitution simplifiée de RedLeaf. Les messages sont des exemples.</p>
+</div>
+
+<div class="prose">
+  <h2>Ce que vous pouvez demander</h2>
+  <ul class="prompt-list">
+    <li>Je suis de retour. Fais le tour de ma boîte depuis vendredi.</li>
+    <li>Le cabinet comptable a envoyé les chiffres de TVA ? Pour quand ?</li>
+    <li>Prépare une réponse à Marta : oui pour les 25 postes, devis pour jeudi.</li>
+    <li>Chaque jour de semaine à 8 h 30, trie ce qui est arrivé et poste-le dans Live.</li>
+  </ul>
+
+  <h2>Comment ça marche</h2>
+  <ol class="steps">
+    <li><b>Connectez Gmail</b>Installez l'extension Mail et connectez votre compte Google. Son guide explique comment créer le client de connexion Google dont elle a besoin.</li>
+    <li><b>Demandez avec vos mots</b>Nova cherche dans votre courrier, lit les messages, les fils entiers et le texte des pièces jointes, puis répond d'après ce qu'elle a trouvé.</li>
+    <li><b>Des brouillons sur une page</b>Les réponses qu'elle prépare vont sur une page dans Workspace, pour que vous puissiez les modifier avant de les envoyer depuis Gmail.</li>
+    <li><b>Chaque matin, si vous voulez</b>Une planification en fait une habitude : ce qui est arrivé dans la nuit, trié, dans votre fil Live.</li>
+  </ol>
+
+  <div class="callout">{{icon:shield-check}}<p><strong>Elle n'envoie jamais rien à votre place.</strong> L'extension Mail sait lire et chercher, rien d'autre. Et un e-mail ne peut pas donner d'instructions à Nova : ce qu'elle lit dans votre courrier est traité comme une information, jamais comme un ordre.</p></div>
+
+  <h2>Ce qu'il vous faut</h2>
+  <div class="needs">
+    <div><b>L'extension Mail</b><span>Installée depuis Settings › Extensions, avec un compte Gmail.</span></div>
+    <div><b>Un fournisseur d'IA</b><span>Tout fournisseur de chat pris en charge.</span></div>
+  </div>
+</div>

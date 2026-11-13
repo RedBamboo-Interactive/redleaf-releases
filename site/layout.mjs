@@ -14,7 +14,16 @@ export const recipes = [
   { slug: "plan", icon: "calendar-check", tone: "amber" },
   { slug: "automate", icon: "heartbeat", tone: "rose" },
   { slug: "learn", icon: "chat-circle", tone: "green" },
-];
+  { slug: "ship", icon: "git-pull-request", tone: "blue", group: "work", featured: true },
+  { slug: "support", icon: "chats-circle", tone: "violet", group: "work" },
+  { slug: "inbox", icon: "envelope-simple", tone: "teal", group: "work" },
+  { slug: "report", icon: "chart-line-up", tone: "amber", group: "work" },
+  { slug: "customers", icon: "handshake", tone: "green", group: "work", featured: true },
+  { slug: "sprints", icon: "kanban", tone: "orange", group: "work", featured: true },
+].map((r) => ({ group: "personal", featured: ["build", "create", "plan"].includes(r.slug), ...r }));
+
+/** Cookbook sections, in order. Their labels live in i18n.mjs under `cookbook.groups`. */
+export const recipeGroups = ["personal", "work"];
 
 /** Documentation, in reading order: from installing to expert topics. Titles live in i18n.mjs under `docTitles`. */
 export const docs = [
@@ -107,8 +116,8 @@ function footer(ctx) {
 function cookbookNav(page, { t }) {
   return `<nav class="doc-nav" aria-label="${t.cookbook.navLabel}">
   <a class="doc-nav-home${page.slug === "" ? " active" : ""}" href="{{root}}cookbook/">${icon("book-open")}<span>${t.cookbook.overview}</span></a>
-  <p>${t.cookbook.useCases}</p>
-  ${recipes.map((r) => `<a href="{{root}}cookbook/${r.slug}/"${r.slug === page.slug ? ' class="active" aria-current="page"' : ""}><span class="tone tone-${r.tone}">${icon(r.icon)}</span><span><b>${t.recipes[r.slug].title}</b><small>${t.recipes[r.slug].headline}</small></span></a>`).join("\n  ")}
+  ${recipeGroups.map((group) => `<p>${t.cookbook.groups[group]}</p>
+  ${recipes.filter((r) => r.group === group).map((r) => `<a href="{{root}}cookbook/${r.slug}/"${r.slug === page.slug ? ' class="active" aria-current="page"' : ""}><span class="tone tone-${r.tone}">${icon(r.icon)}</span><span><b>${t.recipes[r.slug].title}</b><small>${t.recipes[r.slug].headline}</small></span></a>`).join("\n  ")}`).join("\n  ")}
 </nav>`;
 }
 
@@ -123,9 +132,11 @@ function recipePager(slug, { t }) {
 </nav>`;
 }
 
-/** The recipe grid that pages place with {{recipes}}. */
-export function recipeCards({ t }) {
-  return recipes.map((r) => {
+/** The recipe grid that pages place with {{recipes}} (every use case), {{recipes:featured}}, {{recipes:personal}} or {{recipes:work}}. */
+export function recipeCards({ t }, filter = "") {
+  const shown = !filter ? recipes : filter === "featured" ? recipes.filter((r) => r.featured) : recipes.filter((r) => r.group === filter);
+  if (!shown.length) throw new Error(`No recipes match {{recipes:${filter}}}`);
+  return shown.map((r) => {
     const c = t.recipes[r.slug];
     return `<a class="recipe-card" href="{{root}}cookbook/${r.slug}/"><span class="tone tone-${r.tone}">${icon(r.icon)}</span><small>${c.title}</small><b>${c.headline}</b><p>${c.summary}</p><em>${t.cookbook.seeHow} ${icon("arrow-right")}</em></a>`;
   }).join("\n");

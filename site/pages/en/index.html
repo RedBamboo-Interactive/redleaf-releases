@@ -1,4 +1,4 @@
-<!--page {"title": "RedLeaf: the operating system for your AI agents", "description": "One app for Windows and Linux where your AI agents get the tools, the apps and a memory that lasts. Make a game, learn a language, plan a trip or run your home, and see every step they take.", "layout": "landing", "section": "product"}-->
+<!--page {"title": "RedLeaf: the operating system for your AI agents", "description": "One app for Windows and Linux where your AI agents get the tools, the apps and a memory that lasts. Make a game, plan a trip, ship your product or keep up with your customers, and see every step they take.", "layout": "landing", "section": "product"}-->
 <section class="stage" id="demo" data-demo-set data-tempo="2" aria-labelledby="hero-title">
   <div class="stage-app">
     <!-- Story 1: a game developer. Nova -> Code -> Workspace board. -->
@@ -479,22 +479,366 @@
       </div>
     </div>
 
+    <!-- Work 1: a small product team. Nova -> Code's GitHub issues -> Auto Tackle -> a reviewed pull request. -->
+    <div class="story" id="story-ship" role="tabpanel" data-story data-demo data-pace=".7" data-duration="7000" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-ship.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen sp-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Ledgerly</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Pricing page copy</b><small>Nova · Tuesday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Release notes 2.4</b><small>Nova · last week</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Ledgerly</b><small>Nova · your invoicing app</small></span></div>
+              <div class="thread">
+                <div class="msg user"><p>How did yesterday's release go?</p></div>
+                <div class="msg nova"><div><div class="frieze"><i class="sq t"></i><i class="sq t"></i></div><p>Clean. 2.4 is live, no new errors overnight, and the changelog went out with it.</p></div></div>
+                <div class="msg user" data-step="10" data-wait="350"><p>Two customers say CSV exports lose their accents. Can we fix it today?</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:70ms"></i><i class="sq p" style="--d:140ms"></i></div>
+                  <p data-step="20" data-fx="stream">That's issue #142. Let's tackle it: it gets its own branch, the tests run, and you review the pull request before anything merges.</p></div></div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen sp-code no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon blue">{{icon:terminal-window}}</span><b>Code</b>{{icon:caret-down}}</span><nav><span>{{icon:terminal-window}}Sessions</span><span class="active">{{icon:github-logo}}GitHub</span><span>{{icon:code}}Code</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <div class="board-view gh-view">
+              <div class="view-head">{{icon:github-logo}}<b>ledgerly</b><small>main · 3 open issues</small></div>
+              <div class="gh-tabs"><span>Commits</span><span class="active">Issues</span><span>Tests</span><span>Worktrees</span></div>
+              <div class="gh-body">
+                <table class="mini-table gh-issues">
+                  <tr><th>Issue</th><th>Label</th><th></th></tr>
+                  <tr><td><b>#142</b> CSV export drops accents</td><td><span class="chip warn">bug</span></td><td class="gh-act"><span class="pm-btn go sp-tackle">{{icon:lightning}}Auto Tackle<i class="fake-cursor" data-step="32" data-wait="450"></i></span><em class="badge working session-badge sp-badge" data-step="34" data-wait="250"><span class="when-running">{{icon:circle-notch}}tackling</span><span class="when-done">{{icon:git-pull-request}}PR #143</span></em></td></tr>
+                  <tr><td><b>#139</b> Dark mode for PDF invoices</td><td><span class="chip">feature</span></td><td class="gh-act"><span class="pm-btn">{{icon:lightning}}Auto Tackle</span></td></tr>
+                  <tr><td><b>#137</b> Dashboard slow past 10,000 invoices</td><td><span class="chip">performance</span></td><td class="gh-act"><span class="pm-btn">{{icon:lightning}}Auto Tackle</span></td></tr>
+                </table>
+                <div class="sched-card review-card" data-step="44" data-wait="500">
+                  <div class="sched-head"><span class="app-icon blue">{{icon:git-pull-request}}</span><span><b>#143 Keep accents in CSV exports</b><small>{{icon:git-branch}}fix/csv-accents · from Auto Tackle</small></span><em class="badge ok">{{icon:check-circle}}Approve</em></div>
+                  <dl><dt>Auto Review</dt><dd>No blocking findings. One suggestion: also test the semicolon CSVs that Excel writes.</dd><dt>Health Check</dt><dd data-step="46" data-wait="450">3 suites, 412 tests passed</dd></dl>
+                  <div class="review-actions"><span class="pm-btn">Dismiss</span><span class="pm-btn go sp-merge">{{icon:git-merge}}Merge<i class="fake-cursor" data-step="50" data-wait="700"></i></span><span class="chip ok" data-step="52" data-wait="350">{{icon:check-circle}}merged into main</span></div>
+                </div>
+              </div>
+              <i data-step="34" data-fx="mark" data-add=".sp-tackle|gone"></i>
+              <i data-step="40" data-wait="1100" data-fx="mark" data-add=".sp-badge|ok" data-remove=".sp-badge|working"></i>
+              <i data-step="52" data-fx="mark" data-add=".sp-merge|gone"></i>
+            </div>
+          </div>
+        </section>
+        <i data-step="30" data-wait="450" data-fx="mark" data-remove=".sp-chat|active" data-add=".sp-code|active"></i>
+        <div class="toast" data-step="56" data-wait="500"><img class="avatar" src="{{root}}nova-avatar.webp" alt="" /><span><b>#142 is fixed in main</b><small>It ships with your next release. I added it to the 2.5 notes.</small></span></div>
+      </div>
+    </div>
+
+    <!-- Work 2: a community on Discord. Nova answers there -> a weekly digest with what needs you. -->
+    <div class="story" id="story-support" role="tabpanel" data-story data-demo data-pace=".7" data-duration="6500" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-support.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen su-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Ledgerly community</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Help center articles</b><small>Nova · Monday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Ledgerly community</b><small>Nova · on your Discord server</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="10" data-wait="350"><p>How was the community this week?</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:60ms"></i><i class="sq t" style="--d:120ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq g" style="--d:240ms"></i><i class="sq g" style="--d:300ms"></i></div>
+                  <p data-step="20" data-fx="stream">Busy and friendly. 41 questions in #help: I answered 36, and 5 need you. Two bugs came up three times each, so I opened a thread for each in #bug-reports, with the steps to reproduce.</p></div></div>
+                <div class="plan-card" data-step="30" data-wait="500">
+                  <div class="plan-head">{{icon:chats-circle}}<b>Needs you · 5</b><small>From #help this week</small></div>
+                  <div class="plan-days">
+                    <div data-step="32" data-wait="350"><span>Refund</span><b>Annual plan, 3 weeks in</b><small>Only you can approve it</small></div>
+                    <div data-step="34" data-wait="350"><span>Partner</span><b>An accounting firm, 40 seats</b><small>Wants a call this week</small></div>
+                    <div data-step="36" data-wait="350"><span>Roadmap</span><b>Offline mode?</b><small>Asked by four people</small></div>
+                  </div>
+                </div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen su-page no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <article class="page-view">
+              <p class="crumb">Workspace / Ledgerly / <b>Community · week 46</b></p>
+              <p class="entity-type">PAGE</p>
+              <h3>Community · week 46</h3>
+              <table class="mini-table">
+                <tr><th>Topic</th><th>Threads</th><th>Where it stands</th></tr>
+                <tr data-step="54" data-wait="180"><td>VAT rates on invoices</td><td>14</td><td><span class="chip ok">answered</span> I linked the guide every time. It needs a better title.</td></tr>
+                <tr data-step="55" data-wait="180"><td>Bank import</td><td>9</td><td><span class="chip ok">answered</span> Mostly one bank's new file format.</td></tr>
+                <tr data-step="56" data-wait="180"><td>CSV accents</td><td>3</td><td><span class="chip review">thread in #bug-reports</span> Linked to issue #142.</td></tr>
+                <tr data-step="57" data-wait="400"><td>Mobile app</td><td>4</td><td><span class="chip warn">needs you</span> People ask when. I said it's being looked at.</td></tr>
+              </table>
+              <div class="heartbeat-card note" data-step="60" data-wait="1200">{{icon:bell}}<div><b>Every Friday at 17:00</b><small>I'll write this digest and post the highlights in Live.</small></div></div>
+            </article>
+          </div>
+        </section>
+        <i data-step="50" data-wait="700" data-fx="mark" data-remove=".su-chat|active" data-add=".su-page|active"></i>
+      </div>
+    </div>
+
+    <!-- Work 3: the inbox after a weekend. Nova reads Gmail (read-only) -> a page of drafts; you send them. -->
+    <div class="story" id="story-inbox" role="tabpanel" data-story data-demo data-pace=".7" data-duration="6000" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-inbox.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen ib-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Inbox</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Supplier contracts</b><small>Nova · Tuesday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Inbox</b><small>Nova · reads your Gmail</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="10" data-wait="350"><p>I'm back. Go through my inbox since Friday.</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:50ms"></i><i class="sq t" style="--d:100ms"></i><i class="sq t" style="--d:150ms"></i><i class="sq t" style="--d:200ms"></i><i class="sq t" style="--d:250ms"></i><i class="sq p" style="--d:300ms"></i><i class="sq g" style="--d:350ms"></i></div>
+                  <p data-step="20" data-fx="stream">112 new since Friday. 9 need you, 3 are invoices, and the rest can wait. I drafted the 9 replies on a page, ready for you to send from Gmail.</p></div></div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen ib-page no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <article class="page-view">
+              <p class="crumb">Workspace / Nova / <b>Inbox · Monday</b></p>
+              <p class="entity-type">PAGE</p>
+              <h3>Inbox · Monday</h3>
+              <table class="mini-table">
+                <tr><th>From</th><th>About</th><th></th></tr>
+                <tr data-step="34" data-wait="180"><td>Marta, Brightwell Foods</td><td>Quote for 25 more seats</td><td><span class="chip ok">draft ready</span></td></tr>
+                <tr data-step="35" data-wait="180"><td>Your accountant</td><td>Q3 VAT figures</td><td><span class="chip warn">due Thursday</span></td></tr>
+                <tr data-step="36" data-wait="180"><td>Paul, contractor</td><td>Invoice 2291, €1,450</td><td><span class="chip">invoice</span></td></tr>
+                <tr data-step="37" data-wait="400"><td>Lyon SaaS meetup</td><td>A speaker slot in March</td><td><span class="chip ok">draft ready</span></td></tr>
+              </table>
+              <div class="heartbeat-card note" data-step="40" data-wait="1300">{{icon:bell}}<div><b>Every weekday at 8:30</b><small>I'll sort what came in and post it in Live. I never send anything for you.</small></div></div>
+            </article>
+          </div>
+        </section>
+        <i data-step="30" data-wait="500" data-fx="mark" data-remove=".ib-chat|active" data-add=".ib-page|active"></i>
+      </div>
+    </div>
+
+    <!-- Work 4: the weekly numbers. A schedule turns an export into a report page every Monday. -->
+    <div class="story" id="story-report" role="tabpanel" data-story data-demo data-pace=".7" data-duration="6000" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-report.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen rp-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Weekly numbers</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Board meeting deck</b><small>Nova · last week</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Weekly numbers</b><small>Nova · Claude Code · Standard</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="10" data-wait="350"><p>Every Monday at 8, turn the sales export in Reports into a one-page summary. Flag anything that moved more than 10%.</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:70ms"></i><i class="sq g" style="--d:140ms"></i></div>
+                  <p data-step="20" data-fx="stream">Done. It's a schedule now, so it runs even when we're not talking.</p></div></div>
+                <div class="sched-card" data-step="24" data-wait="700">
+                  <div class="sched-head"><span class="app-icon amber">{{icon:clock}}</span><span><b>Monday report</b><small>Automation · Nova</small></span><em class="badge ok">{{icon:check-circle}}active</em></div>
+                  <dl><dt>When</dt><dd>Every Monday, 08:00</dd><dt>Reads</dt><dd>Reports/sales-week.csv</dd><dt>Writes</dt><dd>A report page, and a note in Live when something moved more than 10%</dd></dl>
+                </div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen rp-page no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <article class="page-view">
+              <p class="crumb">Workspace / Reports / <b>Week 46</b></p>
+              <p class="entity-type">PAGE</p>
+              <h3>Week 46 report</h3>
+              <table class="mini-table">
+                <tr><th>Metric</th><th>Week 46</th><th>vs week 45</th></tr>
+                <tr data-step="34" data-wait="180"><td>Revenue</td><td>€48,200</td><td><span class="chip ok">+6%</span></td></tr>
+                <tr data-step="35" data-wait="180"><td>New customers</td><td>31</td><td><span class="chip ok">+3%</span></td></tr>
+                <tr data-step="36" data-wait="180"><td>Cancellations</td><td>7</td><td><span class="chip warn">+40%</span></td></tr>
+                <tr data-step="37" data-wait="400"><td>Refunds</td><td>€1,120</td><td><span class="chip">−2%</span></td></tr>
+              </table>
+              <div class="heartbeat-card note" data-step="40" data-wait="900">{{icon:warning}}<div><b>One thing to look at</b><small>Cancellations are up 40%. Five of the seven came the day after the price email.</small></div></div>
+            </article>
+          </div>
+        </section>
+        <i data-step="30" data-wait="700" data-fx="mark" data-remove=".rp-chat|active" data-add=".rp-page|active"></i>
+        <div class="toast" data-step="44" data-wait="600"><img class="avatar" src="{{root}}nova-avatar.webp" alt="" /><span><b>Monday report ran at 08:00</b><small>Week 46 is ready, with one flag.</small></span></div>
+      </div>
+    </div>
+
+    <!-- Work 5: a sales rep. Nova briefs from the account and its history -> updates the account after the call. -->
+    <div class="story" id="story-customers" role="tabpanel" data-story data-demo data-pace=".7" data-duration="7000" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-customers.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen cu-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Brightwell Foods</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Northwind Café</b><small>Nova · Tuesday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Q4 pipeline</b><small>Nova · Monday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Brightwell Foods</b><small>Nova · your accounts</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="10" data-wait="350"><p>I'm seeing Brightwell Foods at 2. Brief me.</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:60ms"></i><i class="sq t" style="--d:120ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq p" style="--d:240ms"></i></div>
+                  <p data-step="20" data-fx="stream">From their account, your call notes and last month's emails:</p></div></div>
+                <div class="plan-card" data-step="24" data-wait="400">
+                  <div class="plan-head">{{icon:buildings}}<b>Brightwell Foods</b><small>Account · 3 sites · customer since 2024</small></div>
+                  <div class="plan-days">
+                    <div data-step="25" data-wait="300"><span>Where you are</span><b>40 seats, renewed in March</b><small>Paid on time</small></div>
+                    <div data-step="26" data-wait="300"><span>Open</span><b>Asked twice about single sign-on</b><small>Marta, head of operations</small></div>
+                    <div data-step="27" data-wait="300"><span>Angle</span><b>A new site in Lyon in January</b><small>From your last call</small></div>
+                  </div>
+                </div>
+                <div class="msg user" data-step="40" data-wait="1100"><p>Done. They want 25 more seats and single sign-on, with a quote by Thursday.</p></div>
+                <div class="msg nova" data-step="44" data-wait="400"><div>
+                  <div class="frieze"><i class="sq g"></i><i class="sq g" style="--d:70ms"></i></div>
+                  <p data-step="44" data-fx="stream">I updated the account and set a reminder for Thursday at 9.</p></div></div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen cu-page no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <article class="page-view">
+              <p class="crumb">Workspace / Sales / Accounts / <b>Brightwell Foods</b></p>
+              <p class="entity-type">ACCOUNT</p>
+              <h3>Brightwell Foods</h3>
+              <table class="mini-table">
+                <tr><th>Field</th><th>Value</th></tr>
+                <tr data-step="54" data-wait="180"><td>Stage</td><td><span class="chip review">expansion</span></td></tr>
+                <tr data-step="55" data-wait="180"><td>Seats</td><td>40, with 25 more in the quote</td></tr>
+                <tr data-step="56" data-wait="180"><td>Contact</td><td>Marta Ruiz, head of operations</td></tr>
+                <tr data-step="57" data-wait="400"><td>Next step</td><td>Quote with single sign-on, by Thursday</td></tr>
+              </table>
+              <div class="heartbeat-card note" data-step="60" data-wait="1300">{{icon:bell}}<div><b>Thursday at 9:00</b><small>Send Brightwell the quote. I started it from the March one.</small></div></div>
+            </article>
+          </div>
+        </section>
+        <i data-step="50" data-wait="600" data-fx="mark" data-remove=".cu-chat|active" data-add=".cu-page|active"></i>
+      </div>
+    </div>
+
+    <!-- Work 6: a team's sprint. Nova's standup -> the sprint board in Workspace, cards moving. -->
+    <div class="story" id="story-sprints" role="tabpanel" data-story data-demo data-pace=".7" data-duration="6500" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-sprints.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen sr-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Sprint 14</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Sprint 13 retro</b><small>Nova · last Friday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Sprint 14</b><small>Nova · the Ledgerly team</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="10" data-wait="350"><p>Standup. Where are we on sprint 14?</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:60ms"></i><i class="sq t" style="--d:120ms"></i><i class="sq g" style="--d:180ms"></i><i class="sq g" style="--d:240ms"></i></div>
+                  <p data-step="20" data-fx="stream">Day 6 of 10, and 21 of 34 points done. Bank import merged overnight, and the invoice editor is waiting for review. One risk: mobile login is blocked on the API change. I moved the cards.</p></div></div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen sr-board no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <div class="board-view">
+              <div class="view-head">{{icon:kanban}}<b>Sprint 14</b><small>Tickets · day 6 of 10 · <span class="sr-pts-a">13</span><span class="sr-pts-b">21</span> of 34 points</small></div>
+              <div class="board">
+                <div class="board-col"><p>To do <i>2</i></p>
+                  <div class="board-card"><b>{{icon:file-text}}Mobile login</b><span class="chip warn">blocked · API change</span></div>
+                  <div class="board-card"><b>{{icon:file-text}}Export to Excel</b><span class="chip">3 pts</span></div>
+                </div>
+                <div class="board-col"><p>In progress <i><span class="cnt-a">3</span><span class="cnt-b">1</span></i></p>
+                  <div class="board-card sr-bank"><b>{{icon:git-branch}}Bank import</b><span class="chip">8 pts</span></div>
+                  <div class="board-card sr-editor"><b>{{icon:git-branch}}Invoice editor</b><span class="chip">5 pts</span></div>
+                  <div class="board-card"><b>{{icon:git-branch}}Reminder emails</b><span class="chip">3 pts</span></div>
+                </div>
+                <div class="board-col"><p>Review <i><span class="cnt-a">0</span><span class="cnt-b">1</span></i></p>
+                  <div class="board-card moved" data-step="54" data-wait="600"><b>{{icon:eye}}Invoice editor</b><span class="chip review">needs a reviewer</span></div>
+                </div>
+                <div class="board-col"><p>Done <i><span class="cnt-a">2</span><span class="cnt-b">3</span></i></p>
+                  <div class="board-card moved" data-step="52" data-wait="450"><b>{{icon:check-circle}}Bank import</b><span class="chip ok">merged</span></div>
+                  <div class="board-card"><b>{{icon:check-circle}}Team roles</b></div>
+                  <div class="board-card"><b>{{icon:check-circle}}Dark mode</b></div>
+                </div>
+              </div>
+              <i data-step="52" data-fx="mark" data-add=".sr-bank|gone"></i>
+              <i data-step="54" data-fx="mark" data-add=".sr-editor|gone; .sr-board .board|settled; .sr-board|scored"></i>
+            </div>
+          </div>
+        </section>
+        <i data-step="40" data-wait="600" data-fx="mark" data-remove=".sr-chat|active" data-add=".sr-board|active"></i>
+        <div class="toast" data-step="58" data-wait="1100"><img class="avatar" src="{{root}}nova-avatar.webp" alt="" /><span><b>Standup posted for the team</b><small>Two cards moved, one risk flagged: mobile login.</small></span></div>
+      </div>
+    </div>
+
     <div class="stage-copy">
       <p class="pill"><span class="pill-dot"></span>Nightly preview · Now on Windows and Linux</p>
       <h1 id="hero-title">The operating system for your <em>AI agents</em>.</h1>
-      <p class="lede">One app for Windows and Linux where your agents get the tools, the apps and a memory that lasts. Make a game, learn a language, plan a trip, run your home, and see every step they take.</p>
+      <p class="lede">One app for Windows and Linux where your agents get the tools, the apps and a memory that lasts. Make a game, plan a trip, ship your product, keep up with your customers, and see every step they take.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#download">{{icon:download-simple}}<span>Get RedLeaf for <span data-platform-label>Windows</span></span></a>
         <a class="btn btn-ghost" href="{{root}}cookbook/">{{icon:book-open}}<span>Cookbook</span></a>
       </div>
+      <div class="story-groups" role="group" aria-label="Stories"><button type="button" data-story-group="personal" aria-pressed="true">For you</button><button type="button" data-story-group="work" aria-pressed="false">For work</button></div>
       <div class="stage-bar">
     <div class="story-tabs" role="tablist" aria-label="Choose a story">
-        <button type="button" role="tab" data-story-tab aria-controls="story-game" aria-selected="true"><span class="tone tone-blue">{{icon:game-controller}}</span><span><b>Make a game</b><small>Code · Workspace board</small></span><i class="tab-progress" aria-hidden="true"></i></button>
-        <button type="button" role="tab" data-story-tab aria-controls="story-german" aria-selected="false" tabindex="-1"><span class="tone tone-amber">{{icon:translate}}</span><span><b>Learn a language</b><small>Voice · Picture vocabulary</small></span><i class="tab-progress" aria-hidden="true"></i></button>
-        <button type="button" role="tab" data-story-tab aria-controls="story-organize" aria-selected="false" tabindex="-1"><span class="tone tone-green">{{icon:calendar-check}}</span><span><b>Get organized</b><small>Files · Life Coaching</small></span><i class="tab-progress" aria-hidden="true"></i></button>
-      <button type="button" role="tab" data-story-tab aria-controls="story-trip" aria-selected="false" tabindex="-1"><span class="tone tone-teal">{{icon:airplane-tilt}}</span><span><b>Plan a trip</b><small>Web search · Trip page</small></span><i class="tab-progress" aria-hidden="true"></i></button>
-      <button type="button" role="tab" data-story-tab aria-controls="story-create" aria-selected="false" tabindex="-1"><span class="tone tone-violet">{{icon:music-notes}}</span><span><b>Make an episode</b><small>Image Studio · Music · Voice</small></span><i class="tab-progress" aria-hidden="true"></i></button>
-      <button type="button" role="tab" data-story-tab aria-controls="story-home" aria-selected="false" tabindex="-1"><span class="tone tone-orange">{{icon:house-line}}</span><span><b>Run your home</b><small>Schedules · Smart Home</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+        <button type="button" role="tab" data-story-tab data-group="personal" aria-controls="story-game" aria-selected="true"><span class="tone tone-blue">{{icon:game-controller}}</span><span><b>Make a game</b><small>Code · Workspace board</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+        <button type="button" role="tab" data-story-tab data-group="personal" aria-controls="story-german" aria-selected="false" tabindex="-1"><span class="tone tone-amber">{{icon:translate}}</span><span><b>Learn a language</b><small>Voice · Picture vocabulary</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+        <button type="button" role="tab" data-story-tab data-group="personal" aria-controls="story-organize" aria-selected="false" tabindex="-1"><span class="tone tone-green">{{icon:calendar-check}}</span><span><b>Get organized</b><small>Files · Life Coaching</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="personal" aria-controls="story-trip" aria-selected="false" tabindex="-1"><span class="tone tone-teal">{{icon:airplane-tilt}}</span><span><b>Plan a trip</b><small>Web search · Trip page</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="personal" aria-controls="story-create" aria-selected="false" tabindex="-1"><span class="tone tone-violet">{{icon:music-notes}}</span><span><b>Make an episode</b><small>Image Studio · Music · Voice</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="personal" aria-controls="story-home" aria-selected="false" tabindex="-1"><span class="tone tone-orange">{{icon:house-line}}</span><span><b>Run your home</b><small>Schedules · Smart Home</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="work" aria-controls="story-ship" aria-selected="false" tabindex="-1"><span class="tone tone-blue">{{icon:git-pull-request}}</span><span><b>Ship your product</b><small>Code · GitHub</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="work" aria-controls="story-support" aria-selected="false" tabindex="-1"><span class="tone tone-violet">{{icon:chats-circle}}</span><span><b>Support your users</b><small>Discord · Weekly digest</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="work" aria-controls="story-inbox" aria-selected="false" tabindex="-1"><span class="tone tone-teal">{{icon:envelope-simple}}</span><span><b>Clear your inbox</b><small>Mail · Drafts</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="work" aria-controls="story-report" aria-selected="false" tabindex="-1"><span class="tone tone-amber">{{icon:chart-line-up}}</span><span><b>Monday report</b><small>Schedules · Report page</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="work" aria-controls="story-customers" aria-selected="false" tabindex="-1"><span class="tone tone-green">{{icon:handshake}}</span><span><b>Know your customers</b><small>Accounts · Briefs</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="work" aria-controls="story-sprints" aria-selected="false" tabindex="-1"><span class="tone tone-orange">{{icon:kanban}}</span><span><b>Run the sprint</b><small>Board · Standups</small></span><i class="tab-progress" aria-hidden="true"></i></button>
       </div>
       <button class="demo-toggle" type="button" data-set-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
       </div>
@@ -566,7 +910,7 @@
       <p>Other agents run errands in the cloud. RedLeaf is for making things: the project first, and the art, sound, plans and knowledge around it, made on your machine and kept there. <a href="{{root}}cookbook/">Open the cookbook {{icon:arrow-right}}</a></p>
     </div>
     <div class="recipe-grid">
-{{recipes}}
+{{recipes:featured}}
     </div>
   </div>
 </section>

@@ -1,0 +1,99 @@
+<!--page {"title": "Support: a community that gets answers, even at night · RedLeaf cookbook", "description": "Bring Nova into your Discord server. She answers questions in the channels you choose, files the bugs people keep reporting, and gives you a weekly digest of what needs you.", "layout": "doc", "section": "cookbook", "slug": "support"}-->
+<header>
+  <p class="eyebrow">Use case · Support</p>
+  <h1>A community that gets answers, even at night.</h1>
+  <p class="doc-lede">Bring Nova into your Discord server and choose the channels she works in. She answers what she can, files the bugs that keep coming up, and keeps a list of what only you can decide. Once a week, it all becomes a page.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:discord-logo}}Discord</span><span>{{icon:folder-simple}}Workspace</span></div>
+</header>
+
+<div class="recipe-demo work-demo demo-support" data-demo aria-label="Animated recreation: Nova sums up a week on Discord, lists what needs you and writes the weekly digest">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen su-chat active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Ledgerly community</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Help center articles</b><small>Nova · Monday</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Ledgerly community</b><small>Nova · on your Discord server</small></span></div>
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="350"><p>How was the community this week?</p></div>
+            <div class="msg nova" data-step="20" data-wait="400"><div>
+              <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:60ms"></i><i class="sq t" style="--d:120ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq g" style="--d:240ms"></i><i class="sq g" style="--d:300ms"></i></div>
+              <p data-step="20" data-fx="stream">Busy and friendly. 41 questions in #help: I answered 36, and 5 need you. Two bugs came up three times each, so I opened a thread for each in #bug-reports, with the steps to reproduce.</p></div></div>
+            <div class="plan-card" data-step="30" data-wait="500">
+              <div class="plan-head">{{icon:chats-circle}}<b>Needs you · 5</b><small>From #help this week</small></div>
+              <div class="plan-days">
+                <div data-step="32" data-wait="350"><span>Refund</span><b>Annual plan, 3 weeks in</b><small>Only you can approve it</small></div>
+                <div data-step="34" data-wait="350"><span>Partner</span><b>An accounting firm, 40 seats</b><small>Wants a call this week</small></div>
+                <div data-step="36" data-wait="350"><span>Roadmap</span><b>Offline mode?</b><small>Asked by four people</small></div>
+              </div>
+            </div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen su-page no-side" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <article class="page-view">
+          <p class="crumb">Workspace / Ledgerly / <b>Community · week 46</b></p>
+          <p class="entity-type">PAGE</p>
+          <h3>Community · week 46</h3>
+          <table class="mini-table">
+            <tr><th>Topic</th><th>Threads</th><th>Where it stands</th></tr>
+            <tr data-step="54" data-wait="180"><td>VAT rates on invoices</td><td>14</td><td><span class="chip ok">answered</span> I linked the guide every time. It needs a better title.</td></tr>
+            <tr data-step="55" data-wait="180"><td>Bank import</td><td>9</td><td><span class="chip ok">answered</span> Mostly one bank's new file format.</td></tr>
+            <tr data-step="56" data-wait="180"><td>CSV accents</td><td>3</td><td><span class="chip review">thread in #bug-reports</span> Linked to issue #142.</td></tr>
+            <tr data-step="57" data-wait="400"><td>Mobile app</td><td>4</td><td><span class="chip warn">needs you</span> People ask when. I said it's being looked at.</td></tr>
+          </table>
+          <div class="heartbeat-card note" data-step="60" data-wait="1200">{{icon:bell}}<div><b>Every Friday at 17:00</b><small>I'll write this digest and post the highlights in Live.</small></div></div>
+        </article>
+      </div>
+    </section>
+    <i data-step="50" data-wait="700" data-fx="mark" data-remove=".su-chat|active" data-add=".su-page|active"></i>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>The week</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>What needs you</button></li>
+      <li><button type="button" data-seek="50"><span>03</span>The digest</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Replay demo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">A simplified recreation of RedLeaf. The community and its questions are examples.</p>
+</div>
+
+<div class="prose">
+  <h2>What you can ask</h2>
+  <ul class="prompt-list">
+    <li>How was the community this week?</li>
+    <li>Answer questions in #help. Anything about refunds or contracts comes to me.</li>
+    <li>Three people hit the same import bug. Open a post in #bug-reports with the steps to reproduce.</li>
+    <li>Every Friday at 17:00, write the weekly digest and post the highlights in Live.</li>
+  </ul>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><b>Add a Discord bot</b>Install the Discord extension, create a bot in the Discord developer portal and give RedLeaf its token. The bot speaks as one of your agents.</li>
+    <li><b>Choose the channels</b>Each channel you bind becomes its own conversation, separate from your private discussions.</li>
+    <li><b>She answers, you decide</b>Nova replies to what she can and brings you the rest: refunds, partnerships, anything you said is yours to decide.</li>
+    <li><b>A digest every week</b>A schedule turns the week into a page in Workspace: the topics, how many threads, and where each one stands.</li>
+  </ol>
+
+  <div class="callout">{{icon:shield-check}}<p><strong>People on Discord are not you.</strong> They can't give Nova orders on your behalf, and she doesn't share your personal information with them. Anything consequential, like a refund, she confirms with you in private first.</p></div>
+
+  <h2>What you need</h2>
+  <div class="needs">
+    <div><b>The Discord extension</b><span>Installed from Settings › Extensions.</span></div>
+    <div><b>A Discord bot</b><span>Created in the Discord developer portal and invited to your server.</span></div>
+    <div><b>RedLeaf running</b><span>Nova answers while RedLeaf is running on your computer.</span></div>
+  </div>
+</div>

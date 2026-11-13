@@ -1,0 +1,103 @@
+<!--page {"title": "Livrer : d'un bug signalé à une pull request relue · Cas d'usage RedLeaf", "description": "Confiez une issue GitHub à Auto Tackle : il travaille sur sa propre branche, lance les tests et ouvre une pull request. Vérifiez-la avec Auto Review et Health Check, puis approuvez et fusionnez.", "layout": "doc", "section": "cookbook", "slug": "ship"}-->
+<header>
+  <p class="eyebrow">Cas d'usage · Livrer</p>
+  <h1>D'un bug signalé à une pull request relue.</h1>
+  <p class="doc-lede">Votre produit a des utilisateurs, et les utilisateurs trouvent des bugs. Code affiche les issues ouvertes de votre dépôt à côté de ses commits et de ses tests. Confiez une issue à Auto Tackle : elle revient sous forme de pull request sur sa propre branche, testée et prête pour vous. Rien n'arrive sur votre branche principale avant que vous ne fusionniez.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:terminal-window}}Code</span><span>{{icon:github-logo}}GitHub</span></div>
+</header>
+
+<div class="recipe-demo work-demo demo-ship" data-demo aria-label="Reconstitution animée : Nova trouve l'issue, Auto Tackle ouvre une pull request, vous la relisez et la fusionnez">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen sp-chat active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Ledgerly</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Textes de la page tarifs</b><small>Nova · Tuesday</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Notes de version 2.4</b><small>Nova · last week</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Ledgerly</b><small>Nova · ton appli de facturation</small></span></div>
+          <div class="thread">
+            <div class="msg user"><p>Comment s'est passée la mise en production d'hier ?</p></div>
+            <div class="msg nova"><div><div class="frieze"><i class="sq t"></i><i class="sq t"></i></div><p>Sans accroc. La 2.4 est en ligne, aucune nouvelle erreur cette nuit, et le changelog est parti avec.</p></div></div>
+            <div class="msg user" data-step="10" data-wait="350"><p>Deux clients disent que les exports CSV perdent leurs accents. On peut corriger ça aujourd'hui ?</p></div>
+            <div class="msg nova" data-step="20" data-wait="400"><div>
+              <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:70ms"></i><i class="sq p" style="--d:140ms"></i></div>
+              <p data-step="20" data-fx="stream">C'est l'issue #142. On s'y attaque : elle aura sa propre branche, les tests tourneront, et tu relis la pull request avant toute fusion.</p></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen sp-code no-side" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon blue">{{icon:terminal-window}}</span><b>Code</b>{{icon:caret-down}}</span><nav><span>{{icon:terminal-window}}Sessions</span><span class="active">{{icon:github-logo}}GitHub</span><span>{{icon:code}}Code</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <div class="board-view gh-view">
+          <div class="view-head">{{icon:github-logo}}<b>ledgerly</b><small>main · 3 open issues</small></div>
+          <div class="gh-tabs"><span>Commits</span><span class="active">Issues</span><span>Tests</span><span>Worktrees</span></div>
+          <div class="gh-body">
+            <table class="mini-table gh-issues">
+              <tr><th>Issue</th><th>Label</th><th></th></tr>
+              <tr><td><b>#142</b> L'export CSV perd les accents</td><td><span class="chip warn">bug</span></td><td class="gh-act"><span class="pm-btn go sp-tackle">{{icon:lightning}}Auto Tackle<i class="fake-cursor" data-step="32" data-wait="450"></i></span><em class="badge working session-badge sp-badge" data-step="34" data-wait="250"><span class="when-running">{{icon:circle-notch}}tackling</span><span class="when-done">{{icon:git-pull-request}}PR #143</span></em></td></tr>
+              <tr><td><b>#139</b> Mode sombre pour les factures PDF</td><td><span class="chip">feature</span></td><td class="gh-act"><span class="pm-btn">{{icon:lightning}}Auto Tackle</span></td></tr>
+              <tr><td><b>#137</b> Tableau de bord lent au-delà de 10&#8239;000 factures</td><td><span class="chip">performance</span></td><td class="gh-act"><span class="pm-btn">{{icon:lightning}}Auto Tackle</span></td></tr>
+            </table>
+            <div class="sched-card review-card" data-step="44" data-wait="500">
+              <div class="sched-head"><span class="app-icon blue">{{icon:git-pull-request}}</span><span><b>#143 Garder les accents dans les exports CSV</b><small>{{icon:git-branch}}fix/csv-accents · from Auto Tackle</small></span><em class="badge ok">{{icon:check-circle}}Approve</em></div>
+              <dl><dt>Auto Review</dt><dd>Aucun point bloquant. Une suggestion : tester aussi les CSV à points-virgules qu'écrit Excel.</dd><dt>Health Check</dt><dd data-step="46" data-wait="450">3 suites, 412 tests réussis</dd></dl>
+              <div class="review-actions"><span class="pm-btn">Dismiss</span><span class="pm-btn go sp-merge">{{icon:git-merge}}Merge<i class="fake-cursor" data-step="50" data-wait="700"></i></span><span class="chip ok" data-step="52" data-wait="350">{{icon:check-circle}}merged into main</span></div>
+            </div>
+          </div>
+          <i data-step="34" data-fx="mark" data-add=".sp-tackle|gone"></i>
+          <i data-step="40" data-wait="1100" data-fx="mark" data-add=".sp-badge|ok" data-remove=".sp-badge|working"></i>
+          <i data-step="52" data-fx="mark" data-add=".sp-merge|gone"></i>
+        </div>
+      </div>
+    </section>
+    <i data-step="30" data-wait="450" data-fx="mark" data-remove=".sp-chat|active" data-add=".sp-code|active"></i>
+    <div class="toast" data-step="56" data-wait="500"><img class="avatar" src="{{root}}nova-avatar.webp" alt="" /><span><b>#142 est corrigée dans main</b><small>Elle partira avec ta prochaine version. Je l'ai ajoutée aux notes de la 2.5.</small></span></div>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Le signalement</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>Auto Tackle</button></li>
+      <li><button type="button" data-seek="44"><span>03</span>Relire et fusionner</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Mettre la démo en pause">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Rejouer la démo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">Une reconstitution simplifiée de RedLeaf. Le produit et ses issues sont des exemples.</p>
+</div>
+
+<div class="prose">
+  <h2>Ce que vous pouvez demander</h2>
+  <ul class="prompt-list">
+    <li>Deux clients disent que les exports CSV perdent leurs accents. Trouve l'issue et attaque-la.</li>
+    <li>Écris une issue pour le tableau de bord trop lent, avec ce que tu vérifierais en premier.</li>
+    <li>Relis les trois derniers commits sur main avant que je tague la version.</li>
+    <li>Qu'est-ce qui a été fusionné depuis la 2.4 ? Prépare les notes de version.</li>
+  </ul>
+
+  <h2>Comment ça marche</h2>
+  <ol class="steps">
+    <li><b>Enregistrez le dépôt</b>Dans l'onglet GitHub de Code, ajoutez le dossier de votre projet. Les issues et les pull requests demandent la GitHub CLI connectée ; les commits, les tests et les revues n'ont besoin que de Git.</li>
+    <li><b>Des signalements aux issues</b>New Issue rédige une issue complète à partir de votre courte description, avec le contexte et les critères d'acceptation. Ou demandez à Nova de l'écrire à partir de ce que vos utilisateurs ont signalé.</li>
+    <li><b>Lancez Auto Tackle</b>Une IA travaille sur l'issue : elle crée une branche, implémente le correctif, lance les tests et ouvre une pull request.</li>
+    <li><b>Relisez, puis fusionnez</b>Sur un commit, Auto Review donne un verdict d'IA avec ses remarques, et Health Check lance toutes les suites de tests, sans IA. Approuvez le tackle, puis fusionnez-le avec Merge, ou écartez-le avec Dismiss.</li>
+    <li><b>Gardez les notes de version</b>Demandez à Nova ce qui est entré depuis la dernière version. Elle lit l'historique et rédige les notes sous forme de page modifiable.</li>
+  </ol>
+
+  <div class="callout">{{icon:shield-check}}<p><strong>Votre branche principale reste à vous.</strong> Chaque tackle travaille sur sa propre branche. Rien n'est fusionné avant que vous choisissiez Merge, et un tackle écarté ne touche jamais au projet.</p></div>
+
+  <h2>Ce qu'il vous faut</h2>
+  <div class="needs">
+    <div><b>Git</b><span>Git pour Windows, ou le paquet git de votre distribution.</span></div>
+    <div><b>La GitHub CLI</b><span><code>gh</code>, connectée avec <code>gh auth login</code>, pour les issues, les pull requests et les tackles.</span></div>
+    <div><b>Un fournisseur de code</b><span>Par exemple Codex ou Anthropic, connecté pendant la configuration.</span></div>
+  </div>
+</div>

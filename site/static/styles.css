@@ -135,6 +135,7 @@ img { max-width: 100%; }
 .screen { position: absolute; inset: 34px 0 0; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transform: scale(.985); transition: opacity .45s ease, transform .45s ease, visibility 0s .45s; }
 .screen.active { opacity: 1; visibility: visible; transform: none; transition: opacity .45s ease, transform .45s ease; }
 .window.single .screen { position: absolute; inset: 34px 0 0; }
+.window .no-side .app-body { grid-template-columns: 1fr; }
 
 .app-header { height: 48px; flex: none; display: flex; align-items: center; gap: 18px; padding: 0 12px; border-bottom: 1px solid var(--app-border); background: var(--app-bg); }
 .app-identity { display: inline-flex; align-items: center; gap: 8px; padding: 5px 9px 5px 5px; border-radius: 9px; font-weight: 650; color: var(--app-fg); }
@@ -429,6 +430,8 @@ img { max-width: 100%; }
 .recipe-meta .i { width: 14px; height: 14px; }
 .recipe-demo { margin: 30px 0 10px; }
 .recipe-demo .window { height: clamp(380px, 52vh, 500px); }
+.recipe-demo.work-demo .window { height: clamp(520px, 62vh, 600px); }
+.demo-ship .toast { top: 84px; bottom: auto; }
 .recipe-demo .demo-controls { justify-content: space-between; }
 .recipe-demo .demo-controls .chapters button { padding: 9px 12px; font-size: .8rem; }
 .prose { max-width: 740px; }
@@ -463,6 +466,8 @@ img { max-width: 100%; }
 .pager .next { text-align: right; }
 .cookbook-hero { max-width: 760px; margin-bottom: 44px; }
 .cookbook-grid { grid-template-columns: repeat(2, 1fr); }
+.recipe-group { margin: 0 0 16px; color: var(--muted); font-size: .78rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+.cookbook-grid + .recipe-group { margin-top: 48px; }
 
 /* ───────── Legal ───────── */
 .legal-shell { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 56px; padding: 56px 0 110px; }
@@ -1321,3 +1326,34 @@ body.layout-landing .lang-suggest:not([hidden]) ~ .topbar-over { top: 45px; }
 @media (min-width: 2400px) and (min-height: 1350px) { .stage-app { --stage-zoom: 1.5; } }
 @media (min-width: 3000px) and (min-height: 1650px) { .stage-app { --stage-zoom: 1.85; } }
 @media (min-width: 3600px) and (min-height: 1950px) { .stage-app { --stage-zoom: 2.2; } }
+
+/* Work stories: Code's GitHub issues with Auto Tackle and a reviewed pull request; the sprint points counter. */
+.chip.warn { color: var(--warn-fg); background: rgba(201,154,79,.18); }
+.gh-tabs { flex: none; display: flex; gap: 4px; padding: 10px 20px 0; border-bottom: 1px solid var(--app-border); font-size: 12.5px; }
+.gh-tabs span { padding: 7px 12px; border-bottom: 2px solid transparent; color: var(--app-muted); }
+.gh-tabs span.active { border-color: var(--blue); color: var(--app-fg); font-weight: 600; }
+.gh-body { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 16px; padding: 10px 20px 20px; overflow: hidden; }
+.gh-issues td { vertical-align: middle; }
+.gh-issues td b { margin-right: 6px; color: var(--app-muted); font-weight: 600; }
+.gh-act { width: 1%; white-space: nowrap; text-align: right; }
+.gh-view .pm-btn { position: relative; }
+.pm-btn.go { color: #fff; background: var(--green); font-weight: 600; }
+.review-card { max-width: 100%; }
+.review-card .sched-head small { display: inline-flex; align-items: center; gap: 4px; }
+.review-card .sched-head small .i { width: 12px; height: 12px; }
+.review-card dl { grid-template-columns: 100px 1fr; }
+.review-actions { display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+.sr-pts-b, .sr-board.scored .sr-pts-a { display: none; }
+.sr-board.scored .sr-pts-b { display: inline; }
+
+/* Hero: the For you / For work switch. Only the active story's group of tabs shows. */
+.story-groups { display: inline-flex; gap: 2px; margin-top: 30px; padding: 3px; border: 1px solid rgba(255,255,255,.08); border-radius: 999px; background: rgba(20,21,26,.38); backdrop-filter: blur(14px); }
+.story-groups button { padding: 5px 14px; border: 0; border-radius: 999px; color: var(--muted); background: none; font: inherit; font-size: .82rem; font-weight: 600; cursor: pointer; }
+.story-groups button:hover { color: var(--fg); }
+.story-groups button[aria-pressed="true"] { color: var(--fg); background: rgba(255,255,255,.12); }
+.story-groups + .stage-bar { margin-top: 10px; }
+.stage:not([data-group="work"]) [data-story-tab][data-group="work"], .stage[data-group="work"] [data-story-tab][data-group="personal"] { display: none; }
+@media (prefers-color-scheme: light) {
+  .story-groups { border-color: rgba(31,35,40,.1); background: rgba(255,255,255,.55); }
+  .story-groups button[aria-pressed="true"] { background: rgba(255,255,255,.95); box-shadow: 0 1px 3px rgba(31,35,40,.12); }
+}

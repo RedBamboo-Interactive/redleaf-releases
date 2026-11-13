@@ -1,4 +1,4 @@
-<!--page {"title": "RedLeaf : le système d'exploitation de vos agents IA", "description": "Une seule application pour Windows et Linux, où vos agents IA disposent des outils, des applications et d'une mémoire qui dure. Créez un jeu, apprenez une langue, préparez un voyage ou pilotez votre maison, et voyez chacune de leurs étapes.", "layout": "landing", "section": "product"}-->
+<!--page {"title": "RedLeaf : le système d'exploitation de vos agents IA", "description": "Une seule application pour Windows et Linux, où vos agents IA disposent des outils, des applications et d'une mémoire qui dure. Créez un jeu, préparez un voyage, livrez votre produit ou suivez vos clients, et voyez chacune de leurs étapes.", "layout": "landing", "section": "product"}-->
 <section class="stage" id="demo" data-demo-set data-tempo="2" aria-labelledby="hero-title">
   <div class="stage-app">
     <!-- Story 1: a game developer. Nova -> Code -> Workspace board. -->
@@ -479,22 +479,366 @@
       </div>
     </div>
 
+    <!-- Travail 1 : une petite équipe produit. Nova -> Code's GitHub issues -> Auto Tackle -> a reviewed pull request. -->
+    <div class="story" id="story-ship" role="tabpanel" data-story data-demo data-pace=".7" data-duration="7000" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-ship.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen sp-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Ledgerly</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Textes de la page tarifs</b><small>Nova · Tuesday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Notes de version 2.4</b><small>Nova · last week</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Ledgerly</b><small>Nova · ton appli de facturation</small></span></div>
+              <div class="thread">
+                <div class="msg user"><p>Comment s'est passée la mise en production d'hier ?</p></div>
+                <div class="msg nova"><div><div class="frieze"><i class="sq t"></i><i class="sq t"></i></div><p>Sans accroc. La 2.4 est en ligne, aucune nouvelle erreur cette nuit, et le changelog est parti avec.</p></div></div>
+                <div class="msg user" data-step="10" data-wait="350"><p>Deux clients disent que les exports CSV perdent leurs accents. On peut corriger ça aujourd'hui ?</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:70ms"></i><i class="sq p" style="--d:140ms"></i></div>
+                  <p data-step="20" data-fx="stream">C'est l'issue #142. On s'y attaque : elle aura sa propre branche, les tests tourneront, et tu relis la pull request avant toute fusion.</p></div></div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen sp-code no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon blue">{{icon:terminal-window}}</span><b>Code</b>{{icon:caret-down}}</span><nav><span>{{icon:terminal-window}}Sessions</span><span class="active">{{icon:github-logo}}GitHub</span><span>{{icon:code}}Code</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <div class="board-view gh-view">
+              <div class="view-head">{{icon:github-logo}}<b>ledgerly</b><small>main · 3 open issues</small></div>
+              <div class="gh-tabs"><span>Commits</span><span class="active">Issues</span><span>Tests</span><span>Worktrees</span></div>
+              <div class="gh-body">
+                <table class="mini-table gh-issues">
+                  <tr><th>Issue</th><th>Label</th><th></th></tr>
+                  <tr><td><b>#142</b> L'export CSV perd les accents</td><td><span class="chip warn">bug</span></td><td class="gh-act"><span class="pm-btn go sp-tackle">{{icon:lightning}}Auto Tackle<i class="fake-cursor" data-step="32" data-wait="450"></i></span><em class="badge working session-badge sp-badge" data-step="34" data-wait="250"><span class="when-running">{{icon:circle-notch}}tackling</span><span class="when-done">{{icon:git-pull-request}}PR #143</span></em></td></tr>
+                  <tr><td><b>#139</b> Mode sombre pour les factures PDF</td><td><span class="chip">feature</span></td><td class="gh-act"><span class="pm-btn">{{icon:lightning}}Auto Tackle</span></td></tr>
+                  <tr><td><b>#137</b> Tableau de bord lent au-delà de 10&#8239;000 factures</td><td><span class="chip">performance</span></td><td class="gh-act"><span class="pm-btn">{{icon:lightning}}Auto Tackle</span></td></tr>
+                </table>
+                <div class="sched-card review-card" data-step="44" data-wait="500">
+                  <div class="sched-head"><span class="app-icon blue">{{icon:git-pull-request}}</span><span><b>#143 Garder les accents dans les exports CSV</b><small>{{icon:git-branch}}fix/csv-accents · from Auto Tackle</small></span><em class="badge ok">{{icon:check-circle}}Approve</em></div>
+                  <dl><dt>Auto Review</dt><dd>Aucun point bloquant. Une suggestion : tester aussi les CSV à points-virgules qu'écrit Excel.</dd><dt>Health Check</dt><dd data-step="46" data-wait="450">3 suites, 412 tests réussis</dd></dl>
+                  <div class="review-actions"><span class="pm-btn">Dismiss</span><span class="pm-btn go sp-merge">{{icon:git-merge}}Merge<i class="fake-cursor" data-step="50" data-wait="700"></i></span><span class="chip ok" data-step="52" data-wait="350">{{icon:check-circle}}merged into main</span></div>
+                </div>
+              </div>
+              <i data-step="34" data-fx="mark" data-add=".sp-tackle|gone"></i>
+              <i data-step="40" data-wait="1100" data-fx="mark" data-add=".sp-badge|ok" data-remove=".sp-badge|working"></i>
+              <i data-step="52" data-fx="mark" data-add=".sp-merge|gone"></i>
+            </div>
+          </div>
+        </section>
+        <i data-step="30" data-wait="450" data-fx="mark" data-remove=".sp-chat|active" data-add=".sp-code|active"></i>
+        <div class="toast" data-step="56" data-wait="500"><img class="avatar" src="{{root}}nova-avatar.webp" alt="" /><span><b>#142 est corrigée dans main</b><small>Elle partira avec ta prochaine version. Je l'ai ajoutée aux notes de la 2.5.</small></span></div>
+      </div>
+    </div>
+
+    <!-- Travail 2 : une communauté sur Discord. Nova y répond -> un résumé hebdo avec ce qui t'attend. -->
+    <div class="story" id="story-support" role="tabpanel" data-story data-demo data-pace=".7" data-duration="6500" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-support.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen su-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Communauté Ledgerly</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Articles du centre d'aide</b><small>Nova · Monday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Communauté Ledgerly</b><small>Nova · sur ton serveur Discord</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="10" data-wait="350"><p>Comment s'est passée la semaine dans la communauté ?</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:60ms"></i><i class="sq t" style="--d:120ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq g" style="--d:240ms"></i><i class="sq g" style="--d:300ms"></i></div>
+                  <p data-step="20" data-fx="stream">Animée et sympa. 41 questions dans #help : j'ai répondu à 36, et 5 t'attendent. Deux bugs sont revenus trois fois chacun, alors j'ai ouvert un fil pour chacun dans #bug-reports, avec les étapes pour les reproduire.</p></div></div>
+                <div class="plan-card" data-step="30" data-wait="500">
+                  <div class="plan-head">{{icon:chats-circle}}<b>À toi · 5</b><small>Depuis #help cette semaine</small></div>
+                  <div class="plan-days">
+                    <div data-step="32" data-wait="350"><span>Remboursement</span><b>Formule annuelle, depuis 3 semaines</b><small>Il faut ton accord</small></div>
+                    <div data-step="34" data-wait="350"><span>Partenaire</span><b>Un cabinet comptable, 40 postes</b><small>Veut un appel cette semaine</small></div>
+                    <div data-step="36" data-wait="350"><span>Feuille de route</span><b>Un mode hors ligne ?</b><small>Demandé par quatre personnes</small></div>
+                  </div>
+                </div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen su-page no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <article class="page-view">
+              <p class="crumb">Workspace / Ledgerly / <b>Communauté · semaine 46</b></p>
+              <p class="entity-type">PAGE</p>
+              <h3>Communauté · semaine 46</h3>
+              <table class="mini-table">
+                <tr><th>Sujet</th><th>Fils</th><th>Où on en est</th></tr>
+                <tr data-step="54" data-wait="180"><td>Taux de TVA sur les factures</td><td>14</td><td><span class="chip ok">répondu</span> J'ai donné le guide à chaque fois. Il lui faut un meilleur titre.</td></tr>
+                <tr data-step="55" data-wait="180"><td>Import bancaire</td><td>9</td><td><span class="chip ok">répondu</span> Surtout le nouveau format de fichier d'une banque.</td></tr>
+                <tr data-step="56" data-wait="180"><td>Accents dans les CSV</td><td>3</td><td><span class="chip review">fil dans #bug-reports</span> Lié à l'issue #142.</td></tr>
+                <tr data-step="57" data-wait="400"><td>Appli mobile</td><td>4</td><td><span class="chip warn">à toi</span> On demande pour quand. J'ai dit que c'était à l'étude.</td></tr>
+              </table>
+              <div class="heartbeat-card note" data-step="60" data-wait="1200">{{icon:bell}}<div><b>Chaque vendredi à 17&nbsp;h</b><small>J'écrirai ce résumé et je posterai l'essentiel dans Live.</small></div></div>
+            </article>
+          </div>
+        </section>
+        <i data-step="50" data-wait="700" data-fx="mark" data-remove=".su-chat|active" data-add=".su-page|active"></i>
+      </div>
+    </div>
+
+    <!-- Travail 3 : la boîte mail après un week-end. Nova lit Gmail (lecture seule) -> une page de brouillons, que tu envoies. -->
+    <div class="story" id="story-inbox" role="tabpanel" data-story data-demo data-pace=".7" data-duration="6000" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-inbox.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen ib-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Boîte mail</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Contrats fournisseurs</b><small>Nova · Tuesday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Boîte mail</b><small>Nova · lit ton Gmail</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="10" data-wait="350"><p>Je suis de retour. Fais le tour de ma boîte depuis vendredi.</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:50ms"></i><i class="sq t" style="--d:100ms"></i><i class="sq t" style="--d:150ms"></i><i class="sq t" style="--d:200ms"></i><i class="sq t" style="--d:250ms"></i><i class="sq p" style="--d:300ms"></i><i class="sq g" style="--d:350ms"></i></div>
+                  <p data-step="20" data-fx="stream">112 nouveaux messages depuis vendredi. 9 t'attendent, 3 sont des factures, et le reste peut attendre. J'ai préparé les 9 réponses sur une page, prêtes à envoyer depuis Gmail.</p></div></div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen ib-page no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <article class="page-view">
+              <p class="crumb">Workspace / Nova / <b>Boîte mail · lundi</b></p>
+              <p class="entity-type">PAGE</p>
+              <h3>Boîte mail · lundi</h3>
+              <table class="mini-table">
+                <tr><th>De</th><th>Objet</th><th></th></tr>
+                <tr data-step="34" data-wait="180"><td>Marta, Brightwell Foods</td><td>Devis pour 25 postes de plus</td><td><span class="chip ok">brouillon prêt</span></td></tr>
+                <tr data-step="35" data-wait="180"><td>Ton cabinet comptable</td><td>Chiffres de TVA du T3</td><td><span class="chip warn">pour jeudi</span></td></tr>
+                <tr data-step="36" data-wait="180"><td>Paul, prestataire</td><td>Facture 2291, 1&#8239;450&nbsp;€</td><td><span class="chip">facture</span></td></tr>
+                <tr data-step="37" data-wait="400"><td>Meetup SaaS de Lyon</td><td>Une intervention en mars</td><td><span class="chip ok">brouillon prêt</span></td></tr>
+              </table>
+              <div class="heartbeat-card note" data-step="40" data-wait="1300">{{icon:bell}}<div><b>Chaque jour de semaine à 8&nbsp;h&nbsp;30</b><small>Je trierai ce qui arrive et je le posterai dans Live. Je n'envoie jamais rien à ta place.</small></div></div>
+            </article>
+          </div>
+        </section>
+        <i data-step="30" data-wait="500" data-fx="mark" data-remove=".ib-chat|active" data-add=".ib-page|active"></i>
+      </div>
+    </div>
+
+    <!-- Travail 4 : les chiffres de la semaine. Une planification transforme un export en page de rapport chaque lundi. -->
+    <div class="story" id="story-report" role="tabpanel" data-story data-demo data-pace=".7" data-duration="6000" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-report.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen rp-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Chiffres de la semaine</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Présentation du conseil</b><small>Nova · last week</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Chiffres de la semaine</b><small>Nova · Claude Code · Standard</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="10" data-wait="350"><p>Chaque lundi à 8&nbsp;h, transforme l'export des ventes de Rapports en une synthèse d'une page. Signale tout ce qui a bougé de plus de 10&#8239;%.</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:70ms"></i><i class="sq g" style="--d:140ms"></i></div>
+                  <p data-step="20" data-fx="stream">C'est fait. C'est une planification maintenant, donc elle tourne même quand on ne se parle pas.</p></div></div>
+                <div class="sched-card" data-step="24" data-wait="700">
+                  <div class="sched-head"><span class="app-icon amber">{{icon:clock}}</span><span><b>Rapport du lundi</b><small>Automation · Nova</small></span><em class="badge ok">{{icon:check-circle}}active</em></div>
+                  <dl><dt>When</dt><dd>Every Monday, 08:00</dd><dt>Reads</dt><dd>Rapports/ventes-semaine.csv</dd><dt>Writes</dt><dd>Une page de rapport, et une note dans Live quand quelque chose bouge de plus de 10&#8239;%</dd></dl>
+                </div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen rp-page no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <article class="page-view">
+              <p class="crumb">Workspace / Rapports / <b>Semaine 46</b></p>
+              <p class="entity-type">PAGE</p>
+              <h3>Rapport de la semaine 46</h3>
+              <table class="mini-table">
+                <tr><th>Indicateur</th><th>Semaine 46</th><th>vs semaine 45</th></tr>
+                <tr data-step="34" data-wait="180"><td>Chiffre d'affaires</td><td>48&#8239;200&nbsp;€</td><td><span class="chip ok">+6&#8239;%</span></td></tr>
+                <tr data-step="35" data-wait="180"><td>Nouveaux clients</td><td>31</td><td><span class="chip ok">+3&#8239;%</span></td></tr>
+                <tr data-step="36" data-wait="180"><td>Résiliations</td><td>7</td><td><span class="chip warn">+40&#8239;%</span></td></tr>
+                <tr data-step="37" data-wait="400"><td>Remboursements</td><td>1&#8239;120&nbsp;€</td><td><span class="chip">−2&#8239;%</span></td></tr>
+              </table>
+              <div class="heartbeat-card note" data-step="40" data-wait="900">{{icon:warning}}<div><b>Un point à regarder</b><small>Les résiliations ont augmenté de 40&#8239;%. Cinq des sept sont arrivées le lendemain du mail sur les prix.</small></div></div>
+            </article>
+          </div>
+        </section>
+        <i data-step="30" data-wait="700" data-fx="mark" data-remove=".rp-chat|active" data-add=".rp-page|active"></i>
+        <div class="toast" data-step="44" data-wait="600"><img class="avatar" src="{{root}}nova-avatar.webp" alt="" /><span><b>Rapport du lundi généré à 08:00</b><small>La semaine 46 est prête, avec un signalement.</small></span></div>
+      </div>
+    </div>
+
+    <!-- Travail 5 : un commercial. Nova prépare le rendez-vous à partir du compte et de son historique -> met le compte à jour après l'appel. -->
+    <div class="story" id="story-customers" role="tabpanel" data-story data-demo data-pace=".7" data-duration="7000" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-customers.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen cu-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Brightwell Foods</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Northwind Café</b><small>Nova · Tuesday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Pipeline T4</b><small>Nova · Monday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Brightwell Foods</b><small>Nova · tes comptes clients</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="10" data-wait="350"><p>Je vois Brightwell Foods à 14&nbsp;h. Fais-moi le point.</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:60ms"></i><i class="sq t" style="--d:120ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq p" style="--d:240ms"></i></div>
+                  <p data-step="20" data-fx="stream">D'après leur fiche, tes notes d'appel et les mails du mois dernier :</p></div></div>
+                <div class="plan-card" data-step="24" data-wait="400">
+                  <div class="plan-head">{{icon:buildings}}<b>Brightwell Foods</b><small>Compte · 3 sites · client depuis 2024</small></div>
+                  <div class="plan-days">
+                    <div data-step="25" data-wait="300"><span>Aujourd'hui</span><b>40 postes, renouvelés en mars</b><small>Paiements à l'heure</small></div>
+                    <div data-step="26" data-wait="300"><span>En suspens</span><b>Deux demandes sur le SSO</b><small>Marta, responsable des opérations</small></div>
+                    <div data-step="27" data-wait="300"><span>Piste</span><b>Un nouveau site à Lyon en janvier</b><small>De ton dernier appel</small></div>
+                  </div>
+                </div>
+                <div class="msg user" data-step="40" data-wait="1100"><p>C'est fait. Ils veulent 25 postes de plus et le SSO, avec un devis d'ici jeudi.</p></div>
+                <div class="msg nova" data-step="44" data-wait="400"><div>
+                  <div class="frieze"><i class="sq g"></i><i class="sq g" style="--d:70ms"></i></div>
+                  <p data-step="44" data-fx="stream">J'ai mis à jour le compte et programmé un rappel jeudi à 9&nbsp;h.</p></div></div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen cu-page no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <article class="page-view">
+              <p class="crumb">Workspace / Ventes / Comptes / <b>Brightwell Foods</b></p>
+              <p class="entity-type">COMPTE</p>
+              <h3>Brightwell Foods</h3>
+              <table class="mini-table">
+                <tr><th>Champ</th><th>Valeur</th></tr>
+                <tr data-step="54" data-wait="180"><td>Étape</td><td><span class="chip review">extension</span></td></tr>
+                <tr data-step="55" data-wait="180"><td>Postes</td><td>40, et 25 de plus dans le devis</td></tr>
+                <tr data-step="56" data-wait="180"><td>Contact</td><td>Marta Ruiz, responsable des opérations</td></tr>
+                <tr data-step="57" data-wait="400"><td>Prochaine étape</td><td>Devis avec SSO, d'ici jeudi</td></tr>
+              </table>
+              <div class="heartbeat-card note" data-step="60" data-wait="1300">{{icon:bell}}<div><b>Jeudi à 9&nbsp;h</b><small>Envoyer le devis à Brightwell. Je l'ai commencé à partir de celui de mars.</small></div></div>
+            </article>
+          </div>
+        </section>
+        <i data-step="50" data-wait="600" data-fx="mark" data-remove=".cu-chat|active" data-add=".cu-page|active"></i>
+      </div>
+    </div>
+
+    <!-- Travail 6 : le sprint d'une équipe. Le standup de Nova -> le tableau du sprint dans Workspace, les cartes bougent. -->
+    <div class="story" id="story-sprints" role="tabpanel" data-story data-demo data-pace=".7" data-duration="6500" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-sprints.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen sr-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Sprint 14</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Rétro du sprint 13</b><small>Nova · last Friday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Sprint 14</b><small>Nova · l'équipe Ledgerly</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="10" data-wait="350"><p>Standup. On en est où sur le sprint 14 ?</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:60ms"></i><i class="sq t" style="--d:120ms"></i><i class="sq g" style="--d:180ms"></i><i class="sq g" style="--d:240ms"></i></div>
+                  <p data-step="20" data-fx="stream">Jour 6 sur 10, et 21 points sur 34 terminés. L'import bancaire a été fusionné cette nuit, et l'éditeur de factures attend une relecture. Un risque : la connexion mobile est bloquée par le changement d'API. J'ai déplacé les cartes.</p></div></div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen sr-board no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <div class="board-view">
+              <div class="view-head">{{icon:kanban}}<b>Sprint 14</b><small>Tickets · jour 6 sur 10 · <span class="sr-pts-a">13</span><span class="sr-pts-b">21</span> points sur 34</small></div>
+              <div class="board">
+                <div class="board-col"><p>À faire <i>2</i></p>
+                  <div class="board-card"><b>{{icon:file-text}}Connexion mobile</b><span class="chip warn">bloqué · changement d'API</span></div>
+                  <div class="board-card"><b>{{icon:file-text}}Export vers Excel</b><span class="chip">3 pts</span></div>
+                </div>
+                <div class="board-col"><p>En cours <i><span class="cnt-a">3</span><span class="cnt-b">1</span></i></p>
+                  <div class="board-card sr-bank"><b>{{icon:git-branch}}Import bancaire</b><span class="chip">8 pts</span></div>
+                  <div class="board-card sr-editor"><b>{{icon:git-branch}}Éditeur de factures</b><span class="chip">5 pts</span></div>
+                  <div class="board-card"><b>{{icon:git-branch}}E-mails de relance</b><span class="chip">3 pts</span></div>
+                </div>
+                <div class="board-col"><p>Relecture <i><span class="cnt-a">0</span><span class="cnt-b">1</span></i></p>
+                  <div class="board-card moved" data-step="54" data-wait="600"><b>{{icon:eye}}Éditeur de factures</b><span class="chip review">relecteur recherché</span></div>
+                </div>
+                <div class="board-col"><p>Terminé <i><span class="cnt-a">2</span><span class="cnt-b">3</span></i></p>
+                  <div class="board-card moved" data-step="52" data-wait="450"><b>{{icon:check-circle}}Import bancaire</b><span class="chip ok">fusionné</span></div>
+                  <div class="board-card"><b>{{icon:check-circle}}Rôles d'équipe</b></div>
+                  <div class="board-card"><b>{{icon:check-circle}}Mode sombre</b></div>
+                </div>
+              </div>
+              <i data-step="52" data-fx="mark" data-add=".sr-bank|gone"></i>
+              <i data-step="54" data-fx="mark" data-add=".sr-editor|gone; .sr-board .board|settled; .sr-board|scored"></i>
+            </div>
+          </div>
+        </section>
+        <i data-step="40" data-wait="600" data-fx="mark" data-remove=".sr-chat|active" data-add=".sr-board|active"></i>
+        <div class="toast" data-step="58" data-wait="1100"><img class="avatar" src="{{root}}nova-avatar.webp" alt="" /><span><b>Standup posté pour l'équipe</b><small>Deux cartes déplacées, un risque signalé : la connexion mobile.</small></span></div>
+      </div>
+    </div>
+
     <div class="stage-copy">
       <p class="pill"><span class="pill-dot"></span>Préversion Nightly · Désormais sur Windows et Linux</p>
       <h1 id="hero-title">Le système d'exploitation de vos <em>agents IA</em>.</h1>
-      <p class="lede">Une seule application pour Windows et Linux, où vos agents disposent des outils, des applications et d'une mémoire qui dure. Créez un jeu, apprenez une langue, préparez un voyage, pilotez votre maison, et voyez chacune de leurs étapes.</p>
+      <p class="lede">Une seule application pour Windows et Linux, où vos agents disposent des outils, des applications et d'une mémoire qui dure. Créez un jeu, préparez un voyage, livrez votre produit, suivez vos clients, et voyez chacune de leurs étapes.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#download">{{icon:download-simple}}<span>Obtenir RedLeaf pour <span data-platform-label>Windows</span></span></a>
         <a class="btn btn-ghost" href="{{root}}cookbook/">{{icon:book-open}}<span>Cas d'usage</span></a>
       </div>
+      <div class="story-groups" role="group" aria-label="Histoires"><button type="button" data-story-group="personal" aria-pressed="true">Pour vous</button><button type="button" data-story-group="work" aria-pressed="false">Pour le travail</button></div>
       <div class="stage-bar">
     <div class="story-tabs" role="tablist" aria-label="Choisir une histoire">
-        <button type="button" role="tab" data-story-tab aria-controls="story-game" aria-selected="true"><span class="tone tone-blue">{{icon:game-controller}}</span><span><b>Créer un jeu</b><small>Code · Tableau Workspace</small></span><i class="tab-progress" aria-hidden="true"></i></button>
-        <button type="button" role="tab" data-story-tab aria-controls="story-german" aria-selected="false" tabindex="-1"><span class="tone tone-amber">{{icon:translate}}</span><span><b>Apprendre une langue</b><small>Voix · Vocabulaire en images</small></span><i class="tab-progress" aria-hidden="true"></i></button>
-        <button type="button" role="tab" data-story-tab aria-controls="story-organize" aria-selected="false" tabindex="-1"><span class="tone tone-green">{{icon:calendar-check}}</span><span><b>S'organiser</b><small>Fichiers · Life Coaching</small></span><i class="tab-progress" aria-hidden="true"></i></button>
-      <button type="button" role="tab" data-story-tab aria-controls="story-trip" aria-selected="false" tabindex="-1"><span class="tone tone-teal">{{icon:airplane-tilt}}</span><span><b>Préparer un voyage</b><small>Recherche web · Page de voyage</small></span><i class="tab-progress" aria-hidden="true"></i></button>
-      <button type="button" role="tab" data-story-tab aria-controls="story-create" aria-selected="false" tabindex="-1"><span class="tone tone-violet">{{icon:music-notes}}</span><span><b>Faire un épisode</b><small>Image Studio · Musique · Voix</small></span><i class="tab-progress" aria-hidden="true"></i></button>
-      <button type="button" role="tab" data-story-tab aria-controls="story-home" aria-selected="false" tabindex="-1"><span class="tone tone-orange">{{icon:house-line}}</span><span><b>Piloter la maison</b><small>Planifications · Smart Home</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+        <button type="button" role="tab" data-story-tab data-group="personal" aria-controls="story-game" aria-selected="true"><span class="tone tone-blue">{{icon:game-controller}}</span><span><b>Créer un jeu</b><small>Code · Tableau Workspace</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+        <button type="button" role="tab" data-story-tab data-group="personal" aria-controls="story-german" aria-selected="false" tabindex="-1"><span class="tone tone-amber">{{icon:translate}}</span><span><b>Apprendre une langue</b><small>Voix · Vocabulaire en images</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+        <button type="button" role="tab" data-story-tab data-group="personal" aria-controls="story-organize" aria-selected="false" tabindex="-1"><span class="tone tone-green">{{icon:calendar-check}}</span><span><b>S'organiser</b><small>Fichiers · Life Coaching</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="personal" aria-controls="story-trip" aria-selected="false" tabindex="-1"><span class="tone tone-teal">{{icon:airplane-tilt}}</span><span><b>Préparer un voyage</b><small>Recherche web · Page de voyage</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="personal" aria-controls="story-create" aria-selected="false" tabindex="-1"><span class="tone tone-violet">{{icon:music-notes}}</span><span><b>Faire un épisode</b><small>Image Studio · Musique · Voix</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="personal" aria-controls="story-home" aria-selected="false" tabindex="-1"><span class="tone tone-orange">{{icon:house-line}}</span><span><b>Piloter la maison</b><small>Planifications · Smart Home</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="work" aria-controls="story-ship" aria-selected="false" tabindex="-1"><span class="tone tone-blue">{{icon:git-pull-request}}</span><span><b>Livrer le produit</b><small>Code · GitHub</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="work" aria-controls="story-support" aria-selected="false" tabindex="-1"><span class="tone tone-violet">{{icon:chats-circle}}</span><span><b>Animer la communauté</b><small>Discord · Résumé hebdo</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="work" aria-controls="story-inbox" aria-selected="false" tabindex="-1"><span class="tone tone-teal">{{icon:envelope-simple}}</span><span><b>Vider la boîte mail</b><small>Mail · Brouillons</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="work" aria-controls="story-report" aria-selected="false" tabindex="-1"><span class="tone tone-amber">{{icon:chart-line-up}}</span><span><b>Rapport du lundi</b><small>Planifications · Page de rapport</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="work" aria-controls="story-customers" aria-selected="false" tabindex="-1"><span class="tone tone-green">{{icon:handshake}}</span><span><b>Suivre ses clients</b><small>Comptes · Briefings</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab data-group="work" aria-controls="story-sprints" aria-selected="false" tabindex="-1"><span class="tone tone-orange">{{icon:kanban}}</span><span><b>Mener le sprint</b><small>Tableau · Standups</small></span><i class="tab-progress" aria-hidden="true"></i></button>
       </div>
       <button class="demo-toggle" type="button" data-set-toggle aria-label="Mettre la démo en pause">{{icon:pause}}{{icon:play}}</button>
       </div>
@@ -566,7 +910,7 @@
       <p>D'autres agents font vos courses dans le cloud. RedLeaf sert à créer : le projet d'abord, puis les visuels, le son, les plans et les connaissances qui l'entourent, réalisés sur votre machine et conservés sur place. <a href="{{root}}cookbook/">Voir les cas d'usage {{icon:arrow-right}}</a></p>
     </div>
     <div class="recipe-grid">
-{{recipes}}
+{{recipes:featured}}
     </div>
   </div>
 </section>

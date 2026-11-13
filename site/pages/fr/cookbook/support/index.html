@@ -1,0 +1,99 @@
+<!--page {"title": "Communauté : une communauté qui a ses réponses, même la nuit · Cas d'usage RedLeaf", "description": "Faites venir Nova sur votre serveur Discord. Elle répond aux questions dans les salons que vous choisissez, consigne les bugs qui reviennent et vous donne chaque semaine un résumé de ce qui a besoin de vous.", "layout": "doc", "section": "cookbook", "slug": "support"}-->
+<header>
+  <p class="eyebrow">Cas d'usage · Communauté</p>
+  <h1>Une communauté qui a ses réponses, même la nuit.</h1>
+  <p class="doc-lede">Faites venir Nova sur votre serveur Discord et choisissez les salons où elle intervient. Elle répond à ce qu'elle peut, consigne les bugs qui reviennent et tient la liste de ce que vous seul pouvez décider. Une fois par semaine, tout devient une page.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:discord-logo}}Discord</span><span>{{icon:folder-simple}}Workspace</span></div>
+</header>
+
+<div class="recipe-demo work-demo demo-support" data-demo aria-label="Reconstitution animée : Nova résume une semaine sur Discord, liste ce qui a besoin de vous et rédige le résumé hebdo">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen su-chat active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Communauté Ledgerly</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Articles du centre d'aide</b><small>Nova · Monday</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Communauté Ledgerly</b><small>Nova · sur ton serveur Discord</small></span></div>
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="350"><p>Comment s'est passée la semaine dans la communauté ?</p></div>
+            <div class="msg nova" data-step="20" data-wait="400"><div>
+              <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:60ms"></i><i class="sq t" style="--d:120ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq g" style="--d:240ms"></i><i class="sq g" style="--d:300ms"></i></div>
+              <p data-step="20" data-fx="stream">Animée et sympa. 41 questions dans #help : j'ai répondu à 36, et 5 t'attendent. Deux bugs sont revenus trois fois chacun, alors j'ai ouvert un fil pour chacun dans #bug-reports, avec les étapes pour les reproduire.</p></div></div>
+            <div class="plan-card" data-step="30" data-wait="500">
+              <div class="plan-head">{{icon:chats-circle}}<b>À toi · 5</b><small>Depuis #help cette semaine</small></div>
+              <div class="plan-days">
+                <div data-step="32" data-wait="350"><span>Remboursement</span><b>Formule annuelle, depuis 3 semaines</b><small>Il faut ton accord</small></div>
+                <div data-step="34" data-wait="350"><span>Partenaire</span><b>Un cabinet comptable, 40 postes</b><small>Veut un appel cette semaine</small></div>
+                <div data-step="36" data-wait="350"><span>Feuille de route</span><b>Un mode hors ligne ?</b><small>Demandé par quatre personnes</small></div>
+              </div>
+            </div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen su-page no-side" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <article class="page-view">
+          <p class="crumb">Workspace / Ledgerly / <b>Communauté · semaine 46</b></p>
+          <p class="entity-type">PAGE</p>
+          <h3>Communauté · semaine 46</h3>
+          <table class="mini-table">
+            <tr><th>Sujet</th><th>Fils</th><th>Où on en est</th></tr>
+            <tr data-step="54" data-wait="180"><td>Taux de TVA sur les factures</td><td>14</td><td><span class="chip ok">répondu</span> J'ai donné le guide à chaque fois. Il lui faut un meilleur titre.</td></tr>
+            <tr data-step="55" data-wait="180"><td>Import bancaire</td><td>9</td><td><span class="chip ok">répondu</span> Surtout le nouveau format de fichier d'une banque.</td></tr>
+            <tr data-step="56" data-wait="180"><td>Accents dans les CSV</td><td>3</td><td><span class="chip review">fil dans #bug-reports</span> Lié à l'issue #142.</td></tr>
+            <tr data-step="57" data-wait="400"><td>Appli mobile</td><td>4</td><td><span class="chip warn">à toi</span> On demande pour quand. J'ai dit que c'était à l'étude.</td></tr>
+          </table>
+          <div class="heartbeat-card note" data-step="60" data-wait="1200">{{icon:bell}}<div><b>Chaque vendredi à 17&nbsp;h</b><small>J'écrirai ce résumé et je posterai l'essentiel dans Live.</small></div></div>
+        </article>
+      </div>
+    </section>
+    <i data-step="50" data-wait="700" data-fx="mark" data-remove=".su-chat|active" data-add=".su-page|active"></i>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>La semaine</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>Ce qui vous attend</button></li>
+      <li><button type="button" data-seek="50"><span>03</span>Le résumé</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Mettre la démo en pause">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Rejouer la démo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">Une reconstitution simplifiée de RedLeaf. La communauté et ses questions sont des exemples.</p>
+</div>
+
+<div class="prose">
+  <h2>Ce que vous pouvez demander</h2>
+  <ul class="prompt-list">
+    <li>Comment s'est passée la semaine dans la communauté ?</li>
+    <li>Réponds aux questions dans #help. Tout ce qui touche aux remboursements ou aux contrats, c'est pour moi.</li>
+    <li>Trois personnes ont le même bug d'import. Ouvre un post dans #bug-reports avec les étapes pour le reproduire.</li>
+    <li>Chaque vendredi à 17 h, rédige le résumé de la semaine et poste l'essentiel dans Live.</li>
+  </ul>
+
+  <h2>Comment ça marche</h2>
+  <ol class="steps">
+    <li><b>Ajoutez un bot Discord</b>Installez l'extension Discord, créez un bot dans le portail développeur de Discord et donnez son jeton à RedLeaf. Le bot parle au nom de l'un de vos agents.</li>
+    <li><b>Choisissez les salons</b>Chaque salon que vous reliez devient une conversation à part, séparée de vos discussions privées.</li>
+    <li><b>Elle répond, vous décidez</b>Nova répond à ce qu'elle peut et vous apporte le reste : remboursements, partenariats, tout ce que vous avez gardé pour vous.</li>
+    <li><b>Un résumé chaque semaine</b>Une planification transforme la semaine en page dans Workspace : les sujets, le nombre de fils et où en est chacun.</li>
+  </ol>
+
+  <div class="callout">{{icon:shield-check}}<p><strong>Les gens sur Discord ne sont pas vous.</strong> Ils ne peuvent pas donner d'ordres à Nova en votre nom, et elle ne leur communique pas vos informations personnelles. Pour tout ce qui engage, comme un remboursement, elle vous demande d'abord confirmation en privé.</p></div>
+
+  <h2>Ce qu'il vous faut</h2>
+  <div class="needs">
+    <div><b>L'extension Discord</b><span>Installée depuis Settings › Extensions.</span></div>
+    <div><b>Un bot Discord</b><span>Créé dans le portail développeur de Discord et invité sur votre serveur.</span></div>
+    <div><b>RedLeaf ouvert</b><span>Nova répond tant que RedLeaf tourne sur votre ordinateur.</span></div>
+  </div>
+</div>

@@ -398,7 +398,9 @@ $$("[data-demo]").forEach((root) => new Demo(root));
 /* A [data-demo-set] holds several demos ([data-story]) behind tabs ([data-story-tab]). The active
    story plays while the set is on screen; when it ends the next one starts, so the set loops through
    every story. Each tab fills smoothly with the story's playing time, against its data-duration (ms),
-   which is re-measured every time the story finishes. [data-set-toggle] pauses the whole set. */
+   which is re-measured every time the story finishes. [data-set-toggle] pauses the whole set. Tabs can
+   belong to a data-group: the set shows the active story's group, and a [data-story-group] button
+   jumps to the first story of its group. */
 class DemoSet {
   constructor(root) {
     this.root = root;
@@ -408,6 +410,13 @@ class DemoSet {
     this.visible = false;
     this.userPaused = false;
     this.toggle = $("[data-set-toggle]", root);
+    this.groups = $$("[data-story-group]", root);
+    this.groups.forEach((button) => button.addEventListener("click", () => {
+      const first = this.tabs.findIndex((tab) => tab.dataset.group === button.dataset.storyGroup);
+      if (first < 0 || this.tabs[this.active].dataset.group === button.dataset.storyGroup) return;
+      this.userPaused = false;
+      this.show(first);
+    }));
     this.elapsed = 0;
     this.tempo = Number(root.dataset.tempo || 1);
     this.durations = this.panels.map((panel) => (Number(panel.dataset.duration) || 8000) * this.tempo);
@@ -487,6 +496,9 @@ class DemoSet {
     });
     this.active = index;
     this.elapsed = 0;
+    const group = this.tabs[index].dataset.group;
+    if (group) this.root.dataset.group = group;
+    this.groups.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.storyGroup === group)));
     this.tabs[index].style.setProperty("--p", 0);
     const demo = this.demo();
     if (reducedMotion.matches) { demo.settle(); this.tabs[index].style.setProperty("--p", 1); }

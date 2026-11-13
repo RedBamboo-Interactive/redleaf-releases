@@ -7,7 +7,7 @@
 //
 // Each page starts with <!--page {json}--> naming its title, description and layout. Bodies may use
 // {{root}} (resolved to the page's language for pages, to the site root for files in static/),
-// {{site}} (always the site root), {{icon:name}} and {{recipes}}.
+// {{site}} (always the site root), {{icon:name}} and {{recipes}} or {{recipes:featured|personal|work}}.
 import { cp, mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
@@ -111,7 +111,7 @@ for (const relative of pagePaths) {
     const page = { ...meta, path: pagePath };
 
     let html = render(page, body, ctx)
-      .replaceAll("{{recipes}}", recipeCards(ctx))
+      .replace(/\{\{recipes(?::([a-z]+))?\}\}/g, (_, filter) => recipeCards(ctx, filter))
       .replace(/\{\{icon:([a-z0-9-]+)\}\}/g, (_, name) => icon(name))
       .replace(/\{\{root\}\}([^"'\s)<>]*)/g, (_, rest) => {
         const first = rest.split(/[/#?]/)[0];
