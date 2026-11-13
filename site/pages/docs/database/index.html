@@ -1,0 +1,38 @@
+<!--page {"title": "Database and views · RedLeaf docs", "description": "Everything in RedLeaf is an entity. Create your own types and fields, search across everything, and build board and list views in your projects.", "layout": "docs", "section": "docs", "slug": "database"}-->
+<header>
+  <p class="eyebrow">Going further</p>
+  <h1>Database and views.</h1>
+  <p class="doc-lede">Under the apps, everything in RedLeaf is an entity: pages, agents, skills, repositories, automations, and anything you define yourself. The Database app shows all of it, lets you create your own types, and searches across everything at once.</p>
+</header>
+
+<div class="prose">
+  <h2>Entities and types</h2>
+  <p>Every entity has a type, and every type has fields. A <span class="ui">Character</span> type for your game might have a name, a portrait, a faction and a list of quests. Agents can read and fill these just like you, which is how a project's structure stays shared between you and them.</p>
+  <ol class="steps">
+    <li><b>Open Database</b>From the app switcher, then <span class="ui">Entities</span>. The list shows every <span class="ui">Entity Type</span>, organised in folders. RedLeaf's own types sit in the locked <span class="ui">System</span> section, and the <span class="ui">Scope</span> filter narrows the list to one app or workspace.</li>
+    <li><b>Create a type</b>Choose <span class="ui">New type</span> and name it, for example Document, Character or Item.</li>
+    <li><b>Add fields</b>In the type's fields, add what it needs and choose <span class="ui">Save Changes</span>.</li>
+    <li><b>Add entities</b>Under <span class="ui">Instances</span>, choose <span class="ui">New</span>. Or ask an agent to fill them in from your notes.</li>
+  </ol>
+  <p>Field types: String, Number, Float, Boolean, Date, Select, Multi Select, Entity Ref, Entity List, Media, Color, JSON and Markdown. Entity Ref and Entity List link entities together, such as a quest to its characters.</p>
+
+  <h2>Search</h2>
+  <p><span class="ui">Database › Search</span> is one search across everything you're allowed to read. Search in <span class="ui">Entities</span> (names, properties and references) or in <span class="ui">Records</span> (pages, discussions, sessions and other indexed streams). Narrow it by entity type, by the field to match, or by date. Results respect permissions, so each person only finds what they can see.</p>
+
+  <h2>Views in your projects</h2>
+  <p>In a Workspace project, <span class="ui">New view</span> shows a set of entities in a layout of your choosing. Give it a name, pick the entity type and a display mode, and choose <span class="ui">Create View</span>.</p>
+  <table class="doc-table">
+    <thead><tr><th>Mode</th><th>What you get</th></tr></thead>
+    <tbody>
+      <tr><td>Board</td><td>Columns grouped by a select field, such as a status. Drag a card to another column to change the field.</td></tr>
+      <tr><td>List</td><td>A vertical list, optionally grouped by a field.</td></tr>
+    </tbody>
+  </table>
+  <p>A board grouped by status is a roadmap: the agent can move cards as work moves, and you see the same board.</p>
+
+  <h2>Pages</h2>
+  <p>A Workspace project is a page, and pages nest. Open one to write in it, pin the items you use most under <span class="ui">Structure</span>, and choose <span class="ui">Share</span> to create a link to it. Every change is versioned, with <span class="ui">Undo this change</span> in its history.</p>
+
+  <h2>Roles</h2>
+  <p>RedLeaf has three roles: <span class="ui">Admin</span>, with full access including settings; <span class="ui">Editor</span>, who can read and write all content but can't manage users or roles; and <span class="ui">Viewer</span>, with read-only access. The owner account created at setup is an admin. More people need Google sign-in: see <a href="{{root}}docs/remote-access/">Remote access</a>.</p>
+</div>

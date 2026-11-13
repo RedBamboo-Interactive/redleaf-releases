@@ -1,0 +1,60 @@
+<!--page {"title": "Install on Linux · RedLeaf docs", "description": "Install FUSE 3, run the one-line RedLeaf installer as yourself, and open RedLeaf in your browser. Tested on Fedora with SELinux enforcing.", "layout": "docs", "section": "docs", "slug": "install-linux"}-->
+<header>
+  <p class="eyebrow">Get started</p>
+  <h1>Install on Linux.</h1>
+  <p class="doc-lede">RedLeaf installs into your home folder, as you, with no root access. A short script checks the launcher against the signed release record, and the launcher checks everything else before it installs.</p>
+</header>
+
+<div class="prose">
+  <h2>Before you start</h2>
+  <ul>
+    <li><strong>Linux x64.</strong> RedLeaf is tested on Fedora with SELinux enforcing. There is nothing to relabel or turn off.</li>
+    <li><strong>FUSE 3</strong>, which provides your <code>~/Leaf</code> folder. Install it first:
+      <pre><code># Fedora
+sudo dnf install fuse3
+# Debian and Ubuntu
+sudo apt install fuse3
+# Arch
+sudo pacman -S fuse3</code></pre></li>
+    <li><strong>The usual tools</strong>: <code>curl</code>, <code>tar</code>, <code>sha256sum</code>, <code>python3</code> and <code>mktemp</code>. Most distributions have them already.</li>
+    <li><strong>An AI provider you can sign in to.</strong> See <a href="{{root}}docs/providers/">AI providers</a>.</li>
+    <li><strong>Git</strong> from your distribution, only if you want to use Code on your own projects.</li>
+  </ul>
+
+  <h2>Install</h2>
+  <ol class="steps">
+    <li><b>Copy the command</b>Go to the <a href="{{root}}#download">download section</a>, choose the <span class="ui">Linux</span> tab and copy the install command. It looks like <code>curl -fsSL https://…/install.sh | sh</code> and always points at the current signed release.</li>
+    <li><b>Run it as yourself</b>Paste it into a terminal. Don't use <code>sudo</code>: RedLeaf installs per user and refuses to run as root.</li>
+    <li><b>Watch it check and install</b>The script reads the signed feed, downloads the launcher, and checks its exact size and SHA-256 against the signed record. Nothing runs if they don't match. The launcher then verifies the feed again and installs the suite.</li>
+    <li><b>Open RedLeaf</b>Your browser opens <code>http://127.0.0.1:18804</code>. On a machine without a display, such as over SSH, the launcher prints the address instead. Continue with <a href="{{root}}docs/first-run/">Set up RedLeaf</a>.</li>
+  </ol>
+  <p>Prefer not to pipe a script into a shell? Choose <span class="ui">Download Nightly</span> on the Linux tab instead, compare the archive with <span class="ui">Show SHA-256</span>, then:</p>
+  <pre><code>tar -xzf redleaf-linux-x64.tar.gz redleaf-launcher
+./redleaf-launcher open</code></pre>
+
+  <div class="callout warn">{{icon:warning}}<p><strong>The Linux release may not be out yet.</strong> If the Linux tab says the Linux release is not published, there is nothing to install for now. Windows releases are published separately.</p></div>
+
+  <h2>Where it lives</h2>
+  <table class="doc-table">
+    <thead><tr><th>What</th><th>Where</th></tr></thead>
+    <tbody>
+      <tr><td>The program</td><td><code>~/.local/share/RedLeaf-Suite</code></td></tr>
+      <tr><td>Your data</td><td><code>~/.local/share/RedLeaf</code>: settings, the private database and logs. Back up this folder to keep everything.</td></tr>
+      <tr><td>Agent workspaces</td><td><code>~/Leaf/Workspaces</code>, while RedLeaf runs</td></tr>
+      <tr><td>Menu entry</td><td><span class="ui">RedLeaf</span> in your applications menu</td></tr>
+    </tbody>
+  </table>
+  <p>If <code>XDG_DATA_HOME</code> is set, RedLeaf uses it instead of <code>~/.local/share</code>.</p>
+
+  <h2>Starting and stopping</h2>
+  <p>Start RedLeaf from your applications menu. There is no tray icon on Linux, and RedLeaf keeps running after you close the browser. To stop it:</p>
+  <pre><code>pkill -TERM -x RedLeaf</code></pre>
+  <p>The AI engine, the private database and the <code>~/Leaf</code> folder stop with it.</p>
+
+  <h2>What's different from Windows</h2>
+  <ul>
+    <li>Doctor, the recovery companion, is Windows only for now.</li>
+    <li>The off-site backup copy is not available on Linux yet. Local database backups work.</li>
+    <li>Some local model providers for voice and images are built for Windows first and may not be offered on Linux.</li>
+  </ul>
+</div>

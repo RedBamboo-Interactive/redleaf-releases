@@ -1,0 +1,43 @@
+<!--page {"title": "The local API · RedLeaf docs", "description": "RedLeaf and its AI engine describe themselves through discovery. How agents call them with signed execution tokens, and how every call is traced back to who asked.", "layout": "docs", "section": "docs", "slug": "api"}-->
+<header>
+  <p class="eyebrow">Going further</p>
+  <h1>The local API.</h1>
+  <p class="doc-lede">Everything the apps do goes through a local API, and so does everything your agents do. It describes itself, so an agent can find the right call without guessing, and every call carries a signed identity that says who asked and for whom.</p>
+</header>
+
+<div class="prose">
+  <h2>Two services</h2>
+  <table class="doc-table">
+    <thead><tr><th>Service</th><th>Address</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td>RedLeaf</td><td><code>http://127.0.0.1:18804</code></td><td>Entities, apps, extensions, discussions, automations, settings, authentication</td></tr>
+      <tr><td>RedCompute</td><td><code>http://127.0.0.1:18800</code></td><td>The AI engine: sessions, inference, speech, images and other jobs</td></tr>
+    </tbody>
+  </table>
+  <p>Both listen only on your own machine. Remote access goes through RedLeaf. The ports are shown in <span class="ui">Settings › System</span> and in the AI Compute settings.</p>
+
+  <h2>Discovery</h2>
+  <p>Start with <code>/discover</code> on either service. It's a short map of areas, each with its routes, schemas and concepts. Search it, or open one area:</p>
+  <pre><code>GET /discover                      the map
+GET /discover/find?q=automations   search it
+GET /discover/automations          one area in full
+GET /openapi.json                  the OpenAPI document</code></pre>
+  <p>Extensions add their own areas, so what you see depends on what's installed. That's the point: an agent reads discovery for the live contract instead of relying on a route it remembers.</p>
+
+  <h2>Authentication</h2>
+  <p>Every call needs a token, sent as <code>Authorization: Bearer &lt;token&gt;</code>. Discovery says <code>"authMode": "Required"</code>; a route that lists no auth of its own is still not public.</p>
+  <ul>
+    <li><strong>The apps</strong> in your browser mint short-lived execution tokens from your session, for one app at a time.</li>
+    <li><strong>Agents</strong> get one in the <code>REDLEAF_EXECUTION_TOKEN</code> environment variable of their session.</li>
+  </ul>
+  <pre><code>curl -H "Authorization: Bearer $REDLEAF_EXECUTION_TOKEN" \
+  http://127.0.0.1:18804/auth/execution-context</code></pre>
+  <p><code>/auth/execution-context</code> returns who the token speaks for: the app, the actor, the beneficiary, the discussion it came from, its parent, and when it expires. A token never grants more than the person it acts for is allowed.</p>
+  <div class="callout warn">{{icon:shield-check}}<p><strong>Tokens stay on the machine.</strong> Send an execution token only to the local RedLeaf and RedCompute. Never put it in a URL, a log or a browser's storage, and never send it to another website. The skills that ship with Nova follow these rules; follow them in yours.</p></div>
+
+  <h2>Every call is on the record</h2>
+  <p>Because each token is signed, RedLeaf knows which app, agent and discussion every call came from. In <span class="ui">Compute › Jobs</span>, each job shows its origin, its actor and its beneficiary, its timeline and its cost, and you can filter by any of them. That's how you answer “who started this, and why?” for anything that ran.</p>
+
+  <h2>Writing your own tools</h2>
+  <p>The simplest way to automate RedLeaf is to ask an agent: it already holds a signed token, reads discovery, and shows its calls as step squares you can check. For anything an agent should do the same way every time, write it down as a <a href="{{root}}docs/skills/">skill</a>.</p>
+</div>

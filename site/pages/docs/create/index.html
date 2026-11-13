@@ -1,0 +1,45 @@
+<!--page {"title": "Images, voices and music · RedLeaf docs", "description": "Generate images on your own GPU, voices and music in the cloud or locally, from a conversation, and find every result and job afterwards.", "layout": "docs", "section": "docs", "slug": "create"}-->
+<header>
+  <p class="eyebrow">Everyday use</p>
+  <h1>Images, voices and music.</h1>
+  <p class="doc-lede">Ask an agent for a picture, a narration or a song, and it writes the prompt, picks the settings and starts the job. There's no new screen to learn. Each ability comes from a provider extension you install once.</p>
+</header>
+
+<div class="prose">
+  <h2>Pick your providers</h2>
+  <table class="doc-table">
+    <thead><tr><th>For</th><th>Provider</th><th>Runs</th><th>Cost and needs</th></tr></thead>
+    <tbody>
+      <tr><td>Images</td><td>ComfyUI</td><td>On your PC</td><td>Free. An NVIDIA graphics card and about 21 GB for the models.</td></tr>
+      <tr><td>Voices</td><td>ElevenLabs</td><td>Cloud</td><td>Your ElevenLabs account, billed by ElevenLabs.</td></tr>
+      <tr><td>Voices</td><td>Qwen3-TTS</td><td>On your PC</td><td>Free. NVIDIA graphics card, WSL 2, about 3.4 GB.</td></tr>
+      <tr><td>Music</td><td>Suno</td><td>Cloud</td><td>A SunoAPI account with credits. RedLeaf asks before it spends any.</td></tr>
+    </tbody>
+  </table>
+  <p>Install them from <span class="ui">Settings › Extensions</span>, in the <span class="ui">Marketplace</span>. Each one's <span class="ui">Guide</span> tab lists what it needs and walks you through setup. Local providers are prepared for you: RedLeaf downloads the program and its models, then tests it with a small job. ComfyUI can also adopt an installation you already have. See <a href="{{root}}docs/providers/">AI providers and local models</a>.</p>
+
+  <h2>Ask for it</h2>
+  <ul class="prompt-list">
+    <li>Make three cover ideas for the episode: a lighthouse at night, warm light, painted style.</li>
+    <li>Read the intro aloud in a calm voice and send it to me.</li>
+    <li>Write a 30-second theme for the show, lo-fi, with a little piano.</li>
+    <li>Same image, but wider, for a phone wallpaper.</li>
+  </ul>
+  <p>Results appear in the discussion and are kept on your machine as assets, linked to the conversation that made them. Ask for changes the way you'd ask a person: the agent keeps the prompt and settings it used, so it knows what to adjust.</p>
+
+  <h2>Find every job</h2>
+  <p>Every generation is a job in <span class="ui">Compute</span>. Open <span class="ui">Compute › Jobs</span> to see each one with its provider, who asked for it, how long it took, what it cost and where its output went. Filter by type or by app, and re-run or cancel from there.</p>
+  <p>You can also start a job by hand: in <span class="ui">Compute › Capabilities</span>, choose <span class="ui">Queue a new job</span> on a capability's card, fill in the settings and choose <span class="ui">Generate</span>.</p>
+
+  <div class="callout">{{icon:cpu}}<p><strong>One graphics card, several models.</strong> Local image and voice models share your GPU and can get in each other's way. The <span class="ui">Hardware Monitor</span> at the bottom of Compute shows graphics memory by capability. To free the card, put a capability to sleep with the moon button on its card.</p></div>
+
+  <h2>Voices for your agents</h2>
+  <p>Give an agent a voice of its own in its <span class="ui">Voice</span> field. Text to Speech keeps reusable voices you can tie to a provider, so the same voice follows the agent across discussions. For live calls, see <a href="{{root}}docs/voice/">Voice and Float Nova</a>.</p>
+
+  <h2>Optional extras</h2>
+  <ul>
+    <li><strong>Gallery</strong> gathers the images and videos from across RedLeaf into one wall, where you can pick, reject, rate and tag them. It never deletes anything.</li>
+    <li><strong>Ambience</strong> changes RedLeaf's background, and on Windows your desktop wallpaper, on a schedule, from photos, your own images or generated ones.</li>
+  </ul>
+  <p>Both are in the Marketplace. The <a href="{{root}}cookbook/create/">Create</a> recipe shows a whole episode made this way.</p>
+</div>

@@ -1,0 +1,49 @@
+<!--page {"title": "Nova and your own agents · RedLeaf docs", "description": "What an agent is made of, how Nova is set up, and how to create your own agent with its own name, personality, provider, workspace and skills.", "layout": "docs", "section": "docs", "slug": "agents"}-->
+<header>
+  <p class="eyebrow">Everyday use</p>
+  <h1>Nova and your own agents.</h1>
+  <p class="doc-lede">An agent is a character with a job: a name, a personality, the AI provider that does its thinking, a workspace for its memory, and the skills it may use. Nova is the first one. You can make as many as you like.</p>
+</header>
+
+<div class="prose">
+  <h2>Nova</h2>
+  <p>Setup creates Nova for you: a warm, capable assistant with a starting personality, an avatar, a set of skills, the provider you chose, and a workspace called <span class="ui">Nova</span>. She starts from that template and builds her relationship with you from there, in her memory. Everything about her can be changed, the same way as any other agent.</p>
+  <p>Nova isn't a model. The thinking is done by the provider she uses. Change it per discussion when you start one, or for good in her <span class="ui">Provider</span> and <span class="ui">Quality Tier</span> fields.</p>
+
+  <h2>What an agent is made of</h2>
+  <p>Every agent is a page in RedLeaf with these fields. Open an agent's page from a discussion's <span class="ui">Info</span> dialog, or from <span class="ui">Database › Entities › Agent</span>.</p>
+  <table class="doc-table">
+    <thead><tr><th>Field</th><th>What it's for</th></tr></thead>
+    <tbody>
+      <tr><td>Description</td><td>One line about what the agent does. Shown when you pick an agent for a new discussion.</td></tr>
+      <tr><td>Avatar</td><td>Its picture.</td></tr>
+      <tr><td>Identity</td><td>Its personality, voice and behaviour, in plain words. This is the heart of the agent.</td></tr>
+      <tr><td>Output Protocol</td><td>Rules it checks before every reply: tone, formatting, things to avoid.</td></tr>
+      <tr><td>Protocols</td><td>Short conduct rules you can share between agents. See <a href="{{root}}docs/skills/">Skills and protocols</a>.</td></tr>
+      <tr><td>Skills</td><td>Reusable instruction packages it may use.</td></tr>
+      <tr><td>Provider, Quality Tier</td><td>Which AI does its thinking by default, and at what quality: Fast, Standard, Deep or Research.</td></tr>
+      <tr><td>Workspace</td><td>The page its memory, configuration and files live under. Without one, the agent forgets everything between discussions.</td></tr>
+      <tr><td>Access level</td><td>What it may do without asking. Leave it on the default unless this agent needs something different. See <a href="{{root}}docs/access-levels/">Access levels</a>.</td></tr>
+      <tr><td>Voice, Live Voice</td><td>How it sounds when it speaks, and in voice mode. See <a href="{{root}}docs/voice/">Voice</a>.</td></tr>
+      <tr><td>Live</td><td>Gives it a standing Live discussion and a heartbeat. See <a href="{{root}}docs/automations/">Schedules and the heartbeat</a>.</td></tr>
+      <tr><td>Automations</td><td>The schedules that run as this agent. Read only.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Create an agent</h2>
+  <ol class="steps">
+    <li><b>Make its workspace</b>In <span class="ui">Workspace</span>, choose <span class="ui">New Project</span> and name it after the agent. This page becomes its memory.</li>
+    <li><b>Create the agent</b>Open <span class="ui">Database</span>, choose <span class="ui">Entities</span>, then <span class="ui">Agent</span> in the list of types. Under <span class="ui">Instances</span>, choose <span class="ui">New</span>.</li>
+    <li><b>Give it a character</b>Fill in its name, description and identity. Pick its provider and quality tier, and set <span class="ui">Workspace</span> to the page from step 1. Choose <span class="ui">Create Entity</span>.</li>
+    <li><b>Talk to it</b>Start a new discussion and pick it from the list.</li>
+  </ol>
+  <p>An agent without a workspace still works, but the new-discussion list marks it <span class="ui">Disposable storage · no cross-discussion memory</span>.</p>
+
+  <h3>Writing a good identity</h3>
+  <p>Write it the way you'd brief a person. Who they are, what they're for, how they talk, and what they should never do. Be specific: “a patient German tutor who corrects one mistake at a time and answers in German unless I ask otherwise” works far better than “a helpful tutor”. Keep facts that change, like your progress or your preferences, out of the identity: the agent writes those into its memory itself.</p>
+  <div class="callout">{{icon:lightbulb}}<p><strong>Edit the agent, not its files.</strong> An agent's workspace contains generated instruction files for its AI provider, such as <code>CLAUDE.md</code> and <code>AGENTS.md</code>. They are rebuilt from the agent's page, so edit the page and the files follow.</p></div>
+
+  <h2>Several agents</h2>
+  <p>Each discussion belongs to one agent and keeps its own history. With more than one agent, the <span class="ui">Discussions</span> sidebar can filter by agent. Agents can use different providers: a quick one for a quiz partner, a deep one for a research librarian.</p>
+  <p>Not sure what to make? The <a href="{{root}}cookbook/learn/">Learn</a> recipe has a tutor, a coach and a sparring partner to start from.</p>
+</div>

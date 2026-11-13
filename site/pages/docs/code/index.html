@@ -1,0 +1,64 @@
+<!--page {"title": "Coding sessions · RedLeaf docs", "description": "Add a project to Code, start a coding session, review what it changed, use reviews, health checks, issues and tests, and let Nova delegate the work.", "layout": "docs", "section": "docs", "slug": "code"}-->
+<header>
+  <p class="eyebrow">Everyday use</p>
+  <h1>Coding sessions.</h1>
+  <p class="doc-lede">Code is where agents work on your projects. A session is a persistent AI worker on one project, which you can watch, steer and come back to. Around it, Code shows your commits, issues, tests and branches, and lets you edit files yourself.</p>
+</header>
+
+<div class="prose">
+  <h2>What you need</h2>
+  <ul>
+    <li><strong>Git</strong>, for everything in Code. Git for Windows, or your distribution's <code>git</code> package.</li>
+    <li><strong>The GitHub CLI</strong> (<code>gh</code>), signed in with <code>gh auth login</code>, for the GitHub features: listing and creating issues and pull requests, and tackles. Commits, branches, tests, reviews and health checks only need Git.</li>
+    <li>Your project's own toolchain, to run its tests.</li>
+  </ul>
+  <p>Code's settings show a <span class="ui">Dependencies</span> list with what it found. Choose <span class="ui">Check again</span> after installing something.</p>
+
+  <h2>Add a project</h2>
+  <p>Open the <span class="ui">GitHub</span> tab in Code and choose <span class="ui">+</span> (<span class="ui">Add repository</span>) at the top of the <span class="ui">Repos</span> list.</p>
+  <ul>
+    <li><span class="ui">Existing checkout</span>: a folder that is already a Git repository. Give it a name and its path, then choose <span class="ui">Register</span>. The remote is detected from Git.</li>
+    <li><span class="ui">New project</span>: Code creates the folder, initialises Git on <code>main</code>, and registers it. Choose <span class="ui">Create</span>.</li>
+  </ul>
+  <p>Code doesn't clone. To work on a project that only exists on GitHub, run <code>git clone</code> first, then register the folder.</p>
+
+  <h2>Start a session</h2>
+  <ol class="steps">
+    <li><b>New session</b>In <span class="ui">Sessions</span>, choose <span class="ui">New</span> or press <kbd>Ctrl</kbd>+<kbd>N</kbd>.</li>
+    <li><b>Pick the project</b>Filter and choose it. If the project allows branches, a <span class="ui">Branch</span> row lets you pick or create one: see <a href="{{root}}docs/branches/">Branches and parallel work</a>.</li>
+    <li><b>Pick the provider and quality</b>Fast, Standard, Deep or Research. Standard suits most work; Deep and Research take longer and think harder. Then choose <span class="ui">Go</span>.</li>
+    <li><b>Write the brief</b>The session starts empty: your first message is the brief. Say what you want, what “done” looks like, and how to check it.</li>
+  </ol>
+  <p>From a repository's header in the <span class="ui">GitHub</span> tab, <span class="ui">New Session</span> starts one straight away with the defaults.</p>
+
+  <h2>Working with a session</h2>
+  <p>A session works like a discussion: <a href="{{root}}docs/chat/">step squares</a> for every action, approval cards, queued follow-ups, <kbd>Esc</kbd> to interrupt. A few things are specific to Code:</p>
+  <ul>
+    <li><strong>Plan mode.</strong> Press <kbd>Shift</kbd>+<kbd>Tab</kbd> and the session reads and plans without changing anything. When the plan is ready, choose <span class="ui">Execute Plan</span>, or reply to revise it.</li>
+    <li><strong>Status.</strong> Each session's dot shows its state: gold while working, teal when idle, grey when stopped, red on error, amber when it's waiting for you. The browser tab gets a <code>(!)</code> while any session waits on you. <kbd>Alt</kbd>+<kbd>↑</kbd> and <kbd>Alt</kbd>+<kbd>↓</kbd> switch sessions.</li>
+    <li><strong>Info.</strong> <kbd>Alt</kbd>+<kbd>I</kbd> shows the provider, model, quality, cost and tokens, and its <span class="ui">Permissions</span>: the one setting you can change while it runs.</li>
+    <li><strong>Coming back.</strong> Send a message to a stopped session and it resumes. If you hit your provider's usage limit, the session pauses; send a message after the limit resets.</li>
+    <li><strong>Stop, Dismiss, Close.</strong> <span class="ui">Stop</span> ends the process and keeps the session listed. <span class="ui">Dismiss</span> hides it without stopping. <span class="ui">Close</span> does both. Find closed sessions under <span class="ui">More › Browse archives</span> and <span class="ui">Reopen</span> them.</li>
+  </ul>
+
+  <h2>Reviewing what changed</h2>
+  <p>The <span class="ui">Code</span> tab is a file browser and editor. Files an AI session changed recently carry a sparkle, and the <span class="ui">Git</span> panel lists <span class="ui">Recent AI Changes</span>, uncommitted changes and recent commits. Open a changed file and choose <span class="ui">Diff against HEAD</span> to see exactly what moved. Save your own edits with <kbd>Ctrl</kbd>+<kbd>S</kbd>.</p>
+  <p>Code doesn't commit, push or merge for you from these panels. Ask the session to commit, or use Git yourself.</p>
+
+  <h2>The GitHub tab</h2>
+  <table class="doc-table">
+    <thead><tr><th>Tab</th><th>What you can do</th></tr></thead>
+    <tbody>
+      <tr><td>Commits</td><td>Browse commits and pull requests. On a commit: <span class="ui">Auto Review</span> has an AI review the diff and give a verdict with findings; <span class="ui">Health Check</span> runs every test suite at that commit, with no AI. <span class="ui">Align to revision</span> checks the commit out in your project folder, so only use it on a clean checkout.</td></tr>
+      <tr><td>Issues</td><td><span class="ui">New Issue</span> writes a full issue from your short description, with context and acceptance criteria. <span class="ui">Auto Tackle</span> lets an AI work on an issue: it creates a branch, implements, tests and opens a pull request. You <span class="ui">Approve</span> it, then <span class="ui">Merge</span>, or <span class="ui">Dismiss</span> it.</td></tr>
+      <tr><td>Tests</td><td>Discovered test suites, with <span class="ui">Run Suite</span>, <span class="ui">Run All</span>, history and live output. Code finds .NET, npm and pytest suites; describe others in <code>.codered/tests.json</code>.</td></tr>
+      <tr><td>Worktrees</td><td>The project's branches and their folders. See <a href="{{root}}docs/branches/">Branches and parallel work</a>.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">{{icon:warning}}<p><strong>Tackles work in your project folder.</strong> A tackle switches branches in the main checkout. Don't start one while you or another session are working there.</p></div>
+
+  <h2>Letting Nova delegate</h2>
+  <p>You don't have to start sessions yourself. Ask Nova for the work in a discussion, and she can hand it to a Code session on the right project, on its own branch if the project allows it. The discussion shows a <span class="ui">Delegated to Code</span> card with <span class="ui">Open in Code</span>, and a pink circle while it runs. When the session finishes, Nova gets the result, reviews it, and tells you what happened. She can send the same session more feedback until it's right.</p>
+  <p>You can open the delegated session in Code at any time to watch it, approve a step, or add a message.</p>
+  <p>A delegated session doesn't share Nova's memory or the discussion. Nova writes what it needs into the brief, and that's one more reason to keep your project's decisions in her workspace.</p>
+</div>

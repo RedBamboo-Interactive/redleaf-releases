@@ -1,0 +1,58 @@
+<!--page {"title": "AI providers and local models · RedLeaf docs", "description": "Which AI providers RedLeaf supports, how they sign in, how quality tiers choose the model, and how to run voice, transcription and images on your own GPU.", "layout": "docs", "section": "docs", "slug": "providers"}-->
+<header>
+  <p class="eyebrow">Going further</p>
+  <h1>AI providers and local models.</h1>
+  <p class="doc-lede">RedLeaf doesn't come with a model of its own. Each ability, from chat to images, is filled by a provider you choose. Some run in the cloud on your own account; others run on your graphics card, for free.</p>
+</header>
+
+<div class="prose">
+  <h2>Thinking and chat</h2>
+  <p>These do your agents' thinking. RedLeaf installs all three, and you sign in to at least one during setup.</p>
+  <table class="doc-table">
+    <thead><tr><th>Provider</th><th>You need</th><th>Sign in with</th></tr></thead>
+    <tbody>
+      <tr><td>Claude Code</td><td>Claude Code on your PC, and a Claude subscription or an Anthropic Console account</td><td><span class="ui">Continue with Claude</span> or <span class="ui">Use Anthropic Console</span></td></tr>
+      <tr><td>Codex</td><td>A ChatGPT account with Codex, or an OpenAI API key. RedLeaf can install Codex for you.</td><td><span class="ui">Continue with ChatGPT</span> or <span class="ui">Use an API key</span></td></tr>
+      <tr><td>OpenCode</td><td>OpenCode on your PC, signed in to any provider it supports</td><td><span class="ui">Open OpenCode sign-in</span>, in a terminal</td></tr>
+    </tbody>
+  </table>
+  <p>Sign-ins stay with each provider's own tool on your PC. If RedLeaf can't find Claude Code in an unusual place, enter its location in the extension's advanced settings. By default Codex may only change files in its working folder; that's its <span class="ui">Sandbox mode</span>.</p>
+
+  <h2>Quality tiers instead of model names</h2>
+  <p>You don't pick model IDs. You pick a quality tier, and each provider maps it to its own models:</p>
+  <table class="doc-table">
+    <thead><tr><th>Tier</th><th>Good for</th></tr></thead>
+    <tbody>
+      <tr><td>Fast</td><td>Quick answers, quizzes, small chores</td></tr>
+      <tr><td>Standard</td><td>Most work, including coding sessions</td></tr>
+      <tr><td>Deep</td><td>Harder problems that deserve more thinking</td></tr>
+      <tr><td>Research</td><td>Long, careful investigations</td></tr>
+    </tbody>
+  </table>
+  <p>Each agent has a default <span class="ui">Provider</span> and <span class="ui">Quality Tier</span>. Override them when you start a discussion or session, or change them later in <span class="ui">Info</span>, which restarts the session.</p>
+
+  <h2>Voice, transcription, images and music</h2>
+  <p>Install these from <span class="ui">Settings › Extensions</span> when you want them.</p>
+  <table class="doc-table">
+    <thead><tr><th>Provider</th><th>Fills</th><th>Runs</th><th>Needs</th></tr></thead>
+    <tbody>
+      <tr><td>faster-whisper</td><td>Speech to Text</td><td>Local</td><td>NVIDIA GPU, WSL 2, about 1.6 GB</td></tr>
+      <tr><td>Qwen3-TTS</td><td>Text to Speech</td><td>Local</td><td>NVIDIA GPU, WSL 2, about 3.4 GB</td></tr>
+      <tr><td>ElevenLabs</td><td>Text to Speech</td><td>Cloud</td><td>An ElevenLabs API key (the full secret starting with <code>sk_</code>)</td></tr>
+      <tr><td>ComfyUI</td><td>Image Generation</td><td>Local</td><td>NVIDIA GPU, about 21 GB</td></tr>
+      <tr><td>Suno</td><td>Music Generation</td><td>Cloud</td><td>A SunoAPI key with credits</td></tr>
+      <tr><td>OpenAI GPT-Live</td><td>Voice mode</td><td>Cloud</td><td>An OpenAI project key starting with <code>sk-proj-</code></td></tr>
+    </tbody>
+  </table>
+  <p>When a capability has several providers, choose the <span class="ui">Default provider</span> in the capability's settings.</p>
+
+  <h3>Local models</h3>
+  <p>Local providers are set up for you. RedLeaf prepares the environment, downloads the program and its models, starts it, and tests it with a small job. The first start can take several minutes. Voice and transcription run inside WSL 2 on Windows. ComfyUI runs natively, and can adopt an installation you already have if you point it at the folder. RedLeaf starts ComfyUI when it's needed, so you never open it yourself.</p>
+  <p>The Marketplace card tells you before you install whether it fits your machine: <span class="ui">Works on this PC</span>, <span class="ui">Needs WSL</span>, <span class="ui">Needs an NVIDIA GPU</span>, or how much graphics memory or disk space is missing.</p>
+
+  <h2>Keys and privacy</h2>
+  <p>API keys you save are encrypted in RedLeaf's own store and are never shown again or sent to the browser. Keys you give to Codex go straight to Codex. Content only leaves your computer when an agent sends it to the provider you chose, so your choice of provider decides what leaves. Local providers send nothing out.</p>
+
+  <h2>Watching usage</h2>
+  <p><span class="ui">Compute</span> shows every job and its cost, and <span class="ui">Compute › Stats</span> adds totals, success rates and token counts over time. Where a provider reports a subscription quota, a thin ring around the Live discussion's avatar shows how much is left: teal, then gold from 90% used, red at the limit. Hover it for a summary.</p>
+</div>

@@ -1,0 +1,45 @@
+<!--page {"title": "Memory and the workspace · RedLeaf docs", "description": "Where an agent's memory lives, how to read and correct it as pages or as a folder on your disk, what the Journal records, and what happens overnight.", "layout": "docs", "section": "docs", "slug": "memory"}-->
+<header>
+  <p class="eyebrow">Everyday use</p>
+  <h1>Memory and the workspace.</h1>
+  <p class="doc-lede">An agent's memory isn't hidden inside a model. It's a set of pages in its workspace, which you can open, read and edit, in RedLeaf or as ordinary files on your disk. When something is wrong, you fix the page and the agent works from your version.</p>
+</header>
+
+<div class="prose">
+  <h2>What the workspace is</h2>
+  <p>Each agent's <span class="ui">Workspace</span> field points at a page. Everything under that page is the agent's workspace: its memory, its configuration and the files it keeps. Agents read it at the start of a discussion and write to it as they learn, so next week's discussion starts where this one ended, even in a new discussion.</p>
+  <p>The same pages are also a real folder. While RedLeaf runs, every workspace appears as files you can open with any app:</p>
+  <table class="doc-table">
+    <thead><tr><th>Platform</th><th>Where</th></tr></thead>
+    <tbody>
+      <tr><td>Windows</td><td><code>L:\Workspaces\&lt;agent&gt;</code>, through WinFsp</td></tr>
+      <tr><td>Linux</td><td><code>~/Leaf/Workspaces/&lt;agent&gt;</code>, through FUSE 3</td></tr>
+    </tbody>
+  </table>
+  <p>Each page is a Markdown file there. Every file is backed by a page and its history, so a change made in a text editor shows up in RedLeaf, and the other way round. Drop a document into the folder and the agent can read it, sort it, or file it.</p>
+
+  <h2>Reading and correcting memory</h2>
+  <ol class="steps">
+    <li><b>Open the workspace</b>In <span class="ui">Workspace</span>, open the agent's project, for example <span class="ui">Nova</span>. Or open its folder on your disk.</li>
+    <li><b>Find the page</b>The sidebar shows the page tree under <span class="ui">Structure</span>, what changed lately under <span class="ui">Recent</span>, and linked items under <span class="ui">Entities</span>.</li>
+    <li><b>Edit it</b>Change the text like any document. If you'd rather not, just tell the agent in a discussion: “That's wrong, the deadline moved to Friday. Fix it everywhere.”</li>
+  </ol>
+  <p>Every page keeps its history. Open it to see <span class="ui">Recent activity</span>, who changed what, and <span class="ui">Undo this change</span> or revert to an earlier version.</p>
+
+  <h2>The Journal</h2>
+  <p>Next to an agent's Live discussion, the <span class="ui">Journal</span> tab is its diary: a day-by-day record of what it did, split into morning, afternoon and evening. Filter by <span class="ui">With you</span>, <span class="ui">On my own</span>, <span class="ui">Scheduled</span> or <span class="ui">Failed</span>, and jump from any entry to the discussion or message behind it. The Journal is read only. It records what happened; memory is what the agent chose to keep.</p>
+
+  <h2>Overnight: the dream cycle</h2>
+  <p>Agents with the dreaming skills, Nova included, run a short cycle every night at 4 in the morning:</p>
+  <ul>
+    <li><strong>Dreaming</strong> goes over the day, keeps the facts and decisions worth keeping, resolves contradictions with what was already there, and rebuilds the memory index.</li>
+    <li><strong>Emotional dreaming</strong> writes a small mood note that colours the next day's tone.</li>
+    <li><strong>Creative dreaming</strong> writes down ideas for your projects, clearly marked as proposals and not decisions.</li>
+  </ul>
+  <p>Each run appears in the agent's Journal and in <span class="ui">Compute › Jobs</span>. If you change the cycle's workflow, RedLeaf leaves your version alone.</p>
+
+  <h2>Scratch space</h2>
+  <p>Agents also get a disposable scratch area for downloads, experiments and temporary files: drive <code>S:</code> on Windows. Anything left there is deleted after 30 days of inactivity. Change that in <span class="ui">Settings › Storage › Scratch</span>. Anything worth keeping belongs in the workspace.</p>
+
+  <div class="callout">{{icon:database}}<p><strong>Memory is in your backups.</strong> Because workspace pages are stored in RedLeaf's database, a database backup includes every agent's memory. Files elsewhere on your disk are not backed up by RedLeaf. See <a href="{{root}}docs/backups/">Backups</a>.</p></div>
+</div>

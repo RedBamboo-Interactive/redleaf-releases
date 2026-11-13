@@ -1,0 +1,51 @@
+<!--page {"title": "Set up RedLeaf · RedLeaf docs", "description": "What happens the first time RedLeaf opens: preparing the workspace and database, then six short chapters from your account to your first hello with Nova.", "layout": "docs", "section": "docs", "slug": "first-run"}-->
+<header>
+  <p class="eyebrow">Get started</p>
+  <h1>Set up RedLeaf.</h1>
+  <p class="doc-lede">The first time RedLeaf opens, it prepares its private storage on its own, then walks you through six short chapters. Most take one click. Two need you: your account and your AI provider.</p>
+</header>
+
+<div class="prose">
+  <h2>Prepare RedLeaf</h2>
+  <p>Before the chapters, RedLeaf prepares two things that stay on your machine. You'll see their progress under <span class="ui">Prepare RedLeaf</span>, and the first chapter opens when both are ready.</p>
+  <ul>
+    <li><strong>The agent filesystem.</strong> On Windows, RedLeaf downloads and verifies WinFsp, then shows <span class="ui">Windows needs your approval</span>: approve the installation prompt. On Linux, it tests a disposable FUSE mount as your user. If FUSE is missing, install the <code>fuse3</code> package and choose <span class="ui">Try again</span>.</li>
+    <li><strong>The private database.</strong> RedLeaf downloads and starts its own PostgreSQL. You don't need Docker or an existing server. This can take a few minutes on the first launch.</li>
+  </ul>
+  <p>If a step fails, choose <span class="ui">Try again</span>. It's safe to retry.</p>
+
+  <h2>The six chapters</h2>
+  <p>Use <span class="ui">Back</span> and <span class="ui">Next</span> to move between them. A chapter unlocks when the one before it is done.</p>
+  <table class="doc-table">
+    <thead><tr><th>Chapter</th><th>What you do</th></tr></thead>
+    <tbody>
+      <tr><td>Welcome</td><td>Nothing to fill in. It lists what setup unlocks: a private workspace, a connected AI, and Nova, ready to work.</td></tr>
+      <tr><td>Appearance</td><td>Choose light or dark and high contrast. You can change both later in <span class="ui">Settings › Appearance</span>.</td></tr>
+      <tr><td>Available from Start</td><td>On Windows, how to find RedLeaf in Start and pin it. On Linux this chapter is <span class="ui">Launch RedLeaf</span>: how to start and stop it, and where your data lives.</td></tr>
+      <tr><td>Your RedLeaf space</td><td>Create the local owner account: display name, email and a password of at least 8 characters. Choose <span class="ui">Create my account</span>. RedLeaf restarts once and continues.</td></tr>
+      <tr><td>Connect AI</td><td>Choose the provider Nova will use, sign in, and verify it. See below.</td></tr>
+      <tr><td>Meet Nova</td><td>Your first short conversation. Then choose <span class="ui">Complete setup</span>.</td></tr>
+    </tbody>
+  </table>
+  <p>Your password is used only to create the account. It never enters setup progress, logs or Nova's profile. You can add Google sign-in later, for remote access or more people: see <a href="{{root}}docs/remote-access/">Remote access</a>.</p>
+
+  <h2>Connect AI</h2>
+  <p>RedLeaf lists the providers it finds on this computer and preselects one: Claude Code first, then Codex. Each one signs in through its own app or command line, in your browser:</p>
+  <table class="doc-table">
+    <thead><tr><th>Provider</th><th>How you sign in</th></tr></thead>
+    <tbody>
+      <tr><td>Claude Code</td><td><span class="ui">Continue with Claude</span> for a Claude subscription, or <span class="ui">Use Anthropic Console</span> for API billing. Claude Code must already be installed.</td></tr>
+      <tr><td>Codex</td><td><span class="ui">Continue with ChatGPT</span>, or <span class="ui">Use an API key</span>. If Codex isn't installed, choose <span class="ui">Install Codex CLI</span>: RedLeaf installs OpenAI's package for your account, without administrator rights.</td></tr>
+      <tr><td>OpenCode</td><td><span class="ui">Open OpenCode sign-in</span> opens a terminal where you pick a provider and sign in. You install OpenCode yourself.</td></tr>
+    </tbody>
+  </table>
+  <p>Then choose <span class="ui">Verify</span>. RedLeaf sends one harmless request to prove Nova can use the provider. If you installed or signed in somewhere else in the meantime, choose <span class="ui">Check again</span>.</p>
+  <div class="callout">{{icon:shield-check}}<p><strong>Your sign-in stays with the provider.</strong> Claude Code and Codex keep their own credentials on your PC. An API key you paste is handed to the provider's tool, and anything RedLeaf does store is encrypted.</p></div>
+
+  <h2>Meet Nova</h2>
+  <p>The last chapter opens a small chat with Nova. Say hello. If her greeting can't start, choose <span class="ui">Try again</span>. You'll also see a switch to share anonymous usage statistics: counts such as how many sessions ran, never what was in them. It is off unless you turn it on, and you can change it later in <span class="ui">Settings › Usage sharing</span>. The <a href="{{root}}privacy/usage-sharing/">usage statistics notice</a> lists exactly what is sent.</p>
+  <p><span class="ui">Complete setup</span> becomes available once the workspace is mounted and Nova has answered. RedLeaf then opens Nova, with your first discussion waiting.</p>
+
+  <h2>Changing your answers later</h2>
+  <p>Everything here can be changed in Settings. To walk through setup again, open <span class="ui">Settings › Setup &amp; Health</span> and choose <span class="ui">Revisit setup</span>.</p>
+</div>

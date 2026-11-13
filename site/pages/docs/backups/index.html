@@ -1,0 +1,45 @@
+<!--page {"title": "Backups · RedLeaf docs", "description": "Back up RedLeaf's database on a schedule, keep an encrypted off-site copy in Cloudflare R2, test restores, and know what is and isn't covered.", "layout": "docs", "section": "docs", "slug": "backups"}-->
+<header>
+  <p class="eyebrow">Going further</p>
+  <h1>Backups.</h1>
+  <p class="doc-lede">RedLeaf's database holds your discussions, your agents, their memory and every entity. Back it up on a schedule, and if you want to survive losing the computer, keep an encrypted copy off-site.</p>
+</header>
+
+<div class="prose">
+  <h2>What's covered</h2>
+  <table class="doc-table">
+    <thead><tr><th>Backup</th><th>Includes</th></tr></thead>
+    <tbody>
+      <tr><td>Database backup</td><td>Discussions, agents, memory and workspace pages, skills, automations and every other entity. With the <span class="ui">Everything</span> scope, the whole database.</td></tr>
+      <tr><td>Off-site copy</td><td>The database, plus RedLeaf's encryption keys, your assets (images, audio, video) and the workspace files.</td></tr>
+    </tbody>
+  </table>
+  <p>Neither covers your own project folders, documents or anything else on your disk. Back those up as you normally would, and push code to a remote often.</p>
+
+  <h2>Database backups</h2>
+  <p>Open <span class="ui">Settings › Storage › Database</span> and find <span class="ui">Backup</span>.</p>
+  <ul>
+    <li><span class="ui">Automatic</span>: <span class="ui">Off</span>, <span class="ui">Daily</span> or <span class="ui">Weekly</span>, and when it <span class="ui">Runs at</span>. Automatic backups are off until you turn them on.</li>
+    <li><span class="ui">Scope</span>: <span class="ui">Entities only</span>, or <span class="ui">Everything</span>.</li>
+    <li><span class="ui">Retention</span>: how many automatic backups to keep, from 1 to 10. Manual backups are kept separately, up to the same number again.</li>
+    <li>The folder: leave it empty for the default, <code>%LOCALAPPDATA%\RedLeaf\backups</code> on Windows.</li>
+  </ul>
+  <p><span class="ui">Back up everything</span> makes one now. <span class="ui">Export entities</span> saves your entities on their own. <span class="ui">Last backup</span> tells you when the last one ran.</p>
+  <p>Backups are standard PostgreSQL dumps. There's no restore button for them yet in the preview. If you need to restore one, ask for help on the <a href="https://discord.gg/FWMQtGzw3y">Leaf Discord</a>.</p>
+
+  <h2>Off-site copy</h2>
+  <p>The off-site copy goes to a Cloudflare R2 bucket you own. It's encrypted on your computer before it leaves, so Cloudflare only ever stores ciphertext. It's on Windows for now, and only an administrator can set it up.</p>
+  <ol class="steps">
+    <li><b>Create a bucket</b>In Cloudflare, create an R2 bucket and an access key for it.</li>
+    <li><b>Connect it</b>In <span class="ui">Settings › Storage › Backups</span>, choose <span class="ui">Set up off-site copy</span>. Enter the <span class="ui">Account ID</span>, the bucket, the <span class="ui">Data location</span> (choose European Union to keep it in the EU), the <span class="ui">Access key ID</span> and the <span class="ui">Secret access key</span>.</li>
+    <li><b>Save the recovery passphrase</b>RedLeaf shows an eight-word recovery passphrase once. Copying it is blocked on purpose: write it into your password manager by hand, tick <span class="ui">I saved it in my password manager</span>, and type it back to confirm. Without it, the copy can't be decrypted.</li>
+    <li><b>Turn on nightly copies</b><span class="ui">Back up every night</span> runs after the local database backup. <span class="ui">Back up now</span> runs one straight away.</li>
+  </ol>
+  <h3>How long copies are kept</h3>
+  <p>A weekly clean-up drops restore points older than 35 days and keeps one a week for 12 weeks. The bucket is locked: nothing in it can be deleted or overwritten for 30 days, even from RedLeaf, so a mistake or a compromised agent can't erase your history.</p>
+  <h3>Test it before you need it</h3>
+  <p>RedLeaf runs a restore test automatically on the first Sunday of each month. Run one yourself with <span class="ui">Run a restore test now</span>. To get something back, choose <span class="ui">Restore to a folder</span>: pick what to restore, the restore point and optionally one path. It always lands in a new folder, never over your live data.</p>
+  <p>For a full recovery on a new computer, RedLeaf writes a how-to-restore file into the bucket. The order is: keys first, then install RedLeaf, then the database, then assets and workspace files.</p>
+
+  <div class="callout">{{icon:lock-simple}}<p><strong>Keep one backup out of reach.</strong> An agent with Full access can delete anything your account can. The off-site copy's lock is one answer; a disconnected drive is another. See <a href="{{root}}docs/access-levels/">Access levels</a>.</p></div>
+</div>

@@ -13,6 +13,44 @@ export const recipes = [
   { slug: "learn", title: "Learn", headline: "Agents with a personality and a purpose", icon: "chat-circle", tone: "green", summary: "Create a tutor, a coach or a sparring partner with its own voice, skills and memory of your progress." },
 ];
 
+/** Documentation, in reading order: from installing to expert topics. The sidebar and the prev/next links read this. */
+export const docs = [
+  { group: "Get started", pages: [
+    { slug: "", title: "Overview" },
+    { slug: "install-windows", title: "Install on Windows" },
+    { slug: "install-linux", title: "Install on Linux" },
+    { slug: "first-run", title: "Set up RedLeaf" },
+    { slug: "first-conversation", title: "Your first conversation" },
+  ] },
+  { group: "Everyday use", pages: [
+    { slug: "chat", title: "Discussions and step squares" },
+    { slug: "voice", title: "Voice and Float Nova" },
+    { slug: "agents", title: "Nova and your own agents" },
+    { slug: "memory", title: "Memory and the workspace" },
+    { slug: "code", title: "Coding sessions" },
+    { slug: "branches", title: "Branches and parallel work" },
+    { slug: "create", title: "Images, voices and music" },
+    { slug: "automations", title: "Schedules and the heartbeat" },
+  ] },
+  { group: "Going further", pages: [
+    { slug: "providers", title: "AI providers and local models" },
+    { slug: "access-levels", title: "Access levels" },
+    { slug: "skills", title: "Skills and protocols" },
+    { slug: "extensions", title: "Extensions" },
+    { slug: "database", title: "Database and views" },
+    { slug: "remote-access", title: "Remote access" },
+    { slug: "backups", title: "Backups" },
+    { slug: "updates", title: "Updates" },
+    { slug: "api", title: "The local API" },
+  ] },
+  { group: "Help", pages: [
+    { slug: "troubleshooting", title: "Troubleshooting and Doctor" },
+    { slug: "shortcuts", title: "Keyboard shortcuts" },
+    { slug: "uninstall", title: "Uninstall and your data" },
+  ] },
+];
+const docsFlat = docs.flatMap((g) => g.pages);
+
 export const legalPages = [
   { href: "legal/privacy/", label: "Privacy" },
   { href: "legal/terms/", label: "Terms of use" },
@@ -34,6 +72,7 @@ function header(page) {
     <nav class="site-nav" aria-label="Site">
       <a href="{{root}}#demo"${current("product")}>Product</a>
       <a href="{{root}}cookbook/"${current("cookbook")}>Cookbook</a>
+      <a href="{{root}}docs/"${current("docs")}>Docs</a>
       <a href="{{root}}#download"${current("download")}>Download</a>
     </nav>
     <div class="header-links">
@@ -51,9 +90,9 @@ function footer() {
       <a class="brand" href="{{root}}"><img src="{{root}}favicon.svg" alt="" width="28" height="28" /><span>Red<span>Leaf</span></span></a>
       <p>A local home for AI agents, their conversations, their code sessions and their memory. Made by RedBamboo Interactive.</p>
     </div>
-    <nav aria-label="Product"><h2>Product</h2><a href="{{root}}#download">Download</a><a href="{{root}}cookbook/">Cookbook</a><a href="${GITHUB_URL}/releases">Release history</a></nav>
+    <nav aria-label="Product"><h2>Product</h2><a href="{{root}}#download">Download</a><a href="{{root}}cookbook/">Cookbook</a><a href="{{root}}docs/">Documentation</a><a href="${GITHUB_URL}/releases">Release history</a></nav>
     <nav aria-label="Community"><h2>Community</h2><a href="${DISCORD_URL}">Leaf Discord</a><a href="${GITHUB_URL}">GitHub</a><a href="{{root}}legal/security/">Report a vulnerability</a></nav>
-    <nav aria-label="Legal"><h2>Legal</h2>${legalPages.map((l) => `<a href="{{root}}${l.href}">${l.label}</a>`).join("")}<a href="{{root}}privacy/usage-sharing/">Usage sharing notice</a></nav>
+    <nav aria-label="Legal"><h2>Legal</h2>${legalPages.map((l) => `<a href="{{root}}${l.href}">${l.label}</a>`).join("")}<a href="{{root}}privacy/usage-sharing/">Usage statistics notice</a></nav>
   </div>
   <div class="page-width footer-base"><span>© 2026 RedBamboo Interactive</span><span id="footer-version">Nightly preview</span></div>
 </footer>`;
@@ -78,12 +117,33 @@ function recipePager(slug) {
 </nav>`;
 }
 
+function docsNav(page) {
+  return `<nav class="doc-nav docs-nav" aria-label="Documentation">
+  ${docs.map((g) => `<p>${g.group}</p>
+  ${g.pages.map((d) => `<a href="{{root}}docs/${d.slug ? `${d.slug}/` : ""}"${d.slug === page.slug ? ' class="active" aria-current="page"' : ""}><span><b>${d.title}</b></span></a>`).join("\n  ")}`).join("\n  ")}
+</nav>`;
+}
+
+function docsPager(slug) {
+  const index = docsFlat.findIndex((d) => d.slug === slug);
+  if (index < 0) return "";
+  const href = (d) => `{{root}}docs/${d.slug ? `${d.slug}/` : ""}`;
+  const prev = docsFlat[index - 1];
+  const next = docsFlat[index + 1];
+  return `<nav class="pager" aria-label="More documentation">
+  ${prev ? `<a class="prev" href="${href(prev)}"><small>Previous</small><b>${prev.title}</b></a>` : "<span></span>"}
+  ${next ? `<a class="next" href="${href(next)}"><small>Next</small><b>${next.title}</b></a>` : `<a class="next" href="{{root}}cookbook/"><small>Ideas</small><b>Browse the cookbook</b></a>`}
+</nav>`;
+}
+
 export function render(page, body) {
   let main;
   if (page.layout === "doc") {
     main = `<div class="doc-shell page-width">${cookbookNav(page)}<main id="main" class="doc-main">${body}${recipePager(page.slug)}</main></div>`;
+  } else if (page.layout === "docs") {
+    main = `<div class="doc-shell page-width">${docsNav(page)}<main id="main" class="doc-main docs-main">${body}${docsPager(page.slug)}</main></div>`;
   } else if (page.layout === "legal") {
-    main = `<div class="legal-shell page-width"><nav class="legal-nav" aria-label="Legal pages">${legalPages.map((l) => `<a href="{{root}}${l.href}"${page.path === l.href ? ' aria-current="page"' : ""}>${l.label}</a>`).join("")}<a href="{{root}}privacy/usage-sharing/"${page.path === "privacy/usage-sharing/" ? ' aria-current="page"' : ""}>Usage sharing</a></nav><main id="main" class="legal">${body}</main></div>`;
+    main = `<div class="legal-shell page-width"><nav class="legal-nav" aria-label="Legal pages">${legalPages.map((l) => `<a href="{{root}}${l.href}"${page.path === l.href ? ' aria-current="page"' : ""}>${l.label}</a>`).join("")}<a href="{{root}}privacy/usage-sharing/"${page.path === "privacy/usage-sharing/" ? ' aria-current="page"' : ""}>Usage statistics</a></nav><main id="main" class="legal">${body}</main></div>`;
   } else {
     main = `<main id="main">${body}</main>`;
   }

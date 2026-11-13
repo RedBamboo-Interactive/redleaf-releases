@@ -1,0 +1,72 @@
+<!--page {"title": "Discussions and step squares · RedLeaf docs", "description": "Start, organise and search discussions, send and queue messages, attach files, and open any step square to see exactly what an agent did.", "layout": "docs", "section": "docs", "slug": "chat"}-->
+<header>
+  <p class="eyebrow">Everyday use</p>
+  <h1>Discussions and step squares.</h1>
+  <p class="doc-lede">A discussion is one conversation with one agent. It keeps its history, its session and what was shared in it. The step squares are its record: every action the agent took, with what went in and what came out.</p>
+</header>
+
+<div class="prose">
+  <h2>Starting and finding discussions</h2>
+  <p>Choose <span class="ui">New</span> in the <span class="ui">Discussions</span> sidebar or press <kbd>Ctrl</kbd>+<kbd>N</kbd>. Pick the agent, then the provider and quality for this discussion, and choose <span class="ui">Go</span>. With several agents, a filter at the top of the sidebar shows one agent's discussions at a time.</p>
+  <ul>
+    <li><strong>Unread</strong> discussions have a teal dot and a bold title.</li>
+    <li>The spinner on each row shows its state: gold while the agent is thinking, pink while work it handed off is running, amber when it is waiting for your answer or approval.</li>
+    <li><strong>Search</strong> every discussion with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>. A result opens the discussion at that message.</li>
+    <li><strong>Close</strong> a discussion with <kbd>Alt</kbd>+<kbd>W</kbd> to archive it. Find it again under <span class="ui">More › Browse archives</span>, and choose <span class="ui">Reopen</span> to continue.</li>
+  </ul>
+
+  <h2>Sending, queueing and interrupting</h2>
+  <table class="doc-table">
+    <thead><tr><th>You want to</th><th>Do this</th></tr></thead>
+    <tbody>
+      <tr><td>Send</td><td><kbd>Enter</kbd>. <kbd>Shift</kbd>+<kbd>Enter</kbd> for a new line.</td></tr>
+      <tr><td>Stop the agent</td><td><kbd>Esc</kbd>, or the stop button that replaces send while it works.</td></tr>
+      <tr><td>Add something for later</td><td>Type while it works and press <kbd>Enter</kbd>. The message waits as a faded bubble and sends when the turn ends. Click it to edit, send it now or cancel it.</td></tr>
+      <tr><td>Steer the current turn</td><td>With providers that support it, <kbd>Enter</kbd> joins the turn in progress and <kbd>Tab</kbd> queues instead.</td></tr>
+      <tr><td>Interrupt and send</td><td><kbd>Ctrl</kbd>+<kbd>Enter</kbd>, or right-click the send button.</td></tr>
+    </tbody>
+  </table>
+  <p>Drafts are kept per discussion, so you can switch away and come back. A discussion whose session was stopped shows <span class="ui">Resume session</span>; sending a message resumes it too.</p>
+
+  <h2>Attachments and “what I see”</h2>
+  <p>Use <span class="ui">Attach image</span> or <span class="ui">Attach file</span>, paste an image, or drop files on the discussion. The eye button, <span class="ui">Attach what I see</span>, lets you choose exactly what the agent can see with this message: the current RedLeaf page, or one of your monitors. Nothing is captured until you send. Monitors are only offered in the local app, not over remote access.</p>
+  <p>Anywhere in RedLeaf, right-click something and choose <span class="ui">Ask Nova about this</span> to start from it. <span class="ui">Artifacts</span> (<kbd>Alt</kbd>+<kbd>A</kbd>) lists every image, file and link shared in a discussion.</p>
+
+  <h2>The step squares</h2>
+  <p>Each turn shows a row of small squares, one per step. A square wobbles while it runs, and gets an amber ring while it waits for your approval. Hover for the tool's name; click to open its details.</p>
+  <table class="doc-table">
+    <thead><tr><th>Colour</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><i class="sq p" aria-hidden="true"></i> Purple</td><td>Thinking</td></tr>
+      <tr><td><i class="sq t" aria-hidden="true"></i> Teal</td><td>Read-only: reading files, searching, looking things up</td></tr>
+      <tr><td><i class="sq g" aria-hidden="true"></i> Gold</td><td>Changing something: editing files, and shell commands</td></tr>
+      <tr><td><i class="sq k" aria-hidden="true"></i> Pink</td><td>Work handed to another session or helper</td></tr>
+      <tr><td><i class="sq r" aria-hidden="true"></i> Red</td><td>An error, or background work that failed or stopped</td></tr>
+      <tr><td><i class="sq" aria-hidden="true"></i> Grey</td><td>Events. Notes and updates are drawn as circles rather than squares.</td></tr>
+    </tbody>
+  </table>
+  <p>The details dialog shows the tool, its category, and its <span class="ui">Input</span> and <span class="ui">Output</span> in full. Large outputs load on demand and can be downloaded. Use <kbd>←</kbd> and <kbd>→</kbd> to step through every square in the discussion. <span class="ui">Open</span> jumps to the file it touched; <span class="ui">Compute</span> opens the job behind it, with who asked for it and what it cost. For work handed to a helper, the dialog shows the helper's own squares too.</p>
+  <div class="callout">{{icon:eye}}<p><strong>This is the audit trail.</strong> The squares are not a summary written by the agent. They are the actual calls it made, so you can check what it read before it answered, and what it changed.</p></div>
+
+  <h2>Questions and approvals</h2>
+  <p>When an agent asks you something, a question card appears: pick an option, or choose <span class="ui">Other</span> and write your own. When it needs permission, an approval card offers <span class="ui">Allow once</span>, <span class="ui">Allow for this session</span> and <span class="ui">Deny</span>. What it may do without asking is set by its <a href="{{root}}docs/access-levels/">access level</a>.</p>
+
+  <h2>Rewind</h2>
+  <p>With providers that support it, open the menu on one of your messages and choose <span class="ui">Rewind to before this message</span>. That message and everything after it leave the conversation, for you and for the agent, and your text comes back to the composer. Files are not changed: anything the agent already did on disk stays.</p>
+
+  <h2>The discussion menu</h2>
+  <p>Open it with the <span class="ui">⋮</span> button, or by right-clicking a discussion.</p>
+  <table class="doc-table">
+    <thead><tr><th>Item</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td>Voice <kbd>Alt</kbd>+<kbd>V</kbd></td><td>Opens voice mode. See <a href="{{root}}docs/voice/">Voice</a>.</td></tr>
+      <tr><td>Info <kbd>Alt</kbd>+<kbd>I</kbd></td><td>Provider, model, quality, access level, cost, tokens and context use. Change the model, quality or access level here.</td></tr>
+      <tr><td>Rename, Update title</td><td>Set a title yourself, or have one written from the conversation.</td></tr>
+      <tr><td>Share <kbd>Alt</kbd>+<kbd>S</kbd></td><td>Creates a link to a read-only copy.</td></tr>
+      <tr><td>Float</td><td>Opens the discussion in Float Nova, a small window that stays on top.</td></tr>
+      <tr><td>Stop</td><td>Stops the session to free memory. The next message resumes it.</td></tr>
+      <tr><td>Close <kbd>Alt</kbd>+<kbd>W</kbd></td><td>Stops the session and archives the discussion.</td></tr>
+    </tbody>
+  </table>
+  <p>In <span class="ui">Info</span>, the <span class="ui">Confidential</span> switch keeps a discussion out of the Live timeline, the heartbeat, other discussions' context and bulk exports, and hides sharing. The discussion itself stays where it is.</p>
+</div>

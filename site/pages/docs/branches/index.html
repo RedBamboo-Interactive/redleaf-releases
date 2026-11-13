@@ -1,0 +1,52 @@
+<!--page {"title": "Branches and parallel work · RedLeaf docs", "description": "Run several coding sessions at once, each on its own branch in its own folder, then review, merge and clean up.", "layout": "docs", "section": "docs", "slug": "branches"}-->
+<header>
+  <p class="eyebrow">Everyday use</p>
+  <h1>Branches and parallel work.</h1>
+  <p class="doc-lede">Several sessions can work on the same project at once without stepping on each other. You choose a branch; Code gives it its own folder, called a worktree, so nothing reaches your main checkout until you merge it.</p>
+</header>
+
+<div class="prose">
+  <h2>How it works</h2>
+  <p>A worktree is a second folder of the same Git repository, checked out on another branch. Code creates them for you, beside your project: a project in <code>Projects/game</code> gets its worktrees in <code>Projects/game.worktrees/&lt;branch&gt;</code>. When you pick a branch for a session:</p>
+  <ul>
+    <li>the branch that's already checked out uses the project folder itself;</li>
+    <li>a branch that already has a worktree reuses it;</li>
+    <li>any other branch, new or existing, gets a fresh worktree.</li>
+  </ul>
+  <p>The rule that keeps this safe: one writer per folder. Your checkout belongs to you, or to whichever session is working in it.</p>
+
+  <h2>Start a session on a branch</h2>
+  <ol class="steps">
+    <li><b>Open the branch picker</b>In <span class="ui">Start Session</span>, after picking the project, choose the <span class="ui">Branch</span> row.</li>
+    <li><b>Pick or create a branch</b>Each branch says what will happen: <span class="ui">Repository folder</span>, <span class="ui">Isolated workspace ready</span>, or <span class="ui">Code will prepare an isolated workspace</span>. For a new one, choose <span class="ui">New branch</span>, name it (for example <code>feature/better-jump</code>), optionally pick what it starts from, and choose <span class="ui">Use branch</span>.</li>
+    <li><b>Go</b>Code prepares the worktree and starts the session there. The session list marks it with a <span class="ui">worktree</span> badge.</li>
+  </ol>
+  <p>Nova does the same when she delegates: ask her to work on several things at once and she can give each one its own branch.</p>
+
+  <h2>The Worktrees tab</h2>
+  <p>In Code's <span class="ui">GitHub</span> tab, open a project and choose <span class="ui">Worktrees</span>. Each row shows the branch, its state, how far ahead or behind the default branch it is, uncommitted changes, its last commit, and which sessions and discussions use it.</p>
+  <table class="doc-table">
+    <thead><tr><th>State</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td>In use</td><td>A session is working there.</td></tr>
+      <tr><td>Uncommitted changes</td><td>Work that hasn't been committed yet.</td></tr>
+      <tr><td>Merged</td><td>Everything on the branch is in the default branch. Safe to remove.</td></tr>
+      <tr><td>Idle</td><td>Nothing running, nothing pending.</td></tr>
+      <tr><td>Folder missing</td><td>The folder was deleted outside Code. <span class="ui">Clean up missing</span> forgets it and keeps the branch.</td></tr>
+    </tbody>
+  </table>
+  <p>From a row's menu: <span class="ui">Open in Code</span>, <span class="ui">New session here</span>, <span class="ui">Copy path</span> and <span class="ui">Remove worktree…</span>. <span class="ui">New worktree</span> at the top makes one without starting a session.</p>
+
+  <h2>Branches allowed, or main only</h2>
+  <p>The menu at the top of the Worktrees tab sets the project's policy. <span class="ui">Branches allowed</span> lets sessions work on a branch in its own worktree. <span class="ui">Main only</span> keeps every session in the checkout: the Branch row disappears from Start Session, and Nova won't delegate onto a branch. Use it for projects where a second folder would confuse your tools.</p>
+
+  <h2>Finishing: merge and clean up</h2>
+  <ol class="steps">
+    <li><b>Commit in the worktree</b>Ask the session to commit its work, or do it yourself.</li>
+    <li><b>Merge it</b>Open a pull request, or merge the branch into your default branch locally, from a clean checkout. Code doesn't merge branches for you.</li>
+    <li><b>Remove the worktree</b>Choose <span class="ui">Remove worktree…</span>. The folder is deleted; the branch and its commits are kept unless you also tick <span class="ui">Also delete the branch</span>, which is offered once it's fully merged.</li>
+  </ol>
+  <p>Code won't remove a worktree with uncommitted changes. It also lists ignored files that would go with the folder, such as <code>.env</code> files or virtual environments, so you can rescue them first. If sessions still run there, the button offers to stop them first.</p>
+
+  <div class="callout">{{icon:git-branch}}<p><strong>When to split, and when not to.</strong> Branches shine for independent jobs: a level select screen, controller support and a better jump. Two jobs that touch the same files are better done one after the other, in one session.</p></div>
+</div>

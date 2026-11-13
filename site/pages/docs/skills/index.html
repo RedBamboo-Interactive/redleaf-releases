@@ -1,0 +1,43 @@
+<!--page {"title": "Skills and protocols · RedLeaf docs", "description": "Give agents reusable know-how with Skills, short shared rules with Protocols, and decide what each agent's heartbeat may do.", "layout": "docs", "section": "docs", "slug": "skills"}-->
+<header>
+  <p class="eyebrow">Going further</p>
+  <h1>Skills and protocols.</h1>
+  <p class="doc-lede">A skill is a package of know-how an agent can pick up when it's relevant: how to review a pull request, how your release works, how to talk to your smart home. Write it once and give it to any agent. Protocols are the short version: a rule of conduct shared between agents.</p>
+</header>
+
+<div class="prose">
+  <h2>What a skill is</h2>
+  <table class="doc-table">
+    <thead><tr><th>Field</th><th>What it's for</th></tr></thead>
+    <tbody>
+      <tr><td>Description</td><td>When the skill applies. The agent reads this to decide whether to open the skill, so make it specific. Up to 1,024 characters.</td></tr>
+      <tr><td>Instructions</td><td>The skill itself, in Markdown: steps, rules, examples, pitfalls.</td></tr>
+      <tr><td>Package files</td><td>Optional extra files: scripts, templates, reference tables.</td></tr>
+      <tr><td>Icon, Tags</td><td>To find it in the library and the agent picker.</td></tr>
+      <tr><td>Trust</td><td>Your review of executable or imported content.</td></tr>
+      <tr><td>Agents</td><td>Which agents use it.</td></tr>
+    </tbody>
+  </table>
+  <p>Skills are entities of the type <span class="ui">Agent Skill</span>, in <span class="ui">Database › Entities</span>. Open one to edit its instructions, or its <span class="ui">Package files</span> to upload files and <span class="ui">Save package</span>.</p>
+
+  <h2>Give a skill to an agent</h2>
+  <p>On the agent's page, add it to the <span class="ui">Skills</span> field. RedLeaf places a read-only copy in the agent's workspace, in the format its AI provider expects, and keeps it current when you edit the skill. Don't edit those copies: change the skill and they follow.</p>
+  <p>Extensions can bring skills of their own. When you install one that does, RedLeaf asks which agents to <span class="ui">Give this skill to</span>, with Nova preselected.</p>
+
+  <h3>Writing a good skill</h3>
+  <ul>
+    <li>Write the description as a trigger: “Use when reviewing a pull request in this repository”, not “PR stuff”.</li>
+    <li>Keep one job per skill. Two narrow skills beat one that covers everything.</li>
+    <li>Say what to check, not just what to do. Agents follow acceptance criteria well.</li>
+    <li>Put facts that change in memory, and procedures in skills.</li>
+  </ul>
+
+  <h2>Nova's skills</h2>
+  <p>Nova starts with skills for working inside RedLeaf, engineering, delegating to Code, embedding RedLeaf items in a reply, and the three dreaming skills that consolidate her memory overnight. Remove any of them from her <span class="ui">Skills</span> field if you don't want that behaviour.</p>
+
+  <h2>Protocols</h2>
+  <p>A protocol (an <span class="ui">Agent Protocol</span> entity) is a short conduct rule, up to 1,500 characters, added to an agent's instructions after its Output Protocol. Use one for a rule several agents should share. Nova's default protocol covers emoji reactions: she reacts from time to time, the way a person in a chat would, and never uses a reaction in place of answering something personal. Add protocols to an agent in its <span class="ui">Protocols</span> field.</p>
+
+  <h2>Heartbeat skills</h2>
+  <p>An agent with Live on has a separate <span class="ui">Heartbeat Skills</span> field: what its heartbeat ticks may do. Every tick carries them in full, so each must stay under 1,500 characters and point to a full skill for anything longer. Ones that are too long or empty are refused with a reason. See <a href="{{root}}docs/automations/">Schedules and the heartbeat</a>.</p>
+</div>

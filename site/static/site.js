@@ -314,7 +314,11 @@ class Demo {
     const fx = el.dataset.fx;
     if (fx === "type") await this.type(el, instant, token);
     else if (fx === "stream") await this.stream(el, instant, token);
-    if (fx !== "mark") this.follow(el, instant);
+    else if (fx === "play" && !instant) {
+      const video = $(el.dataset.play, this.stage);
+      if (video) { video.currentTime = 0; video.play()?.catch(() => {}); }
+    }
+    if (fx !== "mark" && fx !== "play") this.follow(el, instant);
   }
 
   async type(el, instant, token) {
@@ -385,7 +389,8 @@ $$("[data-demo]").forEach((root) => new Demo(root));
 
 /* A [data-demo-set] holds several demos ([data-story]) behind tabs ([data-story-tab]). The active
    story plays while the set is on screen; when it ends the next one starts, so the set loops through
-   every story. Each tab fills with its story's progress. [data-set-toggle] pauses the whole set. */
+   every story. Each tab fills smoothly with the story's playing time, against its data-duration (ms),
+   which is re-measured every time the story finishes. [data-set-toggle] pauses the whole set. */
 class DemoSet {
   constructor(root) {
     this.root = root;
@@ -395,10 +400,13 @@ class DemoSet {
     this.visible = false;
     this.userPaused = false;
     this.toggle = $("[data-set-toggle]", root);
+    this.elapsed = 0;
+    this.durations = this.panels.map((panel) => Number(panel.dataset.duration) || 8000);
     this.panels.forEach((panel, i) => {
-      panel.addEventListener("demo:progress", (event) => this.tabs[i].style.setProperty("--p", event.detail));
       panel.addEventListener("demo:done", () => {
         if (i !== this.active) return;
+        if (this.elapsed > 1000) this.durations[i] = this.elapsed;
+        this.elapsed = this.durations[i];
         this.tabs[i].style.setProperty("--p", 1);
         clearTimeout(this.nextTimer);
         this.nextTimer = setTimeout(() => this.show((i + 1) % this.panels.length), 2400);
@@ -427,6 +435,18 @@ class DemoSet {
     }, { threshold: 0.3 }).observe(root);
     document.addEventListener("visibilitychange", () => this.sync());
     this.show(0, false);
+    let last = performance.now();
+    const tick = (now) => {
+      const dt = Math.min(now - last, 100);
+      last = now;
+      const demo = this.demo();
+      if (demo.playing) {
+        this.elapsed += dt;
+        this.tabs[this.active].style.setProperty("--p", Math.min(this.elapsed / this.durations[this.active], 0.985));
+      }
+      requestAnimationFrame(tick);
+    };
+    if (!reducedMotion.matches) requestAnimationFrame(tick);
   }
 
   demo() { return this.panels[this.active].demo; }
@@ -457,6 +477,8 @@ class DemoSet {
       if (!on) { panel.demo.pause(); this.tabs[i].style.setProperty("--p", 0); }
     });
     this.active = index;
+    this.elapsed = 0;
+    this.tabs[index].style.setProperty("--p", 0);
     const demo = this.demo();
     if (reducedMotion.matches) { demo.settle(); this.tabs[index].style.setProperty("--p", 1); }
     else if (start && this.canPlay()) demo.restart();
@@ -467,3 +489,9 @@ class DemoSet {
 
 $$("[data-demo-set]").forEach((root) => new DemoSet(root));
 reducedMotion.addEventListener("change", () => window.location.reload());
+
+// On narrow screens the docs and cookbook sidebars become a horizontal strip: bring the current page into view.
+document.querySelectorAll(".doc-nav").forEach((nav) => {
+  const active = nav.querySelector("a.active");
+  if (active && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = active.offsetLeft - (nav.clientWidth - active.offsetWidth) / 2;
+});

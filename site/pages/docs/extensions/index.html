@@ -1,0 +1,50 @@
+<!--page {"title": "Extensions · RedLeaf docs", "description": "Browse the Marketplace, install, turn off and uninstall extensions, read their guides, and understand core extensions, capabilities and providers.", "layout": "docs", "section": "docs", "slug": "extensions"}-->
+<header>
+  <p class="eyebrow">Going further</p>
+  <h1>Extensions.</h1>
+  <p class="doc-lede">Everything beyond the core comes as an extension: providers, new apps such as Smart Home or Gallery, and connections such as Discord or Mail. You find, install and manage them in one place, and every one is signed.</p>
+</header>
+
+<div class="prose">
+  <h2>Where to find them</h2>
+  <p>Open <span class="ui">Settings › Extensions</span>. Search across what's installed and the Marketplace at the top. The list is grouped:</p>
+  <table class="doc-table">
+    <thead><tr><th>Group</th><th>What's in it</th></tr></thead>
+    <tbody>
+      <tr><td>Core</td><td>Parts RedLeaf manages itself, such as Nova, Code and Compute. Always available.</td></tr>
+      <tr><td>System companion</td><td>Programs that run independently of RedLeaf, such as Doctor.</td></tr>
+      <tr><td>Installed</td><td>Extensions you added. Each has a switch to turn it off without uninstalling.</td></tr>
+      <tr><td>Marketplace</td><td>Everything available from the signed release feed.</td></tr>
+    </tbody>
+  </table>
+  <p>Installed extensions with settings also get their own entry in the Settings sidebar.</p>
+
+  <h2>Before you install: the guide</h2>
+  <p>Open any extension to read its <span class="ui">Guide</span>: what it does, what you'll need, setup, things to try, privacy and cost, limits, and what to do if something's wrong. The Marketplace card also says whether it fits your machine, for example <span class="ui">Works on this PC</span>, <span class="ui">Needs WSL</span> or <span class="ui">Needs an NVIDIA GPU</span>. Not sure? Choose <span class="ui">Ask Nova about this</span>.</p>
+
+  <h2>Install, turn off, uninstall</h2>
+  <ul>
+    <li><strong>Install</strong> from its Marketplace entry. Installing needs the admin role, which the owner account has. Some extensions then ask you to <span class="ui">Finish setup</span>, such as signing in or saving a key.</li>
+    <li><strong>Turn off</strong> an installed extension with its switch.</li>
+    <li><strong>Uninstall</strong> from <span class="ui">More actions › Uninstall</span>. If other extensions depend on it, RedLeaf tells you and doesn't remove it.</li>
+  </ul>
+  <p>Some changes take effect after a restart. RedLeaf shows <span class="ui">Changes pending restart</span> and offers to restart, which takes a few seconds.</p>
+  <p>Agents can suggest an extension by linking to it, but they never install one themselves.</p>
+
+  <h2>Capabilities and providers</h2>
+  <p>Some extensions are capabilities: a shared base such as Text to Speech or Image Generation, which does nothing on its own. Providers fill them in. You rarely install a capability yourself; it comes with the first provider that needs it. When several providers fill the same capability, pick the <span class="ui">Default provider</span> in the capability's settings. See <a href="{{root}}docs/providers/">AI providers and local models</a>.</p>
+
+  <h2>Updates</h2>
+  <p>Extension updates come from the signed release feed, like the rest of RedLeaf. The Extensions section shows when updates are available; choose <span class="ui">Review updates</span> to install them from <a href="{{root}}docs/updates/">Updates</a>.</p>
+
+  <h2>A few to start with</h2>
+  <table class="doc-table">
+    <thead><tr><th>Extension</th><th>What it adds</th></tr></thead>
+    <tbody>
+      <tr><td>Smart Home</td><td>Philips Hue lights, Sonos speakers, Spotify and Nest cameras, for your agents and in its own app.</td></tr>
+      <tr><td>Ambience</td><td>Backgrounds for RedLeaf and, on Windows, your desktop, on a schedule.</td></tr>
+      <tr><td>Gallery</td><td>One wall of every image and video across RedLeaf, to pick, rate and tag.</td></tr>
+      <tr><td>ComfyUI, ElevenLabs, Suno</td><td>Images, voices and music. See <a href="{{root}}docs/create/">Images, voices and music</a>.</td></tr>
+    </tbody>
+  </table>
+</div>

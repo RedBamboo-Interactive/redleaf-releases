@@ -15,7 +15,7 @@
         <aside class="sidebar">
           <div class="sidebar-title"><b>Agents</b><span>{{icon:plus}}New</span></div>
           <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Nova</b><small>Personal assistant</small></span></div>
-          <div class="row selected" data-step="40" data-wait="500"><span class="avatar amber">L</span><span><b>Leni</b><small>German tutor</small></span></div>
+          <div class="row selected" data-step="40" data-wait="500"><img class="avatar" src="{{root}}demo/agent-leni.webp" alt="" /><span><b>Leni</b><small>German tutor</small></span></div>
         </aside>
         <div class="panel form-panel">
           <h5>New agent</h5>
@@ -34,7 +34,7 @@
       <div class="app-body">
         <aside class="sidebar">
           <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
-          <div class="row selected"><span class="avatar amber">L</span><span><b>Mein Wochenende</b><small>Leni · now</small></span></div>
+          <div class="row selected"><img class="avatar" src="{{root}}demo/agent-leni.webp" alt="" /><span><b>Mein Wochenende</b><small>Leni · now</small></span></div>
           <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Route log for the gym</b><small>Nova · today</small></span></div>
         </aside>
         <div class="chat">
@@ -74,7 +74,7 @@
 
   <h2>How it works</h2>
   <ol class="steps">
-    <li><b>Create an agent</b>Give it a name, a personality and a purpose in its identity, and choose the skills it may use. It gets its own workspace and memory.</li>
+    <li><b>Create an agent</b>Give it a name, a personality and a purpose in its identity, and choose the skills it may use. Give it a workspace page and it keeps a memory of its own. <a href="{{root}}docs/agents/">How to create one</a>.</li>
     <li><b>Start a discussion with it</b>Pick the agent when you open a new discussion. Each one keeps its own history, separate from Nova's.</li>
     <li><b>Use your voice</b>Speak instead of typing; speech to text can transcribe it locally. The agent can answer aloud with the voice you chose.</li>
     <li><b>It tracks your progress</b>The agent writes what it notices into its workspace, so the next session starts where the last one ended.</li>
@@ -85,6 +85,6 @@
   <h2>What you need</h2>
   <div class="needs">
     <div><b>An AI provider</b><span>Any supported chat provider. Each agent can use a different one.</span></div>
-    <div><b>For voice</b><span>The included local speech providers, or ElevenLabs.</span></div>
+    <div><b>For voice</b><span>The free local speech providers, on an NVIDIA graphics card, or ElevenLabs in the cloud.</span></div>
   </div>
 </div>

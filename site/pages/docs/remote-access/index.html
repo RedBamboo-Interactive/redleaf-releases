@@ -1,0 +1,40 @@
+<!--page {"title": "Remote access · RedLeaf docs", "description": "Reach RedLeaf from your phone or another computer through a Cloudflare Tunnel, require Google sign-in, and know what works away from your desk.", "layout": "docs", "section": "docs", "slug": "remote-access"}-->
+<header>
+  <p class="eyebrow">Going further</p>
+  <h1>Remote access.</h1>
+  <p class="doc-lede">Out of the box, RedLeaf is reachable only from the computer it runs on. If you want your agents on your phone, you can publish it through a Cloudflare Tunnel, with no open ports and automatic HTTPS, and require Google sign-in in front of it.</p>
+</header>
+
+<div class="prose">
+  <h2>The options</h2>
+  <p>Open <span class="ui">Settings › Network &amp; Access</span>. The <span class="ui">Remote Access</span> tab has:</p>
+  <table class="doc-table">
+    <thead><tr><th>Option</th><th>What it means</th></tr></thead>
+    <tbody>
+      <tr><td>Local only</td><td>The default. RedLeaf is reachable only from this machine, with no exposure and no other accounts.</td></tr>
+      <tr><td>Remote via Cloudflare Tunnel</td><td>RedLeaf gets a public address on your own domain, through Cloudflare. Needs a free Cloudflare account and a domain.</td></tr>
+    </tbody>
+  </table>
+  <p>The <span class="ui">Authentication</span> tab adds <span class="ui">Google OAuth sign-in</span>, for remote access or for more than one person.</p>
+
+  <h2>Set up a tunnel</h2>
+  <ol class="steps">
+    <li><b>Create the tunnel in Cloudflare</b>In your Cloudflare dashboard, create a tunnel for your domain and copy its token.</li>
+    <li><b>Turn on Google sign-in first</b>In <span class="ui">Authentication</span>, create an OAuth client in Google Cloud, then paste its <span class="ui">Client ID</span> and <span class="ui">Client Secret</span>. Switching sign-in restarts RedLeaf.</li>
+    <li><b>Connect the tunnel</b>Back in <span class="ui">Remote Access</span>, choose the tunnel option, paste the <span class="ui">Tunnel Token</span> and the <span class="ui">Public Hostname</span>, and save. Tunnel changes apply immediately.</li>
+    <li><b>Open it on your phone</b>Visit your hostname and sign in. Nova can be added to your home screen like an app.</li>
+  </ol>
+  <div class="callout warn">{{icon:warning}}<p><strong>A public address is a door.</strong> Anyone who can reach your hostname reaches your agents' front page. Require Google sign-in before you publish, and keep agents that read untrusted content on a modest <a href="{{root}}docs/access-levels/">access level</a>.</p></div>
+
+  <h2>What works away from your desk</h2>
+  <ul>
+    <li><strong>Discussions, Code, Workspace</strong> and the other apps work in a phone browser, with a layout made for small screens.</li>
+    <li><strong>Voice mode</strong> works on phones. See <a href="{{root}}docs/voice/">Voice</a>.</li>
+    <li><strong>Attach what I see</strong> can share the current page, but not your computer's monitors.</li>
+    <li><strong>Float Nova</strong> is for desktops only.</li>
+  </ul>
+  <p>Your computer still does all the work, so it has to be on, with RedLeaf running.</p>
+
+  <h2>More people</h2>
+  <p>Google sign-in is also how more than one person reaches the same RedLeaf, and RedLeaf has three roles for them: Admin, Editor and Viewer. See <a href="{{root}}docs/database/">Database and views</a>. Managing people is still basic in the preview: there's no invitation or user list screen yet.</p>
+</div>

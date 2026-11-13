@@ -1,0 +1,55 @@
+<!--page {"title": "Access levels · RedLeaf docs", "description": "Plan, Ask, Auto and Full: what an agent may do without asking you, where to set the default, per agent and per session, and what to know before turning on Full access.", "layout": "docs", "section": "docs", "slug": "access-levels"}-->
+<header>
+  <p class="eyebrow">Going further</p>
+  <h1>Access levels.</h1>
+  <p class="doc-lede">An access level decides what an agent may do in a session without asking you first. There are four, from reading only to running anything. Only you can change them, from Settings, in person.</p>
+</header>
+
+<div class="prose">
+  <h2>The four levels</h2>
+  <table class="doc-table">
+    <thead><tr><th>Level</th><th>What the agent may do</th></tr></thead>
+    <tbody>
+      <tr><td>Plan</td><td>Reads and plans. It changes nothing until you let it go ahead.</td></tr>
+      <tr><td>Ask</td><td>Edits files in the project and asks you before anything else, like running a command.</td></tr>
+      <tr><td>Auto</td><td>A safety check approves routine actions and blocks risky ones.</td></tr>
+      <tr><td>Full</td><td>Does anything without asking. Only available while Full access is on.</td></tr>
+    </tbody>
+  </table>
+  <p>The default is <strong>Auto</strong>, with Full access off. Heartbeats, schedules and other unattended sessions can't wait for someone to approve a step, and Auto lets them keep working while still stopping anything risky.</p>
+  <p>Plan and Auto need a provider that supports them. Where it doesn't, the session uses Ask instead.</p>
+
+  <h2>Where to set it</h2>
+  <table class="doc-table">
+    <thead><tr><th>Scope</th><th>Where</th></tr></thead>
+    <tbody>
+      <tr><td>Every agent</td><td><span class="ui">Settings › Agent permissions › New sessions</span>. Used by every agent without a level of its own.</td></tr>
+      <tr><td>One agent</td><td>The agent's page, in its <span class="ui">Access level</span> field. Choose a level, or <span class="ui">Use default</span>.</td></tr>
+      <tr><td>One session</td><td>The session's <span class="ui">Info</span> dialog, under <span class="ui">Permissions</span>. It applies right away.</td></tr>
+    </tbody>
+  </table>
+  <p>A session can't go above the level it started with, and an agent can never raise its own level. In Code, <kbd>Shift</kbd>+<kbd>Tab</kbd> toggles Plan mode and returns to the previous level when you leave it.</p>
+
+  <h2>Approvals</h2>
+  <p>When an action needs your permission, the agent stops and shows an approval card. Its step square gets an amber ring, and the discussion is marked as waiting for you.</p>
+  <ul>
+    <li><span class="ui">Allow once</span> lets this one action run.</li>
+    <li><span class="ui">Allow for this session</span> stops asking about this kind of action until the session ends.</li>
+    <li><span class="ui">Deny</span> refuses it, and the agent carries on without it.</li>
+  </ul>
+  <p>Actions refused by policy, without asking, appear as a short note under the agent's latest reply.</p>
+
+  <h2>Full access</h2>
+  <p>Turning on <span class="ui">Full access</span> in <span class="ui">Settings › Agent permissions</span> opens a warning you have to read and accept. It says, in short: with Full access, an agent runs any command without asking. It can delete files, rewrite git history, wipe a database or send your data somewhere else. Usually that would be a mistake. Sometimes it's because something it read, such as a Discord message, an email or a web page, told it to.</p>
+  <p>Before you turn it on:</p>
+  <ul>
+    <li>keep a backup the agent can't reach, and test a restore once;</li>
+    <li>push your code often;</li>
+    <li>know what RedLeaf backs up: its own database, not your other files;</li>
+    <li>keep passwords and API keys out of plain files;</li>
+    <li>prefer Ask or Auto for anything that reads untrusted content, and use Full for one session at a time, when you need it.</li>
+  </ul>
+  <p>Turning it off moves every Full default back to Auto, and live Full sessions to their default level. If the warning's text changes, Full access turns off until you accept the new version.</p>
+
+  <div class="callout warn">{{icon:warning}}<p><strong>Agents read things you didn't write.</strong> Web pages, emails and messages can contain instructions aimed at an AI. The lower the access level, the less harm such an instruction can do. That's the real reason to keep Full access for the moments you need it.</p></div>
+</div>

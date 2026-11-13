@@ -1,0 +1,39 @@
+<!--page {"title": "Uninstall and your data · RedLeaf docs", "description": "Remove RedLeaf with the launcher, keep or delete your data, and know exactly which folders RedLeaf uses on Windows and Linux.", "layout": "docs", "section": "docs", "slug": "uninstall"}-->
+<header>
+  <p class="eyebrow">Help</p>
+  <h1>Uninstall and your data.</h1>
+  <p class="doc-lede">Uninstalling removes the program and keeps your data, so you can come back later and find everything where you left it. Deleting the data too is a separate, deliberate step.</p>
+</header>
+
+<div class="prose">
+  <h2>Uninstall</h2>
+  <p>RedLeaf is removed with its launcher, the same file you installed it with. Use a downloaded copy of the launcher, not the one inside the installation.</p>
+  <h3>Windows</h3>
+  <p>Open PowerShell in the folder where you downloaded the launcher, for example Downloads, and run it with <code>uninstall</code>:</p>
+  <pre><code>.\redleaf-launcher-&lt;version&gt;-&lt;build&gt;-win-x64.exe uninstall</code></pre>
+  <p>Use the full name of the file you downloaded; it starts with <code>redleaf-launcher</code>.</p>
+  <p>If you no longer have it, download it again from the <a href="{{root}}#download">download section</a>.</p>
+  <h3>Linux</h3>
+  <p>Download the Linux archive from the <a href="{{root}}#download">download section</a>, extract the launcher, and run:</p>
+  <pre><code>tar -xzf redleaf-linux-x64.tar.gz redleaf-launcher
+./redleaf-launcher uninstall</code></pre>
+  <p>The launcher stops RedLeaf, then removes the installed program, its update state and the Start menu or applications menu entry. On Linux, it also unmounts <code>~/Leaf</code>.</p>
+
+  <h2>What stays</h2>
+  <p>Your data is kept: settings, the private database with your discussions, agents and memory, encryption keys, assets and backups. Reinstall later and RedLeaf picks it up again.</p>
+  <table class="doc-table">
+    <thead><tr><th>What</th><th>Windows</th><th>Linux</th></tr></thead>
+    <tbody>
+      <tr><td>Settings, database, logs, backups</td><td><code>%LOCALAPPDATA%\RedLeaf</code></td><td><code>~/.local/share/RedLeaf</code></td></tr>
+      <tr><td>Encryption keys</td><td><code>%LOCALAPPDATA%\RedSuite</code></td><td>under <code>~/.local/share</code></td></tr>
+      <tr><td>The program (removed)</td><td><code>%LOCALAPPDATA%\RedLeaf-Suite</code></td><td><code>~/.local/share/RedLeaf-Suite</code></td></tr>
+    </tbody>
+  </table>
+  <p>Agent workspaces on <code>L:</code> or in <code>~/Leaf</code> aren't separate files: they're a view of pages in the database, and they disappear when RedLeaf isn't running.</p>
+
+  <h2>Deleting your data</h2>
+  <div class="callout warn">{{icon:warning}}<p><strong>This can't be undone.</strong> Deleting these folders removes every discussion, agent, memory and backup stored in them. If you might want any of it, keep a copy first, or keep your <a href="{{root}}docs/backups/">off-site copy</a> and its recovery passphrase.</p></div>
+  <p>After uninstalling, delete <code>%LOCALAPPDATA%\RedLeaf</code> and <code>%LOCALAPPDATA%\RedSuite</code> on Windows, or <code>~/.local/share/RedLeaf</code> on Linux. WinFsp, installed during setup, is a separate program: remove it from <span class="ui">Settings › Apps</span> in Windows if nothing else uses it.</p>
+  <p>Data held by your AI providers, such as conversation history in your provider account, is governed by them. RedLeaf can't delete it for you.</p>
+  <p>If you turned on anonymous usage statistics, <span class="ui">Delete my data</span> in <span class="ui">Settings › Usage sharing</span> removes what was sent, as described in the <a href="{{root}}privacy/usage-sharing/">usage statistics notice</a>. Do it before uninstalling.</p>
+</div>

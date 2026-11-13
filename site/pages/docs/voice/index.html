@@ -1,0 +1,48 @@
+<!--page {"title": "Voice and Float Nova · RedLeaf docs", "description": "Talk to your agents with push-to-talk or a live voice call, have them speak, and keep Nova in a small window that stays on top.", "layout": "docs", "section": "docs", "slug": "voice"}-->
+<header>
+  <p class="eyebrow">Everyday use</p>
+  <h1>Voice and Float Nova.</h1>
+  <p class="doc-lede">There are three ways to use your voice with an agent: hold a key and talk, have it speak back, or open a live call. Each needs its own provider, so set up only the ones you want.</p>
+</header>
+
+<div class="prose">
+  <table class="doc-table">
+    <thead><tr><th>Feature</th><th>What it does</th><th>Needs</th></tr></thead>
+    <tbody>
+      <tr><td>Push-to-talk</td><td>You speak, it becomes your message</td><td>A Speech to Text provider: faster-whisper, local</td></tr>
+      <tr><td>Spoken replies</td><td>The agent reads something aloud or sends audio</td><td>A Text to Speech provider: ElevenLabs in the cloud, or Qwen3-TTS locally</td></tr>
+      <tr><td>Voice mode</td><td>A live, two-way call with the agent</td><td>OpenAI GPT-Live, on an OpenAI API account</td></tr>
+    </tbody>
+  </table>
+  <p>The local providers need an NVIDIA graphics card and WSL 2, and RedLeaf sets them up for you. See <a href="{{root}}docs/providers/">AI providers and local models</a>.</p>
+
+  <h2>Push-to-talk</h2>
+  <p>When the message field is empty, a microphone button appears next to it: press and hold <span class="ui">Hold to talk</span>, speak, and let go. RedLeaf transcribes what you said, tidies filler words and punctuation without changing what you meant, and sends it. If the agent asked you a question, it becomes your answer.</p>
+  <p>You can also hold a key instead. Set it first: open <span class="ui">Settings › Nova</span> and choose a <span class="ui">Push-to-talk key</span> under <span class="ui">Voice</span>. The default, <kbd>F13</kbd>, isn't on most keyboards. The same section has your <span class="ui">Microphone</span>, <span class="ui">Speaker</span> and <span class="ui">Voice processing</span>, which turns on echo cancellation and noise suppression. Turn it off for virtual cables or line inputs.</p>
+
+  <h2>Spoken replies</h2>
+  <p>With a Text to Speech provider installed, an agent can turn text into speech: ask it to read something out loud, or to record a message. Audio plays right in the discussion. To give an agent a voice of its own, choose one in its <span class="ui">Voice</span> field on the agent's page. See <a href="{{root}}docs/agents/">Nova and your own agents</a>.</p>
+
+  <h2>Voice mode</h2>
+  <p>Voice mode is a live call. Open it from the discussion menu with <span class="ui">Voice</span>, or press <kbd>Alt</kbd>+<kbd>V</kbd>. You'll see the agent's portrait, live captions and a status: <span class="ui">Listening</span>, <span class="ui">Speaking</span>, or <span class="ui">Working on that</span> when it's doing something that takes longer. Press <kbd>Esc</kbd> or <span class="ui">End voice session</span> to hang up.</p>
+  <p>It isn't a separate conversation. Everything said is saved into the same discussion. Small talk is answered by the live voice model directly. Anything that needs the agent's memory, tools or files is handed to the agent itself, which is when you see <span class="ui">Working on that</span>.</p>
+  <h3>Setting it up</h3>
+  <ol class="steps">
+    <li><b>Install OpenAI GPT-Live</b>From <span class="ui">Settings › Extensions</span>. It's billed per use on an OpenAI API account. A ChatGPT subscription doesn't cover it.</li>
+    <li><b>Save a project key</b>Paste an OpenAI project key, starting with <code>sk-proj-</code>, in the extension's settings.</li>
+    <li><b>Choose a Live Voice</b>Open the agent's page and pick a <span class="ui">Live Voice</span>. Then start <span class="ui">Voice</span> from one of its discussions.</li>
+  </ol>
+  <p>If Voice won't start, check that the key is saved and that the agent you're talking to has a Live Voice. Voice mode works on phones too, over <a href="{{root}}docs/remote-access/">remote access</a>.</p>
+
+  <h2>Float Nova</h2>
+  <p>Float Nova is a compact window with your discussions that stays on top of everything else. Open it with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>, or choose <span class="ui">Float</span> in a discussion's menu. While it's open, your push-to-talk key works from any app. Choose <span class="ui">Dock</span> to bring the discussion back into RedLeaf.</p>
+  <table class="doc-table">
+    <thead><tr><th>Key</th><th>In Float Nova</th></tr></thead>
+    <tbody>
+      <tr><td><kbd>Alt</kbd>+<kbd>N</kbd></td><td>New discussion</td></tr>
+      <tr><td><kbd>Alt</kbd>+<kbd>←</kbd> / <kbd>→</kbd></td><td>Discussions list / the chat</td></tr>
+      <tr><td><kbd>Alt</kbd>+<kbd>↓</kbd> / <kbd>↑</kbd></td><td>Next / previous discussion</td></tr>
+    </tbody>
+  </table>
+  <p>Float Nova is for desktops. It needs the main RedLeaf page to stay open in the background. If it closes by itself, keep RedLeaf open in its own window and press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd> again.</p>
+</div>

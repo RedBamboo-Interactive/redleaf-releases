@@ -1,0 +1,50 @@
+<!--page {"title": "Install on Windows · RedLeaf docs", "description": "Download the RedLeaf launcher, run it as yourself, approve WinFsp once, and open RedLeaf in your browser.", "layout": "docs", "section": "docs", "slug": "install-windows"}-->
+<header>
+  <p class="eyebrow">Get started</p>
+  <h1>Install on Windows.</h1>
+  <p class="doc-lede">RedLeaf installs for your Windows account, with no installer wizard and no service. The launcher checks every download against the signed release feed, installs the suite, and opens it in your browser.</p>
+</header>
+
+<div class="prose">
+  <h2>Before you start</h2>
+  <ul>
+    <li><strong>Windows x64.</strong> ARM devices are not supported yet.</li>
+    <li><strong>Internet access</strong>, to download the components and to reach your AI provider.</li>
+    <li><strong>An AI provider you can sign in to</strong>, such as a Claude subscription for Claude Code or a ChatGPT account for Codex. See <a href="{{root}}docs/providers/">AI providers</a>.</li>
+    <li><strong>Git for Windows</strong>, only if you want to use Code on your own projects. RedLeaf does not install Git.</li>
+  </ul>
+  <p>You don't need a graphics card. One is only needed if you later add local models for images or voice.</p>
+
+  <h2>Install</h2>
+  <ol class="steps">
+    <li><b>Download the launcher</b>Go to the <a href="{{root}}#download">download section</a> and choose <span class="ui">Download Nightly</span>. The file name starts with <code>redleaf-launcher</code>. To check it, choose <span class="ui">Show SHA-256</span> and compare the hash with the one Windows gives you for the file (<code>Get-FileHash</code> in PowerShell).</li>
+    <li><b>Run it as yourself</b>Double-click the file. If SmartScreen says “Unknown publisher”, choose <span class="ui">More info</span>, then <span class="ui">Run anyway</span>. Don't run it as administrator: RedLeaf installs for your account and restarts itself without administrator rights if you do.</li>
+    <li><b>Let it install</b>The launcher reads the signed release feed, verifies each component's signature and hash, installs the suite and starts it. When it is ready, your browser opens RedLeaf at <code>http://127.0.0.1:18804</code>.</li>
+    <li><b>Approve WinFsp once</b>Setup's first step installs WinFsp, which gives your agents their workspace drive. Windows asks for administrator approval for that one installation. See <a href="{{root}}docs/first-run/">Set up RedLeaf</a> for the rest.</li>
+  </ol>
+
+  <h2>Where it lives</h2>
+  <table class="doc-table">
+    <thead><tr><th>What</th><th>Where</th></tr></thead>
+    <tbody>
+      <tr><td>The program</td><td><code>%LOCALAPPDATA%\RedLeaf-Suite</code></td></tr>
+      <tr><td>Your data</td><td><code>%LOCALAPPDATA%\RedLeaf</code>: settings, the private database, logs and backups</td></tr>
+      <tr><td>Agent workspaces</td><td>Drive <code>L:</code>, under <code>L:\Workspaces</code>, while RedLeaf runs</td></tr>
+      <tr><td>Scratch space</td><td>Drive <code>S:</code>, cleaned up automatically after 30 days</td></tr>
+      <tr><td>Start menu</td><td>A <span class="ui">RedLeaf</span> entry. No desktop shortcut is created.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Opening, closing and starting with Windows</h2>
+  <p>RedLeaf keeps running in the notification area after you close the browser tab. Its tray icon has <span class="ui">Open RedLeaf</span>, an <span class="ui">Apps</span> menu with one entry per app, <span class="ui">Start with Windows</span>, <span class="ui">Restart</span> and <span class="ui">Exit</span>. To open it later, use the Start menu or the tray icon; starting it a second time just tells you it is already running.</p>
+  <p>To pin it, open Start, search for RedLeaf, right-click it and choose <span class="ui">Pin to taskbar</span>. To start it when you sign in, turn on <span class="ui">Start with Windows</span> in the tray menu or in <span class="ui">Settings › System</span>.</p>
+
+  <div class="callout">{{icon:lightbulb}}<p><strong>Keep the launcher.</strong> Running the downloaded file again on a machine where RedLeaf is installed repairs the installation and keeps your choices. Updates themselves are installed from inside RedLeaf: see <a href="{{root}}docs/updates/">Updates</a>.</p></div>
+
+  <h2>If something goes wrong</h2>
+  <ul>
+    <li><strong>The download button says it is unavailable.</strong> The site could not reach the signed release feed. It never offers an unverified file instead, so try again a little later.</li>
+    <li><strong>Windows keeps running it as administrator.</strong> Right-click the file, open <span class="ui">Properties › Compatibility</span>, untick “Run this program as an administrator”, and run it again.</li>
+    <li><strong>It started, then stopped.</strong> The launcher's log is at <code>%LOCALAPPDATA%\RedLeaf\update\logs\launcher.log</code>. See <a href="{{root}}docs/troubleshooting/">Troubleshooting</a>.</li>
+  </ul>
+</div>

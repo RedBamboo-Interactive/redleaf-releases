@@ -1,0 +1,61 @@
+<!--page {"title": "Troubleshooting and Doctor · RedLeaf docs", "description": "What to do when RedLeaf won't start, a provider stops answering, or an update fails: the recovery screen, Setup & Health, logs, Doctor, and where to ask for help.", "layout": "docs", "section": "docs", "slug": "troubleshooting"}-->
+<header>
+  <p class="eyebrow">Help</p>
+  <h1>Troubleshooting and Doctor.</h1>
+  <p class="doc-lede">Most problems show up in one of three places: the recovery screen when RedLeaf can't start, <span class="ui">Setup &amp; Health</span> when something it depends on isn't right, or a provider that stops answering. Here's what each one means and what to do.</p>
+</header>
+
+<div class="prose">
+  <h2>Check health first</h2>
+  <p>Open <span class="ui">Settings › Setup &amp; Health</span>. It runs live checks on RedLeaf's core services, its capabilities and access, and says <span class="ui">All systems healthy</span> or <span class="ui">System needs attention</span>, with the failing checks and why. Choose <span class="ui">Run health checks again</span> after fixing something.</p>
+
+  <h2>RedLeaf won't start</h2>
+  <p>If RedLeaf can't finish starting on an existing installation, it shows <span class="ui">Recover RedLeaf</span> instead of setup. It says what failed, in plain words, and what happened to your data. For example, that it couldn't reach the database and so hasn't read or changed anything in it.</p>
+  <ul>
+    <li><span class="ui">Try again</span> reruns the whole start. A database update can take several minutes.</li>
+    <li><span class="ui">Open log folder</span> opens the logs, one file per day.</li>
+  </ul>
+  <p>Don't reinstall RedLeaf or delete its data folder to get past this screen. Your installation is still there, and setup doesn't need to run again. If <span class="ui">Try again</span> doesn't help, ask in <strong>#bug-reports</strong> on the <a href="https://discord.gg/FWMQtGzw3y">Leaf Discord</a> with the newest log file and a screenshot of the page.</p>
+
+  <h2>Common problems</h2>
+  <table class="doc-table">
+    <thead><tr><th>You see</th><th>What to do</th></tr></thead>
+    <tbody>
+      <tr><td>“RedLeaf is already running.”</td><td>It's in the notification area. Use the tray icon's <span class="ui">Open RedLeaf</span>.</td></tr>
+      <tr><td>“Server failed to start”</td><td>Another program is using RedLeaf's port, 18804. Close it and start RedLeaf again.</td></tr>
+      <tr><td>“Drive L: is already in use”</td><td>Another drive or program has taken the workspace letter. Free it, or pick another <span class="ui">Workspace drive</span> in <span class="ui">Settings › Storage › Workspaces</span>.</td></tr>
+      <tr><td>The launcher asks you to disable “Run this program as an administrator”</td><td>Untick it in the file's <span class="ui">Properties › Compatibility</span>, and run it again as yourself.</td></tr>
+      <tr><td>“must not run as root” on Linux</td><td>Run the installer or launcher again without <code>sudo</code>.</td></tr>
+      <tr><td>“The FUSE runtime is missing”</td><td>Install <code>fuse3</code> from your distribution, then <span class="ui">Try again</span>.</td></tr>
+      <tr><td>Claude Code: “Installed, not signed in.”</td><td>Sign in again from the provider's settings in <span class="ui">Settings › Extensions</span>. If RedLeaf can't find Claude Code at all, install it, or enter its location in the extension's advanced settings.</td></tr>
+      <tr><td>Codex won't install on Linux</td><td>Run <code>curl -fsSL https://releases.openai.com/codex/install.sh | sh</code>, then choose <span class="ui">Check again</span>.</td></tr>
+      <tr><td>“Session paused”, usage limit reached</td><td>Your provider's limit. Send a message after it resets and the session continues.</td></tr>
+      <tr><td>A capability shows a purple moon in Compute</td><td>It's asleep, so its requests are frozen. Press the moon button to wake it.</td></tr>
+      <tr><td>An update failed</td><td>It was rolled back. The reason is in the launcher log, <code>update/logs/launcher.log</code> in RedLeaf's data folder.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Where the logs are</h2>
+  <table class="doc-table">
+    <thead><tr><th>Log</th><th>Windows</th><th>Linux</th></tr></thead>
+    <tbody>
+      <tr><td>RedLeaf</td><td><code>%LOCALAPPDATA%\RedLeaf\Logs</code></td><td><code>~/.local/share/RedLeaf/Logs</code></td></tr>
+      <tr><td>Launcher and updates</td><td><code>%LOCALAPPDATA%\RedLeaf\update\logs\launcher.log</code></td><td><code>~/.local/share/RedLeaf/update/logs/launcher.log</code></td></tr>
+    </tbody>
+  </table>
+  <p>For a job that failed, open it in <span class="ui">Compute › Jobs</span>: its detail has the error, the timeline and the trace.</p>
+
+  <h2>Doctor</h2>
+  <p>Doctor is a repair kit that keeps working when RedLeaf itself doesn't. It's a separate page in your browser with health checks, <span class="ui">Restart suite</span>, and repair sessions where Claude Code or Codex can diagnose and fix the installation with you. It's installed with RedLeaf and starts with it. Doctor is on Windows only for now.</p>
+  <p>Set it up now, while everything works:</p>
+  <ol class="steps">
+    <li><b>Create its access token</b>In Doctor's settings, under <span class="ui">Access</span>, choose <span class="ui">Rotate</span> and keep the token in your password manager. It's shown once.</li>
+    <li><b>Bookmark it</b>Open <code>http://127.0.0.1:18899</code> and bookmark it.</li>
+    <li><b>Pick its AI</b>Under <span class="ui">Repair sessions</span>, choose Claude Code or Codex.</li>
+    <li><b>Decide on unrestricted repair</b>It's on by default: the repair session may act without asking at each step. Turn it off if you'd rather approve each one.</li>
+  </ol>
+  <p>Doctor is only reachable from your computer. If its page won't open, check that Doctor is on and its port is free, and use <span class="ui">Restart Doctor</span> in its settings. If you lost the token, rotate it again; that needs RedLeaf running.</p>
+
+  <h2>Still stuck?</h2>
+  <p>Ask on the <a href="https://discord.gg/FWMQtGzw3y">Leaf Discord</a>, in <strong>#bug-reports</strong>. Include what you were doing, what you saw, and the newest log file. Check it for anything private first.</p>
+</div>

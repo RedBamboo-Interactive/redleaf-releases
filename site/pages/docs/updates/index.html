@@ -1,0 +1,28 @@
+<!--page {"title": "Updates · RedLeaf docs", "description": "How RedLeaf checks for updates, installs them only when you choose, waits for running work, rolls back a failed update, and verifies every component it downloads.", "layout": "docs", "section": "docs", "slug": "updates"}-->
+<header>
+  <p class="eyebrow">Going further</p>
+  <h1>Updates.</h1>
+  <p class="doc-lede">RedLeaf checks for updates on its own and tells you what's ready, but nothing installs until you choose it. When you do, it waits for running work, restarts, checks that everything is healthy, and rolls back if it isn't.</p>
+</header>
+
+<div class="prose">
+  <h2>Installing updates</h2>
+  <ol class="steps">
+    <li><b>Get told</b>RedLeaf checks at startup and then every 12 hours. When something is ready, a notice says <span class="ui">Update available</span>, with <span class="ui">Open Updates</span>.</li>
+    <li><b>Save your work</b>An update restarts RedLeaf. Make sure nothing important is in the middle of running.</li>
+    <li><b>Update</b>In <span class="ui">Settings › Updates</span>, choose <span class="ui">Update all</span> to install everything with one restart, or <span class="ui">Update</span> on one component. <span class="ui">Check now</span> looks again straight away.</li>
+  </ol>
+  <p>After you start it, RedLeaf waits for active AI and automation work to finish, restarts through the launcher, verifies its health, and puts the previous version back if the new one fails. A component can update on its own when it doesn't depend on the others.</p>
+
+  <h2>Channels</h2>
+  <p>RedLeaf is a Nightly preview: new builds are published automatically when something changed, and they can change often. During the preview, releases are published on the <span class="ui">Nightly</span> channel only, so keep <span class="ui">Channel</span> on Nightly. Under <span class="ui">Advanced</span> you can set <span class="ui">Component channels</span> or <span class="ui">Exact version pins</span> for single components, and <span class="ui">Save changes</span>. Most people never need to.</p>
+
+  <h2>How downloads are verified</h2>
+  <p>Every component comes from the signed release feed. RedLeaf checks the signature on each release record and the SHA-256 hash of each file, and rejects an older record replayed as new. The keys it trusts are built into the launcher. If anything doesn't match, nothing is installed. There is never an unverified fallback.</p>
+
+  <h2>Repairing an installation</h2>
+  <p>On Windows, running the launcher you downloaded again repairs the installation and keeps your choices. On Linux, update from inside RedLeaf; running the installer again just opens the existing installation.</p>
+  <p>If an update fails and rolls back, the launcher's log explains why: <code>%LOCALAPPDATA%\RedLeaf\update\logs\launcher.log</code> on Windows, under <code>~/.local/share/RedLeaf/update/logs</code> on Linux. See <a href="{{root}}docs/troubleshooting/">Troubleshooting</a>.</p>
+
+  <p>Extension updates arrive the same way and install from the same page.</p>
+</div>
