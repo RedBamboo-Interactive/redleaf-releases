@@ -1,31 +1,9 @@
-<!--page {"title": "RedLeaf: make things with Nova, on your own computer", "description": "Make a game, learn a language or get your week under control with Nova. She runs the work, remembers it and shows you every step. RedLeaf runs on your own Windows or Linux computer.", "layout": "landing", "section": "product"}-->
-<section class="hero compact" aria-labelledby="hero-title">
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="hero-grid" aria-hidden="true"></div>
-  <div class="hero-copy page-width">
-    <p class="pill"><span class="pill-dot"></span>Nightly preview · Now on Windows and Linux</p>
-    <h1 id="hero-title">Whatever you're working on, Nova is <em>in it with you</em>.</h1>
-    <p class="lede">Make a game. Learn German. Get a busy week under control. RedLeaf runs on your own computer, remembers what you do together, and shows you every step it takes.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#download">{{icon:download-simple}}<span>Get RedLeaf for <span data-platform-label>Windows</span></span></a>
-      <a class="btn btn-ghost" href="{{root}}cookbook/">{{icon:book-open}}<span>Browse the cookbook</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="stage" id="demo" data-demo-set aria-label="Animated recreations of RedLeaf for three different people">
-  <div class="stage-bar">
-    <div class="story-tabs" role="tablist" aria-label="Choose a story">
-      <button type="button" role="tab" data-story-tab aria-controls="story-game" aria-selected="true"><span class="tone tone-blue">{{icon:game-controller}}</span><span><b>Make a game</b><small>Code · Workspace board</small></span><i class="tab-progress" aria-hidden="true"></i></button>
-      <button type="button" role="tab" data-story-tab aria-controls="story-german" aria-selected="false" tabindex="-1"><span class="tone tone-amber">{{icon:translate}}</span><span><b>Learn German</b><small>Voice · Picture vocabulary</small></span><i class="tab-progress" aria-hidden="true"></i></button>
-      <button type="button" role="tab" data-story-tab aria-controls="story-organize" aria-selected="false" tabindex="-1"><span class="tone tone-green">{{icon:calendar-check}}</span><span><b>Get organized</b><small>Files · Life Coaching</small></span><i class="tab-progress" aria-hidden="true"></i></button>
-    </div>
-    <button class="demo-toggle" type="button" data-set-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
-  </div>
-
+<!--page {"title": "RedLeaf: AI agents that work with you, on your own computer", "description": "Make a game, learn a language or get your week under control with AI agents that run on your own Windows or Linux computer, remember your work and show you every step.", "layout": "landing", "section": "product"}-->
+<section class="stage" id="demo" data-demo-set aria-labelledby="hero-title">
   <div class="stage-app">
     <!-- Story 1: a game developer. Nova -> Code -> Workspace board. -->
     <div class="story" id="story-game" role="tabpanel" data-story data-demo data-pace=".7">
+      <img class="story-bg" src="{{root}}demo/bg-game.webp" alt="" />
       <div class="app-frame" data-stage>
         <section class="screen g-nova active" aria-hidden="true">
           <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
@@ -41,7 +19,7 @@
               <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Moss Knight</b><small>Nova · your 2D platformer</small></span></div>
               <div class="thread">
                 <div class="msg user"><p>The boss in world 2 dies way too fast.</p></div>
-                <div class="msg nova"><div><div class="frieze"><i class="sq t"></i><i class="sq t"></i><i class="sq k"></i></div><p>I gave him a second phase: below half health he speeds up and the arena floor starts to crumble. It's merged, so it's in your next build.</p></div></div>
+                <div class="msg nova"><div><div class="frieze"><i class="sq t"></i><i class="sq t"></i><i class="sq k"></i></div><p>I gave him a second phase: below half health he speeds up and the arena floor starts to crumble. It's merged, so it's in your next build.</p><figure class="media-card"><img src="{{root}}demo/art-boss.webp" alt="" /><figcaption>{{icon:play}}boss-phase-two.mp4 · 0:12</figcaption></figure></div></div>
                 <div class="msg user" data-step="10" data-wait="350"><p>Next: a level select screen, controller support, and a less floaty jump.</p></div>
                 <div class="msg nova" data-step="20" data-wait="450"><div>
                   <div class="frieze"><i class="sq p"></i><i class="sq t" style="--d:80ms"></i><i class="sq k run gk1" data-step="22" data-wait="200"></i><i class="sq k run gk2" data-step="23" data-wait="180" data-remove=".gk1|run"></i><i class="sq k gk3" data-step="24" data-wait="180" data-remove=".gk2|run"></i></div>
@@ -100,7 +78,7 @@
           </div>
         </section>
 
-        <section class="screen g-board" aria-hidden="true">
+        <section class="screen g-board no-side" aria-hidden="true">
           <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
           <div class="app-body">
             <aside class="sidebar tree">
@@ -116,7 +94,7 @@
               <div class="board">
                 <div class="board-col"><p>Ideas <i>2</i></p>
                   <div class="board-card"><b>{{icon:file-text}}Boss rush mode</b></div>
-                  <div class="board-card"><b>{{icon:file-text}}Store page art</b></div>
+                  <div class="board-card has-img"><img src="{{root}}demo/art-store.webp" alt="" /><b>{{icon:image-square}}Store page art</b><span class="chip">3 picks in Gallery</span></div>
                 </div>
                 <div class="board-col"><p>In progress <i><span class="cnt-a">3</span><span class="cnt-b">0</span></i></p>
                   <div class="board-card bc-jump"><b>{{icon:git-branch}}Better jump</b><span class="chip mono">jump-feel</span></div>
@@ -124,7 +102,7 @@
                   <div class="board-card bc-level"><b>{{icon:git-branch}}Level select screen</b><span class="chip mono">level-select</span></div>
                 </div>
                 <div class="board-col"><p>Your turn <i><span class="cnt-a">0</span><span class="cnt-b">1</span></i></p>
-                  <div class="board-card moved" data-step="74" data-wait="900"><b>{{icon:git-branch}}Level select screen</b><span class="chip review">{{icon:eye}}play it on its branch</span></div>
+                  <div class="board-card moved has-img" data-step="74" data-wait="900"><img src="{{root}}demo/art-levels.webp" alt="" /><b>{{icon:git-branch}}Level select screen</b><span class="chip review">{{icon:eye}}play it on its branch</span></div>
                 </div>
                 <div class="board-col"><p>Done <i><span class="cnt-a">2</span><span class="cnt-b">4</span></i></p>
                   <div class="board-card moved" data-step="70" data-wait="320"><b>{{icon:check-circle}}Better jump</b><span class="chip ok">merged</span></div>
@@ -158,6 +136,7 @@
 
     <!-- Story 2: learning German with an agent of your own. Voice -> picture vocabulary in a Workspace gallery. -->
     <div class="story" id="story-german" role="tabpanel" data-story data-demo data-pace=".7" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-german.webp" alt="" />
       <div class="app-frame" data-stage>
         <section class="screen l-chat active" aria-hidden="true">
           <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
@@ -189,7 +168,7 @@
           </div>
         </section>
 
-        <section class="screen l-vocab" aria-hidden="true">
+        <section class="screen l-vocab no-side" aria-hidden="true">
           <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
           <div class="app-body">
             <aside class="sidebar tree">
@@ -218,6 +197,7 @@
 
     <!-- Story 3: a busy week. Nova -> Workspace files -> Life Coaching agenda. -->
     <div class="story" id="story-organize" role="tabpanel" data-story data-demo data-pace=".7" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-organize.webp" alt="" />
       <div class="app-frame" data-stage>
         <section class="screen o-chat active" aria-hidden="true">
           <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
@@ -225,15 +205,15 @@
             <aside class="sidebar">
               <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
               <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
-              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Paperwork</b><small>Nova · now</small></span></div>
-              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Lisbon in March</b><small>Nova · Tuesday</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>This week</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Birthday ideas for Sam</b><small>Nova · Tuesday</small></span></div>
               <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Launch week checklist</b><small>Nova · Monday</small></span></div>
             </aside>
             <div class="chat">
-              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Paperwork</b><small>Nova · Codex · Standard</small></span></div>
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>This week</b><small>Nova · Codex · Standard</small></span></div>
               <div class="thread">
-                <div class="msg user"><p>How much did the bike cost me this year?</p></div>
-                <div class="msg nova"><div><div class="frieze"><i class="sq t"></i><i class="sq t"></i></div><p>€214 so far: the service in May, new tyres in August and a lock. I found them in your receipts.</p></div></div>
+                <div class="msg user"><p>Is Lisbon still on for March?</p></div>
+                <div class="msg nova"><div><div class="frieze"><i class="sq t"></i><i class="sq t"></i></div><p>Yes: flights on 12 March, three nights in Alfama. I put tram 28 first thing on day one, before the crowds.</p><figure class="media-card"><img src="{{root}}demo/pic-lisbon.webp" alt="" /><figcaption>{{icon:image-square}}Saved to Lisbon in March</figcaption></figure></div></div>
                 <div class="msg user" data-step="10" data-wait="350"><p>I dropped 37 scans into Inbox. Sort them, and put anything with a deadline on my week.</p></div>
                 <div class="msg nova" data-step="20" data-wait="400"><div>
                   <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:50ms"></i><i class="sq t" style="--d:100ms"></i><i class="sq t" style="--d:150ms"></i><i class="sq t" style="--d:200ms"></i><i class="sq g" style="--d:250ms"></i><i class="sq g" style="--d:300ms"></i><i class="sq g" style="--d:350ms"></i></div>
@@ -271,7 +251,7 @@
           </div>
         </section>
 
-        <section class="screen o-coach" aria-hidden="true">
+        <section class="screen o-coach no-side" aria-hidden="true">
           <header class="app-header"><span class="app-identity"><span class="app-icon gold">{{icon:target}}</span><b>Life Coaching</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:calendar-check}}Today</span><span>{{icon:lightning}}Progress</span><span>{{icon:check-circle}}Goals</span></nav><span class="app-menu">{{icon:list}}</span></header>
           <div class="app-body">
             <aside class="sidebar">
@@ -310,8 +290,42 @@
         <i data-step="44" data-wait="450" data-fx="mark" data-remove=".o-ws|active" data-add=".o-coach|active; .switcher|gone"></i>
       </div>
     </div>
+    <div class="stage-copy">
+      <p class="pill"><span class="pill-dot"></span>Nightly preview · Now on Windows and Linux</p>
+      <h1 id="hero-title">Whatever you're working on, RedLeaf is <em>in it with you</em>.</h1>
+      <p class="lede">RedLeaf puts AI agents to work on your own computer. Make a game, learn German, get a busy week under control, and see every step they take.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#download">{{icon:download-simple}}<span>Get RedLeaf for <span data-platform-label>Windows</span></span></a>
+        <a class="btn btn-ghost" href="{{root}}cookbook/">{{icon:book-open}}<span>Cookbook</span></a>
+      </div>
+      <div class="stage-bar">
+    <div class="story-tabs" role="tablist" aria-label="Choose a story">
+        <button type="button" role="tab" data-story-tab aria-controls="story-game" aria-selected="true"><span class="tone tone-blue">{{icon:game-controller}}</span><span><b>Make a game</b><small>Code · Workspace board</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+        <button type="button" role="tab" data-story-tab aria-controls="story-german" aria-selected="false" tabindex="-1"><span class="tone tone-amber">{{icon:translate}}</span><span><b>Learn German</b><small>Voice · Picture vocabulary</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+        <button type="button" role="tab" data-story-tab aria-controls="story-organize" aria-selected="false" tabindex="-1"><span class="tone tone-green">{{icon:calendar-check}}</span><span><b>Get organized</b><small>Files · Life Coaching</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      </div>
+      <button class="demo-toggle" type="button" data-set-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
+      </div>
+    </div>
   </div>
   <p class="demo-caption">Simplified recreations of the RedLeaf interface. The people, projects and conversations are examples.</p>
+</section>
+
+<section class="band meet" aria-labelledby="meet-title">
+  <div class="page-width meet-inner">
+    <img src="{{root}}nova-portrait.webp" alt="Nova, the agent that comes with RedLeaf, holding a tablet in a room full of plants" width="900" height="900" loading="lazy" />
+    <div>
+      <p class="eyebrow">Agents</p>
+      <h2 id="meet-title">Meet Nova, your first agent.</h2>
+      <p class="meet-lede">Nova comes with RedLeaf. She's the one you talk to: tell her what you're after and she plans it with you, hands the work to the right app, remembers what you did together and tells you when something needs you.</p>
+      <ul class="meet-points">
+        <li>{{icon:chat-circle}}<div><b>Type or talk</b><span>In the chat or by voice, whichever is closer.</span></div></li>
+        <li>{{icon:book-open}}<div><b>She remembers</b><span>Her memory is pages you can open and edit.</span></div></li>
+        <li>{{icon:lightning}}<div><b>Across the apps</b><span>Code, Workspace, images, voices and schedules.</span></div></li>
+      </ul>
+      <div class="meet-more"><span class="avatar amber">L</span><p><b>Then make your own.</b> Add agents with their own name, personality, voice and workspace. Leni, the German tutor in the demo above, is one of them.</p></div>
+    </div>
+  </div>
 </section>
 
 <section class="band project" aria-labelledby="project-title">
@@ -447,8 +461,7 @@
 </section>
 
 <section class="band community" aria-labelledby="community-title">
-  <div class="page-width community-inner">
-    <img src="{{root}}nova-portrait.webp" alt="Nova, the RedLeaf assistant, holding a tablet in a room full of plants" width="900" height="900" loading="lazy" />
+  <div class="page-width community-inner no-img">
     <div>
       <p class="eyebrow">Preview</p>
       <h2 id="community-title">Come and break it with us.</h2>

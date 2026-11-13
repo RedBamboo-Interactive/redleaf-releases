@@ -768,38 +768,78 @@ img { max-width: 100%; }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 
-/* ---- Landing stage: three stories, full-bleed, no window chrome ---- */
-.hero.compact { min-height: 0; padding: 140px 0 46px; }
-.hero.compact h1 { max-width: 19ch; font-size: clamp(2.5rem, 5.4vw, 4.6rem); }
-/* html already pads anchors by 84px; this lands the tabs just under the 66px header. */
-.stage { position: relative; scroll-margin-top: -12px; }
-.stage-bar { width: var(--wide); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; gap: 10px; }
-.story-tabs { display: flex; gap: 8px; min-width: 0; overflow-x: auto; scrollbar-width: none; }
-.story-tabs button { position: relative; flex: none; display: flex; align-items: center; gap: 11px; padding: 9px 18px 11px 9px; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; color: var(--muted); background: var(--tint-1); font: inherit; text-align: left; cursor: pointer; transition: background .2s, border-color .2s, color .2s; }
-.story-tabs button:hover { background: var(--tint-2); }
-.story-tabs button[aria-selected="true"] { color: var(--fg); border-color: var(--line-strong); background: var(--tint-2); }
+/* ---- Landing stage: the whole first screen is the demo. A rounded canvas with a margin, the story's
+   wallpaper behind it (as Ambience does in the app), the app split into floating glass panels on the
+   right, and the headline, actions and story picker laid over the left. ---- */
+/* html already pads anchors by 84px; the stage starts at the top of the page. */
+.stage { position: relative; padding: 74px clamp(10px, 1.6vw, 22px) 0; scroll-margin-top: -84px; }
+.stage-app { --copy-w: min(480px, 35%); --copy-x: clamp(28px, 3.6vw, 60px); --glass: color-mix(in srgb, var(--app-bg) 58%, transparent); --glass-line: rgb(var(--contrast-rgb) / .1);
+  position: relative; height: max(640px, calc(100svh - 92px)); overflow: hidden; isolation: isolate; border-radius: 28px; color: var(--app-fg); background: #15161b; box-shadow: 0 40px 120px -40px rgba(0,0,0,.8), 0 0 0 1px rgb(var(--contrast-rgb) / .06); font-size: 14px; line-height: 1.5; }
+.story { position: absolute; inset: 0; }
+.story[hidden] { display: none; }
+.story-bg { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); animation: bg-drift 26s ease-in-out infinite alternate; }
+@keyframes bg-drift { to { transform: scale(1.12) translate3d(-1.5%, -1%, 0); } }
+.story::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(13,14,18,.9) 0%, rgba(13,14,18,.72) 26%, rgba(13,14,18,.25) 48%, rgba(13,14,18,.05) 70%); }
+.stage .app-frame { position: absolute; z-index: 2; top: 24px; right: 24px; bottom: 24px; left: calc(var(--copy-x) + var(--copy-w) + 36px); }
+.stage .app-frame .screen { inset: 0; gap: 12px; }
+
+/* Floating panels: header pill, sidebar and main view are separate glass cards. */
+.stage .app-header { border: 1px solid var(--glass-line); border-radius: 16px; background: var(--glass); backdrop-filter: blur(22px) saturate(1.4); box-shadow: 0 18px 50px -24px rgba(0,0,0,.6); }
+.stage .app-body { gap: 12px; grid-template-columns: 230px 1fr; }
+.stage .no-side .app-body { grid-template-columns: 1fr; }
+.stage .no-side .sidebar { display: none; }
+/* Panels hug their content so the wallpaper shows around them; chats keep their full height for the composer. */
+.stage .app-body { align-items: start; }
+.stage .chat, .stage .session { align-self: stretch; }
+.stage .sidebar { max-height: 100%; }
+.stage .board-view, .stage .coach-view, .stage .page-view { max-height: 100%; }
+.stage .board { min-height: 0; }
+.stage .sidebar, .stage .chat, .stage .session, .stage .board-view, .stage .page-view, .stage .coach-view { position: relative; overflow: hidden; border: 1px solid var(--glass-line); border-radius: 20px; background: var(--glass); backdrop-filter: blur(26px) saturate(1.6); box-shadow: 0 30px 70px -28px rgba(0,0,0,.65); }
+.stage .chat-head, .stage .session-head, .stage .view-head { border-color: var(--glass-line); }
+.stage .thread, .stage .transcript { padding: 22px max(22px, calc((100% - 760px) / 2)); gap: 14px; }
+.stage .session-thread { justify-content: flex-start; }
+.stage .composer { margin: 0 max(14px, calc((100% - 780px) / 2)) 14px; min-height: 52px; background: color-mix(in srgb, var(--app-card) 70%, transparent); }
+.stage .msg.user { background: rgb(var(--contrast-rgb) / .12); }
+.stage .msg.user, .stage .msg.nova, .stage .session-note { font-size: 15px; }
+.stage .msg.nova .frieze { padding: 6px 2px 8px; }
+.stage .part-modal { border-radius: 20px; }
+.stage .part-modal .pm-card { width: min(560px, 92%); }
+.stage .page-view { padding: 28px max(26px, calc((100% - 760px) / 2)); }
+/* No dimmed box behind the switcher: the card floats over the panels on its own. */
+.stage .switcher { padding-top: 64px; background: transparent; }
+.stage .sw-card { box-shadow: 0 40px 90px -20px rgba(0,0,0,.6), 0 0 0 1px rgb(var(--contrast-rgb) / .06); }
+.stage .mini-table { font-size: 13px; }
+
+/* The copy over the canvas. */
+.stage-copy { position: absolute; z-index: 5; left: var(--copy-x); top: 50%; width: var(--copy-w); transform: translateY(-50%); color: var(--fg); }
+.stage-copy .pill { margin-bottom: 22px; background: rgba(255,255,255,.06); backdrop-filter: blur(10px); }
+.stage-copy h1 { margin: 0; text-wrap: balance; font-size: clamp(2.3rem, 3.9vw, 3.9rem); line-height: 1; letter-spacing: -.05em; font-weight: 800; }
+.stage-copy h1 em { font-style: normal; background: linear-gradient(100deg, var(--green-bright), #9be0a8 45%, var(--rose-soft)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stage-copy .lede { margin: 20px 0 0; font-size: clamp(1rem, 1.2vw, 1.1rem); }
+.stage-copy .hero-actions { justify-content: flex-start; margin-top: 28px; }
+.stage-bar { display: flex; align-items: flex-end; gap: 10px; margin-top: 34px; }
+.story-tabs { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.story-tabs button { position: relative; display: flex; align-items: center; gap: 12px; padding: 8px 14px 10px 8px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); border-radius: 14px; color: var(--muted); background: rgba(20,21,26,.38); backdrop-filter: blur(14px); font: inherit; text-align: left; cursor: pointer; transition: background .2s, border-color .2s, color .2s; }
+.story-tabs button:hover { background: rgba(255,255,255,.08); }
+.story-tabs button[aria-selected="true"] { color: var(--fg); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.1); }
 .story-tabs button > span:nth-child(2) { display: flex; flex-direction: column; line-height: 1.25; }
 .story-tabs b { font-size: .92rem; }
 .story-tabs small { color: var(--dim); font-size: .76rem; }
-.story-tabs .tone { width: 32px; height: 32px; border-radius: 9px; opacity: .55; transition: opacity .2s; }
+.story-tabs .tone { width: 32px; height: 32px; border-radius: 9px; opacity: .6; transition: opacity .2s; }
 .story-tabs .tone .i { width: 17px; height: 17px; }
 .story-tabs button[aria-selected="true"] .tone { opacity: 1; }
 .tab-progress { position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background: var(--green-bright); transform: scaleX(var(--p, 0)); transform-origin: 0 50%; transition: transform .35s linear; }
-.stage-bar .demo-toggle { width: 42px; height: 42px; }
-.stage-app { position: relative; height: clamp(540px, calc(100svh - 148px), 900px); overflow: hidden; border-block: 1px solid var(--window-border); color: var(--app-fg); background: var(--app-bg); box-shadow: 0 40px 120px -40px rgba(0,0,0,.7); font-size: 14px; line-height: 1.5; }
-.story, .app-frame { position: absolute; inset: 0; }
-.story[hidden] { display: none; }
-.app-frame .screen { inset: 0; }
-.stage .app-body { grid-template-columns: 290px 1fr; }
-.stage .thread, .stage .transcript { padding: 28px max(28px, calc((100% - 820px) / 2)); gap: 14px; }
-.stage .composer { margin: 0 max(18px, calc((100% - 840px) / 2)) 22px; min-height: 54px; }
-.stage .msg.user, .stage .msg.nova, .stage .session-note { font-size: 15.5px; }
-.stage .msg.nova .frieze { padding: 6px 2px 8px; }
-.stage .session-thread { justify-content: flex-start; }
-.stage .part-modal .pm-card { width: min(600px, 92%); }
-.stage .page-view { padding: 34px max(28px, calc((100% - 820px) / 2)); }
-.stage .mini-table { font-size: 13px; }
-.stage .demo-caption { margin-top: 12px; }
+.stage-bar .demo-toggle { width: 42px; height: 42px; background: rgba(20,21,26,.38); backdrop-filter: blur(14px); }
+.stage .demo-caption { margin: 12px 0 0; }
+
+/* Media inside the stories. */
+.media-card { margin: 10px 0 0; max-width: 420px; overflow: hidden; border: 1px solid var(--app-border); border-radius: 14px; background: var(--app-raised); }
+.media-card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.media-card figcaption { display: flex; align-items: center; gap: 7px; padding: 8px 12px; color: var(--app-muted); font-family: var(--font-sans); font-size: 12px; }
+.media-card figcaption .i { width: 13px; height: 13px; }
+.board-card.has-img { padding-top: 0; overflow: hidden; }
+.board-card.has-img img { width: calc(100% + 24px); margin: 0 -12px 2px; aspect-ratio: 16 / 9; object-fit: cover; }
+
 .msg-meta { align-self: flex-end; display: inline-flex; align-items: center; gap: 5px; margin: -8px 2px 0; color: var(--app-muted); font-size: 11.5px; }
 .msg-meta .i { width: 12px; height: 12px; }
 .composer .mic { width: 30px; height: 30px; flex: none; display: grid; place-items: center; border-radius: 9px; transition: background .2s, color .2s; }
@@ -810,23 +850,54 @@ img { max-width: 100%; }
 .composer.recording .rec { display: flex; }
 .composer.recording .composer-placeholder { display: none; }
 .composer.recording .mic { color: #fff; background: var(--rose); }
+
 @media (prefers-color-scheme: light) {
-  .stage-app { box-shadow: 0 40px 100px -40px rgba(31,35,40,.3); }
+  .stage-app { --glass: color-mix(in srgb, var(--app-bg) 82%, transparent); background: #e9ebef; box-shadow: 0 40px 100px -40px rgba(31,35,40,.35), 0 0 0 1px rgba(31,35,40,.06); }
+  .story::before { background: linear-gradient(90deg, rgba(250,251,252,.94) 0%, rgba(250,251,252,.8) 26%, rgba(250,251,252,.3) 48%, rgba(250,251,252,.04) 70%); }
+  .stage .app-header, .stage .sidebar, .stage .chat, .stage .session, .stage .board-view, .stage .page-view, .stage .coach-view { box-shadow: 0 30px 70px -30px rgba(31,35,40,.35); }
+  .stage-copy .pill { background: rgba(255,255,255,.6); }
+  .stage-copy h1 em { background-image: linear-gradient(100deg, #2f8a45, #3f9c6a 45%, #c74b7a); }
+  .story-tabs button, .stage-bar .demo-toggle { border-color: rgba(31,35,40,.1); background: rgba(255,255,255,.55); }
+  .story-tabs button:hover { background: rgba(255,255,255,.75); }
+  .story-tabs button[aria-selected="true"] { border-color: rgba(31,35,40,.18); background: rgba(255,255,255,.9); }
 }
-@media (max-width: 860px) {
-  .hero.compact { padding: 118px 0 34px; }
-  .stage-bar { justify-content: flex-start; }
+@media (max-width: 1100px) {
+  .stage-app { --copy-w: min(400px, 38%); }
+  .stage-copy .lede { display: none; }
   .story-tabs small { display: none; }
-  .story-tabs button { padding: 7px 14px 9px 7px; }
-  .stage-app { height: clamp(520px, calc(100svh - 130px), 760px); }
-  .stage .msg.user, .stage .msg.nova, .stage .session-note { font-size: 14.5px; }
+}
+/* Phones and narrow windows: the copy sits at the top of the canvas and the app floats below it. */
+@media (max-width: 860px) {
+  .stage-app { height: auto; min-height: calc(100svh - 84px); padding: 34px 22px calc(min(64svh, 560px) + 26px); }
+  .story::before { background: linear-gradient(180deg, rgba(13,14,18,.9) 0%, rgba(13,14,18,.7) 30%, rgba(13,14,18,.1) 60%); }
+  .stage-copy { position: relative; left: auto; top: auto; width: auto; transform: none; }
+  .stage-copy h1 { font-size: clamp(2.1rem, 8vw, 3rem); }
+  .stage-copy .lede { display: block; }
+  .stage-copy .pill { margin-bottom: 16px; }
+  .stage-bar { margin-top: 24px; }
+  .story-tabs { flex-direction: row; overflow-x: auto; scrollbar-width: none; }
+  .story-tabs button { flex: 1 1 0; min-width: 0; justify-content: center; padding: 9px 6px 11px; }
+  .story-tabs .tone { display: none; }
+  .story-tabs b { overflow: hidden; font-size: .8rem; text-overflow: ellipsis; white-space: nowrap; }
+  .stage .app-frame { top: auto; left: 12px; right: 12px; bottom: 12px; height: min(64svh, 560px); }
+  .stage .app-body { grid-template-columns: 1fr; }
+  .stage .sidebar { display: none; }
+  .stage .msg.user, .stage .msg.nova, .stage .session-note { font-size: 14px; }
+  .stage .thread, .stage .transcript { padding: 16px; }
+  .stage .composer { margin: 0 10px 10px; }
 }
 @media (max-width: 600px) {
-  .story-tabs .tone { display: none; }
-  .story-tabs button { padding: 8px 13px 10px; }
-  .stage .thread, .stage .transcript { padding: 18px 16px; }
-  .stage .composer { margin: 0 12px 14px; }
+  .stage-app { padding: 26px 18px calc(min(64svh, 560px) + 22px); }
+  .stage-copy .lede { display: none; }
+  .stage-copy .hero-actions { margin-top: 22px; gap: 8px; }
+  .stage-copy .btn { min-height: 46px; padding: 0 16px; font-size: .9rem; }
+  .stage-copy .btn-ghost span { display: none; }
+  .stage-bar { margin-top: 20px; }
 }
+@media (max-width: 860px) and (prefers-color-scheme: light) {
+  .story::before { background: linear-gradient(180deg, rgba(250,251,252,.94) 0%, rgba(250,251,252,.78) 30%, rgba(250,251,252,.1) 60%); }
+}
+@media (prefers-reduced-motion: reduce) { .story-bg { animation: none; } }
 
 /* ---- Landing stage apps: the surfaces beyond chat ---- */
 /* App identity, as in the shell: the app colour on a 15% tint, and the active tab tinted to match. */
@@ -945,4 +1016,27 @@ img { max-width: 100%; }
   .embed-card { min-width: 0; width: 100%; }
   .toast { left: 12px; right: 12px; bottom: 12px; }
   .vocab-grid { padding: 14px; gap: 10px; }
+}
+
+/* ---- Meet Nova: who the agent is, right after the demo ---- */
+.meet-inner { display: grid; grid-template-columns: minmax(280px, 420px) 1fr; gap: 72px; align-items: center; }
+.meet img { width: 100%; height: auto; border-radius: 28px; box-shadow: 0 40px 90px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.06); }
+.meet h2 { margin: 0; font-size: clamp(2rem, 4.2vw, 3.3rem); line-height: 1.04; letter-spacing: -.04em; font-weight: 780; }
+.meet-lede { max-width: 600px; margin: 18px 0 0; color: var(--muted); font-size: 1.08rem; }
+.meet-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 30px 0 0; padding: 0; list-style: none; }
+.meet-points li { display: flex; flex-direction: column; gap: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.meet-points .i { width: 24px; height: 24px; color: var(--green-bright); }
+.meet-points div { display: flex; flex-direction: column; gap: 3px; }
+.meet-points span { color: var(--muted); font-size: .9rem; }
+.meet-more { display: flex; align-items: center; gap: 14px; max-width: 620px; margin-top: 22px; color: var(--muted); }
+.meet-more .avatar { width: 38px; height: 38px; font-size: 14px; }
+.meet-more p { margin: 0; }
+.meet-more b { color: var(--fg); }
+.community-inner.no-img { grid-template-columns: 1fr; max-width: 720px; text-align: center; justify-items: center; }
+.community-inner.no-img p:not(.eyebrow) { margin-inline: auto; }
+@media (prefers-color-scheme: light) { .meet img { box-shadow: 0 40px 90px -30px rgba(31,35,40,.35), 0 0 0 1px rgba(31,35,40,.06); } }
+@media (max-width: 860px) {
+  .meet-inner { grid-template-columns: 1fr; gap: 36px; }
+  .meet img { max-width: 340px; }
+  .meet-points { grid-template-columns: 1fr; }
 }
