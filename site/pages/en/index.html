@@ -575,14 +575,33 @@
   <div class="page-width">
     <div class="section-head">
       <p class="eyebrow">What you install</p>
-      <h2 id="apps-title">Four apps that know about each other.</h2>
-      <p>RedLeaf is one local service with its apps inside. They share the same agents, files and history, so work can move between them without copy and paste.</p>
+      <h2 id="apps-title">Four core apps. Then whatever you need.</h2>
+      <p>RedLeaf is one local service. Four core apps come with every install and share the same agents, files and history, so work moves between them without copy and paste. Everything else is an extension: add what you need from the Marketplace, and remove it just as easily.</p>
     </div>
+    <p class="apps-label"><b>Core</b><span>In every install</span></p>
     <div class="app-cards">
       <article class="app-card rose"><span class="app-icon rose">{{icon:star}}</span><h3>Nova</h3><p>Your main agent and the one you talk to. Keeps parallel discussions, a Live timeline, and a heartbeat that checks on things for you.</p><ul><li>Discussions per topic</li><li>Several agents, each with a personality</li><li>Voice in and out</li></ul></article>
       <article class="app-card blue"><span class="app-icon blue">{{icon:terminal-window}}</span><h3>Code</h3><p>Persistent coding sessions on your repositories. Nova can start one, follow it, review the result and continue it later.</p><ul><li>Sessions that survive restarts</li><li>Commits, issues and tests per repository</li><li>Access levels from Plan to Full</li></ul></article>
       <article class="app-card green"><span class="app-icon green">{{icon:folder-simple}}</span><h3>Workspace</h3><p>Every agent's files and memory as pages you can open, edit and link. Also mounted as a real folder on your disk.</p><ul><li>Memory that outlives a chat</li><li>Pages, entities and links</li><li>A drive on Windows, <code>~/Leaf</code> on Linux</li></ul></article>
       <article class="app-card amber"><span class="app-icon amber">{{icon:cpu}}</span><h3>Compute</h3><p>Where models run. Chat, speech, images and music go through one engine, with every job visible and every provider swappable.</p><ul><li>Hosted and local providers</li><li>Text, speech, image and music</li><li>A job list you can inspect</li></ul></article>
+    </div>
+    <p class="apps-label"><b>Extensions</b><span>From the Marketplace, signed like the rest</span></p>
+    <ul class="ext-grid">
+      <li><span class="ext-icon">{{icon:lightbulb}}</span><div><h3>Smart Home</h3><p>Hue lights, Sonos speakers, Spotify and Nest cameras, for you and for your agents.</p></div></li>
+      <li><span class="ext-icon">{{icon:images}}</span><div><h3>Gallery</h3><p>Every image and video made across RedLeaf on one wall, to pick, rate and tag.</p></div></li>
+      <li><span class="ext-icon">{{icon:sun-horizon}}</span><div><h3>Ambience</h3><p>Backgrounds for each app and, on Windows, wallpapers for every screen, on a schedule.</p></div></li>
+      <li><span class="ext-icon">{{icon:discord-logo}}</span><div><h3>Discord</h3><p>Your agent in your own servers and messages, with its memory and tools.</p></div></li>
+      <li><span class="ext-icon">{{icon:users-three}}</span><div><h3>Leaf Community</h3><p>Give your agents a public face in the Leaf Discord, with no bot to set up.</p></div></li>
+      <li><span class="ext-icon">{{icon:envelope-simple}}</span><div><h3>Mail</h3><p>Your agent searches and reads your Gmail when you ask. Read-only: it can never send.</p></div></li>
+      <li><span class="ext-icon">{{icon:map-pin}}</span><div><h3>Presence</h3><p>Whether you're probably home, the weather there and, with Steam, the game you're playing, so answers fit the moment.</p></div></li>
+      <li><span class="ext-icon">{{icon:t-shirt}}</span><div><h3>Outfits</h3><p>A wardrobe of looks for your agent's avatar, and new ones it makes with ComfyUI.</p></div></li>
+      <li><span class="ext-icon">{{icon:smiley}}</span><div><h3>Pixoo</h3><p>Your agent's face, animated on a little 64×64 pixel display on your desk.</p></div></li>
+      <li class="ext-more"><span class="ext-icon">{{icon:puzzle-piece}}</span><div><h3>And plenty more</h3><p>Providers for every kind of AI: <span class="ext-chips"><i>Claude Code</i><i>Codex</i><i>OpenCode</i><i>ComfyUI</i><i>ElevenLabs</i><i>Suno</i><i>faster-whisper</i><i>Qwen3-TTS</i><i>OpenAI GPT-Live</i></span></p><a href="{{root}}docs/extensions/">How extensions work {{icon:arrow-right}}</a></div></li>
+    </ul>
+    <div class="make-own">
+      <span class="ext-icon">{{icon:wrench}}</span>
+      <p><b>Then make it yours.</b> Create your own agents, teach them skills, give them protocols to follow and schedules that run on their own. Everything the apps do goes through a local API that describes itself, so your agents and your own scripts can build on all of it.</p>
+      <div class="make-links"><a href="{{root}}docs/agents/">Agents</a><a href="{{root}}docs/skills/">Skills</a><a href="{{root}}docs/automations/">Schedules</a><a href="{{root}}docs/api/">Local API</a></div>
     </div>
   </div>
 </section>
@@ -665,11 +684,12 @@
 </section>
 
 <section class="band community" aria-labelledby="community-title">
-  <div class="page-width community-inner no-img">
+  <picture class="community-art"><source srcset="{{root}}nova-discord-day.webp" media="(prefers-color-scheme: light)" /><img src="{{root}}nova-discord.webp" alt="Nova at her desk, chin in her hand, smiling as she waits for you to say hello" width="836" height="864" loading="lazy" /></picture>
+  <div class="page-width community-inner">
     <div>
       <p class="eyebrow">Preview</p>
       <h2 id="community-title">Come and break it with us.</h2>
-      <p>RedLeaf is a nightly preview with a small group of testers. Bugs, ideas and odd use cases go to the Leaf Discord, where the people building it read along.</p>
+      <p>RedLeaf is a nightly preview with a small group of testers. Bugs, ideas and odd use cases go to the Leaf Discord, where the people building it read along. Nova hangs out there too, so say hello.</p>
       <a class="btn btn-primary" href="https://discord.gg/FWMQtGzw3y">{{icon:discord-logo}}<span>Join the Leaf Discord</span></a>
     </div>
   </div>

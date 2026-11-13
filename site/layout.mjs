@@ -76,12 +76,12 @@ ${languageSuggestions(ctx)}
       <a href="{{root}}#demo"${current("product")}>${t.nav.product}</a>
       <a href="{{root}}cookbook/"${current("cookbook")}>${t.nav.cookbook}</a>
       <a href="{{root}}docs/"${current("docs")}>${t.nav.docs}</a>
-      <a href="{{root}}#download"${current("download")}>${t.nav.download}</a>
     </nav>
     <div class="header-links">
       ${languageMenu(ctx, "down")}
       <a class="header-link" href="${DISCORD_URL}" aria-label="${t.discordLabel}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${discordPath}" /></svg><span>Discord</span></a>
       <a class="header-link" href="${GITHUB_URL}" aria-label="${t.githubLabel}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${githubPath}" /></svg><span>GitHub</span></a>
+      <a class="header-cta" href="{{root}}#download"${current("download")}>${icon("download-simple")}<span>${t.nav.download}</span></a>
     </div>
   </div>
 </header>`;

@@ -575,14 +575,33 @@
   <div class="page-width">
     <div class="section-head">
       <p class="eyebrow">Ce que vous installez</p>
-      <h2 id="apps-title">Quatre applications qui se connaissent.</h2>
-      <p>RedLeaf est un seul service local qui contient ses applications. Elles partagent les mêmes agents, les mêmes fichiers et le même historique, donc le travail passe de l'une à l'autre sans copier-coller.</p>
+      <h2 id="apps-title">Quatre applications de base. Puis tout ce qu'il vous faut.</h2>
+      <p>RedLeaf est un seul service local. Quatre applications de base sont livrées avec chaque installation et partagent les mêmes agents, les mêmes fichiers et le même historique, donc le travail passe de l'une à l'autre sans copier-coller. Tout le reste est une extension : ajoutez ce qu'il vous faut depuis le Marketplace, et retirez-le aussi facilement.</p>
     </div>
+    <p class="apps-label"><b>Le cœur</b><span>Dans chaque installation</span></p>
     <div class="app-cards">
       <article class="app-card rose"><span class="app-icon rose">{{icon:star}}</span><h3>Nova</h3><p>Votre agent principal, celui à qui vous parlez. Tient des discussions en parallèle, une chronologie Live, et un heartbeat qui surveille les choses pour vous.</p><ul><li>Une discussion par sujet</li><li>Plusieurs agents, chacun avec sa personnalité</li><li>La voix en entrée et en sortie</li></ul></article>
       <article class="app-card blue"><span class="app-icon blue">{{icon:terminal-window}}</span><h3>Code</h3><p>Des sessions de code persistantes sur vos dépôts. Nova peut en lancer une, la suivre, relire le résultat et la reprendre plus tard.</p><ul><li>Des sessions qui survivent aux redémarrages</li><li>Commits, issues et tests par dépôt</li><li>Des niveaux d'accès de Plan à Full</li></ul></article>
       <article class="app-card green"><span class="app-icon green">{{icon:folder-simple}}</span><h3>Workspace</h3><p>Les fichiers et la mémoire de chaque agent, sous forme de pages que vous pouvez ouvrir, modifier et relier. Également monté comme un vrai dossier sur votre disque.</p><ul><li>Une mémoire qui survit à la discussion</li><li>Pages, entités et liens</li><li>Un lecteur sous Windows, <code>~/Leaf</code> sous Linux</li></ul></article>
       <article class="app-card amber"><span class="app-icon amber">{{icon:cpu}}</span><h3>Compute</h3><p>Là où tournent les modèles. Le chat, la voix, les images et la musique passent par un seul moteur, avec chaque tâche visible et chaque fournisseur remplaçable.</p><ul><li>Fournisseurs hébergés et locaux</li><li>Texte, voix, image et musique</li><li>Une liste des tâches que vous pouvez inspecter</li></ul></article>
+    </div>
+    <p class="apps-label"><b>Les extensions</b><span>Depuis le Marketplace, signées comme le reste</span></p>
+    <ul class="ext-grid">
+      <li><span class="ext-icon">{{icon:lightbulb}}</span><div><h3>Smart Home</h3><p>Lampes Hue, enceintes Sonos, Spotify et caméras Nest, pour vous et pour vos agents.</p></div></li>
+      <li><span class="ext-icon">{{icon:images}}</span><div><h3>Gallery</h3><p>Toutes les images et vidéos créées dans RedLeaf sur un seul mur, pour choisir, noter et étiqueter.</p></div></li>
+      <li><span class="ext-icon">{{icon:sun-horizon}}</span><div><h3>Ambience</h3><p>Des arrière-plans pour chaque application et, sous Windows, des fonds d'écran pour chaque écran, selon un planning.</p></div></li>
+      <li><span class="ext-icon">{{icon:discord-logo}}</span><div><h3>Discord</h3><p>Votre agent sur vos propres serveurs et en messages privés, avec sa mémoire et ses outils.</p></div></li>
+      <li><span class="ext-icon">{{icon:users-three}}</span><div><h3>Leaf Community</h3><p>Donnez à vos agents une présence publique sur le Discord de Leaf, sans bot à configurer.</p></div></li>
+      <li><span class="ext-icon">{{icon:envelope-simple}}</span><div><h3>Mail</h3><p>Votre agent cherche et lit vos e-mails Gmail quand vous le demandez. En lecture seule : il ne peut jamais rien envoyer.</p></div></li>
+      <li><span class="ext-icon">{{icon:map-pin}}</span><div><h3>Presence</h3><p>Si vous êtes probablement chez vous, la météo sur place et, avec Steam, le jeu en cours, pour des réponses qui collent au moment.</p></div></li>
+      <li><span class="ext-icon">{{icon:t-shirt}}</span><div><h3>Outfits</h3><p>Une garde-robe de tenues pour l'avatar de votre agent, et de nouvelles qu'il crée avec ComfyUI.</p></div></li>
+      <li><span class="ext-icon">{{icon:smiley}}</span><div><h3>Pixoo</h3><p>Le visage de votre agent, animé sur un petit écran de 64×64 pixels posé sur votre bureau.</p></div></li>
+      <li class="ext-more"><span class="ext-icon">{{icon:puzzle-piece}}</span><div><h3>Et bien d'autres</h3><p>Des fournisseurs pour chaque type d'IA : <span class="ext-chips"><i>Claude Code</i><i>Codex</i><i>OpenCode</i><i>ComfyUI</i><i>ElevenLabs</i><i>Suno</i><i>faster-whisper</i><i>Qwen3-TTS</i><i>OpenAI GPT-Live</i></span></p><a href="{{root}}docs/extensions/">Comment marchent les extensions {{icon:arrow-right}}</a></div></li>
+    </ul>
+    <div class="make-own">
+      <span class="ext-icon">{{icon:wrench}}</span>
+      <p><b>Puis faites-le vôtre.</b> Créez vos propres agents, apprenez-leur des skills, donnez-leur des protocoles à suivre et des planifications qui tournent toutes seules. Tout ce que font les applications passe par une API locale qui se décrit elle-même : vos agents et vos propres scripts peuvent s'appuyer sur tout cela.</p>
+      <div class="make-links"><a href="{{root}}docs/agents/">Agents</a><a href="{{root}}docs/skills/">Skills</a><a href="{{root}}docs/automations/">Planifications</a><a href="{{root}}docs/api/">API locale</a></div>
     </div>
   </div>
 </section>
@@ -665,11 +684,12 @@
 </section>
 
 <section class="band community" aria-labelledby="community-title">
-  <div class="page-width community-inner no-img">
+  <picture class="community-art"><source srcset="{{root}}nova-discord-day.webp" media="(prefers-color-scheme: light)" /><img src="{{root}}nova-discord.webp" alt="Nova à son bureau, le menton dans la main, qui sourit en attendant que vous veniez lui dire bonjour" width="836" height="864" loading="lazy" /></picture>
+  <div class="page-width community-inner">
     <div>
       <p class="eyebrow">Préversion</p>
       <h2 id="community-title">Venez le casser avec nous.</h2>
-      <p>RedLeaf est une préversion Nightly, testée par un petit groupe. Les bugs, les idées et les usages inattendus vont sur le Discord de Leaf, où les personnes qui le construisent suivent la conversation.</p>
+      <p>RedLeaf est une préversion Nightly, testée par un petit groupe. Les bugs, les idées et les usages inattendus vont sur le Discord de Leaf, où les personnes qui le construisent suivent la conversation. Nova y traîne aussi : passez lui dire bonjour.</p>
       <a class="btn btn-primary" href="https://discord.gg/FWMQtGzw3y">{{icon:discord-logo}}<span>Rejoindre le Discord de Leaf</span></a>
     </div>
   </div>
