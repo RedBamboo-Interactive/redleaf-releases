@@ -5,7 +5,7 @@ export const GITHUB_URL = "https://github.com/RedBamboo-Interactive/redleaf-rele
 
 /** Cookbook use cases, in reading order. The sidebar, the grids and the prev/next links all read this. */
 export const recipes = [
-  { slug: "build", title: "Build", headline: "Ship software with a coding team", icon: "code", tone: "blue", summary: "Describe the change. Nova hands it to a Code session that works in your repository, runs the tests and reports back." },
+  { slug: "build", title: "Build", headline: "Your game, app or website, with Nova", icon: "game-controller", tone: "blue", summary: "Say what the project needs next. Nova runs the work in parallel coding sessions, merges what works and keeps the roadmap." },
   { slug: "create", title: "Create", headline: "Images, voices and sound on your own GPU", icon: "sparkle", tone: "rose", summary: "Cover art, characters, narration and music, generated from a conversation and kept with the project." },
   { slug: "organize", title: "Organize", headline: "A memory you can open and edit", icon: "folder-simple", tone: "green", summary: "Notes, decisions and documents become pages in the agent's workspace, and a real folder on your disk." },
   { slug: "plan", title: "Plan", headline: "From a vague idea to a plan that holds", icon: "calendar-check", tone: "amber", summary: "Trips, launches and busy weeks: think it through together, then keep the plan where both of you can find it." },

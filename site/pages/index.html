@@ -1,11 +1,11 @@
-<!--page {"title": "RedLeaf: the studio where your AI agents make things", "description": "RedLeaf runs on your own Windows or Linux computer. Your agents write code in your repositories, generate images and voices on your GPU, organize your files, plan with you and remember all of it.", "layout": "landing", "section": "product"}-->
+<!--page {"title": "RedLeaf: make your game, app or website with Nova", "description": "Tell Nova what your game, app or website needs next. She runs several coding sessions at once, each on its own branch, merges what works and remembers the whole project. Runs on your own Windows or Linux computer.", "layout": "landing", "section": "product"}-->
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-copy page-width">
     <p class="pill"><span class="pill-dot"></span>Nightly preview · Now on Windows and Linux</p>
-    <h1 id="hero-title">The studio where your agents <em>make things</em>.</h1>
-    <p class="lede">RedLeaf runs on your own computer. Nova and the agents you create write code in your repositories, render images and voices on your GPU, sort your files, plan your week, and still remember all of it tomorrow.</p>
+    <h1 id="hero-title">Make the project you keep <em>meaning to make</em>.</h1>
+    <p class="lede">A game, an app, a website. Tell Nova what you want next and she gets it built: several pieces at once, each kept apart until it works, then brought together. RedLeaf runs on your own computer and remembers the whole project for you.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#download">{{icon:download-simple}}<span>Get RedLeaf for <span data-platform-label>Windows</span></span></a>
       <a class="btn btn-ghost" href="{{root}}cookbook/">{{icon:book-open}}<span>Browse the cookbook</span></a>
@@ -13,7 +13,7 @@
   </div>
 
   <div class="hero-demo page-wide" id="demo">
-    <div class="demo-frame" data-demo data-loop="5200" aria-label="Animated recreation of RedLeaf: Nova hands a bug fix to Code, then remembers it">
+    <div class="demo-frame" data-demo data-loop="5200" aria-label="Animated recreation of RedLeaf: Nova runs three changes to a game at once and merges the ones that work">
       <div class="window" data-stage>
         <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
 
@@ -24,58 +24,84 @@
             <aside class="sidebar">
               <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
               <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
-              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Trail Tracker offline maps</b><small>Nova · now</small></span></div>
-              <div class="row"><span class="avatar amber">L</span><span><b>Wortschatz, Lektion 12</b><small>Leni · 2 h ago</small></span></div>
-              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Plan the Lisbon weekend</b><small>Nova · yesterday</small></span></div>
-              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Tax folder cleanup</b><small>Nova · Monday</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Moss Knight</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Moss Knight soundtrack</b><small>Nova · yesterday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Portfolio site</b><small>Nova · Tuesday</small></span></div>
+              <div class="row"><span class="avatar amber">L</span><span><b>Wortschatz, Lektion 12</b><small>Leni · Monday</small></span></div>
             </aside>
             <div class="chat">
-              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Trail Tracker offline maps</b><small>Nova · Codex · Standard</small></span></div>
-              <div class="thread" data-scroll>
-                <div class="msg user" data-step="20" data-wait="200"><p>Offline maps stopped loading in Trail Tracker after yesterday's update. Can you find out why and fix it?</p></div>
-                <div class="msg nova" data-step="30" data-wait="700"><img src="{{root}}nova-avatar.webp" alt="" /><div><b>Nova</b><p data-step="30" data-fx="stream">On it. I'll open the repository in Code and give the fix to a session, so you can keep talking to me while it works.</p></div></div>
-                <div class="tool-card" data-step="40" data-wait="700"><span class="app-icon blue">{{icon:terminal-window}}</span><div><b>Delegated to Code</b><small>trail-tracker · main · new session</small></div><em class="badge working">{{icon:circle-notch}}working</em></div>
-                <div class="tool-card done-card" data-step="90" data-wait="600"><span class="app-icon blue">{{icon:terminal-window}}</span><div><b>Session completed</b><small>trail-tracker · 1 commit · 41 tests passed</small></div><em class="badge ok">{{icon:check-circle}}done</em></div>
-                <div class="msg nova" data-step="100" data-wait="700"><img src="{{root}}nova-avatar.webp" alt="" /><div><b>Nova</b><p data-step="100" data-fx="stream">Fixed and pushed. The update renamed the tile cache folder, so the app kept looking in the old one. It now migrates the cache on start, and all 41 tests pass. I noted it in my memory too.</p></div></div>
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Moss Knight</b><small>Nova · your 2D platformer</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="20" data-wait="200"><p>Next for Moss Knight: a level select screen, controller support, and the jump still feels floaty.</p></div>
+                <div class="msg nova" data-step="30" data-wait="700"><img src="{{root}}nova-avatar.webp" alt="" /><div><b>Nova</b>
+                  <div class="frieze"><i class="sq p" style="--d:0ms"></i><i class="sq t" style="--d:90ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq k" data-step="40" data-wait="400"></i><i class="sq k" data-step="41" data-wait="300"></i><i class="sq k" data-step="42" data-wait="300"></i></div>
+                  <p data-step="30" data-fx="stream">Three separate jobs, so three sessions, each on its own branch. They can't trip over each other, and nothing reaches the real game until it works.</p></div></div>
+                <div class="events" data-step="90" data-wait="500"><span class="ev"><i class="dot"></i>Better jump completed</span><span class="ev" data-step="91" data-wait="400"><i class="dot"></i>Controller support completed</span><span class="ev" data-step="92" data-wait="400"><i class="dot"></i>Level select completed</span></div>
+                <div class="msg nova" data-step="100" data-wait="600"><img src="{{root}}nova-avatar.webp" alt="" /><div><b>Nova</b>
+                  <div class="frieze"><i class="sq t" style="--d:0ms"></i><i class="sq t" style="--d:90ms"></i><i class="sq g" style="--d:180ms"></i><i class="sq g" style="--d:270ms"></i><i class="sq t" style="--d:360ms"></i></div>
+                  <p data-step="100" data-fx="stream">I checked all three and merged two into the game. The jump rises faster and falls sooner, and any Xbox or PlayStation controller works. Level select is built, but I'd like your opinion on the layout first, so it's waiting on its own branch for you to play.</p></div></div>
               </div>
-              <div class="composer"><span class="composer-text" data-step="10" data-fx="type" data-wait="1100">Offline maps stopped loading in Trail Tracker after yesterday's update. Can you find out why and fix it?</span><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+              <div class="composer"><span class="composer-text" data-step="10" data-fx="type" data-wait="1100">Next for Moss Knight: a level select screen, controller support, and the jump still feels floaty.</span><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
               <i data-step="20" data-fx="mark" data-add=".screen-nova .composer|sent"></i>
             </div>
           </div>
         </section>
 
-        <!-- Screen 2: Code session -->
+        <!-- Screen 2: three Code sessions in parallel -->
         <section class="screen screen-code" aria-hidden="true">
           <header class="app-header"><span class="app-identity"><span class="app-icon blue">{{icon:terminal-window}}</span><b>Code</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:terminal-window}}Sessions</span><span>{{icon:github-logo}}GitHub</span><span>{{icon:code}}Code</span></nav><span class="app-menu">{{icon:list}}</span></header>
           <div class="app-body">
             <aside class="sidebar">
-              <div class="sidebar-title"><b>Sessions</b><span>{{icon:plus}}New</span></div>
-              <div class="row selected"><span class="status-dot busy"></span><span><b>Fix offline map tiles</b><small>trail-tracker · from Nova</small></span></div>
-              <div class="row"><span class="status-dot idle"></span><span><b>Add GPX export</b><small>trail-tracker · yesterday</small></span></div>
-              <div class="row"><span class="status-dot idle"></span><span><b>Dark mode polish</b><small>portfolio-site · last week</small></span></div>
+              <div class="sidebar-title"><b>Sessions</b><span>3 running</span></div>
+              <div class="row"><span class="status-dot busy sd-level"></span><span><b>Level select screen</b><small>moss-knight · level-select</small></span></div>
+              <div class="row"><span class="status-dot busy sd-pad"></span><span><b>Controller support</b><small>moss-knight · controller-support</small></span></div>
+              <div class="row selected"><span class="status-dot busy sd-jump"></span><span><b>Better jump</b><small>moss-knight · jump-feel</small></span></div>
             </aside>
             <div class="session">
-              <div class="session-head"><span><b>Fix offline map tiles</b><small>{{icon:git-branch}}main · Codex · Auto</small></span><em class="badge working session-badge">{{icon:circle-notch}}running</em></div>
-              <div class="transcript" data-scroll>
-                <div class="step-row" data-step="50" data-wait="900">{{icon:magnifying-glass}}<span>Searched for <code>tileCache</code></span><small>6 files</small></div>
-                <div class="step-row" data-step="55" data-wait="650">{{icon:file-text}}<span>Read <code>src/maps/cache.ts</code></span><small>212 lines</small></div>
-                <div class="step-row warn" data-step="60" data-wait="750">{{icon:terminal-window}}<span>Ran <code>npm test</code></span><small>1 failed</small></div>
-                <p class="session-note" data-step="65" data-wait="600" data-fx="stream">The cache moved from <code>tiles/</code> to <code>map-cache/</code>, but nothing migrates the old folder.</p>
-                <div class="diff" data-step="70" data-wait="900">
-                  <div class="diff-head">{{icon:code}}<span>src/maps/cache.ts</span><small><b class="add">+9</b> <b class="del">−1</b></small></div>
-                  <pre><span class="del">-  const dir = join(dataDir, "map-cache");</span>
-<span class="add">+  const dir = join(dataDir, "map-cache");</span>
-<span class="add">+  await migrateLegacyCache(join(dataDir, "tiles"), dir);</span></pre>
+              <div class="session-head"><span><b>Better jump</b><small>{{icon:git-branch}}jump-feel · from Nova</small></span><em class="badge working session-badge"><span class="when-running">{{icon:circle-notch}}running</span><span class="when-done">{{icon:check-circle}}done</span></em></div>
+              <div class="transcript session-thread">
+                <div class="msg user brief"><p>Make the jump feel less floaty. Keep the jump height the same, and check it in the test level.</p></div>
+                <div class="agent-turn">
+                  <div class="frieze">
+                    <i class="sq t run s1" data-step="50" data-wait="700"></i>
+                    <i class="sq t run s2" data-step="51" data-wait="500" data-remove=".s1|run"></i>
+                    <i class="sq t run s3" data-step="52" data-wait="500" data-remove=".s2|run"></i>
+                    <i class="sq p s4" data-step="54" data-wait="500" data-remove=".s3|run"></i>
+                  </div>
+                  <p class="session-note" data-step="56" data-wait="300" data-fx="stream">The knight rises and falls at the same speed, which is what makes it feel floaty. Most platformers fall faster than they rise.</p>
+                  <div class="frieze">
+                    <span class="sq-wrap"><i class="sq g run s5" data-step="60" data-wait="600"></i><i class="fake-cursor" data-step="72" data-wait="900"></i></span>
+                    <i class="sq g run s6" data-step="62" data-wait="700" data-remove=".s5|run"></i>
+                    <i class="sq g run s7" data-step="64" data-wait="900" data-remove=".s6|run"></i>
+                    <i class="sq t s8" data-step="66" data-wait="800" data-remove=".s7|run"></i>
+                  </div>
+                  <p class="session-note" data-step="68" data-wait="300" data-fx="stream">Done. It rises faster and falls sooner at the same height, and all 18 checks pass in the test level. Saved on jump-feel.</p>
                 </div>
-                <div class="step-row ok" data-step="75" data-wait="900">{{icon:terminal-window}}<span>Ran <code>npm test</code></span><small>41 passed</small></div>
-                <div class="step-row ok" data-step="80" data-wait="700">{{icon:git-branch}}<span>Committed and pushed <code>7c1e9a4</code></span><small>main</small></div>
               </div>
-              <i data-step="80" data-fx="mark" data-add=".session-badge|ok" data-remove=".session-badge|working"></i>
+              <div class="part-modal" data-step="74" data-wait="500">
+                <div class="pm-card">
+                  <header><i class="sq g"></i><b>Edit</b><span class="pm-cat">mutating</span><span class="pm-actions"><span class="pm-btn">{{icon:code}}Open</span><span class="pm-nav">‹ 5 / 8 ›</span></span></header>
+                  <div class="pm-body">
+                    <p class="pm-label">Input</p>
+                    <p class="pm-path">{{icon:file-text}}scripts/player.gd</p>
+                    <pre><span class="del">- const GRAVITY = 980.0</span>
+<span class="add">+ const RISE_GRAVITY = 820.0</span>
+<span class="add">+ const FALL_GRAVITY = 1650.0</span></pre>
+                    <p class="pm-label">Output</p>
+                    <pre class="pm-out">The file scripts/player.gd has been updated.</pre>
+                  </div>
+                </div>
+              </div>
+              <i data-step="73" data-wait="500" data-fx="mark" data-add=".s5|hl"></i>
+              <i data-step="80" data-wait="2800" data-fx="mark" data-add=".part-modal|gone; .fake-cursor|gone" data-remove=".s5|hl"></i>
+              <i data-step="68" data-fx="mark" data-add=".session-badge|ok; .sd-jump|done" data-remove=".session-badge|working"></i>
+              <i data-step="70" data-wait="700" data-fx="mark" data-add=".sd-pad|done"></i>
+              <i data-step="71" data-wait="600" data-fx="mark" data-add=".sd-level|done"></i>
             </div>
           </div>
         </section>
 
-        <!-- Screen 3: Workspace memory -->
+        <!-- Screen 3: the project page remembers -->
         <section class="screen screen-workspace" aria-hidden="true">
           <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
           <div class="app-body">
@@ -83,70 +109,101 @@
               <div class="tree-owner"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Nova</b><small>Agent workspace</small></span></div>
               <div class="tree-row">{{icon:caret-down}}{{icon:folder-simple}}<span>memory</span></div>
               <div class="tree-row l2">{{icon:caret-down}}{{icon:folder-simple}}<span>projects</span></div>
-              <div class="tree-row l3 selected">{{icon:file-text}}<span>Trail Tracker</span></div>
-              <div class="tree-row l3">{{icon:file-text}}<span>Lisbon weekend</span></div>
+              <div class="tree-row l3 selected">{{icon:file-text}}<span>Moss Knight</span></div>
+              <div class="tree-row l3">{{icon:file-text}}<span>Portfolio site</span></div>
               <div class="tree-row l2">{{icon:caret-right}}{{icon:folder-simple}}<span>conversations</span></div>
               <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>config</span></div>
             </aside>
             <article class="page-view">
-              <p class="crumb">Workspace / Nova / memory / projects / <b>Trail Tracker</b></p>
+              <p class="crumb">Workspace / Nova / memory / projects / <b>Moss Knight</b></p>
               <p class="entity-type">PAGE</p>
-              <h3>Trail Tracker</h3>
-              <p class="page-lede">Hiking app with offline maps. Repository <code>trail-tracker</code>, released from main.</p>
+              <h3>Moss Knight</h3>
+              <p class="page-lede">2D platformer about a knight made of moss. Playable on PC; first public demo planned for spring.</p>
+              <h4>Roadmap</h4>
+              <ul class="roadmap">
+                <li class="is-done">Three worlds blocked out</li>
+                <li class="r-jump">Better jump feel</li>
+                <li class="r-pad">Controller support</li>
+                <li class="r-level">Level select screen</li>
+                <li>Boss fight for world one</li>
+              </ul>
               <h4>Decisions</h4>
               <ul class="page-list">
-                <li>GPX export ships behind a setting until the file picker is reviewed.</li>
-                <li>Tests run on every commit; nothing is pushed red.</li>
+                <li>Pixel art at 320×180, scaled up, never smoothed.</li>
+                <li class="new-line" data-step="115" data-wait="900" data-fx="type">Jumps fall faster than they rise. Keep it for every new character.</li>
               </ul>
-              <h4>History</h4>
-              <ul class="page-list">
-                <li>12 Nov: GPX export merged.</li>
-                <li class="new-line" data-step="110" data-wait="800" data-fx="type">13 Nov: offline tiles broke after the cache folder was renamed. Fixed with a migration on start, 7c1e9a4.</li>
-              </ul>
-              <div class="saved-toast" data-step="115" data-wait="900">{{icon:check-circle}}<span>Saved to Nova's memory</span></div>
+              <i data-step="110" data-wait="700" data-fx="mark" data-add=".r-jump|is-done; .r-pad|is-done; .r-level|is-review"></i>
+              <div class="saved-toast" data-step="118" data-wait="900">{{icon:check-circle}}<span>Saved to Nova's memory</span></div>
             </article>
           </div>
         </section>
 
-        <!-- Screen 4: Heartbeat, the next morning -->
+        <!-- Screen 4: next morning -->
         <section class="screen screen-heartbeat" aria-hidden="true">
           <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
           <div class="app-body">
             <aside class="sidebar">
               <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
               <div class="row live selected"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
-              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Trail Tracker offline maps</b><small>Nova · yesterday</small></span></div>
-              <div class="row"><span class="avatar amber">L</span><span><b>Wortschatz, Lektion 12</b><small>Leni · yesterday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Moss Knight</b><small>Nova · yesterday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Portfolio site</b><small>Nova · Tuesday</small></span></div>
             </aside>
             <div class="chat">
               <div class="mode-tabs"><span class="active">Live</span><span>{{icon:heartbeat}}Heartbeat</span></div>
-              <div class="thread" data-scroll>
-                <div class="day-divider"><span>Friday, 07:30</span></div>
-                <div class="heartbeat-card" data-step="130" data-wait="900">{{icon:heartbeat}}<div><b>Heartbeat</b><small>Checked 3 things you asked me to watch</small></div></div>
-                <div class="msg nova" data-step="135" data-wait="600"><img src="{{root}}nova-avatar.webp" alt="" /><div><b>Nova</b><p data-step="135" data-fx="stream">Morning. Last night's Trail Tracker build passed with the cache fix, and the offline maps issue on GitHub is closed. Your Lisbon train tickets go on sale at 10:00. Should I remind you at 9:55?</p></div></div>
+              <div class="thread">
+                <div class="day-divider"><span>Saturday, 09:10</span></div>
+                <div class="heartbeat-card" data-step="130" data-wait="900">{{icon:heartbeat}}<div><b>Heartbeat</b><small>Looked at your projects overnight</small></div></div>
+                <div class="msg nova" data-step="135" data-wait="600"><img src="{{root}}nova-avatar.webp" alt="" /><div><b>Nova</b><p data-step="135" data-fx="stream">Morning. Moss Knight builds cleanly with the new jump and controller support. The level select is still waiting for you, and it takes two minutes to try. After that, the boss fight is next. Want me to sketch three ideas for it?</p></div></div>
               </div>
               <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
             </div>
           </div>
         </section>
 
-        <i data-step="45" data-wait="1600" data-fx="mark" data-remove=".screen-nova|active" data-add=".screen-code|active"></i>
-        <i data-step="85" data-wait="1500" data-fx="mark" data-remove=".screen-code|active" data-add=".screen-nova|active"></i>
-        <i data-step="105" data-wait="2200" data-fx="mark" data-remove=".screen-nova|active" data-add=".screen-workspace|active"></i>
+        <i data-step="45" data-wait="1700" data-fx="mark" data-remove=".screen-nova|active" data-add=".screen-code|active"></i>
+        <i data-step="85" data-wait="1600" data-fx="mark" data-remove=".screen-code|active" data-add=".screen-nova|active"></i>
+        <i data-step="105" data-wait="2600" data-fx="mark" data-remove=".screen-nova|active" data-add=".screen-workspace|active"></i>
         <i data-step="125" data-wait="2400" data-fx="mark" data-remove=".screen-workspace|active" data-add=".screen-heartbeat|active"></i>
       </div>
 
       <div class="demo-controls">
         <ol class="chapters">
-          <li><button type="button" data-seek="0"><span>01</span>Ask Nova</button></li>
-          <li><button type="button" data-seek="45"><span>02</span>Code does the work</button></li>
-          <li><button type="button" data-seek="85"><span>03</span>Nova reports back</button></li>
-          <li><button type="button" data-seek="105"><span>04</span>It's remembered</button></li>
+          <li><button type="button" data-seek="0"><span>01</span>Say what's next</button></li>
+          <li><button type="button" data-seek="45"><span>02</span>Three things at once</button></li>
+          <li><button type="button" data-seek="85"><span>03</span>Merged when it works</button></li>
+          <li><button type="button" data-seek="105"><span>04</span>The roadmap remembers</button></li>
           <li><button type="button" data-seek="125"><span>05</span>Next morning</button></li>
         </ol>
         <button class="demo-toggle" type="button" data-demo-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
       </div>
-      <p class="demo-caption">A simplified recreation of the RedLeaf interface. The project and conversation are examples.</p>
+      <p class="demo-caption">A simplified recreation of the RedLeaf interface. The game and conversation are examples.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band project" aria-labelledby="project-title">
+  <div class="page-width">
+    <div class="section-head">
+      <p class="eyebrow">Your project</p>
+      <h2 id="project-title">Nova keeps the whole project in her head.</h2>
+      <p>You decide what the project should become. Nova turns that into jobs, hands each one to a coding session, checks the result, and keeps the roadmap, the decisions and the history in her memory.</p>
+    </div>
+    <div class="project-grid">
+      <div class="project-kinds">
+        <article><span class="tone tone-rose">{{icon:game-controller}}</span><div><h3>A video game</h3><p>Mechanics, levels, menus, and the bug that only happens on the second jump. Nova keeps the design notes and the to-do list, and can make the art and the voices too.</p></div></article>
+        <article><span class="tone tone-blue">{{icon:device-mobile}}</span><div><h3>An app</h3><p>From the first screen to a build you can hand to friends. Features move forward side by side, with the tests run on every change.</p></div></article>
+        <article><span class="tone tone-green">{{icon:globe-simple}}</span><div><h3>A website</h3><p>A portfolio, a shop, a page for your band. Describe it, see it running on your own computer, and change it in plain words.</p></div></article>
+      </div>
+      <div class="lanes-card" aria-label="Three changes developed side by side on separate branches, two merged into the game, one waiting for review">
+        <p class="lanes-title">{{icon:git-branch}}Moss Knight · this afternoon</p>
+        <div class="lanes">
+          <div class="lane main"><span>The game</span></div>
+          <div class="lane b1"><span>Better jump</span><em class="badge ok">{{icon:check-circle}}merged</em></div>
+          <div class="lane b2"><span>Controller support</span><em class="badge ok">{{icon:check-circle}}merged</em></div>
+          <div class="lane b3"><span>Level select</span><em class="badge review">{{icon:eye}}your turn</em></div>
+        </div>
+        <p class="lanes-note">Each job gets its own branch: a separate copy of the project where it can be built and tested. Three things happen at once without breaking the game. What works is merged back in; what doesn't never touches it.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -155,7 +212,7 @@
   <div class="page-width">
     <div class="section-head split">
       <div><p class="eyebrow">What it's for</p><h2 id="cookbook-title">Bring a project. Leave with the thing made.</h2></div>
-      <p>Other agents run errands in the cloud. RedLeaf is for building: code, art, sound, plans and the knowledge behind them, made on your machine and kept there. <a href="{{root}}cookbook/">Open the cookbook {{icon:arrow-right}}</a></p>
+      <p>Other agents run errands in the cloud. RedLeaf is for making things: the project first, and the art, sound, plans and knowledge around it, made on your machine and kept there. <a href="{{root}}cookbook/">Open the cookbook {{icon:arrow-right}}</a></p>
     </div>
     <div class="recipe-grid">
 {{recipes}}
