@@ -22,15 +22,17 @@
   </ul>
   <p>Code ne clone pas. Pour travailler sur un projet qui n'existe que sur GitHub, lancez d'abord <code>git clone</code>, puis enregistrez le dossier.</p>
 
+  <figure class="doc-shot dialog"><a href="{{root}}shots/code-add-repo.webp"><img src="{{root}}shots/code-add-repo.webp" alt="La boîte Add Repository sur Existing checkout, avec le nom Pocket Garden et le chemin du dossier remplis" width="905" height="777" loading="lazy" decoding="async" /></a><figcaption>Enregistrer un dossier existant. Laissez le dépôt distant vide : Code le lit dans Git.</figcaption></figure>
   <h2>Lancer une session</h2>
   <ol class="steps">
     <li><b>Nouvelle session</b>Dans <span class="ui">Sessions</span>, choisissez <span class="ui">New</span> ou appuyez sur <kbd>Ctrl</kbd>+<kbd>N</kbd>.</li>
-    <li><b>Choisissez le projet</b>Filtrez et sélectionnez-le. Si le projet autorise les branches, une ligne <span class="ui">Branch</span> vous permet d'en choisir ou d'en créer une : voir <a href="{{root}}docs/branches/">Branches et travail en parallèle</a>.</li>
-    <li><b>Choisissez le fournisseur et la qualité</b>Fast, Standard, Deep ou Research. Standard convient à la plupart des travaux ; Deep et Research prennent plus de temps et réfléchissent davantage. Choisissez ensuite <span class="ui">Go</span>.</li>
+    <li><b>Trouvez le projet</b>Filtrez pour le trouver. Si le projet autorise les branches, une ligne <span class="ui">Branch</span> vous permet d'en choisir ou d'en créer une : voir <a href="{{root}}docs/branches/">Branches et travail en parallèle</a>.</li>
+    <li><b>Choisissez le fournisseur et la qualité</b>Fast, Standard, Deep ou Research. Standard convient à la plupart des travaux ; Deep et Research prennent plus de temps et réfléchissent davantage. Choisissez ensuite <span class="ui">Go</span>. Cliquer sur le nom d'un projet lance aussi la session aussitôt, avec les réglages affichés : réglez donc d'abord la branche, le fournisseur et la qualité.</li>
     <li><b>Rédigez le brief</b>La session démarre vide : votre premier message est le brief. Dites ce que vous voulez, à quoi ressemble « terminé », et comment le vérifier.</li>
   </ol>
   <p>Depuis l'en-tête d'un dépôt dans l'onglet <span class="ui">GitHub</span>, <span class="ui">New Session</span> en lance une immédiatement avec les réglages par défaut.</p>
 
+  <figure class="doc-shot"><a href="{{root}}shots/code-start-session.webp"><img src="{{root}}shots/code-start-session.webp" alt="La boîte Start Session avec le filtre de projets, le projet Pocket Garden, la ligne Branch sur main, les menus fournisseur et qualité, et Go" width="1296" height="800" loading="lazy" decoding="async" /></a><figcaption><span class="ui">Start Session</span>. La ligne <span class="ui">Branch</span> n’apparaît que pour les projets qui autorisent les branches.</figcaption></figure>
   <h2>Travailler avec une session</h2>
   <p>Une session fonctionne comme une discussion : des <a href="{{root}}docs/chat/">carrés d'étapes</a> pour chaque action, des cartes d'autorisation, des suites mises en file, <kbd>Esc</kbd> pour interrompre. Quelques points sont propres à Code :</p>
   <ul>
@@ -41,10 +43,12 @@
     <li><strong>Stop, Dismiss, Close.</strong> <span class="ui">Stop</span> met fin au processus et garde la session dans la liste. <span class="ui">Dismiss</span> la masque sans l'arrêter. <span class="ui">Close</span> fait les deux. Retrouvez les sessions fermées dans <span class="ui">More › Browse archives</span> et rouvrez-les avec <span class="ui">Reopen</span>.</li>
   </ul>
 
+  <figure class="doc-shot"><a href="{{root}}shots/code-session.webp"><img src="{{root}}shots/code-session.webp" alt="Une session Code terminée, avec le brief demandant d’ajouter la menthe et un pied de page, et la réponse de la session qui explique la modification et le commit" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>Une session après son premier brief. Elle donne son commit et dit ce qu’elle n’a pas vérifié.</figcaption></figure>
   <h2>Relire ce qui a changé</h2>
   <p>L'onglet <span class="ui">Code</span> est un explorateur et un éditeur de fichiers. Les fichiers modifiés récemment par une session IA portent une petite étincelle, et le panneau <span class="ui">Git</span> liste les <span class="ui">Recent AI Changes</span> (modifications récentes de l'IA), les modifications non commitées et les commits récents. Ouvrez un fichier modifié et choisissez <span class="ui">Diff against HEAD</span> pour voir exactement ce qui a bougé. Enregistrez vos propres modifications avec <kbd>Ctrl</kbd>+<kbd>S</kbd>.</p>
   <p>Depuis ces panneaux, Code ne fait ni commit, ni push, ni fusion à votre place. Demandez à la session de commiter, ou utilisez Git vous-même.</p>
 
+  <figure class="doc-shot"><a href="{{root}}shots/code-git-panel.webp"><img src="{{root}}shots/code-git-panel.webp" alt="L’onglet Code avec le panneau Git, un dossier de travail propre et deux commits, et index.html ouvert dans l’éditeur" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>L’onglet <span class="ui">Code</span> : le panneau Git à gauche, le fichier modifié par la session à droite.</figcaption></figure>
   <h2>L'onglet GitHub</h2>
   <table class="doc-table">
     <thead><tr><th>Onglet</th><th>Ce que vous pouvez faire</th></tr></thead>

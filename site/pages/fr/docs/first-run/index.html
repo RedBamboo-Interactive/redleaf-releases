@@ -13,7 +13,9 @@
     <li><strong>La base de données privée.</strong> RedLeaf télécharge et démarre son propre PostgreSQL. Vous n'avez besoin ni de Docker ni d'un serveur existant. Au premier lancement, cela peut prendre quelques minutes.</li>
   </ul>
   <p>Si une étape échoue, choisissez <span class="ui">Try again</span> (réessayer). Vous pouvez réessayer sans risque.</p>
+  <div class="callout">{{icon:warning}}<p><strong>Bloqué sur l'erreur Windows 1005 ?</strong> Si <span class="ui">Verifying the agent filesystem</span> échoue avec <code>GetFinalPathNameByHandleW failed with Windows error 1005</code>, WinFsp a besoin d'un redémarrage de Windows pour fonctionner. Redémarrez Windows et ouvrez RedLeaf depuis le menu Démarrer : la préparation reprend là où elle s'était arrêtée.</p></div>
 
+  <figure class="doc-shot"><a href="{{root}}shots/setup-prepare.webp"><img src="{{root}}shots/setup-prepare.webp" alt="L’installation à sa première étape, Installing the agent filesystem, avec la liste des chapitres à gauche" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>La préparation se fait toute seule. Les chapitres à gauche se débloquent l’un après l’autre.</figcaption></figure>
   <h2>Les six chapitres</h2>
   <p>Utilisez <span class="ui">Back</span> et <span class="ui">Next</span> pour passer de l'un à l'autre. Un chapitre se débloque quand le précédent est terminé.</p>
   <table class="doc-table">
@@ -29,6 +31,7 @@
   </table>
   <p>Votre mot de passe sert uniquement à créer le compte. Il n'apparaît jamais dans la progression de la configuration, dans les journaux ni dans le profil de Nova. Vous pourrez ajouter plus tard la connexion avec Google, pour l'accès à distance ou pour d'autres personnes : voir <a href="{{root}}docs/remote-access/">Accès à distance</a>.</p>
 
+  <figure class="doc-shot"><a href="{{root}}shots/setup-account.webp"><img src="{{root}}shots/setup-account.webp" alt="Le chapitre Your RedLeaf space, avec les champs nom, e-mail et mot de passe et un bouton Create my account" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption><span class="ui">Your RedLeaf space</span> : le seul compte dont RedLeaf a besoin, et il reste sur ce PC.</figcaption></figure>
   <h2>Connecter l'IA</h2>
   <p>RedLeaf liste les fournisseurs qu'il trouve sur cet ordinateur et en présélectionne un : Claude Code d'abord, puis Codex. Chacun se connecte par sa propre appli ou sa ligne de commande, dans votre navigateur :</p>
   <table class="doc-table">
@@ -40,8 +43,10 @@
     </tbody>
   </table>
   <p>Choisissez ensuite <span class="ui">Verify</span>. RedLeaf envoie une requête inoffensive pour prouver que Nova peut utiliser le fournisseur. Si vous avez installé ou connecté quelque chose ailleurs entre-temps, choisissez <span class="ui">Check again</span>.</p>
+  <p>Si RedLeaf ne trouve pas le CLI de Claude Code alors que vous l'avez installé, son dossier manque sans doute à votre PATH. L'installateur de Claude Code le place dans <code>%USERPROFILE%\.local\bin</code>. Ajoutez ce dossier à votre PATH utilisateur, choisissez <span class="ui">Exit</span> dans le menu de l'icône de RedLeaf, dans la zone de notification, rouvrez RedLeaf depuis le menu Démarrer, puis choisissez <span class="ui">Check again</span>.</p>
   <div class="callout">{{icon:shield-check}}<p><strong>Votre connexion reste chez le fournisseur.</strong> Claude Code et Codex conservent leurs propres identifiants sur votre PC. Une clé d'API que vous collez est transmise à l'outil du fournisseur, et tout ce que RedLeaf stocke lui-même est chiffré.</p></div>
 
+  <figure class="doc-shot"><a href="{{root}}shots/setup-connect-ai.webp"><img src="{{root}}shots/setup-connect-ai.webp" alt="Le chapitre Connect AI avec Claude Code sélectionné, connecté et vérifié" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>Claude Code est connecté et vérifié. Codex et OpenCode restent indisponibles tant qu’ils ne sont pas installés.</figcaption></figure>
   <h2>Faire connaissance avec Nova</h2>
   <p>Le dernier chapitre ouvre un petit chat avec Nova. Dites bonjour. Si son message d'accueil ne démarre pas, choisissez <span class="ui">Try again</span>. Vous verrez aussi un interrupteur pour partager des statistiques d'utilisation anonymes : des comptages, comme le nombre de sessions lancées, jamais leur contenu. Il reste désactivé tant que vous ne l'activez pas, et vous pourrez le changer plus tard dans <span class="ui">Settings › Usage sharing</span>. La <a href="{{root}}privacy/usage-sharing/">notice des statistiques d'utilisation</a> détaille exactement ce qui est envoyé.</p>
   <p><span class="ui">Complete setup</span> devient disponible une fois l'espace de travail monté et la réponse de Nova reçue. RedLeaf ouvre alors Nova, avec votre première discussion qui vous attend.</p>

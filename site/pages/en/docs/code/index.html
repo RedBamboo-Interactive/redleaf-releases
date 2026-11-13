@@ -22,15 +22,17 @@
   </ul>
   <p>Code doesn't clone. To work on a project that only exists on GitHub, run <code>git clone</code> first, then register the folder.</p>
 
+  <figure class="doc-shot dialog"><a href="{{root}}shots/code-add-repo.webp"><img src="{{root}}shots/code-add-repo.webp" alt="The Add Repository dialog on Existing checkout, with the name Pocket Garden and a local checkout path filled in" width="905" height="777" loading="lazy" decoding="async" /></a><figcaption>Registering an existing checkout. Leave the remote empty and Code reads it from Git.</figcaption></figure>
   <h2>Start a session</h2>
   <ol class="steps">
     <li><b>New session</b>In <span class="ui">Sessions</span>, choose <span class="ui">New</span> or press <kbd>Ctrl</kbd>+<kbd>N</kbd>.</li>
-    <li><b>Pick the project</b>Filter and choose it. If the project allows branches, a <span class="ui">Branch</span> row lets you pick or create one: see <a href="{{root}}docs/branches/">Branches and parallel work</a>.</li>
-    <li><b>Pick the provider and quality</b>Fast, Standard, Deep or Research. Standard suits most work; Deep and Research take longer and think harder. Then choose <span class="ui">Go</span>.</li>
+    <li><b>Find the project</b>Filter to find it. If the project allows branches, a <span class="ui">Branch</span> row lets you pick or create one: see <a href="{{root}}docs/branches/">Branches and parallel work</a>.</li>
+    <li><b>Pick the provider and quality</b>Fast, Standard, Deep or Research. Standard suits most work; Deep and Research take longer and think harder. Then choose <span class="ui">Go</span>. Clicking a project's name also starts the session at once, with the settings shown, so set the branch, provider and quality first.</li>
     <li><b>Write the brief</b>The session starts empty: your first message is the brief. Say what you want, what “done” looks like, and how to check it.</li>
   </ol>
   <p>From a repository's header in the <span class="ui">GitHub</span> tab, <span class="ui">New Session</span> starts one straight away with the defaults.</p>
 
+  <figure class="doc-shot"><a href="{{root}}shots/code-start-session.webp"><img src="{{root}}shots/code-start-session.webp" alt="The Start Session dialog with a project filter, the Pocket Garden project, a Branch row set to main, provider and quality menus, and Go" width="1296" height="800" loading="lazy" decoding="async" /></a><figcaption><span class="ui">Start Session</span>. The <span class="ui">Branch</span> row only appears for projects that allow branches.</figcaption></figure>
   <h2>Working with a session</h2>
   <p>A session works like a discussion: <a href="{{root}}docs/chat/">step squares</a> for every action, approval cards, queued follow-ups, <kbd>Esc</kbd> to interrupt. A few things are specific to Code:</p>
   <ul>
@@ -41,10 +43,12 @@
     <li><strong>Stop, Dismiss, Close.</strong> <span class="ui">Stop</span> ends the process and keeps the session listed. <span class="ui">Dismiss</span> hides it without stopping. <span class="ui">Close</span> does both. Find closed sessions under <span class="ui">More › Browse archives</span> and <span class="ui">Reopen</span> them.</li>
   </ul>
 
+  <figure class="doc-shot"><a href="{{root}}shots/code-session.webp"><img src="{{root}}shots/code-session.webp" alt="A finished Code session, with the brief asking to add mint and a footer, and the session’s answer explaining the change and the commit it made" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>A session after its first brief. It names its commit and says what it didn’t check.</figcaption></figure>
   <h2>Reviewing what changed</h2>
   <p>The <span class="ui">Code</span> tab is a file browser and editor. Files an AI session changed recently carry a sparkle, and the <span class="ui">Git</span> panel lists <span class="ui">Recent AI Changes</span>, uncommitted changes and recent commits. Open a changed file and choose <span class="ui">Diff against HEAD</span> to see exactly what moved. Save your own edits with <kbd>Ctrl</kbd>+<kbd>S</kbd>.</p>
   <p>Code doesn't commit, push or merge for you from these panels. Ask the session to commit, or use Git yourself.</p>
 
+  <figure class="doc-shot"><a href="{{root}}shots/code-git-panel.webp"><img src="{{root}}shots/code-git-panel.webp" alt="The Code tab with the Git panel showing a clean working tree and two commits, and index.html open in the editor" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>The <span class="ui">Code</span> tab: the Git panel on the left, the file the session changed on the right.</figcaption></figure>
   <h2>The GitHub tab</h2>
   <table class="doc-table">
     <thead><tr><th>Tab</th><th>What you can do</th></tr></thead>

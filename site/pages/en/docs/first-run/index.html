@@ -13,7 +13,9 @@
     <li><strong>The private database.</strong> RedLeaf downloads and starts its own PostgreSQL. You don't need Docker or an existing server. This can take a few minutes on the first launch.</li>
   </ul>
   <p>If a step fails, choose <span class="ui">Try again</span>. It's safe to retry.</p>
+  <div class="callout">{{icon:warning}}<p><strong>Stuck on Windows error 1005?</strong> If <span class="ui">Verifying the agent filesystem</span> fails with <code>GetFinalPathNameByHandleW failed with Windows error 1005</code>, WinFsp needs Windows to restart before it works. Restart Windows and open RedLeaf from Start: preparation picks up where it left off.</p></div>
 
+  <figure class="doc-shot"><a href="{{root}}shots/setup-prepare.webp"><img src="{{root}}shots/setup-prepare.webp" alt="Setup on its first step, Installing the agent filesystem, with the chapter list on the left" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>Preparation runs on its own. The chapters on the left unlock one after the other.</figcaption></figure>
   <h2>The six chapters</h2>
   <p>Use <span class="ui">Back</span> and <span class="ui">Next</span> to move between them. A chapter unlocks when the one before it is done.</p>
   <table class="doc-table">
@@ -29,6 +31,7 @@
   </table>
   <p>Your password is used only to create the account. It never enters setup progress, logs or Nova's profile. You can add Google sign-in later, for remote access or more people: see <a href="{{root}}docs/remote-access/">Remote access</a>.</p>
 
+  <figure class="doc-shot"><a href="{{root}}shots/setup-account.webp"><img src="{{root}}shots/setup-account.webp" alt="The Your RedLeaf space chapter, with display name, email and password fields and a Create my account button" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption><span class="ui">Your RedLeaf space</span>: the only account RedLeaf needs, and it stays on this PC.</figcaption></figure>
   <h2>Connect AI</h2>
   <p>RedLeaf lists the providers it finds on this computer and preselects one: Claude Code first, then Codex. Each one signs in through its own app or command line, in your browser:</p>
   <table class="doc-table">
@@ -40,8 +43,10 @@
     </tbody>
   </table>
   <p>Then choose <span class="ui">Verify</span>. RedLeaf sends one harmless request to prove Nova can use the provider. If you installed or signed in somewhere else in the meantime, choose <span class="ui">Check again</span>.</p>
+  <p>If RedLeaf says the Claude Code CLI was not found although you installed it, its folder is probably missing from your PATH. Claude Code's installer puts it in <code>%USERPROFILE%\.local\bin</code>. Add that folder to your user PATH, choose <span class="ui">Exit</span> in RedLeaf's tray menu, open RedLeaf again from Start, and choose <span class="ui">Check again</span>.</p>
   <div class="callout">{{icon:shield-check}}<p><strong>Your sign-in stays with the provider.</strong> Claude Code and Codex keep their own credentials on your PC. An API key you paste is handed to the provider's tool, and anything RedLeaf does store is encrypted.</p></div>
 
+  <figure class="doc-shot"><a href="{{root}}shots/setup-connect-ai.webp"><img src="{{root}}shots/setup-connect-ai.webp" alt="The Connect AI chapter with Claude Code selected, signed in and verified" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>Claude Code signed in and verified. Codex and OpenCode show as unavailable until they are installed.</figcaption></figure>
   <h2>Meet Nova</h2>
   <p>The last chapter opens a small chat with Nova. Say hello. If her greeting can't start, choose <span class="ui">Try again</span>. You'll also see a switch to share anonymous usage statistics: counts such as how many sessions ran, never what was in them. It is off unless you turn it on, and you can change it later in <span class="ui">Settings › Usage sharing</span>. The <a href="{{root}}privacy/usage-sharing/">usage statistics notice</a> lists exactly what is sent.</p>
   <p><span class="ui">Complete setup</span> becomes available once the workspace is mounted and Nova has answered. RedLeaf then opens Nova, with your first discussion waiting.</p>

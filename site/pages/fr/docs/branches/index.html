@@ -17,7 +17,7 @@
 
   <h2>Lancer une session sur une branche</h2>
   <ol class="steps">
-    <li><b>Ouvrez le sélecteur de branche</b>Dans <span class="ui">Start Session</span>, après avoir choisi le projet, choisissez la ligne <span class="ui">Branch</span>.</li>
+    <li><b>Ouvrez le sélecteur de branche</b>Dans <span class="ui">Start Session</span>, choisissez la ligne <span class="ui">Branch</span> sous le projet, avant de cliquer sur le projet lui-même : ce clic lance aussitôt la session.</li>
     <li><b>Choisissez ou créez une branche</b>Chaque branche indique ce qui va se passer : <span class="ui">Repository folder</span> (dossier du dépôt), <span class="ui">Isolated workspace ready</span> (espace isolé prêt), ou <span class="ui">Code will prepare an isolated workspace</span> (Code va préparer un espace isolé). Pour en créer une, choisissez <span class="ui">New branch</span>, nommez-la (par exemple <code>feature/better-jump</code>), choisissez éventuellement son point de départ, puis choisissez <span class="ui">Use branch</span>.</li>
     <li><b>Lancez</b>Code prépare le worktree et y démarre la session. La liste des sessions la signale par un badge <span class="ui">worktree</span>.</li>
   </ol>
@@ -37,6 +37,7 @@
   </table>
   <p>Depuis le menu d'une ligne : <span class="ui">Open in Code</span>, <span class="ui">New session here</span>, <span class="ui">Copy path</span> et <span class="ui">Remove worktree…</span>. <span class="ui">New worktree</span>, en haut, en crée un sans lancer de session.</p>
 
+  <figure class="doc-shot"><a href="{{root}}shots/code-worktrees.webp"><img src="{{root}}shots/code-worktrees.webp" alt="L’onglet Worktrees de Pocket Garden, avec Branches allowed, un bouton New worktree, et le dossier principal sur main, inactif et sans session" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>L’onglet <span class="ui">Worktrees</span> d’un nouveau projet : seulement le dossier principal sur <code>main</code>, et le menu <span class="ui">Branches allowed</span> en haut.</figcaption></figure>
   <h2>Branches autorisées, ou main uniquement</h2>
   <p>Le menu en haut de l'onglet Worktrees définit la règle du projet. <span class="ui">Branches allowed</span> permet aux sessions de travailler sur une branche dans son propre worktree. <span class="ui">Main only</span> garde toutes les sessions dans la copie de travail : la ligne Branch disparaît de Start Session, et Nova ne délègue pas sur une branche. Utilisez-le pour les projets où un second dossier perturberait vos outils.</p>
 

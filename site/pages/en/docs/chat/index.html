@@ -28,6 +28,7 @@
   </table>
   <p>Drafts are kept per discussion, so you can switch away and come back. A discussion whose session was stopped shows <span class="ui">Resume session</span>; sending a message resumes it too.</p>
 
+  <figure class="doc-shot"><a href="{{root}}shots/chat-working.webp"><img src="{{root}}shots/chat-working.webp" alt="A discussion while Nova works, with step squares appearing, the status Remembering, and the stop button in place of send" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>While she works, new squares appear as she goes and the send button becomes a stop button.</figcaption></figure>
   <h2>Attachments and “what I see”</h2>
   <p>Use <span class="ui">Attach image</span> or <span class="ui">Attach file</span>, paste an image, or drop files on the discussion. The eye button, <span class="ui">Attach what I see</span>, lets you choose exactly what the agent can see with this message: the current RedLeaf page, or one of your monitors. Nothing is captured until you send. Monitors are only offered in the local app, not over remote access.</p>
   <p>Anywhere in RedLeaf, right-click something and choose <span class="ui">Ask Nova about this</span> to start from it. <span class="ui">Artifacts</span> (<kbd>Alt</kbd>+<kbd>A</kbd>) lists every image, file and link shared in a discussion.</p>
@@ -48,6 +49,7 @@
   <p>The details dialog shows the tool, its category, and its <span class="ui">Input</span> and <span class="ui">Output</span> in full. Large outputs load on demand and can be downloaded. Use <kbd>←</kbd> and <kbd>→</kbd> to step through every square in the discussion. <span class="ui">Open</span> jumps to the file it touched; <span class="ui">Compute</span> opens the job behind it, with who asked for it and what it cost. For work handed to a helper, the dialog shows the helper's own squares too.</p>
   <div class="callout">{{icon:eye}}<p><strong>This is the audit trail.</strong> The squares are not a summary written by the agent. They are the actual calls it made, so you can check what it read before it answered, and what it changed.</p></div>
 
+  <figure class="doc-shot"><a href="{{root}}shots/chat-step-detail.webp"><img src="{{root}}shots/chat-step-detail.webp" alt="The details of a Write step, marked mutating, with the file path and page content as input and the tool’s confirmation as output" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>A <span class="ui">Write</span> step opened: what went in, what came out, and <span class="ui">5 / 5</span> to step through the rest.</figcaption></figure>
   <h2>Questions and approvals</h2>
   <p>When an agent asks you something, a question card appears: pick an option, or choose <span class="ui">Other</span> and write your own. When it needs permission, an approval card offers <span class="ui">Allow once</span>, <span class="ui">Allow for this session</span> and <span class="ui">Deny</span>. What it may do without asking is set by its <a href="{{root}}docs/access-levels/">access level</a>.</p>
 
@@ -68,5 +70,6 @@
       <tr><td>Close <kbd>Alt</kbd>+<kbd>W</kbd></td><td>Stops the session and archives the discussion.</td></tr>
     </tbody>
   </table>
+  <figure class="doc-shot"><a href="{{root}}shots/chat-discussion-menu.webp"><img src="{{root}}shots/chat-discussion-menu.webp" alt="The discussion menu open, listing Voice, Info, Artifacts, Rename, Update title, Share, Float, Stop and Close with their shortcuts" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>The discussion menu, with its keyboard shortcuts.</figcaption></figure>
   <p>In <span class="ui">Info</span>, the <span class="ui">Confidential</span> switch keeps a discussion out of the Live timeline, the heartbeat, other discussions' context and bulk exports, and hides sharing. The discussion itself stays where it is.</p>
 </div>

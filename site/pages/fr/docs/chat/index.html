@@ -28,6 +28,7 @@
   </table>
   <p>Les brouillons sont conservés par discussion : vous pouvez passer à autre chose et revenir. Une discussion dont la session a été arrêtée affiche <span class="ui">Resume session</span> ; envoyer un message la reprend aussi.</p>
 
+  <figure class="doc-shot"><a href="{{root}}shots/chat-working.webp"><img src="{{root}}shots/chat-working.webp" alt="Une discussion pendant que Nova travaille, avec les carrés qui apparaissent, l’état Remembering et le bouton d’arrêt à la place de l’envoi" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>Pendant qu’elle travaille, les carrés apparaissent au fil des étapes et le bouton d’envoi devient un bouton d’arrêt.</figcaption></figure>
   <h2>Pièces jointes et « ce que je vois »</h2>
   <p>Utilisez <span class="ui">Attach image</span> ou <span class="ui">Attach file</span>, collez une image, ou déposez des fichiers sur la discussion. Le bouton en forme d'œil, <span class="ui">Attach what I see</span>, vous permet de choisir exactement ce que l'agent peut voir avec ce message : la page RedLeaf actuelle, ou l'un de vos écrans. Rien n'est capturé avant l'envoi. Les écrans ne sont proposés que dans l'appli locale, pas en accès à distance.</p>
   <p>Partout dans RedLeaf, faites un clic droit sur un élément et choisissez <span class="ui">Ask Nova about this</span> pour partir de là. <span class="ui">Artifacts</span> (<kbd>Alt</kbd>+<kbd>A</kbd>) liste toutes les images, tous les fichiers et tous les liens partagés dans une discussion.</p>
@@ -48,6 +49,7 @@
   <p>La fenêtre de détails affiche l'outil, sa catégorie, et son <span class="ui">Input</span> (entrée) et son <span class="ui">Output</span> (sortie) en entier. Les sorties volumineuses se chargent à la demande et peuvent être téléchargées. Utilisez <kbd>←</kbd> et <kbd>→</kbd> pour parcourir tous les carrés de la discussion. <span class="ui">Open</span> va au fichier concerné ; <span class="ui">Compute</span> ouvre la tâche correspondante, avec qui l'a demandée et ce qu'elle a coûté. Pour un travail confié à un agent auxiliaire, la fenêtre affiche aussi les carrés de cet agent auxiliaire.</p>
   <div class="callout">{{icon:eye}}<p><strong>C'est la piste d'audit.</strong> Les carrés ne sont pas un résumé écrit par l'agent. Ce sont les appels qu'il a réellement faits : vous pouvez vérifier ce qu'il a lu avant de répondre, et ce qu'il a modifié.</p></div>
 
+  <figure class="doc-shot"><a href="{{root}}shots/chat-step-detail.webp"><img src="{{root}}shots/chat-step-detail.webp" alt="Le détail d’une étape Write, marquée mutating, avec le chemin et le contenu de la page en entrée et la confirmation de l’outil en sortie" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>Une étape <span class="ui">Write</span> ouverte : ce qui est entré, ce qui est sorti, et <span class="ui">5 / 5</span> pour parcourir les autres.</figcaption></figure>
   <h2>Questions et autorisations</h2>
   <p>Quand un agent vous pose une question, une carte de question apparaît : choisissez une option, ou choisissez <span class="ui">Other</span> (autre) et écrivez votre propre réponse. Quand il a besoin d'une permission, une carte d'autorisation propose <span class="ui">Allow once</span>, <span class="ui">Allow for this session</span> et <span class="ui">Deny</span>. Ce qu'il peut faire sans demander est fixé par son <a href="{{root}}docs/access-levels/">niveau d'accès</a>.</p>
 
@@ -68,5 +70,6 @@
       <tr><td>Close <kbd>Alt</kbd>+<kbd>W</kbd></td><td>Arrête la session et archive la discussion.</td></tr>
     </tbody>
   </table>
+  <figure class="doc-shot"><a href="{{root}}shots/chat-discussion-menu.webp"><img src="{{root}}shots/chat-discussion-menu.webp" alt="Le menu de la discussion ouvert, avec Voice, Info, Artifacts, Rename, Update title, Share, Float, Stop et Close et leurs raccourcis" width="1440" height="900" loading="lazy" decoding="async" /></a><figcaption>Le menu de la discussion, avec ses raccourcis clavier.</figcaption></figure>
   <p>Dans <span class="ui">Info</span>, l'interrupteur <span class="ui">Confidential</span> tient une discussion à l'écart du fil Live, du heartbeat, du contexte des autres discussions et des exports groupés, et masque le partage. La discussion elle-même reste où elle est.</p>
 </div>

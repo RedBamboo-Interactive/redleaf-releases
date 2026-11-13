@@ -19,9 +19,11 @@
   <ol class="steps">
     <li><b>Download the launcher</b>Go to the <a href="{{root}}#download">download section</a> and choose <span class="ui">Download Nightly</span>. The file name starts with <code>redleaf-launcher</code>. To check it, choose <span class="ui">Show SHA-256</span> and compare it with the file's own hash, which <code>Get-FileHash</code> in PowerShell computes.</li>
     <li><b>Run it as yourself</b>Double-click the file. If SmartScreen says “Unknown publisher”, choose <span class="ui">More info</span>, then <span class="ui">Run anyway</span>. Don't run it as administrator: RedLeaf installs for your account and restarts itself without administrator rights if you do.</li>
-    <li><b>Let it install</b>The launcher reads the signed release feed, verifies each component's signature and hash, installs the suite and starts it. When it is ready, your browser opens RedLeaf at <code>http://127.0.0.1:18804</code>.</li>
+    <li><b>Let it install</b>The launcher reads the signed release feed, verifies each component's signature and hash, installs the suite and starts it. A console window shows its progress meanwhile. When it is ready, your browser opens RedLeaf at <code>http://127.0.0.1:18804</code>.</li>
     <li><b>Approve WinFsp once</b>Setup's first step installs WinFsp, which gives your agents their workspace drive. Windows asks for administrator approval for that one installation. See <a href="{{root}}docs/first-run/">Set up RedLeaf</a> for the rest.</li>
   </ol>
+  <figure class="doc-shot os os-narrow"><a href="{{root}}shots/win-smartscreen.webp"><img src="{{root}}shots/win-smartscreen.webp" alt="Windows SmartScreen dialog for redleaf-launcher-0.1.34-win-x64.exe, Unknown publisher, with a Run anyway button" width="534" height="498" loading="lazy" decoding="async" /></a><figcaption>After <span class="ui">More info</span>, SmartScreen shows the file name and <span class="ui">Run anyway</span>.</figcaption></figure>
+  <figure class="doc-shot os"><a href="{{root}}shots/win-launcher.webp"><img src="{{root}}shots/win-launcher.webp" alt="The launcher console, checking the signed nightly release feed, then downloading and verifying the required components" width="916" height="295" loading="lazy" decoding="async" /></a><figcaption>The launcher shows its progress in a console window, then opens your browser.</figcaption></figure>
 
   <h2>Where it lives</h2>
   <table class="doc-table">
