@@ -1,0 +1,86 @@
+<!--page {"title": "Organize: a memory you can open and edit · RedLeaf cookbook", "description": "Drop files into an agent's workspace, let it sort them, and keep notes, decisions and documents as pages you can read, edit and link.", "layout": "doc", "section": "cookbook", "slug": "organize"}-->
+<header>
+  <p class="eyebrow">Use case · Organize</p>
+  <h1>A memory you can open and edit.</h1>
+  <p class="doc-lede">Every agent has a workspace: pages, files and links that outlive any single conversation. It is also a real folder on your disk, so you can drop a pile of documents in, let the agent sort them, and open the result in any app you like.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:folder-simple}}Workspace</span><span>{{icon:database}}Database</span></div>
+</header>
+
+<div class="recipe-demo" data-demo aria-label="Animated recreation: Nova sorts an inbox folder and writes an index page">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar tree">
+          <div class="tree-owner"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Nova</b><small>Agent workspace</small></span></div>
+          <div class="tree-row inbox">{{icon:caret-down}}{{icon:folder-simple}}<span>Inbox</span><small class="count c-full">37</small><small class="count c-empty" data-step="40" data-wait="300">0</small></div>
+          <div class="tree-row l2 file f-a">{{icon:file-text}}<span>scan_0412.pdf</span></div>
+          <div class="tree-row l2 file f-b">{{icon:file-text}}<span>IMG_2291.jpg</span></div>
+          <div class="tree-row l2 file f-c">{{icon:file-text}}<span>contract-final-v3.pdf</span></div>
+          <div class="tree-row l2 file f-d">{{icon:file-text}}<span>…34 more</span></div>
+          <div class="tree-row" data-step="30" data-wait="700">{{icon:caret-right}}{{icon:folder-simple}}<span>Receipts</span><small class="count">21</small></div>
+          <div class="tree-row" data-step="32" data-wait="350">{{icon:caret-right}}{{icon:folder-simple}}<span>Contracts</span><small class="count">6</small></div>
+          <div class="tree-row" data-step="34" data-wait="350">{{icon:caret-right}}{{icon:folder-simple}}<span>Manuals</span><small class="count">7</small></div>
+          <div class="tree-row" data-step="36" data-wait="350">{{icon:caret-right}}{{icon:folder-simple}}<span>Needs a look</span><small class="count">3</small></div>
+          <div class="tree-row selected" data-step="50" data-wait="600">{{icon:file-text}}<span>Paperwork index</span></div>
+          <i data-step="40" data-fx="mark" data-add=".tree .file|gone; .c-full|gone"></i>
+        </aside>
+        <div class="split-main">
+          <div class="mini-chat">
+            <div class="msg user" data-step="10" data-wait="400"><p>I dropped a pile of scans into Inbox. Sort them and make me an index.</p></div>
+            <div class="msg nova" data-step="20"><img src="{{root}}nova-avatar.webp" alt="" /><div><b>Nova</b><p data-step="20" data-fx="stream">37 files. I'll read each one, file it by type and year, and list anything I can't place.</p></div></div>
+          </div>
+          <article class="page-view compact" data-step="50">
+            <p class="entity-type">PAGE</p>
+            <h3>Paperwork index</h3>
+            <table class="mini-table">
+              <tr><th>Folder</th><th>Files</th><th>Notes</th></tr>
+              <tr data-step="55" data-wait="400"><td>Receipts</td><td>21</td><td>2024: 9, 2025: 12. Laptop warranty ends in March.</td></tr>
+              <tr data-step="56" data-wait="350"><td>Contracts</td><td>6</td><td>Flat lease renews on 1 April; notice by 31 December.</td></tr>
+              <tr data-step="57" data-wait="350"><td>Manuals</td><td>7</td><td>Dishwasher, boiler, bike, 4 more.</td></tr>
+              <tr data-step="58" data-wait="350"><td>Needs a look</td><td>3</td><td>Two blurry scans, one letter in Italian.</td></tr>
+            </table>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Drop it in</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>Sorted</button></li>
+      <li><button type="button" data-seek="50"><span>03</span>The index</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Replay demo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">A simplified recreation of RedLeaf. The files are examples.</p>
+</div>
+
+<div class="prose">
+  <h2>What you can ask</h2>
+  <ul class="prompt-list">
+    <li>Sort everything in Inbox by type and year, and tell me what you couldn't place.</li>
+    <li>Keep a page of every decision we make on this project, with the date and the reason.</li>
+    <li>What did we decide about the logo last month?</li>
+    <li>That note is wrong, the deadline moved to Friday. Fix it everywhere.</li>
+  </ul>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><b>Each agent has a workspace</b>It holds the agent's memory, configuration and files. Open it in the Workspace app, or as a drive on Windows and <code>~/Leaf</code> on Linux.</li>
+    <li><b>Memory is pages, not a black box</b>What an agent remembers is written as pages you can read. If something is wrong, edit it and the agent works from your version.</li>
+    <li><b>Structure when you want it</b>Pages can link to each other and to entities such as repositories, people or projects, which you can browse and filter in Database.</li>
+    <li><b>It carries over</b>Start a new discussion next week and the agent still knows the project, because it reads its workspace rather than a chat log.</li>
+  </ol>
+
+  <div class="callout">{{icon:house}}<p><strong>Your files stay yours.</strong> The workspace lives on your computer. Content only leaves it when an agent sends it to the AI provider you chose, in order to read or write it.</p></div>
+
+  <h2>What you need</h2>
+  <div class="needs">
+    <div><b>Nothing extra</b><span>Workspaces are part of every install.</span></div>
+    <div><b>On Linux</b><span>FUSE 3, for the <code>~/Leaf</code> folder.</span></div>
+    <div><b>On Windows</b><span>WinFsp, installed by Setup with one approval.</span></div>
+  </div>
+</div>

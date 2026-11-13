@@ -1,0 +1,269 @@
+<!--page {"title": "RedLeaf: the studio where your AI agents make things", "description": "RedLeaf runs on your own Windows or Linux computer. Your agents write code in your repositories, generate images and voices on your GPU, organize your files, plan with you and remember all of it.", "layout": "landing", "section": "product"}-->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-copy page-width">
+    <p class="pill"><span class="pill-dot"></span>Nightly preview · Now on Windows and Linux</p>
+    <h1 id="hero-title">The studio where your agents <em>make things</em>.</h1>
+    <p class="lede">RedLeaf runs on your own computer. Nova and the agents you create write code in your repositories, render images and voices on your GPU, sort your files, plan your week, and still remember all of it tomorrow.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#download">{{icon:download-simple}}<span>Get RedLeaf for <span data-platform-label>Windows</span></span></a>
+      <a class="btn btn-ghost" href="{{root}}cookbook/">{{icon:book-open}}<span>Browse the cookbook</span></a>
+    </div>
+  </div>
+
+  <div class="hero-demo page-wide" id="demo">
+    <div class="demo-frame" data-demo data-loop="5200" aria-label="Animated recreation of RedLeaf: Nova hands a bug fix to Code, then remembers it">
+      <div class="window" data-stage>
+        <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+
+        <!-- Screen 1: Nova discussion -->
+        <section class="screen screen-nova active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Trail Tracker offline maps</b><small>Nova · now</small></span></div>
+              <div class="row"><span class="avatar amber">L</span><span><b>Wortschatz, Lektion 12</b><small>Leni · 2 h ago</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Plan the Lisbon weekend</b><small>Nova · yesterday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Tax folder cleanup</b><small>Nova · Monday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Trail Tracker offline maps</b><small>Nova · Codex · Standard</small></span></div>
+              <div class="thread" data-scroll>
+                <div class="msg user" data-step="20" data-wait="200"><p>Offline maps stopped loading in Trail Tracker after yesterday's update. Can you find out why and fix it?</p></div>
+                <div class="msg nova" data-step="30" data-wait="700"><img src="{{root}}nova-avatar.webp" alt="" /><div><b>Nova</b><p data-step="30" data-fx="stream">On it. I'll open the repository in Code and give the fix to a session, so you can keep talking to me while it works.</p></div></div>
+                <div class="tool-card" data-step="40" data-wait="700"><span class="app-icon blue">{{icon:terminal-window}}</span><div><b>Delegated to Code</b><small>trail-tracker · main · new session</small></div><em class="badge working">{{icon:circle-notch}}working</em></div>
+                <div class="tool-card done-card" data-step="90" data-wait="600"><span class="app-icon blue">{{icon:terminal-window}}</span><div><b>Session completed</b><small>trail-tracker · 1 commit · 41 tests passed</small></div><em class="badge ok">{{icon:check-circle}}done</em></div>
+                <div class="msg nova" data-step="100" data-wait="700"><img src="{{root}}nova-avatar.webp" alt="" /><div><b>Nova</b><p data-step="100" data-fx="stream">Fixed and pushed. The update renamed the tile cache folder, so the app kept looking in the old one. It now migrates the cache on start, and all 41 tests pass. I noted it in my memory too.</p></div></div>
+              </div>
+              <div class="composer"><span class="composer-text" data-step="10" data-fx="type" data-wait="1100">Offline maps stopped loading in Trail Tracker after yesterday's update. Can you find out why and fix it?</span><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+              <i data-step="20" data-fx="mark" data-add=".screen-nova .composer|sent"></i>
+            </div>
+          </div>
+        </section>
+
+        <!-- Screen 2: Code session -->
+        <section class="screen screen-code" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon blue">{{icon:terminal-window}}</span><b>Code</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:terminal-window}}Sessions</span><span>{{icon:github-logo}}GitHub</span><span>{{icon:code}}Code</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Sessions</b><span>{{icon:plus}}New</span></div>
+              <div class="row selected"><span class="status-dot busy"></span><span><b>Fix offline map tiles</b><small>trail-tracker · from Nova</small></span></div>
+              <div class="row"><span class="status-dot idle"></span><span><b>Add GPX export</b><small>trail-tracker · yesterday</small></span></div>
+              <div class="row"><span class="status-dot idle"></span><span><b>Dark mode polish</b><small>portfolio-site · last week</small></span></div>
+            </aside>
+            <div class="session">
+              <div class="session-head"><span><b>Fix offline map tiles</b><small>{{icon:git-branch}}main · Codex · Auto</small></span><em class="badge working session-badge">{{icon:circle-notch}}running</em></div>
+              <div class="transcript" data-scroll>
+                <div class="step-row" data-step="50" data-wait="900">{{icon:magnifying-glass}}<span>Searched for <code>tileCache</code></span><small>6 files</small></div>
+                <div class="step-row" data-step="55" data-wait="650">{{icon:file-text}}<span>Read <code>src/maps/cache.ts</code></span><small>212 lines</small></div>
+                <div class="step-row warn" data-step="60" data-wait="750">{{icon:terminal-window}}<span>Ran <code>npm test</code></span><small>1 failed</small></div>
+                <p class="session-note" data-step="65" data-wait="600" data-fx="stream">The cache moved from <code>tiles/</code> to <code>map-cache/</code>, but nothing migrates the old folder.</p>
+                <div class="diff" data-step="70" data-wait="900">
+                  <div class="diff-head">{{icon:code}}<span>src/maps/cache.ts</span><small><b class="add">+9</b> <b class="del">−1</b></small></div>
+                  <pre><span class="del">-  const dir = join(dataDir, "map-cache");</span>
+<span class="add">+  const dir = join(dataDir, "map-cache");</span>
+<span class="add">+  await migrateLegacyCache(join(dataDir, "tiles"), dir);</span></pre>
+                </div>
+                <div class="step-row ok" data-step="75" data-wait="900">{{icon:terminal-window}}<span>Ran <code>npm test</code></span><small>41 passed</small></div>
+                <div class="step-row ok" data-step="80" data-wait="700">{{icon:git-branch}}<span>Committed and pushed <code>7c1e9a4</code></span><small>main</small></div>
+              </div>
+              <i data-step="80" data-fx="mark" data-add=".session-badge|ok" data-remove=".session-badge|working"></i>
+            </div>
+          </div>
+        </section>
+
+        <!-- Screen 3: Workspace memory -->
+        <section class="screen screen-workspace" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar tree">
+              <div class="tree-owner"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Nova</b><small>Agent workspace</small></span></div>
+              <div class="tree-row">{{icon:caret-down}}{{icon:folder-simple}}<span>memory</span></div>
+              <div class="tree-row l2">{{icon:caret-down}}{{icon:folder-simple}}<span>projects</span></div>
+              <div class="tree-row l3 selected">{{icon:file-text}}<span>Trail Tracker</span></div>
+              <div class="tree-row l3">{{icon:file-text}}<span>Lisbon weekend</span></div>
+              <div class="tree-row l2">{{icon:caret-right}}{{icon:folder-simple}}<span>conversations</span></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>config</span></div>
+            </aside>
+            <article class="page-view">
+              <p class="crumb">Workspace / Nova / memory / projects / <b>Trail Tracker</b></p>
+              <p class="entity-type">PAGE</p>
+              <h3>Trail Tracker</h3>
+              <p class="page-lede">Hiking app with offline maps. Repository <code>trail-tracker</code>, released from main.</p>
+              <h4>Decisions</h4>
+              <ul class="page-list">
+                <li>GPX export ships behind a setting until the file picker is reviewed.</li>
+                <li>Tests run on every commit; nothing is pushed red.</li>
+              </ul>
+              <h4>History</h4>
+              <ul class="page-list">
+                <li>12 Nov: GPX export merged.</li>
+                <li class="new-line" data-step="110" data-wait="800" data-fx="type">13 Nov: offline tiles broke after the cache folder was renamed. Fixed with a migration on start, 7c1e9a4.</li>
+              </ul>
+              <div class="saved-toast" data-step="115" data-wait="900">{{icon:check-circle}}<span>Saved to Nova's memory</span></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Screen 4: Heartbeat, the next morning -->
+        <section class="screen screen-heartbeat" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live selected"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Trail Tracker offline maps</b><small>Nova · yesterday</small></span></div>
+              <div class="row"><span class="avatar amber">L</span><span><b>Wortschatz, Lektion 12</b><small>Leni · yesterday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="mode-tabs"><span class="active">Live</span><span>{{icon:heartbeat}}Heartbeat</span></div>
+              <div class="thread" data-scroll>
+                <div class="day-divider"><span>Friday, 07:30</span></div>
+                <div class="heartbeat-card" data-step="130" data-wait="900">{{icon:heartbeat}}<div><b>Heartbeat</b><small>Checked 3 things you asked me to watch</small></div></div>
+                <div class="msg nova" data-step="135" data-wait="600"><img src="{{root}}nova-avatar.webp" alt="" /><div><b>Nova</b><p data-step="135" data-fx="stream">Morning. Last night's Trail Tracker build passed with the cache fix, and the offline maps issue on GitHub is closed. Your Lisbon train tickets go on sale at 10:00. Should I remind you at 9:55?</p></div></div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <i data-step="45" data-wait="1600" data-fx="mark" data-remove=".screen-nova|active" data-add=".screen-code|active"></i>
+        <i data-step="85" data-wait="1500" data-fx="mark" data-remove=".screen-code|active" data-add=".screen-nova|active"></i>
+        <i data-step="105" data-wait="2200" data-fx="mark" data-remove=".screen-nova|active" data-add=".screen-workspace|active"></i>
+        <i data-step="125" data-wait="2400" data-fx="mark" data-remove=".screen-workspace|active" data-add=".screen-heartbeat|active"></i>
+      </div>
+
+      <div class="demo-controls">
+        <ol class="chapters">
+          <li><button type="button" data-seek="0"><span>01</span>Ask Nova</button></li>
+          <li><button type="button" data-seek="45"><span>02</span>Code does the work</button></li>
+          <li><button type="button" data-seek="85"><span>03</span>Nova reports back</button></li>
+          <li><button type="button" data-seek="105"><span>04</span>It's remembered</button></li>
+          <li><button type="button" data-seek="125"><span>05</span>Next morning</button></li>
+        </ol>
+        <button class="demo-toggle" type="button" data-demo-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
+      </div>
+      <p class="demo-caption">A simplified recreation of the RedLeaf interface. The project and conversation are examples.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band cookbook-teaser" aria-labelledby="cookbook-title">
+  <div class="page-width">
+    <div class="section-head split">
+      <div><p class="eyebrow">What it's for</p><h2 id="cookbook-title">Bring a project. Leave with the thing made.</h2></div>
+      <p>Other agents run errands in the cloud. RedLeaf is for building: code, art, sound, plans and the knowledge behind them, made on your machine and kept there. <a href="{{root}}cookbook/">Open the cookbook {{icon:arrow-right}}</a></p>
+    </div>
+    <div class="recipe-grid">
+{{recipes}}
+    </div>
+  </div>
+</section>
+
+<section class="band apps" aria-labelledby="apps-title">
+  <div class="page-width">
+    <div class="section-head">
+      <p class="eyebrow">What you install</p>
+      <h2 id="apps-title">Four apps that know about each other.</h2>
+      <p>RedLeaf is one local service with its apps inside. They share the same agents, files and history, so work can move between them without copy and paste.</p>
+    </div>
+    <div class="app-cards">
+      <article class="app-card rose"><span class="app-icon rose">{{icon:star}}</span><h3>Nova</h3><p>Your main agent and the one you talk to. Keeps parallel discussions, a Live timeline, and a heartbeat that checks on things for you.</p><ul><li>Discussions per topic</li><li>Several agents, each with a personality</li><li>Voice in and out</li></ul></article>
+      <article class="app-card blue"><span class="app-icon blue">{{icon:terminal-window}}</span><h3>Code</h3><p>Persistent coding sessions on your repositories. Nova can start one, follow it, review the result and continue it later.</p><ul><li>Sessions that survive restarts</li><li>Commits, issues and tests per repository</li><li>Access levels from Plan to Full</li></ul></article>
+      <article class="app-card green"><span class="app-icon green">{{icon:folder-simple}}</span><h3>Workspace</h3><p>Every agent's files and memory as pages you can open, edit and link. Also mounted as a real folder on your disk.</p><ul><li>Memory that outlives a chat</li><li>Pages, entities and links</li><li>A drive on Windows, <code>~/Leaf</code> on Linux</li></ul></article>
+      <article class="app-card amber"><span class="app-icon amber">{{icon:cpu}}</span><h3>Compute</h3><p>Where models run. Chat, speech, images and music go through one engine, with every job visible and every provider swappable.</p><ul><li>Hosted and local providers</li><li>Text, speech, image and music</li><li>A job list you can inspect</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section class="band principles" aria-labelledby="principles-title">
+  <div class="page-width principles-grid">
+    <div class="section-head">
+      <p class="eyebrow">How it is built</p>
+      <h2 id="principles-title">It runs on your machine, and you can see what it does.</h2>
+    </div>
+    <div class="facts">
+      <article>{{icon:house}}<h3>Local first</h3><p>RedLeaf, its database and every agent workspace live on your computer. Your conversations are stored there; RedBamboo never receives them.</p></article>
+      <article>{{icon:lightning}}<h3>Your providers</h3><p>Connect the AI accounts you already use, or run local models for speech and images. Prompts go to the provider you choose, under that provider's terms.</p></article>
+      <article>{{icon:shield-check}}<h3>Signed updates</h3><p>The launcher and every component are checked against a signed release feed and a SHA-256 hash before they run. Nothing unverified is installed.</p></article>
+      <article>{{icon:eye}}<h3>Visible work</h3><p>Every agent job appears in Compute, every Code session keeps its transcript, and every memory is a page you can read and correct.</p></article>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="band download" id="download" aria-labelledby="download-title">
+  <div class="page-width download-grid">
+    <div class="download-copy">
+      <p class="eyebrow">Download</p>
+      <h2 id="download-title">Install RedLeaf.</h2>
+      <p>Setup installs the suite, prepares the agent workspace and walks you through your account and your first AI provider. It takes a few minutes.</p>
+      <ol class="install-steps">
+        <li><span>01</span><div><h3>Run the installer</h3><p>On Windows, RedLeaf Setup. On Linux, the one-line install in a terminal, as yourself.</p></div></li>
+        <li><span>02</span><div><h3>Approve the agent filesystem</h3><p>Windows asks once for administrator approval to install WinFsp. Linux uses FUSE 3, which you install beforehand.</p></div></li>
+        <li><span>03</span><div><h3>Create the local owner</h3><p>Your RedLeaf account and the agent workspace stay on this machine.</p></div></li>
+        <li><span>04</span><div><h3>Connect an AI provider</h3><p>Pick a provider, finish its sign-in, and open your first discussion with Nova.</p></div></li>
+      </ol>
+    </div>
+
+    <aside class="release-card" aria-label="Current RedLeaf release">
+      <div class="release-card-head"><span class="release-dot"></span><p><span data-platform-label>Windows</span> preview</p></div>
+      <div class="platform-switch" role="tablist" aria-label="Platform">
+        <button type="button" role="tab" id="platform-windows" aria-controls="panel-windows" aria-selected="true" data-platform="windows">{{icon:windows-logo}}Windows</button>
+        <button type="button" role="tab" id="platform-linux" aria-controls="panel-linux" aria-selected="false" data-platform="linux">{{icon:linux-logo}}Linux</button>
+      </div>
+      <div class="platform-panel" id="panel-windows" role="tabpanel" aria-labelledby="platform-windows" data-panel="windows">
+        <a class="download-button is-loading" id="download-button" aria-disabled="true">
+          <span><b id="download-label">Checking the latest release…</b><small>Windows x64</small></span>
+          <em id="download-meta">Windows x64</em>
+          {{icon:download-simple}}
+        </a>
+        <p class="release-note" id="release-note">Reading the signed RedLeaf release feed.</p>
+        <button class="hash-toggle" id="hash-toggle" type="button" hidden>Show SHA-256</button>
+        <code class="hash" id="release-hash" hidden></code>
+        <div class="trust-note">{{icon:shield-check}}<p><strong>Nightly preview.</strong> SmartScreen may say “Unknown publisher” while Windows signing is still pending. Choose More info, then Run anyway.</p></div>
+      </div>
+      <div class="platform-panel" id="panel-linux" role="tabpanel" aria-labelledby="platform-linux" data-panel="linux" hidden>
+        <p class="command-label">Install from a terminal, as yourself (not with sudo):</p>
+        <div class="command"><code id="linux-command">Checking the latest release…</code><button class="copy-button" id="linux-copy" type="button" disabled>Copy</button></div>
+        <a class="download-button is-loading" id="linux-download" aria-disabled="true">
+          <span><b id="linux-label">Checking the latest release…</b><small>Linux x64 · .tar.gz</small></span>
+          <em id="linux-meta">Linux x64</em>
+          {{icon:download-simple}}
+        </a>
+        <p class="release-note" id="linux-note">Reading the signed RedLeaf Linux release feed.</p>
+        <button class="hash-toggle" id="linux-hash-toggle" type="button" hidden>Show SHA-256</button>
+        <code class="hash" id="linux-hash" hidden></code>
+        <div class="trust-note">{{icon:shield-check}}<p><strong>Before you install.</strong> RedLeaf needs FUSE 3 for your <code>~/Leaf</code> folder: <code>sudo dnf install fuse3</code> on Fedora, <code>sudo apt install fuse3</code> on Debian and Ubuntu. It runs with SELinux enforcing; there is nothing to relabel or turn off. It installs into your home folder and checks the launcher against the signed release record before running it.</p></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="page-width requirements">
+    <h3>Requirements and dependencies</h3>
+    <div class="requirement-list">
+      <article><b>Windows x64 or Linux x64</b><p>Linux is tested on Fedora with SELinux enforcing.</p></article>
+      <article><b>FUSE 3 on Linux</b><p>Provides your <code>~/Leaf</code> folder. Install the <code>fuse3</code> package first.</p></article>
+      <article><b>Administrator approval on Windows</b><p>Needed once for WinFsp, which provides agent workspace drives.</p></article>
+      <article><b>An AI provider account</b><p>Use the sign-in flow of the supported provider you choose.</p></article>
+      <article><b>Git</b><p>Needed when Code works with local repositories: Git for Windows, or your distribution's git package. RedLeaf does not install Git.</p></article>
+      <article><b>Internet access</b><p>To download components and reach your AI provider.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="band community" aria-labelledby="community-title">
+  <div class="page-width community-inner">
+    <img src="{{root}}nova-portrait.webp" alt="Nova, the RedLeaf assistant, holding a tablet in a room full of plants" width="900" height="900" loading="lazy" />
+    <div>
+      <p class="eyebrow">Preview</p>
+      <h2 id="community-title">Come and break it with us.</h2>
+      <p>RedLeaf is a nightly preview with a small group of testers. Bugs, ideas and odd use cases go to the Leaf Discord, where the people building it read along.</p>
+      <a class="btn btn-primary" href="https://discord.gg/FWMQtGzw3y">{{icon:discord-logo}}<span>Join the Leaf Discord</span></a>
+    </div>
+  </div>
+</section>

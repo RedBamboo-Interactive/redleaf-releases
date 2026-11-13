@@ -1,0 +1,38 @@
+<!--page {"title": "Security · RedLeaf", "description": "How to report a vulnerability in RedLeaf, and how its downloads and updates are verified.", "layout": "legal", "section": "legal"}-->
+<header>
+  <p class="eyebrow">Legal</p>
+  <h1>Security</h1>
+  <p class="legal-updated">Last updated: <time datetime="2026-11-13">13 November 2026</time></p>
+</header>
+
+<section aria-labelledby="report">
+  <h2 id="report">Report a vulnerability</h2>
+  <p>Email <a href="mailto:becherel.laurent@gmail.com?subject=RedLeaf%20security">becherel.laurent@gmail.com</a> with “RedLeaf security” in the subject. Please don't post it on Discord or in a public GitHub issue first.</p>
+  <p>Useful to include:</p>
+  <ul>
+    <li>the RedLeaf version and platform,</li>
+    <li>what an attacker can do, and what they need first,</li>
+    <li>steps or a proof of concept to reproduce it.</li>
+  </ul>
+  <p>You will get a reply within a few days. We will keep you informed while we fix it, credit you in the release notes if you want, and ask you to wait for a fixed version before you publish details. We will not pursue anyone who reports in good faith, stays within their own installation, and does not access other people's data.</p>
+</section>
+
+<section aria-labelledby="scope">
+  <h2 id="scope">In scope</h2>
+  <p>The RedLeaf launcher and installer, the RedLeaf service and its built-in apps (Nova, Code, Workspace, Compute), plugins published on the official release feed, the release feed itself, and this website. Vulnerabilities in an AI provider or another connected service belong with that service.</p>
+</section>
+
+<section aria-labelledby="verification">
+  <h2 id="verification">How downloads are verified</h2>
+  <ul>
+    <li>Every component is published with a release record in a signed release feed. The launcher checks the signature and the SHA-256 hash of each download before installing it, and refuses anything that does not match.</li>
+    <li>The download section of this site reads the same feed and shows the installer's SHA-256 so you can check it yourself.</li>
+    <li>On Linux, the install script verifies the launcher against the signed release record before running it.</li>
+    <li>During the preview, the Windows installer is not yet signed with a Windows publisher certificate, so SmartScreen can show “Unknown publisher”. This is expected.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="local">
+  <h2 id="local">Running agents safely</h2>
+  <p>Agents work at the access level you choose. Plan only reads and plans. Ask edits its own workspace and asks before anything else. Auto decides what is safe and asks about the rest. Full does anything without asking, and is only available once you turn Full access on. Start with Ask, and raise the level per agent once you trust a workflow.</p>
+</section>

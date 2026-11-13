@@ -1,0 +1,90 @@
+<!--page {"title": "Learn: agents with a personality and a purpose · RedLeaf cookbook", "description": "Create your own agent, such as a language tutor or a coach, with its own personality, voice, skills and memory of your progress.", "layout": "doc", "section": "cookbook", "slug": "learn"}-->
+<header>
+  <p class="eyebrow">Use case · Learn</p>
+  <h1>Agents with a personality and a purpose.</h1>
+  <p class="doc-lede">Nova is the one you start with, not the only one. Create a tutor, a coach or a sparring partner, give it a character and a job, and it keeps its own workspace with what it knows about your progress.</p>
+  <div class="recipe-meta"><span>{{icon:robot}}Agents</span><span>{{icon:chat-circle}}Discussions</span><span>{{icon:speaker-high}}Voice</span></div>
+</header>
+
+<div class="recipe-demo" data-demo aria-label="Animated recreation: creating a German tutor agent and practising with it">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen s-new active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Agents</b><span>{{icon:plus}}New</span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Nova</b><small>Personal assistant</small></span></div>
+          <div class="row selected" data-step="40" data-wait="500"><span class="avatar amber">L</span><span><b>Leni</b><small>German tutor</small></span></div>
+        </aside>
+        <div class="panel form-panel">
+          <h5>New agent</h5>
+          <div class="field"><label>Name</label><div class="input"><span data-step="10" data-fx="type" data-wait="500">Leni</span></div></div>
+          <div class="field"><label>Personality and purpose</label><div class="input area"><span data-step="15" data-fx="type" data-wait="400">A patient German tutor from Munich. Speaks German at my level (B1), corrects one mistake at a time, and keeps track of what I get wrong.</span></div></div>
+          <div class="field"><label>Voice</label><div class="chip-row"><span class="chip">Calm</span><span class="chip v-warm">Warm · German</span><span class="chip">Bright</span></div></div>
+          <div class="field"><label>Skills</label><div class="chip-row"><span class="chip picked" data-step="25" data-wait="500">Language practice</span><span class="chip picked" data-step="27" data-wait="300">Voice</span><span class="chip">Code</span></div></div>
+          <span class="app-btn create-btn">{{icon:plus}}Create agent</span>
+          <i data-step="20" data-wait="600" data-fx="mark" data-add=".v-warm|picked"></i>
+          <i data-step="35" data-wait="800" data-fx="mark" data-add=".create-btn|pressed"></i>
+        </div>
+      </div>
+    </section>
+    <section class="screen s-talk" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row selected"><span class="avatar amber">L</span><span><b>Mein Wochenende</b><small>Leni · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Route log for the gym</b><small>Nova · today</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="thread">
+            <div class="msg nova leni" data-step="60" data-wait="300"><span class="avatar amber">L</span><div><b>Leni</b><p>Hallo! Erzähl mir von deinem Wochenende. Was hast du gemacht?</p></div></div>
+            <div class="msg user" data-step="65" data-wait="1200"><p>Ich habe nach Luzern gefahren und wir haben am See gegessen.</p></div>
+            <div class="msg nova leni" data-step="70"><span class="avatar amber">L</span><div><b>Leni</b><p data-step="70" data-fx="stream">Fast perfekt! Mit „fahren“ nimmst du „sein“: Ich <strong>bin</strong> nach Luzern gefahren. Und was habt ihr am See gegessen?</p></div></div>
+            <div class="voice-card" data-step="75" data-wait="500"><span class="play">{{icon:play-fill}}</span><div><b>Leni · 0:06</b><small>Spoken reply</small></div><div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <div class="heartbeat-card note" data-step="80" data-wait="900">{{icon:file-text}}<div><b>Noted in Leni's workspace</b><small>Perfekt with “sein”: practise verbs of motion next time</small></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Leni…</span><span class="mic">{{icon:microphone}}</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+    <i data-step="50" data-wait="1300" data-fx="mark" data-remove=".s-new|active" data-add=".s-talk|active"></i>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Create the agent</button></li>
+      <li><button type="button" data-seek="50"><span>02</span>Practise</button></li>
+      <li><button type="button" data-seek="80"><span>03</span>It remembers</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Replay demo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">A simplified recreation of RedLeaf. Leni is an example agent.</p>
+</div>
+
+<div class="prose">
+  <h2>What you can ask</h2>
+  <ul class="prompt-list">
+    <li>Practise German with me at B1, and correct one mistake at a time.</li>
+    <li>Be my running coach: ask how the week went every Sunday and adjust the plan.</li>
+    <li>Play a sceptical investor and attack my pitch.</li>
+    <li>Quiz me on the chapters I read this week.</li>
+  </ul>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><b>Create an agent</b>Give it a name, a personality and a purpose in its identity, and choose the skills it may use. It gets its own workspace and memory.</li>
+    <li><b>Start a discussion with it</b>Pick the agent when you open a new discussion. Each one keeps its own history, separate from Nova's.</li>
+    <li><b>Use your voice</b>Speak instead of typing; speech to text can transcribe it locally. The agent can answer aloud with the voice you chose.</li>
+    <li><b>It tracks your progress</b>The agent writes what it notices into its workspace, so the next session starts where the last one ended.</li>
+  </ol>
+
+  <div class="callout">{{icon:users-three}}<p><strong>Agents can work together.</strong> Nova can see what your other agents are doing and pass work between them, so your tutor and your coding sessions never need you as a messenger.</p></div>
+
+  <h2>What you need</h2>
+  <div class="needs">
+    <div><b>An AI provider</b><span>Any supported chat provider. Each agent can use a different one.</span></div>
+    <div><b>For voice</b><span>The included local speech providers, or ElevenLabs.</span></div>
+  </div>
+</div>

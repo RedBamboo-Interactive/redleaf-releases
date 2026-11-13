@@ -1,0 +1,83 @@
+<!--page {"title": "Create: images, voices and sound on your own GPU · RedLeaf cookbook", "description": "Generate cover art, characters, narration and music from a conversation, render images locally through ComfyUI, and keep every result with the project.", "layout": "doc", "section": "cookbook", "slug": "create"}-->
+<header>
+  <p class="eyebrow">Use case · Create</p>
+  <h1>Images, voices and sound on your own GPU.</h1>
+  <p class="doc-lede">Ask for the cover, the character sheet, the narration or the jingle in the same conversation where you are working on the project. Images and voices can render locally on your graphics card, and every result is kept, so you can pick, compare and come back to it.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:cpu}}Compute</span><span>{{icon:image-square}}Image generation</span><span>{{icon:speaker-high}}Text to speech</span></div>
+</header>
+
+<div class="recipe-demo" data-demo aria-label="Animated recreation: Nova renders four cover options and reads an intro aloud">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Podcast · Episode 12</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Board game card art</b><small>Nova · Sunday</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="400"><p>Episode 12 is called “Night trains”. Make me four cover options, then read the intro in a warm voice.</p></div>
+            <div class="msg nova" data-step="20"><img src="{{root}}nova-avatar.webp" alt="" /><div><b>Nova</b><p data-step="20" data-fx="stream">Rendering four on your GPU: flat poster style, navy and amber like the earlier episodes.</p></div></div>
+            <div class="gen-card" data-step="30" data-wait="500">
+              <div class="gen-head">{{icon:image-square}}<span><b>Image generation</b><small>ComfyUI · local · 4 images</small></span><em class="badge working gen-badge">{{icon:circle-notch}}rendering</em></div>
+              <div class="gen-grid">
+                <div class="image-tile"><img data-step="40" data-wait="1500" src="{{root}}demo/cover-1.webp" alt="" /></div>
+                <div class="image-tile"><img data-step="42" data-wait="700" src="{{root}}demo/cover-2.webp" alt="" /></div>
+                <div class="image-tile"><img data-step="44" data-wait="700" src="{{root}}demo/cover-3.webp" alt="" /></div>
+                <div class="image-tile"><img data-step="46" data-wait="700" src="{{root}}demo/cover-4.webp" alt="" /></div>
+              </div>
+              <i data-step="46" data-fx="mark" data-add=".gen-badge|ok" data-remove=".gen-badge|working"></i>
+            </div>
+            <div class="voice-card" data-step="60" data-wait="1000">
+              <span class="play">{{icon:play-fill}}</span>
+              <div><b>Intro · 0:18</b><small>Text to speech · local voice</small></div>
+              <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="msg nova" data-step="70"><img src="{{root}}nova-avatar.webp" alt="" /><div><b>Nova</b><p data-step="70" data-fx="stream">My pick is the viaduct, it reads best at thumbnail size. All four and the intro are saved under Episode 12.</p></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Ask</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>Render locally</button></li>
+      <li><button type="button" data-seek="60"><span>03</span>Hear it</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Replay demo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">A simplified recreation of RedLeaf. The four covers were generated locally with RedLeaf's ComfyUI provider.</p>
+</div>
+
+<div class="prose">
+  <h2>What you can ask</h2>
+  <ul class="prompt-list">
+    <li>Four cover options for episode 12, same style as the last ones.</li>
+    <li>Draw this character from the front, the side and the back so I can keep her consistent.</li>
+    <li>Read the intro in a calm voice, then a faster one, and let me compare.</li>
+    <li>Turn the voice memo I just recorded into notes and a first draft.</li>
+  </ul>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><b>Choose your providers once</b>Compute lists the capabilities RedLeaf ships with: image generation, text to speech, speech to text and music. Pick a local provider such as ComfyUI, Qwen3-TTS or faster-whisper, or a hosted one such as ElevenLabs.</li>
+    <li><b>Ask in the conversation</b>Nova writes the prompt, picks the settings and starts the job. You don't have to leave the discussion or learn a node editor.</li>
+    <li><b>Watch it in Compute</b>Every job shows up in Compute with its provider, progress and output, so you always know what ran where.</li>
+    <li><b>Keep what you make</b>Results are stored as assets on your machine and linked to the conversation. Ask for variations, and Nova knows which one you picked.</li>
+  </ol>
+
+  <div class="callout">{{icon:lightning}}<p><strong>Local means private and free per image.</strong> Local providers run on your own graphics card, so prompts and results never leave the machine and there is no per-image charge. Hosted providers are there when you want a specific voice or model.</p></div>
+
+  <h2>What you need</h2>
+  <div class="needs">
+    <div><b>For local images</b><span>A capable graphics card and a ComfyUI installation, connected through the ComfyUI provider.</span></div>
+    <div><b>For local voice</b><span>Qwen3-TTS and faster-whisper are included as providers.</span></div>
+    <div><b>Or hosted</b><span>An ElevenLabs account for voices, or another supported provider.</span></div>
+  </div>
+</div>
