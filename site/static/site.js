@@ -172,8 +172,9 @@ onScroll();
      data-wait="ms"     pause before the step (default 900)
    [data-seek="n"] jumps to step n, [data-demo-toggle] pauses or resumes, [data-demo-replay]
    restarts. A demo plays while on screen; with reduced motion it shows its finished state.
-   data-pace on the demo scales typing and streaming speed (0.7 is 30% faster). Inside a
-   [data-demo-set] the set decides when each demo plays; see DemoSet below. */
+   data-pace on the demo scales typing and streaming speed (0.7 is 30% faster). data-tempo on the
+   demo or an ancestor stretches its whole timeline: every wait, typing and streaming (2 is twice
+   as slow). Inside a [data-demo-set] the set decides when each demo plays; see DemoSet below. */
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -187,7 +188,8 @@ class Demo {
     this.playing = false;
     this.userPaused = false;
     this.visible = false;
-    this.pace = Number(root.dataset.pace || 1);
+    this.tempo = Number(root.closest("[data-tempo]")?.dataset.tempo || 1);
+    this.pace = Number(root.dataset.pace || 1) * this.tempo;
     this.controlled = !!root.closest("[data-demo-set]");
     root.demo = this;
     this.reset();
@@ -284,7 +286,7 @@ class Demo {
     while (this.index < this.list.length) {
       const group = this.list[this.index];
       const wait = Math.max(...group[1].map((el) => Number(el.dataset.wait ?? 900)));
-      if (!(await this.sleep(wait, token))) return;
+      if (!(await this.sleep(wait * this.tempo, token))) return;
       this.progress(group[0]);
       await this.applyGroup(group, false, token);
       if (token !== this.token) return;
@@ -293,7 +295,7 @@ class Demo {
     }
     this.progress(Infinity);
     this.root.dispatchEvent(new CustomEvent("demo:done"));
-    if (this.loop && (await this.sleep(this.loop, token))) {
+    if (this.loop && (await this.sleep(this.loop * this.tempo, token))) {
       this.reset();
       this.run(token);
     } else if (token === this.token) {
@@ -407,7 +409,8 @@ class DemoSet {
     this.userPaused = false;
     this.toggle = $("[data-set-toggle]", root);
     this.elapsed = 0;
-    this.durations = this.panels.map((panel) => Number(panel.dataset.duration) || 8000);
+    this.tempo = Number(root.dataset.tempo || 1);
+    this.durations = this.panels.map((panel) => (Number(panel.dataset.duration) || 8000) * this.tempo);
     this.panels.forEach((panel, i) => {
       panel.addEventListener("demo:done", () => {
         if (i !== this.active) return;
@@ -415,7 +418,7 @@ class DemoSet {
         this.elapsed = this.durations[i];
         this.tabs[i].style.setProperty("--p", 1);
         clearTimeout(this.nextTimer);
-        this.nextTimer = setTimeout(() => this.show((i + 1) % this.panels.length), 2400);
+        this.nextTimer = setTimeout(() => this.show((i + 1) % this.panels.length), 2400 * this.tempo);
       });
     });
     this.tabs.forEach((tab, i) => {
