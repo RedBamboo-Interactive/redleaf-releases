@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Download RedLeaf for Windows: the local home for Nova, agent conversations, code sessions, repositories, and durable workspaces." />
+    <meta name="description" content="Download RedLeaf for Windows or Linux: the local home for Nova, agent conversations, code sessions, repositories, and durable workspaces." />
     <meta name="theme-color" content="#f7f8fa" />
-    <title>RedLeaf for Windows</title>
+    <title>RedLeaf for Windows and Linux</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./app.js" defer></script>
@@ -30,22 +30,41 @@
     <main id="top">
       <section class="hero page-width" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow"><span></span>Local agent system for Windows</p>
+          <p class="eyebrow"><span></span>Local agent system for Windows and Linux</p>
           <h1 id="hero-title">One place for the work that keeps moving.</h1>
           <p class="lede">Talk with Nova, move between parallel conversations, inspect repositories with Code, and keep each agent’s workspace on your own machine.</p>
         </div>
 
         <aside class="release-card" aria-label="Current RedLeaf release">
-          <div class="release-card-head"><span class="release-dot"></span><p>Windows preview</p></div>
-          <a class="download-button is-loading" id="download-button" aria-disabled="true">
-            <span><b id="download-label">Checking the latest release…</b><small>Windows x64</small></span>
-            <em id="download-meta">Windows x64</em>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14" /></svg>
-          </a>
-          <p class="release-note" id="release-note">Reading the signed RedLeaf release feed.</p>
-          <button class="hash-toggle" id="hash-toggle" type="button" hidden>Show SHA-256</button>
-          <code class="hash" id="release-hash" hidden></code>
-          <div class="trust-note" id="trust-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5.5 5.8v5.4c0 4.2 2.7 8 6.5 9.8 3.8-1.8 6.5-5.6 6.5-9.8V5.8L12 3Z" /><path d="m9 12 2 2 4-4" /></svg><p><strong>Nightly preview.</strong> SmartScreen may say “Unknown publisher” while Windows signing is still pending.</p></div>
+          <div class="release-card-head"><span class="release-dot"></span><p id="release-card-title">Windows preview</p></div>
+          <div class="platform-switch" role="tablist" aria-label="Platform">
+            <button type="button" role="tab" id="platform-windows" aria-controls="panel-windows" aria-selected="true" data-platform="windows">Windows</button>
+            <button type="button" role="tab" id="platform-linux" aria-controls="panel-linux" aria-selected="false" data-platform="linux">Linux</button>
+          </div>
+          <div class="platform-panel" id="panel-windows" role="tabpanel" aria-labelledby="platform-windows" data-panel="windows">
+            <a class="download-button is-loading" id="download-button" aria-disabled="true">
+              <span><b id="download-label">Checking the latest release…</b><small>Windows x64</small></span>
+              <em id="download-meta">Windows x64</em>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14" /></svg>
+            </a>
+            <p class="release-note" id="release-note">Reading the signed RedLeaf release feed.</p>
+            <button class="hash-toggle" id="hash-toggle" type="button" hidden>Show SHA-256</button>
+            <code class="hash" id="release-hash" hidden></code>
+            <div class="trust-note" id="trust-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5.5 5.8v5.4c0 4.2 2.7 8 6.5 9.8 3.8-1.8 6.5-5.6 6.5-9.8V5.8L12 3Z" /><path d="m9 12 2 2 4-4" /></svg><p><strong>Nightly preview.</strong> SmartScreen may say “Unknown publisher” while Windows signing is still pending.</p></div>
+          </div>
+          <div class="platform-panel" id="panel-linux" role="tabpanel" aria-labelledby="platform-linux" data-panel="linux" hidden>
+            <p class="command-label">Install from a terminal, as yourself (not with sudo):</p>
+            <div class="command" id="linux-command-box"><code id="linux-command">Checking the latest release…</code><button class="copy-button" id="linux-copy" type="button" disabled>Copy</button></div>
+            <a class="download-button is-loading" id="linux-download" aria-disabled="true">
+              <span><b id="linux-label">Checking the latest release…</b><small>Linux x64 · .tar.gz</small></span>
+              <em id="linux-meta">Linux x64</em>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14" /></svg>
+            </a>
+            <p class="release-note" id="linux-note">Reading the signed RedLeaf Linux release feed.</p>
+            <button class="hash-toggle" id="linux-hash-toggle" type="button" hidden>Show SHA-256</button>
+            <code class="hash" id="linux-hash" hidden></code>
+            <div class="trust-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5.5 5.8v5.4c0 4.2 2.7 8 6.5 9.8 3.8-1.8 6.5-5.6 6.5-9.8V5.8L12 3Z" /><path d="m9 12 2 2 4-4" /></svg><p><strong>Before you install.</strong> RedLeaf needs FUSE 3 for your <code>~/Leaf</code> folder: <code>sudo dnf install fuse3</code> on Fedora, <code>sudo apt install fuse3</code> on Debian and Ubuntu. It runs with SELinux enforcing; there is nothing to relabel or turn off. It installs into your home folder and checks the launcher against the signed release record before running it.</p></div>
+          </div>
         </aside>
       </section>
 
@@ -123,10 +142,10 @@
 
       <section class="requirements page-width" aria-labelledby="requirements-title">
         <div><p class="eyebrow"><span></span>Before you install</p><h2 id="requirements-title">Requirements and dependencies.</h2></div>
-        <div class="requirement-list"><article><b>Windows x64</b><p>The current public build target.</p></article><article><b>Internet access</b><p>Used to download components and sign in to your AI provider.</p></article><article><b>Administrator approval</b><p>Required once for WinFsp, which provides agent workspace drives.</p></article><article><b>AI provider account</b><p>Use the credentials and sign-in flow for the supported provider you choose.</p></article><article><b>Git for Windows</b><p>Required when Code inspects local repositories. RedLeaf does not currently install Git.</p></article><article><b>Preview warning</b><p>The launcher is not publisher-signed yet, so SmartScreen can show “Unknown publisher.”</p></article></div>
+        <div class="requirement-list"><article><b>Windows x64 or Linux x64</b><p>Linux is tested on Fedora with SELinux enforcing.</p></article><article><b>FUSE 3 on Linux</b><p>Provides your <code>~/Leaf</code> folder. Install the <code>fuse3</code> package first.</p></article><article><b>Internet access</b><p>Used to download components and sign in to your AI provider.</p></article><article><b>Administrator approval on Windows</b><p>Required once for WinFsp, which provides agent workspace drives.</p></article><article><b>AI provider account</b><p>Use the credentials and sign-in flow for the supported provider you choose.</p></article><article><b>Git</b><p>Required when Code inspects local repositories: Git for Windows, or your distribution’s git package. RedLeaf does not currently install Git.</p></article><article><b>Preview warning</b><p>The launcher is not publisher-signed yet, so SmartScreen can show “Unknown publisher.”</p></article></div>
       </section>
     </main>
 
-    <footer class="page-width"><span>RedLeaf by RedBamboo Interactive</span><span id="footer-version">Current Windows release</span></footer>
+    <footer class="page-width"><span>RedLeaf by RedBamboo Interactive</span><span id="footer-version">Current release</span></footer>
   </body>
 </html>

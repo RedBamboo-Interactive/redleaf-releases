@@ -45,6 +45,16 @@ button { color: inherit; font: inherit; }
 .release-card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 13px; }
 .release-card-head p { margin: 0; color: var(--muted); font-size: .69rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
 .release-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+.platform-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-bottom: 14px; padding: 4px; border: 1px solid var(--line); border-radius: 11px; background: var(--canvas); }
+.platform-switch button { padding: 8px 10px; border: 0; border-radius: 8px; color: var(--muted); background: transparent; cursor: pointer; font: inherit; font-size: .76rem; font-weight: 650; }
+.platform-switch button[aria-selected="true"] { color: var(--ink); background: var(--card); box-shadow: 0 1px 3px rgba(31,35,40,.08); }
+.platform-panel[hidden] { display: none; }
+.command-label { margin: 0 2px 7px; color: var(--muted); font-size: .72rem; }
+.command { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; margin-bottom: 12px; padding: 9px 9px 9px 11px; border: 1px solid var(--line); border-radius: 10px; background: #20232a; }
+.command code { overflow-wrap: anywhere; color: #e8eaee; font-size: .66rem; line-height: 1.5; }
+.copy-button { padding: 6px 10px; border: 0; border-radius: 7px; color: white; background: var(--green); cursor: pointer; font: inherit; font-size: .68rem; font-weight: 650; }
+.copy-button:disabled { background: #6b7079; cursor: default; }
+.trust-note code, .requirement-list code { font-size: .92em; }
 .download-button { min-height: 72px; display: grid; grid-template-columns: 1fr auto auto; gap: 14px; align-items: center; padding: 13px 16px 13px 19px; border-radius: 13px; color: white; background: var(--green); box-shadow: 0 13px 30px rgba(79,167,100,.21); text-decoration: none; transition: transform .18s ease, background .18s ease; }
 .download-button:hover:not(.is-loading) { transform: translateY(-2px); background: var(--green-deep); }
 .download-button.is-loading { background: #9499a2; box-shadow: none; cursor: wait; }
@@ -289,6 +299,11 @@ footer.page-width a:hover, footer.page-width a:focus-visible { color: var(--ink)
   .entity-page { padding-inline: 20px; }
   .requirement-list { grid-template-columns: 1fr; }
   footer.page-width { flex-direction: column; gap: 8px; }
+}
+
+/* "dependencies." cannot wrap: in a wider fallback font (Noto Sans on Fedora) it overflows the card at 320 px. */
+@media (max-width: 345px) {
+  .requirements h2 { font-size: 2.1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
