@@ -165,7 +165,9 @@ onScroll();
      data-add / data-remove="selector|class; selector|class"   scoped to the demo
      data-wait="ms"     pause before the step (default 900)
    [data-seek="n"] jumps to step n, [data-demo-toggle] pauses or resumes, [data-demo-replay]
-   restarts. A demo plays while on screen; with reduced motion it shows its finished state. */
+   restarts. A demo plays while on screen; with reduced motion it shows its finished state.
+   data-pace on the demo scales typing and streaming speed (0.7 is 30% faster). Inside a
+   [data-demo-set] the set decides when each demo plays; see DemoSet below. */
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -179,9 +181,13 @@ class Demo {
     this.playing = false;
     this.userPaused = false;
     this.visible = false;
+    this.pace = Number(root.dataset.pace || 1);
+    this.controlled = !!root.closest("[data-demo-set]");
+    root.demo = this;
     this.reset();
     root.addEventListener("click", (event) => this.onClick(event));
     if (reducedMotion.matches) this.settle();
+    if (this.controlled) return;
     new IntersectionObserver(([entry]) => {
       this.visible = entry.isIntersecting;
       if (this.visible && !this.userPaused && !reducedMotion.matches) this.play();
@@ -223,6 +229,13 @@ class Demo {
       button.dataset.state = this.playing ? "playing" : "paused";
     });
     this.root.dataset.playing = String(this.playing);
+  }
+
+  restart() {
+    this.token += 1;
+    this.playing = false;
+    this.reset();
+    this.play();
   }
 
   play() {
@@ -270,8 +283,10 @@ class Demo {
       await this.applyGroup(group, false, token);
       if (token !== this.token) return;
       this.index += 1;
+      this.root.dispatchEvent(new CustomEvent("demo:progress", { detail: this.index / this.list.length }));
     }
     this.progress(Infinity);
+    this.root.dispatchEvent(new CustomEvent("demo:done"));
     if (this.loop && (await this.sleep(this.loop, token))) {
       this.reset();
       this.run(token);
@@ -311,7 +326,7 @@ class Demo {
     for (let i = 1; i <= text.length; i += 1) {
       if (token !== this.token) { el.textContent = text; break; }
       el.textContent = text.slice(0, i);
-      await new Promise((resolve) => setTimeout(resolve, text[i - 1] === " " ? 34 : 22 + Math.random() * 26));
+      await new Promise((resolve) => setTimeout(resolve, (text[i - 1] === " " ? 34 : 22 + Math.random() * 26) * this.pace));
     }
     el.classList.remove("typing");
   }
@@ -340,7 +355,7 @@ class Demo {
     for (const word of words) {
       if (token !== this.token) break;
       word.classList.add("on");
-      await new Promise((resolve) => setTimeout(resolve, 38));
+      await new Promise((resolve) => setTimeout(resolve, 38 * this.pace));
     }
     el.classList.remove("streaming");
     words.forEach((word) => word.classList.add("on"));
@@ -367,4 +382,88 @@ class Demo {
 }
 
 $$("[data-demo]").forEach((root) => new Demo(root));
+
+/* A [data-demo-set] holds several demos ([data-story]) behind tabs ([data-story-tab]). The active
+   story plays while the set is on screen; when it ends the next one starts, so the set loops through
+   every story. Each tab fills with its story's progress. [data-set-toggle] pauses the whole set. */
+class DemoSet {
+  constructor(root) {
+    this.root = root;
+    this.tabs = $$("[data-story-tab]", root);
+    this.panels = $$("[data-story]", root);
+    this.active = 0;
+    this.visible = false;
+    this.userPaused = false;
+    this.toggle = $("[data-set-toggle]", root);
+    this.panels.forEach((panel, i) => {
+      panel.addEventListener("demo:progress", (event) => this.tabs[i].style.setProperty("--p", event.detail));
+      panel.addEventListener("demo:done", () => {
+        if (i !== this.active) return;
+        this.tabs[i].style.setProperty("--p", 1);
+        clearTimeout(this.nextTimer);
+        this.nextTimer = setTimeout(() => this.show((i + 1) % this.panels.length), 2400);
+      });
+    });
+    this.tabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => { this.userPaused = false; this.show(i); });
+      tab.addEventListener("keydown", (event) => {
+        if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+        event.preventDefault();
+        const next = (this.active + (event.key === "ArrowRight" ? 1 : this.tabs.length - 1)) % this.tabs.length;
+        this.userPaused = false;
+        this.show(next);
+        this.tabs[next].focus();
+      });
+    });
+    this.toggle?.addEventListener("click", () => {
+      const demo = this.demo();
+      if (demo.playing) { this.userPaused = true; demo.pause(); clearTimeout(this.nextTimer); }
+      else { this.userPaused = false; if (demo.index >= demo.list.length) this.show((this.active + 1) % this.panels.length); else demo.play(); }
+      this.setToggle();
+    });
+    new IntersectionObserver(([entry]) => {
+      this.visible = entry.isIntersecting;
+      this.sync();
+    }, { threshold: 0.3 }).observe(root);
+    document.addEventListener("visibilitychange", () => this.sync());
+    this.show(0, false);
+  }
+
+  demo() { return this.panels[this.active].demo; }
+
+  canPlay() { return this.visible && !document.hidden && !this.userPaused && !reducedMotion.matches; }
+
+  sync() {
+    const demo = this.demo();
+    if (this.canPlay()) { if (!demo.playing && demo.index < demo.list.length) demo.play(); }
+    else demo.pause();
+    this.setToggle();
+  }
+
+  setToggle() {
+    if (!this.toggle) return;
+    const playing = this.demo().playing;
+    this.toggle.dataset.state = playing ? "playing" : "paused";
+    this.toggle.setAttribute("aria-label", playing ? "Pause demo" : "Play demo");
+  }
+
+  show(index, start = true) {
+    clearTimeout(this.nextTimer);
+    this.panels.forEach((panel, i) => {
+      const on = i === index;
+      panel.hidden = !on;
+      this.tabs[i].setAttribute("aria-selected", String(on));
+      this.tabs[i].tabIndex = on ? 0 : -1;
+      if (!on) { panel.demo.pause(); this.tabs[i].style.setProperty("--p", 0); }
+    });
+    this.active = index;
+    const demo = this.demo();
+    if (reducedMotion.matches) { demo.settle(); this.tabs[index].style.setProperty("--p", 1); }
+    else if (start && this.canPlay()) demo.restart();
+    else demo.reset();
+    this.setToggle();
+  }
+}
+
+$$("[data-demo-set]").forEach((root) => new DemoSet(root));
 reducedMotion.addEventListener("change", () => window.location.reload());

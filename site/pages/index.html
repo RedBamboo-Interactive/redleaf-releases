@@ -1,24 +1,33 @@
-<!--page {"title": "RedLeaf: make your game, app or website with Nova", "description": "Tell Nova what your game, app or website needs next. She runs several coding sessions at once, each on its own branch, merges what works and remembers the whole project. Runs on your own Windows or Linux computer.", "layout": "landing", "section": "product"}-->
-<section class="hero" aria-labelledby="hero-title">
+<!--page {"title": "RedLeaf: make things with Nova, on your own computer", "description": "Make a game, learn a language or get your week under control with Nova. She runs the work, remembers it and shows you every step. RedLeaf runs on your own Windows or Linux computer.", "layout": "landing", "section": "product"}-->
+<section class="hero compact" aria-labelledby="hero-title">
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-copy page-width">
     <p class="pill"><span class="pill-dot"></span>Nightly preview · Now on Windows and Linux</p>
-    <h1 id="hero-title">Make the project you keep <em>meaning to make</em>.</h1>
-    <p class="lede">A game, an app, a website. Tell Nova what you want next and she gets it built: several pieces at once, each kept apart until it works, then brought together. RedLeaf runs on your own computer and remembers the whole project for you.</p>
+    <h1 id="hero-title">Whatever you're working on, Nova is <em>in it with you</em>.</h1>
+    <p class="lede">Make a game. Learn German. Get a busy week under control. RedLeaf runs on your own computer, remembers what you do together, and shows you every step it takes.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#download">{{icon:download-simple}}<span>Get RedLeaf for <span data-platform-label>Windows</span></span></a>
       <a class="btn btn-ghost" href="{{root}}cookbook/">{{icon:book-open}}<span>Browse the cookbook</span></a>
     </div>
   </div>
+</section>
 
-  <div class="hero-demo page-wide" id="demo">
-    <div class="demo-frame" data-demo data-loop="5200" aria-label="Animated recreation of RedLeaf: Nova runs three changes to a game at once and merges the ones that work">
-      <div class="window" data-stage>
-        <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+<section class="stage" id="demo" data-demo-set aria-label="Animated recreations of RedLeaf for three different people">
+  <div class="stage-bar">
+    <div class="story-tabs" role="tablist" aria-label="Choose a story">
+      <button type="button" role="tab" data-story-tab aria-controls="story-game" aria-selected="true"><span class="tone tone-blue">{{icon:game-controller}}</span><span><b>Make a game</b><small>Code · Workspace board</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab aria-controls="story-german" aria-selected="false" tabindex="-1"><span class="tone tone-amber">{{icon:translate}}</span><span><b>Learn German</b><small>Voice · Picture vocabulary</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab aria-controls="story-organize" aria-selected="false" tabindex="-1"><span class="tone tone-green">{{icon:calendar-check}}</span><span><b>Get organized</b><small>Files · Life Coaching</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+    </div>
+    <button class="demo-toggle" type="button" data-set-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
+  </div>
 
-        <!-- Screen 1: Nova discussion -->
-        <section class="screen screen-nova active" aria-hidden="true">
+  <div class="stage-app">
+    <!-- Story 1: a game developer. Nova -> Code -> Workspace board. -->
+    <div class="story" id="story-game" role="tabpanel" data-story data-demo data-pace=".7">
+      <div class="app-frame" data-stage>
+        <section class="screen g-nova active" aria-hidden="true">
           <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
           <div class="app-body">
             <aside class="sidebar">
@@ -27,58 +36,50 @@
               <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Moss Knight</b><small>Nova · now</small></span></div>
               <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Moss Knight soundtrack</b><small>Nova · yesterday</small></span></div>
               <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Portfolio site</b><small>Nova · Tuesday</small></span></div>
-              <div class="row"><span class="avatar amber">L</span><span><b>Wortschatz, Lektion 12</b><small>Leni · Monday</small></span></div>
             </aside>
             <div class="chat">
               <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Moss Knight</b><small>Nova · your 2D platformer</small></span></div>
               <div class="thread">
-                <div class="msg user" data-step="20" data-wait="200"><p>Next for Moss Knight: a level select screen, controller support, and the jump still feels floaty.</p></div>
-                <div class="msg nova" data-step="30" data-wait="700"><div><div class="frieze"><i class="sq p" style="--d:0ms"></i><i class="sq t" style="--d:90ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq k" data-step="40" data-wait="400"></i><i class="sq k" data-step="41" data-wait="300"></i><i class="sq k" data-step="42" data-wait="300"></i></div>
-                  <p data-step="30" data-fx="stream">Three separate jobs, so three sessions, each on its own branch. They can't trip over each other, and nothing reaches the real game until it works.</p></div></div>
-                <div class="events" data-step="90" data-wait="500"><span class="ev"><i class="dot"></i>Better jump completed</span><span class="ev" data-step="91" data-wait="400"><i class="dot"></i>Controller support completed</span><span class="ev" data-step="92" data-wait="400"><i class="dot"></i>Level select completed</span></div>
-                <div class="msg nova" data-step="100" data-wait="600"><div><div class="frieze"><i class="sq t" style="--d:0ms"></i><i class="sq t" style="--d:90ms"></i><i class="sq g" style="--d:180ms"></i><i class="sq g" style="--d:270ms"></i><i class="sq t" style="--d:360ms"></i></div>
-                  <p data-step="100" data-fx="stream">I checked all three and merged two into the game. The jump rises faster and falls sooner, and any Xbox or PlayStation controller works. Level select is built, but I'd like your opinion on the layout first, so it's waiting on its own branch for you to play.</p></div></div>
+                <div class="msg user"><p>The boss in world 2 dies way too fast.</p></div>
+                <div class="msg nova"><div><div class="frieze"><i class="sq t"></i><i class="sq t"></i><i class="sq k"></i></div><p>I gave him a second phase: below half health he speeds up and the arena floor starts to crumble. It's merged, so it's in your next build.</p></div></div>
+                <div class="msg user" data-step="10" data-wait="350"><p>Next: a level select screen, controller support, and a less floaty jump.</p></div>
+                <div class="msg nova" data-step="20" data-wait="450"><div>
+                  <div class="frieze"><i class="sq p"></i><i class="sq t" style="--d:80ms"></i><i class="sq k run gk1" data-step="22" data-wait="200"></i><i class="sq k run gk2" data-step="23" data-wait="180" data-remove=".gk1|run"></i><i class="sq k gk3" data-step="24" data-wait="180" data-remove=".gk2|run"></i></div>
+                  <p data-step="24" data-fx="stream">Three jobs, so three sessions, each on its own branch. Nothing reaches the game until it works.</p></div></div>
               </div>
-              <div class="composer"><span class="composer-text" data-step="10" data-fx="type" data-wait="1100">Next for Moss Knight: a level select screen, controller support, and the jump still feels floaty.</span><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
-              <i data-step="20" data-fx="mark" data-add=".screen-nova .composer|sent"></i>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
             </div>
           </div>
         </section>
 
-        <!-- Screen 2: three Code sessions in parallel -->
-        <section class="screen screen-code" aria-hidden="true">
+        <section class="screen g-code" aria-hidden="true">
           <header class="app-header"><span class="app-identity"><span class="app-icon blue">{{icon:terminal-window}}</span><b>Code</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:terminal-window}}Sessions</span><span>{{icon:github-logo}}GitHub</span><span>{{icon:code}}Code</span></nav><span class="app-menu">{{icon:list}}</span></header>
           <div class="app-body">
             <aside class="sidebar">
               <div class="sidebar-title"><b>Sessions</b><span>3 running</span></div>
-              <div class="row"><span class="status-dot busy sd-level"></span><span><b>Level select screen</b><small>moss-knight · level-select</small></span></div>
-              <div class="row"><span class="status-dot busy sd-pad"></span><span><b>Controller support</b><small>moss-knight · controller-support</small></span></div>
-              <div class="row selected"><span class="status-dot busy sd-jump"></span><span><b>Better jump</b><small>moss-knight · jump-feel</small></span></div>
+              <div class="row"><span class="status-dot busy gd-level"></span><span><b>Level select screen</b><small>moss-knight · level-select</small></span></div>
+              <div class="row"><span class="status-dot busy gd-pad"></span><span><b>Controller support</b><small>moss-knight · controller-support</small></span></div>
+              <div class="row selected"><span class="status-dot busy gd-jump"></span><span><b>Better jump</b><small>moss-knight · jump-feel</small></span></div>
             </aside>
             <div class="session">
-              <div class="session-head"><span><b>Better jump</b><small>{{icon:git-branch}}jump-feel · from Nova</small></span><em class="badge working session-badge"><span class="when-running">{{icon:circle-notch}}running</span><span class="when-done">{{icon:check-circle}}done</span></em></div>
+              <div class="session-head"><span><b>Better jump</b><small>{{icon:git-branch}}jump-feel · from Nova</small></span><em class="badge working session-badge g-badge"><span class="when-running">{{icon:circle-notch}}running</span><span class="when-done">{{icon:check-circle}}done</span></em></div>
               <div class="transcript session-thread">
-                <div class="msg user brief"><p>Make the jump feel less floaty. Keep the jump height the same, and check it in the test level.</p></div>
+                <div class="msg user brief"><p>Make the jump feel less floaty. Keep the same height, and check it in the test level.</p></div>
                 <div class="agent-turn">
                   <div class="frieze">
-                    <i class="sq t run s1" data-step="50" data-wait="700"></i>
-                    <i class="sq t run s2" data-step="51" data-wait="500" data-remove=".s1|run"></i>
-                    <i class="sq t run s3" data-step="52" data-wait="500" data-remove=".s2|run"></i>
-                    <i class="sq p s4" data-step="54" data-wait="500" data-remove=".s3|run"></i>
+                    <i class="sq t run c1" data-step="40" data-wait="260"></i>
+                    <i class="sq t run c2" data-step="41" data-wait="200" data-remove=".c1|run"></i>
+                    <i class="sq p run c3" data-step="42" data-wait="200" data-remove=".c2|run"></i>
+                    <span class="sq-wrap"><i class="sq g run c4" data-step="43" data-wait="220" data-remove=".c3|run"></i><i class="fake-cursor" data-step="50" data-wait="280"></i></span>
+                    <i class="sq g run c5" data-step="44" data-wait="220" data-remove=".c4|run"></i>
+                    <i class="sq t c6" data-step="45" data-wait="220" data-remove=".c5|run"></i>
                   </div>
-                  <p class="session-note" data-step="56" data-wait="300" data-fx="stream">The knight rises and falls at the same speed, which is what makes it feel floaty. Most platformers fall faster than they rise.</p>
-                  <div class="frieze">
-                    <span class="sq-wrap"><i class="sq g run s5" data-step="60" data-wait="600"></i><i class="fake-cursor" data-step="72" data-wait="900"></i></span>
-                    <i class="sq g run s6" data-step="62" data-wait="700" data-remove=".s5|run"></i>
-                    <i class="sq g run s7" data-step="64" data-wait="900" data-remove=".s6|run"></i>
-                    <i class="sq t s8" data-step="66" data-wait="800" data-remove=".s7|run"></i>
-                  </div>
-                  <p class="session-note" data-step="68" data-wait="300" data-fx="stream">Done. It rises faster and falls sooner at the same height, and all 18 checks pass in the test level. Saved on jump-feel.</p>
+                  <p class="session-note" data-step="46" data-wait="150" data-fx="stream">Done: it rises faster and falls sooner, same height. All 18 checks pass.</p>
                 </div>
               </div>
-              <div class="part-modal" data-step="74" data-wait="500">
+              <div class="part-modal" data-step="52" data-wait="150">
                 <div class="pm-card">
-                  <header><i class="sq g"></i><b>Edit</b><span class="pm-cat">mutating</span><span class="pm-actions"><span class="pm-btn">{{icon:code}}Open</span><span class="pm-nav">‹ 5 / 8 ›</span></span></header>
+                  <header><i class="sq g"></i><b>Edit</b><span class="pm-cat">mutating</span><span class="pm-actions"><span class="pm-btn">{{icon:code}}Open</span><span class="pm-nav">‹ 4 / 6 ›</span></span></header>
                   <div class="pm-body">
                     <p class="pm-label">Input</p>
                     <p class="pm-path">{{icon:file-text}}scripts/player.gd</p>
@@ -90,93 +91,227 @@
                   </div>
                 </div>
               </div>
-              <i data-step="73" data-wait="500" data-fx="mark" data-add=".s5|hl"></i>
-              <i data-step="80" data-wait="2800" data-fx="mark" data-add=".part-modal|gone; .fake-cursor|gone" data-remove=".s5|hl"></i>
-              <i data-step="68" data-fx="mark" data-add=".session-badge|ok; .sd-jump|done" data-remove=".session-badge|working"></i>
-              <i data-step="70" data-wait="700" data-fx="mark" data-add=".sd-pad|done"></i>
-              <i data-step="71" data-wait="600" data-fx="mark" data-add=".sd-level|done"></i>
+              <i data-step="46" data-fx="mark" data-add=".g-badge|ok; .gd-jump|done" data-remove=".g-badge|working"></i>
+              <i data-step="47" data-wait="200" data-fx="mark" data-add=".gd-pad|done"></i>
+              <i data-step="48" data-wait="200" data-fx="mark" data-add=".gd-level|review"></i>
+              <i data-step="51" data-wait="250" data-fx="mark" data-add=".c4|hl"></i>
+              <i data-step="56" data-wait="1500" data-fx="mark" data-add=".g-code .part-modal|gone; .g-code .fake-cursor|gone" data-remove=".c4|hl"></i>
             </div>
           </div>
         </section>
 
-        <!-- Screen 3: the project page remembers -->
-        <section class="screen screen-workspace" aria-hidden="true">
+        <section class="screen g-board" aria-hidden="true">
           <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
           <div class="app-body">
             <aside class="sidebar tree">
-              <div class="tree-owner"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Nova</b><small>Agent workspace</small></span></div>
-              <div class="tree-row">{{icon:caret-down}}{{icon:folder-simple}}<span>memory</span></div>
-              <div class="tree-row l2">{{icon:caret-down}}{{icon:folder-simple}}<span>projects</span></div>
-              <div class="tree-row l3 selected">{{icon:file-text}}<span>Moss Knight</span></div>
-              <div class="tree-row l3">{{icon:file-text}}<span>Portfolio site</span></div>
-              <div class="tree-row l2">{{icon:caret-right}}{{icon:folder-simple}}<span>conversations</span></div>
-              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>config</span></div>
+              <div class="tree-owner"><span class="app-icon blue">{{icon:game-controller}}</span><span><b>Moss Knight</b><small>Project</small></span></div>
+              <div class="tree-row selected">{{icon:columns}}<span>Roadmap</span></div>
+              <div class="tree-row">{{icon:file-text}}<span>Design notes</span></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>Levels</span><small class="count">12</small></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>Art</span><small class="count">48</small></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>Playtests</span><small class="count">5</small></div>
             </aside>
-            <article class="page-view">
-              <p class="crumb">Workspace / Nova / memory / projects / <b>Moss Knight</b></p>
-              <p class="entity-type">PAGE</p>
-              <h3>Moss Knight</h3>
-              <p class="page-lede">2D platformer about a knight made of moss. Playable on PC; first public demo planned for spring.</p>
-              <h4>Roadmap</h4>
-              <ul class="roadmap">
-                <li class="is-done">Three worlds blocked out</li>
-                <li class="r-jump">Better jump feel</li>
-                <li class="r-pad">Controller support</li>
-                <li class="r-level">Level select screen</li>
-                <li>Boss fight for world one</li>
-              </ul>
-              <h4>Decisions</h4>
-              <ul class="page-list">
-                <li>Pixel art at 320×180, scaled up, never smoothed.</li>
-                <li class="new-line" data-step="115" data-wait="900" data-fx="type">Jumps fall faster than they rise. Keep it for every new character.</li>
-              </ul>
-              <i data-step="110" data-wait="700" data-fx="mark" data-add=".r-jump|is-done; .r-pad|is-done; .r-level|is-review"></i>
-              <div class="saved-toast" data-step="118" data-wait="900">{{icon:check-circle}}<span>Saved to Nova's memory</span></div>
-            </article>
+            <div class="board-view">
+              <div class="view-head">{{icon:columns}}<b>Roadmap</b><small>9 items</small></div>
+              <div class="board">
+                <div class="board-col"><p>Ideas <i>2</i></p>
+                  <div class="board-card"><b>{{icon:file-text}}Boss rush mode</b></div>
+                  <div class="board-card"><b>{{icon:file-text}}Store page art</b></div>
+                </div>
+                <div class="board-col"><p>In progress <i><span class="cnt-a">3</span><span class="cnt-b">0</span></i></p>
+                  <div class="board-card bc-jump"><b>{{icon:git-branch}}Better jump</b><span class="chip mono">jump-feel</span></div>
+                  <div class="board-card bc-pad"><b>{{icon:git-branch}}Controller support</b><span class="chip mono">controller-support</span></div>
+                  <div class="board-card bc-level"><b>{{icon:git-branch}}Level select screen</b><span class="chip mono">level-select</span></div>
+                </div>
+                <div class="board-col"><p>Your turn <i><span class="cnt-a">0</span><span class="cnt-b">1</span></i></p>
+                  <div class="board-card moved" data-step="74" data-wait="900"><b>{{icon:git-branch}}Level select screen</b><span class="chip review">{{icon:eye}}play it on its branch</span></div>
+                </div>
+                <div class="board-col"><p>Done <i><span class="cnt-a">2</span><span class="cnt-b">4</span></i></p>
+                  <div class="board-card moved" data-step="70" data-wait="320"><b>{{icon:check-circle}}Better jump</b><span class="chip ok">merged</span></div>
+                  <div class="board-card moved" data-step="72" data-wait="320"><b>{{icon:check-circle}}Controller support</b><span class="chip ok">merged</span></div>
+                  <div class="board-card"><b>{{icon:check-circle}}World 2 boss, phase two</b></div>
+                  <div class="board-card"><b>{{icon:check-circle}}Crumbling arena floor</b></div>
+                </div>
+              </div>
+              <i data-step="70" data-fx="mark" data-add=".bc-jump|gone"></i>
+              <i data-step="72" data-fx="mark" data-add=".bc-pad|gone"></i>
+              <i data-step="74" data-fx="mark" data-add=".bc-level|gone; .board|settled"></i>
+            </div>
           </div>
         </section>
 
-        <!-- Screen 4: next morning -->
-        <section class="screen screen-heartbeat" aria-hidden="true">
+        <div class="switcher" data-step="60" data-wait="550" aria-hidden="true"><div class="sw-card">
+          <span class="sw-row" style="--tile-i:0;--app:#d4618c"><span class="sw-icon">{{icon:star}}</span><span><b>Nova</b><small>Chat, voice and delegation</small></span></span>
+          <span class="sw-row active" style="--tile-i:1;--app:#6f97d6"><span class="sw-icon">{{icon:terminal-window}}</span><span><b>Code</b><small>Coding sessions and GitHub</small></span></span>
+          <span class="sw-row g-pick" style="--tile-i:2;--app:#63c077"><span class="sw-icon">{{icon:folder-simple}}</span><span><b>Workspace</b><small>Your projects and content</small></span><i class="fake-cursor" data-step="61" data-wait="350"></i></span>
+          <span class="sw-row" style="--tile-i:3;--app:#9a7cf0"><span class="sw-icon">{{icon:images}}</span><span><b>Gallery</b><small>Browse and curate your media</small></span></span>
+          <span class="sw-row" style="--tile-i:4;--app:#e0913a"><span class="sw-icon">{{icon:image-square}}</span><span><b>Image Studio</b><small>Generate and compare images</small></span></span>
+          <span class="sw-row" style="--tile-i:5;--app:#3fb3c4"><span class="sw-icon">{{icon:cpu}}</span><span><b>Compute</b><small>Models running on your GPU</small></span></span>
+          <span class="sw-row" style="--tile-i:6;--app:#d4a24c"><span class="sw-icon">{{icon:target}}</span><span><b>Life Coaching</b><small>Agenda, goals and progress</small></span></span>
+          <span class="sw-row" style="--tile-i:7;--app:#d4a24c"><span class="sw-icon">{{icon:house-line}}</span><span><b>Smart Home</b><small>Lights, speakers and music</small></span></span>
+        </div></div>
+        <i data-step="30" data-wait="450" data-fx="mark" data-remove=".g-nova|active" data-add=".g-code|active"></i>
+        <i data-step="62" data-wait="250" data-fx="mark" data-add=".g-pick|sel"></i>
+        <i data-step="64" data-wait="500" data-fx="mark" data-remove=".g-code|active" data-add=".g-board|active; .switcher|gone"></i>
+      </div>
+    </div>
+
+    <!-- Story 2: learning German with an agent of your own. Voice -> picture vocabulary in a Workspace gallery. -->
+    <div class="story" id="story-german" role="tabpanel" data-story data-demo data-pace=".7" hidden>
+      <div class="app-frame" data-stage>
+        <section class="screen l-chat active" aria-hidden="true">
           <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
           <div class="app-body">
             <aside class="sidebar">
               <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
-              <div class="row live selected"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
-              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Moss Knight</b><small>Nova · yesterday</small></span></div>
-              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Portfolio site</b><small>Nova · Tuesday</small></span></div>
+              <div class="row selected"><span class="avatar amber">L</span><span><b>Deutsch mit Leni</b><small>Leni · now</small></span></div>
+              <div class="row"><span class="avatar amber">L</span><span><b>Wortschatz, Lektion 12</b><small>Leni · Monday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Vienna weekend</b><small>Nova · last week</small></span></div>
             </aside>
             <div class="chat">
-              <div class="mode-tabs"><span class="active">Live</span><span>{{icon:heartbeat}}Heartbeat</span></div>
+              <div class="chat-head"><span class="avatar amber">L</span><span><b>Deutsch mit Leni</b><small>Leni · your German tutor · B1</small></span></div>
               <div class="thread">
-                <div class="day-divider"><span>Saturday, 09:10</span></div>
-                <div class="heartbeat-card" data-step="130" data-wait="900">{{icon:heartbeat}}<div><b>Heartbeat</b><small>Looked at your projects overnight</small></div></div>
-                <div class="msg nova" data-step="135" data-wait="600"><div><p data-step="135" data-fx="stream">Morning. Moss Knight builds cleanly with the new jump and controller support. The level select is still waiting for you, and it takes two minutes to try. After that, the boss fight is next. Want me to sketch three ideas for it?</p></div></div>
+                <div class="msg nova"><div><div class="frieze"><i class="sq g"></i></div><p>Gut gemacht! 14 von 16 Wörtern richtig. Gute Reise nach Wien!</p></div></div>
+                <div class="msg user"><p>Danke, Leni! Bis Montag.</p></div>
+                <div class="msg nova" data-step="10" data-wait="300"><div><p>Hallo! Wie war die Reise nach Wien?</p></div></div>
+                <div class="msg user" data-step="30" data-wait="300"><p>Super! Ich habe mit dem Nachtzug nach Wien gefahren.</p></div>
+                <p class="msg-meta" data-step="30">{{icon:microphone}}Spoken · transcribed on this computer</p>
+                <div class="msg nova" data-step="40" data-wait="350"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq g" style="--d:90ms"></i><i class="sq g" style="--d:180ms"></i></div>
+                  <p data-step="40" data-fx="stream">Fast perfekt! Mit „fahren“ nimmst du „sein“: Ich <strong>bin</strong> mit dem Nachtzug gefahren. Ich habe dir Karten für die Wörter deiner Reise gemacht.</p></div></div>
+                <div class="voice-card" data-step="44" data-wait="350"><span class="play">{{icon:pause}}</span><div><b>Leni · 0:07</b><small>Spoken reply</small></div><div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="embed-card" data-step="46" data-wait="450"><span class="app-icon green">{{icon:cards}}</span><span><b>Reise nach Wien</b><small>Gallery view · 4 cards · Leni's workspace</small></span>{{icon:arrow-up-right}}<i class="fake-cursor" data-step="48" data-wait="450"></i></div>
+              </div>
+              <div class="composer l-composer"><span class="composer-placeholder">Talk to Leni…</span><span class="rec">{{icon:microphone}}<span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>Listening… 0:04</span><span class="mic">{{icon:microphone}}</span><span class="send">{{icon:paper-plane-right}}</span></div>
+              <i data-step="20" data-wait="900" data-fx="mark" data-add=".l-composer|recording"></i>
+              <i data-step="30" data-fx="mark" data-remove=".l-composer|recording"></i>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen l-vocab" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar tree">
+              <div class="tree-owner"><span class="avatar amber">L</span><span><b>Leni</b><small>Agent workspace</small></span></div>
+              <div class="tree-row">{{icon:caret-down}}{{icon:folder-simple}}<span>Wortschatz</span><small class="count">212</small></div>
+              <div class="tree-row selected sub">{{icon:cards}}<span>Reise nach Wien</span></div>
+              <div class="tree-row sub">{{icon:cards}}<span>Lektion 12</span></div>
+              <div class="tree-row">{{icon:file-text}}<span>Fehler, die ich mache</span></div>
+              <div class="tree-row">{{icon:file-text}}<span>Lernplan B1</span></div>
+            </aside>
+            <div class="board-view">
+              <div class="view-head">{{icon:cards}}<b>Reise nach Wien</b><small>4 items</small></div>
+              <div class="vocab-grid">
+                <div class="vocab-card" data-step="60" data-wait="220"><img src="{{root}}demo/cover-4.webp" alt="" /><b>der Nachtzug</b><small>the night train</small></div>
+                <div class="vocab-card" data-step="61" data-wait="220"><img src="{{root}}demo/cover-2.webp" alt="" /><b>das Abteil</b><small>the compartment</small></div>
+                <div class="vocab-card" data-step="62" data-wait="220"><img src="{{root}}demo/cover-3.webp" alt="" /><b>der Bahnsteig</b><small>the platform</small></div>
+                <div class="vocab-card" data-step="63" data-wait="500"><img src="{{root}}demo/cover-1.webp" alt="" /><b>die Brücke</b><small>the bridge</small></div>
+              </div>
+              <div class="toast" data-step="66" data-wait="1300"><span class="avatar amber">L</span><span><b>Quiz tomorrow, 08:00</b><small>Five minutes on these four words and “sein” with motion verbs.</small></span></div>
+            </div>
+          </div>
+        </section>
+        <i data-step="50" data-wait="400" data-fx="mark" data-remove=".l-chat|active" data-add=".l-vocab|active"></i>
+      </div>
+    </div>
+
+    <!-- Story 3: a busy week. Nova -> Workspace files -> Life Coaching agenda. -->
+    <div class="story" id="story-organize" role="tabpanel" data-story data-demo data-pace=".7" hidden>
+      <div class="app-frame" data-stage>
+        <section class="screen o-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Paperwork</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Lisbon in March</b><small>Nova · Tuesday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Launch week checklist</b><small>Nova · Monday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Paperwork</b><small>Nova · Codex · Standard</small></span></div>
+              <div class="thread">
+                <div class="msg user"><p>How much did the bike cost me this year?</p></div>
+                <div class="msg nova"><div><div class="frieze"><i class="sq t"></i><i class="sq t"></i></div><p>€214 so far: the service in May, new tyres in August and a lock. I found them in your receipts.</p></div></div>
+                <div class="msg user" data-step="10" data-wait="350"><p>I dropped 37 scans into Inbox. Sort them, and put anything with a deadline on my week.</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:50ms"></i><i class="sq t" style="--d:100ms"></i><i class="sq t" style="--d:150ms"></i><i class="sq t" style="--d:200ms"></i><i class="sq g" style="--d:250ms"></i><i class="sq g" style="--d:300ms"></i><i class="sq g" style="--d:350ms"></i></div>
+                  <p data-step="20" data-fx="stream">Filed and indexed. One real deadline: the lease notice, due 31 December. I drafted the letter and put it on Monday.</p></div></div>
               </div>
               <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
             </div>
           </div>
         </section>
 
-        <i data-step="45" data-wait="1700" data-fx="mark" data-remove=".screen-nova|active" data-add=".screen-code|active"></i>
-        <i data-step="85" data-wait="1600" data-fx="mark" data-remove=".screen-code|active" data-add=".screen-nova|active"></i>
-        <i data-step="105" data-wait="2600" data-fx="mark" data-remove=".screen-nova|active" data-add=".screen-workspace|active"></i>
-        <i data-step="125" data-wait="2400" data-fx="mark" data-remove=".screen-workspace|active" data-add=".screen-heartbeat|active"></i>
-      </div>
+        <section class="screen o-ws" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar tree">
+              <div class="tree-owner"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Nova</b><small>Agent workspace</small></span></div>
+              <div class="tree-row">{{icon:caret-down}}{{icon:folder-simple}}<span>Inbox</span><small class="count">0</small></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>Receipts</span><small class="count">21</small></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>Contracts</span><small class="count">6</small></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>Manuals</span><small class="count">7</small></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>Needs a look</span><small class="count">3</small></div>
+              <div class="tree-row selected">{{icon:file-text}}<span>Paperwork index</span></div>
+            </aside>
+            <article class="page-view">
+              <p class="crumb">Workspace / Nova / <b>Paperwork index</b></p>
+              <p class="entity-type">PAGE</p>
+              <h3>Paperwork index</h3>
+              <table class="mini-table">
+                <tr><th>Folder</th><th>Files</th><th>Notes</th></tr>
+                <tr data-step="34" data-wait="180"><td>Receipts</td><td>21</td><td>2024: 9, 2025: 12. Laptop warranty ends in March.</td></tr>
+                <tr data-step="35" data-wait="180"><td>Contracts</td><td>6</td><td>Flat lease renews on 1 April; notice by 31 December.</td></tr>
+                <tr data-step="36" data-wait="180"><td>Manuals</td><td>7</td><td>Dishwasher, boiler, bike, 4 more.</td></tr>
+                <tr data-step="37" data-wait="600"><td>Needs a look</td><td>3</td><td>Two blurry scans, one letter in Italian.</td></tr>
+              </table>
+            </article>
+          </div>
+        </section>
 
-      <div class="demo-controls">
-        <ol class="chapters">
-          <li><button type="button" data-seek="0"><span>01</span>Say what's next</button></li>
-          <li><button type="button" data-seek="45"><span>02</span>Three things at once</button></li>
-          <li><button type="button" data-seek="85"><span>03</span>Merged when it works</button></li>
-          <li><button type="button" data-seek="105"><span>04</span>The roadmap remembers</button></li>
-          <li><button type="button" data-seek="125"><span>05</span>Next morning</button></li>
-        </ol>
-        <button class="demo-toggle" type="button" data-demo-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
+        <section class="screen o-coach" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon gold">{{icon:target}}</span><b>Life Coaching</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:calendar-check}}Today</span><span>{{icon:lightning}}Progress</span><span>{{icon:check-circle}}Goals</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Coaching</b></div>
+              <div class="row selected nav-row">{{icon:calendar-check}}<span><b>Today</b></span></div>
+              <div class="row nav-row">{{icon:lightning}}<span><b>Progress</b></span></div>
+              <div class="row nav-row">{{icon:check-circle}}<span><b>Goals</b></span></div>
+            </aside>
+            <div class="coach-view">
+              <p class="coach-day"><small>Monday</small>16 November</p>
+              <div class="coach-note"><img src="{{root}}nova-avatar.webp" alt="" /><p>A full week, but it fits. The lease letter is already drafted, so that one takes you five minutes. Everything else can wait until after lunch.</p></div>
+              <p class="coach-label">{{icon:clock}}Agenda</p>
+              <ol class="agenda">
+                <li class="new" data-step="50" data-wait="220"><time>09:00</time><b>Send the lease notice</b><small>Draft is in Contracts. Due 31 December, done today.</small></li>
+                <li data-step="51" data-wait="200"><time>09:30</time><b>Focus block</b><small>Lights on Concentrate, notifications quiet until 11:30.</small></li>
+                <li data-step="52" data-wait="200"><time>12:30</time><b>Lunch with Sam</b><small>Café Lumen, it's your turn to pay.</small></li>
+                <li class="new" data-step="53" data-wait="200"><time>16:00</time><b>Three scans need a look</b><small>Two blurry, one letter in Italian. I can translate it.</small></li>
+                <li data-step="54" data-wait="1400"><time>18:30</time><b>Climbing</b><small>Bag is by the door.</small></li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <div class="switcher" data-step="40" data-wait="550" aria-hidden="true"><div class="sw-card">
+          <span class="sw-row" style="--tile-i:0;--app:#d4618c"><span class="sw-icon">{{icon:star}}</span><span><b>Nova</b><small>Chat, voice and delegation</small></span></span>
+          <span class="sw-row" style="--tile-i:1;--app:#6f97d6"><span class="sw-icon">{{icon:terminal-window}}</span><span><b>Code</b><small>Coding sessions and GitHub</small></span></span>
+          <span class="sw-row active" style="--tile-i:2;--app:#63c077"><span class="sw-icon">{{icon:folder-simple}}</span><span><b>Workspace</b><small>Your projects and content</small></span></span>
+          <span class="sw-row" style="--tile-i:3;--app:#9a7cf0"><span class="sw-icon">{{icon:images}}</span><span><b>Gallery</b><small>Browse and curate your media</small></span></span>
+          <span class="sw-row" style="--tile-i:4;--app:#e0913a"><span class="sw-icon">{{icon:image-square}}</span><span><b>Image Studio</b><small>Generate and compare images</small></span></span>
+          <span class="sw-row" style="--tile-i:5;--app:#3fb3c4"><span class="sw-icon">{{icon:cpu}}</span><span><b>Compute</b><small>Models running on your GPU</small></span></span>
+          <span class="sw-row o-pick" style="--tile-i:6;--app:#d4a24c"><span class="sw-icon">{{icon:target}}</span><span><b>Life Coaching</b><small>Agenda, goals and progress</small></span><i class="fake-cursor" data-step="41" data-wait="350"></i></span>
+          <span class="sw-row" style="--tile-i:7;--app:#d4a24c"><span class="sw-icon">{{icon:house-line}}</span><span><b>Smart Home</b><small>Lights, speakers and music</small></span></span>
+        </div></div>
+        <i data-step="30" data-wait="300" data-fx="mark" data-remove=".o-chat|active" data-add=".o-ws|active"></i>
+        <i data-step="42" data-wait="250" data-fx="mark" data-add=".o-pick|sel"></i>
+        <i data-step="44" data-wait="450" data-fx="mark" data-remove=".o-ws|active" data-add=".o-coach|active; .switcher|gone"></i>
       </div>
-      <p class="demo-caption">A simplified recreation of the RedLeaf interface. The game and conversation are examples.</p>
     </div>
   </div>
+  <p class="demo-caption">Simplified recreations of the RedLeaf interface. The people, projects and conversations are examples.</p>
 </section>
 
 <section class="band project" aria-labelledby="project-title">
