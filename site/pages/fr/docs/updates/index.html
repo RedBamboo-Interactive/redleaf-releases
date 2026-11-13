@@ -1,0 +1,28 @@
+<!--page {"title": "Mises à jour · Documentation RedLeaf", "description": "Comment RedLeaf recherche les mises à jour, ne les installe que lorsque vous le décidez, attend la fin du travail en cours, annule une mise à jour qui échoue, et vérifie chaque composant qu'il télécharge.", "layout": "docs", "section": "docs", "slug": "updates"}-->
+<header>
+  <p class="eyebrow">Pour aller plus loin</p>
+  <h1>Mises à jour.</h1>
+  <p class="doc-lede">RedLeaf recherche les mises à jour tout seul et vous indique ce qui est prêt, mais rien ne s'installe tant que vous ne l'avez pas choisi. Quand vous le faites, il attend la fin du travail en cours, redémarre, vérifie que tout fonctionne bien, et revient en arrière si ce n'est pas le cas.</p>
+</header>
+
+<div class="prose">
+  <h2>Installer les mises à jour</h2>
+  <ol class="steps">
+    <li><b>Recevez la notification</b>RedLeaf vérifie au démarrage, puis toutes les 12 heures. Quand quelque chose est prêt, une notification affiche <span class="ui">Update available</span>, avec <span class="ui">Open Updates</span>.</li>
+    <li><b>Enregistrez votre travail</b>Une mise à jour redémarre RedLeaf. Assurez-vous que rien d'important n'est en cours d'exécution.</li>
+    <li><b>Mettez à jour</b>Dans <span class="ui">Settings › Updates</span>, choisissez <span class="ui">Update all</span> pour tout installer en un seul redémarrage, ou <span class="ui">Update</span> sur un composant. <span class="ui">Check now</span> vérifie à nouveau immédiatement.</li>
+  </ol>
+  <p>Une fois la mise à jour lancée, RedLeaf attend que le travail d'IA et d'automatisation en cours se termine, redémarre via le lanceur, vérifie son état de santé, et remet la version précédente en place si la nouvelle échoue. Un composant peut se mettre à jour seul quand il ne dépend pas des autres.</p>
+
+  <h2>Canaux</h2>
+  <p>RedLeaf est une préversion Nightly : de nouveaux builds sont publiés automatiquement quand quelque chose a changé, et ils peuvent changer souvent. Pendant la préversion, les versions ne sont publiées que sur le canal <span class="ui">Nightly</span> : laissez donc <span class="ui">Channel</span> sur Nightly. Sous <span class="ui">Advanced</span>, vous pouvez définir des <span class="ui">Component channels</span> (canaux par composant) ou des <span class="ui">Exact version pins</span> (versions exactes épinglées) pour certains composants, puis <span class="ui">Save changes</span>. La plupart des gens n'en ont jamais besoin.</p>
+
+  <h2>Comment les téléchargements sont vérifiés</h2>
+  <p>Chaque composant provient du flux de versions signé. RedLeaf vérifie la signature de chaque fiche de version et l'empreinte SHA-256 de chaque fichier, et rejette une ancienne fiche présentée à nouveau comme nouvelle. Les clés auxquelles il fait confiance sont intégrées au lanceur. Si quoi que ce soit ne correspond pas, rien n'est installé. Il n'y a jamais d'alternative non vérifiée.</p>
+
+  <h2>Réparer une installation</h2>
+  <p>Sous Windows, relancer le lanceur que vous avez téléchargé répare l'installation et conserve vos choix. Sous Linux, mettez à jour depuis RedLeaf ; relancer l'installeur ne fait qu'ouvrir l'installation existante.</p>
+  <p>Si une mise à jour échoue et revient en arrière, le journal du lanceur explique pourquoi : <code>%LOCALAPPDATA%\RedLeaf\update\logs\launcher.log</code> sous Windows, dans <code>~/.local/share/RedLeaf/update/logs</code> sous Linux. Voir <a href="{{root}}docs/troubleshooting/">Dépannage et Doctor</a>.</p>
+
+  <p>Les mises à jour des extensions arrivent de la même façon et s'installent depuis la même page.</p>
+</div>

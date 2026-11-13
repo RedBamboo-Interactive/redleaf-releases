@@ -1,0 +1,38 @@
+<!--page {"title": "Sécurité · RedLeaf", "description": "Comment signaler une vulnérabilité dans RedLeaf, et comment ses téléchargements et mises à jour sont vérifiés.", "layout": "legal", "section": "legal"}-->
+<header>
+  <p class="eyebrow">Juridique</p>
+  <h1>Sécurité</h1>
+  <p class="legal-updated">Dernière mise à jour : <time datetime="2026-11-13">13 novembre 2026</time></p>
+</header>
+
+<section aria-labelledby="report">
+  <h2 id="report">Signaler une vulnérabilité</h2>
+  <p>Écrivez à <a href="mailto:becherel.laurent@gmail.com?subject=RedLeaf%20security">becherel.laurent@gmail.com</a> en indiquant « RedLeaf security » dans l'objet. Merci de ne pas la publier d'abord sur Discord ou dans une issue GitHub publique.</p>
+  <p>Éléments utiles à inclure :</p>
+  <ul>
+    <li>la version de RedLeaf et la plateforme,</li>
+    <li>ce qu'un attaquant peut faire, et ce dont il a besoin au préalable,</li>
+    <li>les étapes ou une preuve de concept pour la reproduire.</li>
+  </ul>
+  <p>Vous recevrez une réponse sous quelques jours. Nous vous tiendrons au courant pendant la correction, citerons votre nom dans les notes de version si vous le souhaitez, et vous demanderons d'attendre une version corrigée avant d'en publier les détails. Nous n'engagerons aucune poursuite contre quiconque signale une vulnérabilité de bonne foi, reste dans le cadre de sa propre installation et n'accède pas aux données d'autrui.</p>
+</section>
+
+<section aria-labelledby="scope">
+  <h2 id="scope">Périmètre</h2>
+  <p>Le lanceur et le programme d'installation de RedLeaf, le service RedLeaf et ses applications intégrées (Nova, Code, Workspace, Compute), les plugins publiés sur le flux de versions officiel, le flux de versions lui-même, et ce site. Les vulnérabilités d'un fournisseur d'IA ou d'un autre service connecté relèvent de ce service.</p>
+</section>
+
+<section aria-labelledby="verification">
+  <h2 id="verification">Comment les téléchargements sont vérifiés</h2>
+  <ul>
+    <li>Chaque composant est publié avec un enregistrement de version dans un flux de versions signé. Le lanceur vérifie la signature et l'empreinte SHA-256 de chaque téléchargement avant de l'installer, et refuse tout ce qui ne correspond pas.</li>
+    <li>La section de téléchargement de ce site lit le même flux et affiche l'empreinte SHA-256 du programme d'installation, pour que vous puissiez la vérifier vous-même.</li>
+    <li>Sous Linux, le script d'installation vérifie le lanceur par rapport à l'enregistrement de version signé avant de l'exécuter.</li>
+    <li>Pendant la préversion, le programme d'installation Windows n'est pas encore signé avec un certificat d'éditeur Windows : SmartScreen peut donc afficher « Éditeur inconnu ». C'est normal.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="local">
+  <h2 id="local">Utiliser les agents en toute sécurité</h2>
+  <p>Les agents travaillent au niveau d'accès que vous choisissez. Plan se contente de lire et de planifier. Ask modifie son propre espace de travail et demande avant toute autre action. Auto décide de ce qui est sûr et demande pour le reste. Full fait tout sans demander, et n'est disponible qu'une fois Full access activé. Commencez par Ask, puis relevez le niveau agent par agent une fois qu'un workflow a gagné votre confiance.</p>
+</section>

@@ -1,0 +1,45 @@
+<!--page {"title": "Sauvegardes · Documentation RedLeaf", "description": "Sauvegardez la base de données de RedLeaf de façon planifiée, gardez une copie hors site chiffrée dans Cloudflare R2, testez les restaurations, et sachez ce qui est couvert et ce qui ne l'est pas.", "layout": "docs", "section": "docs", "slug": "backups"}-->
+<header>
+  <p class="eyebrow">Pour aller plus loin</p>
+  <h1>Sauvegardes.</h1>
+  <p class="doc-lede">La base de données de RedLeaf contient vos discussions, vos agents, leur mémoire et chaque entité. Sauvegardez-la de façon planifiée et, si vous voulez survivre à la perte de l'ordinateur, gardez une copie chiffrée hors site.</p>
+</header>
+
+<div class="prose">
+  <h2>Ce qui est couvert</h2>
+  <table class="doc-table">
+    <thead><tr><th>Sauvegarde</th><th>Contenu</th></tr></thead>
+    <tbody>
+      <tr><td>Sauvegarde de la base de données</td><td>Discussions, agents, mémoire et pages de l'espace de travail, skills, automatisations et toutes les autres entités. Avec la portée <span class="ui">Everything</span>, toute la base de données.</td></tr>
+      <tr><td>Copie hors site</td><td>La base de données, plus les clés de chiffrement de RedLeaf, vos ressources (images, audio, vidéo) et les fichiers de l'espace de travail.</td></tr>
+    </tbody>
+  </table>
+  <p>Aucune des deux ne couvre vos propres dossiers de projet, vos documents ni quoi que ce soit d'autre sur votre disque. Sauvegardez-les comme vous le faites d'habitude, et poussez souvent votre code vers un dépôt distant.</p>
+
+  <h2>Sauvegardes de la base de données</h2>
+  <p>Ouvrez <span class="ui">Settings › Storage › Database</span> et trouvez <span class="ui">Backup</span>.</p>
+  <ul>
+    <li><span class="ui">Automatic</span> : <span class="ui">Off</span>, <span class="ui">Daily</span> ou <span class="ui">Weekly</span> (désactivé, quotidien ou hebdomadaire), et l'heure dans <span class="ui">Runs at</span>. Les sauvegardes automatiques restent désactivées tant que vous ne les activez pas.</li>
+    <li><span class="ui">Scope</span> : <span class="ui">Entities only</span> (entités seulement), ou <span class="ui">Everything</span> (tout).</li>
+    <li><span class="ui">Retention</span> : combien de sauvegardes automatiques conserver, de 1 à 10. Les sauvegardes manuelles sont conservées à part, jusqu'au même nombre en plus.</li>
+    <li>Le dossier : laissez-le vide pour utiliser l'emplacement par défaut, <code>%LOCALAPPDATA%\RedLeaf\backups</code> sous Windows.</li>
+  </ul>
+  <p><span class="ui">Back up everything</span> en fait une tout de suite. <span class="ui">Export entities</span> enregistre vos entités seules. <span class="ui">Last backup</span> vous indique quand la dernière a eu lieu.</p>
+  <p>Les sauvegardes sont des dumps PostgreSQL standard. Il n'y a pas encore de bouton de restauration pour elles dans la préversion. Si vous devez en restaurer une, demandez de l'aide sur le <a href="https://discord.gg/FWMQtGzw3y">Discord de Leaf</a>.</p>
+
+  <h2>Copie hors site</h2>
+  <p>La copie hors site va dans un bucket Cloudflare R2 qui vous appartient. Elle est chiffrée sur votre ordinateur avant de partir : Cloudflare ne stocke jamais que des données chiffrées. Elle n'est disponible que sous Windows pour l'instant, et seul un administrateur peut la configurer.</p>
+  <ol class="steps">
+    <li><b>Créez un bucket</b>Dans Cloudflare, créez un bucket R2 et une clé d'accès pour celui-ci.</li>
+    <li><b>Connectez-le</b>Dans <span class="ui">Settings › Storage › Backups</span>, choisissez <span class="ui">Set up off-site copy</span>. Saisissez l'<span class="ui">Account ID</span>, le bucket, la <span class="ui">Data location</span> (choisissez European Union pour garder les données dans l'UE), l'<span class="ui">Access key ID</span> et la <span class="ui">Secret access key</span>.</li>
+    <li><b>Conservez la phrase de récupération</b>RedLeaf affiche une seule fois une phrase de récupération de huit mots. La copie est bloquée exprès : recopiez-la à la main dans votre gestionnaire de mots de passe, cochez <span class="ui">I saved it in my password manager</span>, puis retapez-la pour confirmer. Sans elle, la copie ne peut pas être déchiffrée.</li>
+    <li><b>Activez les copies nocturnes</b><span class="ui">Back up every night</span> s'exécute après la sauvegarde locale de la base de données. <span class="ui">Back up now</span> en lance une immédiatement.</li>
+  </ol>
+  <h3>Durée de conservation des copies</h3>
+  <p>Un nettoyage hebdomadaire supprime les points de restauration de plus de 35 jours et en garde un par semaine pendant 12 semaines. Le bucket est verrouillé : rien de ce qu'il contient ne peut être supprimé ni écrasé pendant 30 jours, même depuis RedLeaf, si bien qu'une erreur ou un agent compromis ne peut pas effacer votre historique.</p>
+  <h3>Testez-la avant d'en avoir besoin</h3>
+  <p>RedLeaf lance automatiquement un test de restauration le premier dimanche de chaque mois. Lancez-en un vous-même avec <span class="ui">Run a restore test now</span>. Pour récupérer quelque chose, choisissez <span class="ui">Restore to a folder</span> : choisissez ce qu'il faut restaurer, le point de restauration et, si vous le souhaitez, un seul chemin. La restauration se fait toujours dans un nouveau dossier, jamais par-dessus vos données en service.</p>
+  <p>Pour une récupération complète sur un nouvel ordinateur, RedLeaf écrit dans le bucket un fichier qui explique comment restaurer. L'ordre est le suivant : d'abord les clés, puis l'installation de RedLeaf, puis la base de données, puis les ressources et les fichiers de l'espace de travail.</p>
+
+  <div class="callout">{{icon:lock-simple}}<p><strong>Gardez une sauvegarde hors de portée.</strong> Un agent avec Full access peut supprimer tout ce que votre compte peut supprimer. Le verrou de la copie hors site est une réponse ; un disque déconnecté en est une autre. Voir <a href="{{root}}docs/access-levels/">Niveaux d'accès</a>.</p></div>
+</div>

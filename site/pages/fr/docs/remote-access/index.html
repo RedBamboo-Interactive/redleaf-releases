@@ -1,0 +1,40 @@
+<!--page {"title": "Accès à distance · Documentation RedLeaf", "description": "Accédez à RedLeaf depuis votre téléphone ou un autre ordinateur grâce à un Cloudflare Tunnel, exigez la connexion Google, et sachez ce qui fonctionne loin de votre bureau.", "layout": "docs", "section": "docs", "slug": "remote-access"}-->
+<header>
+  <p class="eyebrow">Pour aller plus loin</p>
+  <h1>Accès à distance.</h1>
+  <p class="doc-lede">Par défaut, RedLeaf n'est joignable que depuis l'ordinateur sur lequel il tourne. Si vous voulez vos agents sur votre téléphone, vous pouvez le publier via un Cloudflare Tunnel, sans port ouvert et avec HTTPS automatique, et exiger une connexion Google devant.</p>
+</header>
+
+<div class="prose">
+  <h2>Les options</h2>
+  <p>Ouvrez <span class="ui">Settings › Network &amp; Access</span>. L'onglet <span class="ui">Remote Access</span> propose :</p>
+  <table class="doc-table">
+    <thead><tr><th>Option</th><th>Ce que cela signifie</th></tr></thead>
+    <tbody>
+      <tr><td>Local only</td><td>Le réglage par défaut. RedLeaf n'est joignable que depuis cette machine, sans exposition et sans autres comptes.</td></tr>
+      <tr><td>Remote via Cloudflare Tunnel</td><td>RedLeaf obtient une adresse publique sur votre propre domaine, via Cloudflare. Nécessite un compte Cloudflare gratuit et un nom de domaine.</td></tr>
+    </tbody>
+  </table>
+  <p>L'onglet <span class="ui">Authentication</span> ajoute <span class="ui">Google OAuth sign-in</span> (connexion Google OAuth), pour l'accès à distance ou pour plusieurs personnes.</p>
+
+  <h2>Configurer un tunnel</h2>
+  <ol class="steps">
+    <li><b>Créez le tunnel dans Cloudflare</b>Dans votre tableau de bord Cloudflare, créez un tunnel pour votre domaine et copiez son jeton.</li>
+    <li><b>Activez d'abord la connexion Google</b>Dans <span class="ui">Authentication</span>, créez un client OAuth dans Google Cloud, puis collez son <span class="ui">Client ID</span> et son <span class="ui">Client Secret</span>. Changer de mode de connexion redémarre RedLeaf.</li>
+    <li><b>Connectez le tunnel</b>De retour dans <span class="ui">Remote Access</span>, choisissez l'option tunnel, collez le <span class="ui">Tunnel Token</span> et le <span class="ui">Public Hostname</span>, puis enregistrez. Les changements du tunnel s'appliquent immédiatement.</li>
+    <li><b>Ouvrez-le sur votre téléphone</b>Rendez-vous sur votre nom d'hôte et connectez-vous. Nova peut être ajoutée à votre écran d'accueil comme une appli.</li>
+  </ol>
+  <div class="callout warn">{{icon:warning}}<p><strong>Une adresse publique est une porte.</strong> Quiconque peut joindre votre nom d'hôte atteint la page d'accueil de vos agents. Exigez la connexion Google avant de publier, et gardez les agents qui lisent du contenu non fiable sur un <a href="{{root}}docs/access-levels/">niveau d'accès</a> modeste.</p></div>
+
+  <h2>Ce qui fonctionne loin de votre bureau</h2>
+  <ul>
+    <li><strong>Discussions, Code, Workspace</strong> et les autres applis fonctionnent dans le navigateur d'un téléphone, avec une mise en page pensée pour les petits écrans.</li>
+    <li><strong>Le mode vocal</strong> fonctionne sur téléphone. Voir <a href="{{root}}docs/voice/">Voix et Float Nova</a>.</li>
+    <li><strong>Attach what I see</strong> peut partager la page affichée, mais pas les écrans de votre ordinateur.</li>
+    <li><strong>Float Nova</strong> est réservé aux ordinateurs.</li>
+  </ul>
+  <p>Votre ordinateur fait toujours tout le travail : il doit donc être allumé, avec RedLeaf en marche.</p>
+
+  <h2>Plusieurs personnes</h2>
+  <p>La connexion Google permet aussi à plusieurs personnes d'accéder au même RedLeaf, et RedLeaf prévoit trois rôles pour elles : Admin, Editor et Viewer. Voir <a href="{{root}}docs/database/">Base de données et vues</a>. La gestion des personnes reste sommaire dans la préversion : il n'y a pas encore d'écran d'invitation ni de liste des utilisateurs.</p>
+</div>

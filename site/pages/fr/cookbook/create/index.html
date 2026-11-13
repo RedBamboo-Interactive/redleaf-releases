@@ -1,0 +1,83 @@
+<!--page {"title": "Créer : images, voix et son sur votre propre GPU · Cas d'usage RedLeaf", "description": "Générez illustrations, personnages, narration et musique au fil d'une conversation, faites le rendu des images en local avec ComfyUI, et gardez chaque résultat avec le projet.", "layout": "doc", "section": "cookbook", "slug": "create"}-->
+<header>
+  <p class="eyebrow">Cas d'usage · Créer</p>
+  <h1>Images, voix et son sur votre propre GPU.</h1>
+  <p class="doc-lede">Demandez la couverture, la fiche de personnage, la narration ou le jingle dans la conversation même où vous travaillez sur le projet. Les images et les voix peuvent être générées en local sur votre carte graphique, et chaque résultat est conservé : vous pouvez choisir, comparer et y revenir.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:cpu}}Compute</span><span>{{icon:image-square}}Génération d'images</span><span>{{icon:speaker-high}}Synthèse vocale</span></div>
+</header>
+
+<div class="recipe-demo" data-demo aria-label="Reconstitution animée : Nova génère quatre propositions de couverture et lit une intro à voix haute">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Podcast · Épisode 12</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Illustrations du jeu de société</b><small>Nova · Sunday</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="400"><p>L'épisode 12 s'appelle « Trains de nuit ». Fais-moi quatre propositions de couverture, puis lis l'intro avec une voix chaleureuse.</p></div>
+            <div class="msg nova" data-step="20"><div><div class="frieze"><i class="sq p" style="--d:0ms"></i><i class="sq t" style="--d:90ms"></i></div><p data-step="20" data-fx="stream">J'en génère quatre sur ton GPU : style affiche en aplats, bleu marine et ambre comme les épisodes précédents.</p></div></div>
+            <div class="gen-card" data-step="30" data-wait="500">
+              <div class="gen-head">{{icon:image-square}}<span><b>Image generation</b><small>ComfyUI · local · 4 images</small></span><em class="badge working gen-badge">{{icon:circle-notch}}rendering</em></div>
+              <div class="gen-grid">
+                <div class="image-tile"><img data-step="40" data-wait="1500" src="{{root}}demo/cover-1.webp" alt="" /></div>
+                <div class="image-tile"><img data-step="42" data-wait="700" src="{{root}}demo/cover-2.webp" alt="" /></div>
+                <div class="image-tile"><img data-step="44" data-wait="700" src="{{root}}demo/cover-3.webp" alt="" /></div>
+                <div class="image-tile"><img data-step="46" data-wait="700" src="{{root}}demo/cover-4.webp" alt="" /></div>
+              </div>
+              <i data-step="46" data-fx="mark" data-add=".gen-badge|ok" data-remove=".gen-badge|working"></i>
+            </div>
+            <div class="voice-card" data-step="60" data-wait="1000">
+              <span class="play">{{icon:play-fill}}</span>
+              <div><b>Intro · 0:18</b><small>Text to speech · local voice</small></div>
+              <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="msg nova" data-step="70"><div><div class="frieze"><i class="sq t" style="--d:0ms"></i><i class="sq t" style="--d:90ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq t" style="--d:270ms"></i><i class="sq g" style="--d:360ms"></i></div><p data-step="70" data-fx="stream">Moi, je prendrais le viaduc : c'est celle qui se lit le mieux en miniature. Les quatre et l'intro sont enregistrées dans Épisode 12.</p></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Demandez</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>Rendu en local</button></li>
+      <li><button type="button" data-seek="60"><span>03</span>Écoutez</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Mettre la démo en pause">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Rejouer la démo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">Une reconstitution simplifiée de RedLeaf. Les quatre couvertures ont été générées en local avec le fournisseur ComfyUI de RedLeaf.</p>
+</div>
+
+<div class="prose">
+  <h2>Ce que vous pouvez demander</h2>
+  <ul class="prompt-list">
+    <li>Quatre propositions de couverture pour l'épisode 12, dans le même style que les précédentes.</li>
+    <li>Dessine ce personnage de face, de profil et de dos pour que son apparence reste cohérente d'une image à l'autre.</li>
+    <li>Lis l'intro d'une voix posée, puis d'une voix plus rapide, et laisse-moi comparer.</li>
+    <li>Transforme le mémo vocal que je viens d'enregistrer en notes et en premier jet.</li>
+  </ul>
+
+  <h2>Comment ça marche</h2>
+  <ol class="steps">
+    <li><b>Choisissez vos fournisseurs une fois pour toutes</b>Compute liste les capacités fournies avec RedLeaf : génération d'images, synthèse vocale, transcription de la parole et musique. Choisissez un fournisseur local comme ComfyUI, Qwen3-TTS ou faster-whisper, ou un fournisseur hébergé comme ElevenLabs.</li>
+    <li><b>Demandez dans la conversation</b>Nova rédige le prompt, choisit les réglages et lance la tâche. Vous n'avez pas à quitter la discussion ni à apprendre un éditeur de nœuds.</li>
+    <li><b>Suivez-la dans Compute</b>Chaque tâche apparaît dans Compute avec son fournisseur, sa progression et son résultat : vous savez toujours ce qui a tourné, et où.</li>
+    <li><b>Gardez ce que vous créez</b>Les résultats sont stockés comme ressources sur votre machine et liés à la conversation. Demandez des variantes : Nova sait laquelle vous avez choisie.</li>
+  </ol>
+
+  <div class="callout">{{icon:lightning}}<p><strong>En local, c'est privé et sans coût par image.</strong> Les fournisseurs locaux tournent sur votre propre carte graphique : les prompts et les résultats ne quittent jamais la machine, et rien n'est facturé à l'image. Les fournisseurs hébergés sont là quand vous voulez une voix ou un modèle précis.</p></div>
+
+  <h2>Ce qu'il vous faut</h2>
+  <div class="needs">
+    <div><b>Pour les images en local</b><span>Une carte graphique suffisamment puissante et une installation de ComfyUI, connectée via le fournisseur ComfyUI.</span></div>
+    <div><b>Pour la voix en local</b><span>Qwen3-TTS et faster-whisper sont inclus comme fournisseurs.</span></div>
+    <div><b>Ou en hébergé</b><span>Un compte ElevenLabs pour les voix, ou un autre fournisseur pris en charge.</span></div>
+  </div>
+</div>

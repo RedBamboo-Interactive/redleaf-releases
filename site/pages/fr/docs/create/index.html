@@ -1,0 +1,45 @@
+<!--page {"title": "Images, voix et musique · Documentation RedLeaf", "description": "Générez des images sur votre propre GPU, des voix et de la musique dans le cloud ou en local, depuis une conversation, et retrouvez ensuite chaque résultat et chaque tâche.", "layout": "docs", "section": "docs", "slug": "create"}-->
+<header>
+  <p class="eyebrow">Au quotidien</p>
+  <h1>Images, voix et musique.</h1>
+  <p class="doc-lede">Demandez à un agent une image, une narration ou une chanson : il écrit le prompt, choisit les réglages et lance la tâche. Aucun nouvel écran à apprendre. Chaque capacité vient d'une extension de fournisseur que vous installez une fois pour toutes.</p>
+</header>
+
+<div class="prose">
+  <h2>Choisir vos fournisseurs</h2>
+  <table class="doc-table">
+    <thead><tr><th>Pour</th><th>Fournisseur</th><th>Où il tourne</th><th>Coût et prérequis</th></tr></thead>
+    <tbody>
+      <tr><td>Images</td><td>ComfyUI</td><td>Sur votre PC</td><td>Gratuit. Une carte graphique NVIDIA et environ 21 Go pour les modèles.</td></tr>
+      <tr><td>Voix</td><td>ElevenLabs</td><td>Cloud</td><td>Votre compte ElevenLabs, facturé par ElevenLabs.</td></tr>
+      <tr><td>Voix</td><td>Qwen3-TTS</td><td>Sur votre PC</td><td>Gratuit. Carte graphique NVIDIA, WSL 2, environ 3,4 Go.</td></tr>
+      <tr><td>Musique</td><td>Suno</td><td>Cloud</td><td>Un compte SunoAPI avec des crédits. RedLeaf demande votre accord avant d'en dépenser.</td></tr>
+    </tbody>
+  </table>
+  <p>Installez-les depuis <span class="ui">Settings › Extensions</span>, dans le <span class="ui">Marketplace</span>. L'onglet <span class="ui">Guide</span> de chacun liste ce dont il a besoin et vous guide dans la configuration. Les fournisseurs locaux sont préparés pour vous : RedLeaf télécharge le programme et ses modèles, puis le teste avec une petite tâche. ComfyUI peut aussi reprendre une installation que vous avez déjà. Voir <a href="{{root}}docs/providers/">Fournisseurs d'IA et modèles locaux</a>.</p>
+
+  <h2>Demandez-le</h2>
+  <ul class="prompt-list">
+    <li>Fais trois idées de couverture pour l'épisode : un phare la nuit, une lumière chaude, un style peint.</li>
+    <li>Lis l'intro à voix haute, d'une voix calme, et envoie-la-moi.</li>
+    <li>Écris un thème de 30 secondes pour l'émission, lo-fi, avec un peu de piano.</li>
+    <li>La même image, mais plus large, pour un fond d'écran de téléphone.</li>
+  </ul>
+  <p>Les résultats apparaissent dans la discussion et sont conservés sur votre machine sous forme d'assets, liés à la conversation qui les a produits. Demandez des modifications comme vous le feriez à une personne : l'agent garde le prompt et les réglages qu'il a utilisés, il sait donc quoi ajuster.</p>
+
+  <h2>Retrouver chaque tâche</h2>
+  <p>Chaque génération est une tâche dans <span class="ui">Compute</span>. Ouvrez <span class="ui">Compute › Jobs</span> pour voir chacune avec son fournisseur, qui l'a demandée, sa durée, son coût et l'endroit où est allé son résultat. Filtrez par type ou par appli, et relancez ou annulez depuis cet écran.</p>
+  <p>Vous pouvez aussi lancer une tâche à la main : dans <span class="ui">Compute › Capabilities</span>, choisissez <span class="ui">Queue a new job</span> sur la carte d'une capacité, remplissez les réglages et choisissez <span class="ui">Generate</span>.</p>
+
+  <div class="callout">{{icon:cpu}}<p><strong>Une carte graphique, plusieurs modèles.</strong> Les modèles locaux d'image et de voix partagent votre GPU et peuvent se gêner. Le <span class="ui">Hardware Monitor</span>, en bas de Compute, affiche la mémoire graphique par capacité. Pour libérer la carte, mettez une capacité en veille avec le bouton en forme de lune sur sa carte.</p></div>
+
+  <h2>Des voix pour vos agents</h2>
+  <p>Donnez à un agent sa propre voix dans son champ <span class="ui">Voice</span>. Text to Speech conserve des voix réutilisables que vous pouvez associer à un fournisseur : la même voix suit ainsi l'agent d'une discussion à l'autre. Pour les appels en direct, voir <a href="{{root}}docs/voice/">Voix et Float Nova</a>.</p>
+
+  <h2>Extras facultatifs</h2>
+  <ul>
+    <li><strong>Gallery</strong> rassemble les images et les vidéos de tout RedLeaf sur un seul mur, où vous pouvez les retenir, les rejeter, les noter et les étiqueter. Elle ne supprime jamais rien.</li>
+    <li><strong>Ambience</strong> change le fond de RedLeaf, et sous Windows le fond d'écran de votre bureau, selon une planification, à partir de photos, de vos propres images ou d'images générées.</li>
+  </ul>
+  <p>Les deux sont dans le Marketplace. Le cas d'usage <a href="{{root}}cookbook/create/">Créer</a> montre un épisode entier réalisé de cette façon.</p>
+</div>

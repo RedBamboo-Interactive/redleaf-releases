@@ -1,0 +1,90 @@
+<!--page {"title": "Automatiser : ce qui se passe pendant votre absence · Cas d'usage RedLeaf", "description": "Demandez une fois et Nova met en place une planification ou un heartbeat qui surveille builds, tickets et échéances, puis ne vous signale que ce qui a changé.", "layout": "doc", "section": "cookbook", "slug": "automate"}-->
+<header>
+  <p class="eyebrow">Cas d'usage · Automatiser</p>
+  <h1>Ce qui se passe pendant votre absence.</h1>
+  <p class="doc-lede">Demandez une fois, avec vos mots. Nova, l'agent fourni avec RedLeaf, en fait une planification qui tourne sur votre ordinateur, vérifie ce que vous avez demandé, et ne se manifeste que lorsqu'il y a quelque chose qui mérite votre attention.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:heartbeat}}Heartbeat</span><span>{{icon:clock}}Automatisations</span></div>
+</header>
+
+<div class="recipe-demo" data-demo aria-label="Reconstitution animée : Nova met en place une vérification matinale et fait son rapport le lendemain">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen s-ask active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Point du matin</b><small>Nova · now</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="400"><p>Tous les matins à 7 h 30, regarde mes dépôts pour les builds en échec et les nouveaux tickets. Ne me préviens que si quelque chose a changé.</p></div>
+            <div class="msg nova" data-step="20"><div><div class="frieze"><i class="sq p" style="--d:0ms"></i><i class="sq t" style="--d:90ms"></i><i class="sq g" style="--d:180ms"></i></div><p data-step="20" data-fx="stream">C'est fait. Ça tourne aussi le week-end, sauf si tu préfères le garder tranquille. Les matins calmes restent calmes.</p></div></div>
+            <div class="sched-card" data-step="30" data-wait="700">
+              <div class="sched-head"><span class="app-icon amber">{{icon:clock}}</span><span><b>Point du matin</b><small>Automation · Nova</small></span><em class="badge ok">{{icon:check-circle}}active</em></div>
+              <dl><dt>When</dt><dd>Tous les jours, 07:30</dd><dt>Checks</dt><dd>Builds et nouveaux tickets sur 4 dépôts</dd><dt>Reports to</dt><dd>Live, seulement en cas de changement</dd></dl>
+            </div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="screen s-live" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row live selected"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Point du matin</b><small>Nova · yesterday</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="mode-tabs"><span class="active">Live</span><span>{{icon:heartbeat}}Heartbeat</span></div>
+          <div class="thread">
+            <div class="day-divider"><span>Demain, 07:30</span></div>
+            <div class="heartbeat-card" data-step="50" data-wait="700">{{icon:clock}}<div><b>Point du matin effectué</b><small>4 dépôts · 2 changements</small></div></div>
+            <div class="msg nova" data-step="55"><div><div class="frieze"><i class="sq t" style="--d:0ms"></i><i class="sq t" style="--d:90ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq t" style="--d:270ms"></i></div><p data-step="55" data-fx="stream">Deux choses. Quelqu'un a ouvert le ticket #41 sur trail-tracker : un plantage sous Android 15, avec les étapes pour le reproduire. Et le build de route-log est passé au rouge après le commit d'hier soir ; je pense que c'est le fichier de test renommé. Je lance une session sur l'un des deux ?</p></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+    <i data-step="45" data-wait="1800" data-fx="mark" data-remove=".s-ask|active" data-add=".s-live|active"></i>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Demandez une fois</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>Planifié</button></li>
+      <li><button type="button" data-seek="45"><span>03</span>Le lendemain matin</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Mettre la démo en pause">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Rejouer la démo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">Une reconstitution simplifiée de RedLeaf. Les dépôts et les tickets sont des exemples.</p>
+</div>
+
+<div class="prose">
+  <h2>Ce que vous pouvez demander</h2>
+  <ul class="prompt-list">
+    <li>Tous les matins à 7 h 30, regarde mes dépôts et dis-moi seulement ce qui a changé.</li>
+    <li>Surveille cette page et préviens-moi quand la billetterie ouvre.</li>
+    <li>Tous les vendredis après-midi, fais-moi un résumé de ce qu'on a terminé dans la semaine.</li>
+    <li>Si la sauvegarde n'a pas tourné depuis deux jours, préviens-moi.</li>
+  </ul>
+
+  <h2>Comment ça marche</h2>
+  <ol class="steps">
+    <li><b>Demandez dans une discussion</b>Dites quoi vérifier, à quelle fréquence, et quand ça vaut la peine de vous prévenir. Nova crée l'automatisation et vous montre ce qu'elle a mis en place.</li>
+    <li><b>Deux types de vérifications</b>Une vérification simple interroge une adresse web et compare la réponse, sans coût d'IA. Une vérification par agent passe un prompt à votre fournisseur quand il faut du jugement.</li>
+    <li><b>Le heartbeat</b>Nova a aussi un heartbeat : un moment régulier où elle regarde ce qui se passe et décide si quelque chose mérite un message.</li>
+    <li><b>Les résultats arrivent dans Live</b>Votre fil Live rassemble ce qui s'est passé pendant votre absence, avec le contexte de sa provenance.</li>
+  </ol>
+
+  <div class="callout">{{icon:eye}}<p><strong>Chaque exécution est visible.</strong> Chaque automatisation garde son historique, et chaque tâche d'IA qu'elle lance apparaît dans Compute : vous voyez ce qui a tourné, et vous pouvez le modifier ou l'arrêter à tout moment.</p></div>
+
+  <h2>Ce qu'il vous faut</h2>
+  <div class="needs">
+    <div><b>RedLeaf en marche</b><span>Les planifications tournent sur votre ordinateur, tant que RedLeaf est lancé.</span></div>
+    <div><b>GitHub CLI, pour cet exemple</b><span>Pour lire les builds et les tickets sur GitHub.</span></div>
+  </div>
+</div>

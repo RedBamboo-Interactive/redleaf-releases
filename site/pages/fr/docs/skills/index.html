@@ -1,0 +1,43 @@
+<!--page {"title": "Skills et protocoles · Documentation RedLeaf", "description": "Donnez à vos agents un savoir-faire réutilisable avec les Skills, des règles courtes et partagées avec les protocoles, et décidez de ce que le heartbeat de chaque agent peut faire.", "layout": "docs", "section": "docs", "slug": "skills"}-->
+<header>
+  <p class="eyebrow">Pour aller plus loin</p>
+  <h1>Skills et protocoles.</h1>
+  <p class="doc-lede">Une skill est un paquet de savoir-faire qu'un agent peut mobiliser quand c'est pertinent : comment relire une pull request, comment fonctionne votre processus de publication, comment parler à votre maison connectée. Écrivez-la une fois et donnez-la à n'importe quel agent. Les protocoles en sont la version courte : une règle de conduite partagée entre agents.</p>
+</header>
+
+<div class="prose">
+  <h2>Ce qu'est une skill</h2>
+  <table class="doc-table">
+    <thead><tr><th>Champ</th><th>À quoi il sert</th></tr></thead>
+    <tbody>
+      <tr><td>Description</td><td>Quand la skill s'applique. L'agent la lit pour décider s'il ouvre la skill : soyez donc précis. Jusqu'à 1 024 caractères.</td></tr>
+      <tr><td>Instructions</td><td>La skill elle-même, en Markdown : étapes, règles, exemples, pièges.</td></tr>
+      <tr><td>Package files</td><td>Des fichiers supplémentaires facultatifs : scripts, modèles, tableaux de référence.</td></tr>
+      <tr><td>Icon, Tags</td><td>Pour la retrouver dans la bibliothèque et dans le sélecteur de l'agent.</td></tr>
+      <tr><td>Trust</td><td>Votre vérification du contenu exécutable ou importé.</td></tr>
+      <tr><td>Agents</td><td>Les agents qui l'utilisent.</td></tr>
+    </tbody>
+  </table>
+  <p>Les skills sont des entités de type <span class="ui">Agent Skill</span>, dans <span class="ui">Database › Entities</span>. Ouvrez-en une pour modifier ses instructions, ou ses <span class="ui">Package files</span> (fichiers du paquet) pour envoyer des fichiers, puis <span class="ui">Save package</span>.</p>
+
+  <h2>Donner une skill à un agent</h2>
+  <p>Sur la page de l'agent, ajoutez-la au champ <span class="ui">Skills</span>. RedLeaf place une copie en lecture seule dans l'espace de travail de l'agent, au format qu'attend son fournisseur d'IA, et la tient à jour quand vous modifiez la skill. Ne modifiez pas ces copies : modifiez la skill, et elles suivent.</p>
+  <p>Les extensions peuvent apporter leurs propres skills. Quand vous en installez une qui en apporte, RedLeaf vous demande à quels agents <span class="ui">Give this skill to</span> (donner cette skill), avec Nova présélectionnée.</p>
+
+  <h3>Écrire une bonne skill</h3>
+  <ul>
+    <li>Rédigez la description comme un déclencheur : « À utiliser pour relire une pull request dans ce dépôt », et non « trucs de PR ».</li>
+    <li>Une seule tâche par skill. Deux skills ciblées valent mieux qu'une seule qui couvre tout.</li>
+    <li>Dites quoi vérifier, pas seulement quoi faire. Les agents suivent bien des critères d'acceptation.</li>
+    <li>Mettez les faits qui changent dans la mémoire, et les procédures dans les skills.</li>
+  </ul>
+
+  <h2>Les skills de Nova</h2>
+  <p>Nova démarre avec des skills pour travailler dans RedLeaf, pour l'ingénierie, pour déléguer à Code, pour intégrer des éléments RedLeaf dans une réponse, ainsi que les trois skills de rêve qui consolident sa mémoire pendant la nuit. Retirez-en n'importe laquelle de son champ <span class="ui">Skills</span> si vous ne voulez pas ce comportement.</p>
+
+  <h2>Protocoles</h2>
+  <p>Un protocole (une entité <span class="ui">Agent Protocol</span>) est une courte règle de conduite, jusqu'à 1 500 caractères, ajoutée aux instructions d'un agent après son Output Protocol. Utilisez-en un pour une règle que plusieurs agents doivent partager. Le protocole par défaut de Nova porte sur les réactions emoji : elle réagit de temps en temps, comme le ferait une personne dans un chat, et n'utilise jamais une réaction à la place d'une réponse à quelque chose de personnel. Ajoutez des protocoles à un agent dans son champ <span class="ui">Protocols</span>.</p>
+
+  <h2>Skills du heartbeat</h2>
+  <p>Un agent avec Live activé a un champ <span class="ui">Heartbeat Skills</span> distinct : ce que les ticks de son heartbeat peuvent faire. Chaque tick les transporte en entier : chacune doit donc rester sous 1 500 caractères et renvoyer vers une skill complète pour tout ce qui est plus long. Celles qui sont trop longues ou vides sont refusées, avec une raison. Voir <a href="{{root}}docs/automations/">Planifications et heartbeat</a>.</p>
+</div>

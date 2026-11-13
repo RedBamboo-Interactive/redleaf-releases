@@ -1,0 +1,51 @@
+<!--page {"title": "Configurer RedLeaf · Documentation RedLeaf", "description": "Ce qui se passe à la première ouverture de RedLeaf : la préparation de l'espace de travail et de la base de données, puis six courts chapitres, de votre compte à votre premier bonjour avec Nova.", "layout": "docs", "section": "docs", "slug": "first-run"}-->
+<header>
+  <p class="eyebrow">Premiers pas</p>
+  <h1>Configurer RedLeaf.</h1>
+  <p class="doc-lede">À sa première ouverture, RedLeaf prépare seul son stockage privé, puis vous guide à travers six courts chapitres. La plupart se règlent en un clic. Deux ont besoin de vous : votre compte et votre fournisseur d'IA.</p>
+</header>
+
+<div class="prose">
+  <h2>Préparer RedLeaf</h2>
+  <p>Avant les chapitres, RedLeaf prépare deux choses qui restent sur votre machine. Vous suivez leur progression sous <span class="ui">Prepare RedLeaf</span>, et le premier chapitre s'ouvre quand les deux sont prêtes.</p>
+  <ul>
+    <li><strong>Le système de fichiers des agents.</strong> Sous Windows, RedLeaf télécharge et vérifie WinFsp, puis affiche <span class="ui">Windows needs your approval</span> (Windows a besoin de votre autorisation) : acceptez la demande d'installation. Sous Linux, il teste un montage FUSE jetable sous votre utilisateur. Si FUSE manque, installez le paquet <code>fuse3</code> et choisissez <span class="ui">Try again</span>.</li>
+    <li><strong>La base de données privée.</strong> RedLeaf télécharge et démarre son propre PostgreSQL. Vous n'avez besoin ni de Docker ni d'un serveur existant. Au premier lancement, cela peut prendre quelques minutes.</li>
+  </ul>
+  <p>Si une étape échoue, choisissez <span class="ui">Try again</span> (réessayer). Vous pouvez réessayer sans risque.</p>
+
+  <h2>Les six chapitres</h2>
+  <p>Utilisez <span class="ui">Back</span> et <span class="ui">Next</span> pour passer de l'un à l'autre. Un chapitre se débloque quand le précédent est terminé.</p>
+  <table class="doc-table">
+    <thead><tr><th>Chapitre</th><th>Ce que vous faites</th></tr></thead>
+    <tbody>
+      <tr><td>Welcome</td><td>Rien à remplir. Il liste ce que la configuration débloque : un espace de travail privé, une IA connectée, et Nova, prête à travailler.</td></tr>
+      <tr><td>Appearance</td><td>Choisissez le thème clair ou sombre, et le contraste élevé. Vous pourrez changer les deux plus tard dans <span class="ui">Settings › Appearance</span>.</td></tr>
+      <tr><td>Available from Start</td><td>Sous Windows, comment trouver RedLeaf dans le menu Démarrer et l'épingler. Sous Linux, ce chapitre s'appelle <span class="ui">Launch RedLeaf</span> : comment le démarrer et l'arrêter, et où se trouvent vos données.</td></tr>
+      <tr><td>Your RedLeaf space</td><td>Créez le compte propriétaire local : nom affiché, adresse e-mail et mot de passe d'au moins 8 caractères. Choisissez <span class="ui">Create my account</span>. RedLeaf redémarre une fois et reprend.</td></tr>
+      <tr><td>Connect AI</td><td>Choisissez le fournisseur que Nova utilisera, connectez-vous et vérifiez-le. Voir ci-dessous.</td></tr>
+      <tr><td>Meet Nova</td><td>Votre première courte conversation. Choisissez ensuite <span class="ui">Complete setup</span>.</td></tr>
+    </tbody>
+  </table>
+  <p>Votre mot de passe sert uniquement à créer le compte. Il n'apparaît jamais dans la progression de la configuration, dans les journaux ni dans le profil de Nova. Vous pourrez ajouter plus tard la connexion avec Google, pour l'accès à distance ou pour d'autres personnes : voir <a href="{{root}}docs/remote-access/">Accès à distance</a>.</p>
+
+  <h2>Connecter l'IA</h2>
+  <p>RedLeaf liste les fournisseurs qu'il trouve sur cet ordinateur et en présélectionne un : Claude Code d'abord, puis Codex. Chacun se connecte par sa propre appli ou sa ligne de commande, dans votre navigateur :</p>
+  <table class="doc-table">
+    <thead><tr><th>Fournisseur</th><th>Comment vous connecter</th></tr></thead>
+    <tbody>
+      <tr><td>Claude Code</td><td><span class="ui">Continue with Claude</span> pour un abonnement Claude, ou <span class="ui">Use Anthropic Console</span> pour une facturation à l'API. Claude Code doit déjà être installé.</td></tr>
+      <tr><td>Codex</td><td><span class="ui">Continue with ChatGPT</span>, ou <span class="ui">Use an API key</span>. Si Codex n'est pas installé, choisissez <span class="ui">Install Codex CLI</span> : RedLeaf installe le paquet d'OpenAI pour votre compte, sans droits d'administrateur.</td></tr>
+      <tr><td>OpenCode</td><td><span class="ui">Open OpenCode sign-in</span> ouvre un terminal où vous choisissez un fournisseur et vous connectez. Vous installez OpenCode vous-même.</td></tr>
+    </tbody>
+  </table>
+  <p>Choisissez ensuite <span class="ui">Verify</span>. RedLeaf envoie une requête inoffensive pour prouver que Nova peut utiliser le fournisseur. Si vous avez installé ou connecté quelque chose ailleurs entre-temps, choisissez <span class="ui">Check again</span>.</p>
+  <div class="callout">{{icon:shield-check}}<p><strong>Votre connexion reste chez le fournisseur.</strong> Claude Code et Codex conservent leurs propres identifiants sur votre PC. Une clé d'API que vous collez est transmise à l'outil du fournisseur, et tout ce que RedLeaf stocke lui-même est chiffré.</p></div>
+
+  <h2>Faire connaissance avec Nova</h2>
+  <p>Le dernier chapitre ouvre un petit chat avec Nova. Dites bonjour. Si son message d'accueil ne démarre pas, choisissez <span class="ui">Try again</span>. Vous verrez aussi un interrupteur pour partager des statistiques d'utilisation anonymes : des comptages, comme le nombre de sessions lancées, jamais leur contenu. Il reste désactivé tant que vous ne l'activez pas, et vous pourrez le changer plus tard dans <span class="ui">Settings › Usage sharing</span>. La <a href="{{root}}privacy/usage-sharing/">notice des statistiques d'utilisation</a> détaille exactement ce qui est envoyé.</p>
+  <p><span class="ui">Complete setup</span> devient disponible une fois l'espace de travail monté et la réponse de Nova reçue. RedLeaf ouvre alors Nova, avec votre première discussion qui vous attend.</p>
+
+  <h2>Modifier vos réponses plus tard</h2>
+  <p>Tout ce qui est ici peut être modifié dans Settings. Pour refaire la configuration, ouvrez <span class="ui">Settings › Setup &amp; Health</span> et choisissez <span class="ui">Revisit setup</span>.</p>
+</div>

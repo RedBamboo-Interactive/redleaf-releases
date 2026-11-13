@@ -1,0 +1,50 @@
+<!--page {"title": "Extensions · Documentation RedLeaf", "description": "Parcourez le Marketplace, installez, désactivez et désinstallez des extensions, lisez leurs guides, et comprenez les extensions de base, les capacités et les fournisseurs.", "layout": "docs", "section": "docs", "slug": "extensions"}-->
+<header>
+  <p class="eyebrow">Pour aller plus loin</p>
+  <h1>Extensions.</h1>
+  <p class="doc-lede">Tout ce qui dépasse le cœur de RedLeaf arrive sous forme d'extension : des fournisseurs, de nouvelles applis comme Smart Home ou Gallery, et des connexions comme Discord ou Mail. Vous les trouvez, les installez et les gérez au même endroit, et chacune est signée.</p>
+</header>
+
+<div class="prose">
+  <h2>Où les trouver</h2>
+  <p>Ouvrez <span class="ui">Settings › Extensions</span>. En haut, la recherche porte à la fois sur ce qui est installé et sur le Marketplace. La liste est organisée en groupes :</p>
+  <table class="doc-table">
+    <thead><tr><th>Groupe</th><th>Ce qu'il contient</th></tr></thead>
+    <tbody>
+      <tr><td>Core</td><td>Les parties que RedLeaf gère lui-même, comme Nova, Code et Compute. Toujours disponibles.</td></tr>
+      <tr><td>System companion</td><td>Des programmes qui tournent indépendamment de RedLeaf, comme Doctor.</td></tr>
+      <tr><td>Installed</td><td>Les extensions que vous avez ajoutées. Chacune a un interrupteur pour la désactiver sans la désinstaller.</td></tr>
+      <tr><td>Marketplace</td><td>Tout ce qui est disponible dans le flux de versions signé.</td></tr>
+    </tbody>
+  </table>
+  <p>Les extensions installées qui ont des paramètres ont aussi leur propre entrée dans la barre latérale de Settings.</p>
+
+  <h2>Avant d'installer : le guide</h2>
+  <p>Ouvrez n'importe quelle extension pour lire son <span class="ui">Guide</span> : ce qu'elle fait, ce qu'il vous faut, la configuration, des choses à essayer, la confidentialité et le coût, les limites, et que faire en cas de problème. La fiche du Marketplace indique aussi si elle convient à votre machine, par exemple <span class="ui">Works on this PC</span>, <span class="ui">Needs WSL</span> ou <span class="ui">Needs an NVIDIA GPU</span>. Un doute ? Choisissez <span class="ui">Ask Nova about this</span>.</p>
+
+  <h2>Installer, désactiver, désinstaller</h2>
+  <ul>
+    <li><strong>Installez</strong> depuis son entrée dans le Marketplace. L'installation nécessite le rôle admin, que possède le compte propriétaire. Certaines extensions vous demandent ensuite de <span class="ui">Finish setup</span> (terminer la configuration), par exemple en vous connectant ou en enregistrant une clé.</li>
+    <li><strong>Désactivez</strong> une extension installée avec son interrupteur.</li>
+    <li><strong>Désinstallez</strong> depuis <span class="ui">More actions › Uninstall</span>. Si d'autres extensions en dépendent, RedLeaf vous le signale et ne la supprime pas.</li>
+  </ul>
+  <p>Certains changements prennent effet après un redémarrage. RedLeaf affiche <span class="ui">Changes pending restart</span> et propose de redémarrer, ce qui prend quelques secondes.</p>
+  <p>Les agents peuvent suggérer une extension en mettant un lien vers elle, mais ils n'en installent jamais une eux-mêmes.</p>
+
+  <h2>Capacités et fournisseurs</h2>
+  <p>Certaines extensions sont des capacités : une base partagée, comme Text to Speech ou Image Generation, qui ne fait rien à elle seule. Les fournisseurs viennent la remplir. Vous installez rarement une capacité vous-même ; elle arrive avec le premier fournisseur qui en a besoin. Quand plusieurs fournisseurs remplissent la même capacité, choisissez le <span class="ui">Default provider</span> (fournisseur par défaut) dans les paramètres de la capacité. Voir <a href="{{root}}docs/providers/">Fournisseurs d'IA et modèles locaux</a>.</p>
+
+  <h2>Mises à jour</h2>
+  <p>Les mises à jour des extensions viennent du flux de versions signé, comme le reste de RedLeaf. La section Extensions indique quand des mises à jour sont disponibles ; choisissez <span class="ui">Review updates</span> pour les installer depuis <a href="{{root}}docs/updates/">Mises à jour</a>.</p>
+
+  <h2>Quelques-unes pour commencer</h2>
+  <table class="doc-table">
+    <thead><tr><th>Extension</th><th>Ce qu'elle ajoute</th></tr></thead>
+    <tbody>
+      <tr><td>Smart Home</td><td>Les lampes Philips Hue, les enceintes Sonos, Spotify et les caméras Nest, pour vos agents et dans sa propre appli.</td></tr>
+      <tr><td>Ambience</td><td>Des fonds d'écran pour RedLeaf et, sous Windows, pour votre bureau, selon un horaire.</td></tr>
+      <tr><td>Gallery</td><td>Un seul mur réunissant toutes les images et vidéos de RedLeaf, pour choisir, noter et étiqueter.</td></tr>
+      <tr><td>ComfyUI, ElevenLabs, Suno</td><td>Images, voix et musique. Voir <a href="{{root}}docs/create/">Images, voix et musique</a>.</td></tr>
+    </tbody>
+  </table>
+</div>

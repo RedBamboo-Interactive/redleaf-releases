@@ -1,0 +1,59 @@
+<!--page {"title": "Planifications et heartbeat · Documentation RedLeaf", "description": "Demandez à un agent de surveiller quelque chose régulièrement, voyez ce qui s'est exécuté et ce que cela a coûté, et comprenez le heartbeat et la discussion Live.", "layout": "docs", "section": "docs", "slug": "automations"}-->
+<header>
+  <p class="eyebrow">Au quotidien</p>
+  <h1>Planifications et heartbeat.</h1>
+  <p class="doc-lede">Les agents peuvent agir pendant votre absence : vérifier un build chaque matin, surveiller une page, relancer une échéance. Il suffit de le demander. Et les agents dotés d'un heartbeat passent la journée en revue d'eux-mêmes, et ne prennent la parole que quand quelque chose le mérite.</p>
+</header>
+
+<div class="prose">
+  <h2>Il suffit de demander</h2>
+  <p>Dites quoi vérifier, à quelle fréquence, et quand cela vaut la peine de vous prévenir. L'agent crée l'automatisation et vous montre ce qu'il a mis en place.</p>
+  <ul class="prompt-list">
+    <li>Chaque matin à 7 h 30, vérifie mes dépôts et dis-moi seulement ce qui a changé.</li>
+    <li>Surveille cette page et préviens-moi quand les billets seront en vente.</li>
+    <li>Si la sauvegarde n'a pas tourné depuis deux jours, dis-le-moi.</li>
+    <li>Chaque dimanche soir, demande-moi comment s'est passée la semaine et mets à jour le plan en cours.</li>
+  </ul>
+  <p>Pour en modifier ou en arrêter une, demandez de la même façon : « Décale la vérification du matin à 8 h », « Arrête de surveiller la page des billets ».</p>
+
+  <h2>Deux types de vérifications</h2>
+  <table class="doc-table">
+    <thead><tr><th>Type</th><th>Fonctionnement</th><th>Coût</th></tr></thead>
+    <tbody>
+      <tr><td>Vérification simple</td><td>Interroge une adresse web et compare la réponse à une condition, comme un statut ou un prix.</td><td>Aucun coût d'IA</td></tr>
+      <tr><td>Vérification par l'agent</td><td>Fait passer un prompt par le fournisseur de l'agent, quand il faut du discernement pour trancher.</td><td>Utilise votre fournisseur</td></tr>
+    </tbody>
+  </table>
+  <p>Les agents choisissent le type simple quand c'est possible. Les planifications s'exécutent sur votre ordinateur, tant que RedLeaf tourne. Chaque planification a aussi une règle pour les exécutions manquées pendant que RedLeaf était éteint.</p>
+
+  <h2>Voir ce qui s'est exécuté</h2>
+  <ul>
+    <li><strong>Compute › Jobs.</strong> Chaque déclenchement est une tâche, avec l'heure d'exécution, ce qui a été appelé, la durée et le coût. Filtrez par type ou par l'appli qui l'a lancée.</li>
+    <li><strong>Le Journal de l'agent.</strong> Le filtre <span class="ui">Scheduled</span> affiche les exécutions, et <span class="ui">Failed</span> celles qui ont échoué.</li>
+    <li><strong>La page de l'agent.</strong> Son champ <span class="ui">Automations</span> liste toutes les planifications qui s'exécutent sous l'identité de cet agent.</li>
+    <li><strong>La discussion Live.</strong> Quand une vérification trouve quelque chose, l'agent vous le dit là.</li>
+  </ul>
+
+  <h2>Le heartbeat</h2>
+  <p>Un agent dont <span class="ui">Live</span> est activé a deux discussions permanentes : <span class="ui">Live</span>, où il vous parle, et <span class="ui">Heartbeat</span>, où il réfléchit de son côté. Environ une fois par heure au fil de la journée, un tick du heartbeat examine ce qui s'est passé : vos discussions, les tâches terminées, les événements venus d'autres applis. Puis il décide si quelque chose doit être fait. La plupart des ticks sont silencieux, et c'est très bien ainsi.</p>
+  <p>Ce qu'un tick peut faire est défini par les <span class="ui">Heartbeat Skills</span> de l'agent. Ceux de Nova comprennent :</p>
+  <ul>
+    <li><strong>Actions à suivre :</strong> repérer les engagements pris en conversation et les noter avant qu'ils ne se perdent.</li>
+    <li><strong>Relances de conversation :</strong> inciter la discussion Live à vous contacter quand vous êtes resté silencieux un moment ou qu'il s'est passé quelque chose qui mérite d'en parler.</li>
+    <li><strong>Initiatives :</strong> lancer un travail utile que personne n'a demandé, chacun dans sa propre discussion intitulée « Initiative&#58; … », au plus une par tick. Sans votre permission, le heartbeat ne fait rien en dehors de votre machine, rien en votre nom, rien qui dépense de l'argent ou détruise des informations.</li>
+  </ul>
+  <p>Retirez un skill de heartbeat de la page de l'agent, et le tick suivant s'en passe. Suivez les ticks dans l'onglet <span class="ui">Heartbeat</span>, ou filtrez le Journal par <span class="ui">Ticks</span>. Désactiver <span class="ui">Live</span> ferme les deux discussions et met le heartbeat en pause, en gardant sa planification pour plus tard.</p>
+  <div class="callout">{{icon:shield-check}}<p><strong>Personne n'est là pour cliquer sur Allow.</strong> Les heartbeats et les planifications tournent sans surveillance : ils ne peuvent pas attendre une autorisation. C'est pourquoi le niveau d'accès par défaut est Auto, où un contrôle de sécurité approuve les actions courantes et bloque les actions risquées. Voir <a href="{{root}}docs/access-levels/">Niveaux d'accès</a>.</p></div>
+
+  <h2>Les planifications que RedLeaf gère lui-même</h2>
+  <table class="doc-table">
+    <thead><tr><th>Quoi</th><th>Quand</th></tr></thead>
+    <tbody>
+      <tr><td>Fil Live</td><td>La discussion Live démarre un nouveau fil chaque jour. Les jours précédents restent dans les archives. <span class="ui">Reset timeline</span> le fait à la main.</td></tr>
+      <tr><td>Cycle de rêve</td><td>Chaque nuit, pour les agents dotés des skills de rêve. Voir <a href="{{root}}docs/memory/">Mémoire</a>.</td></tr>
+      <tr><td>Recherche de mises à jour</td><td>Au démarrage et toutes les 12 heures. Rien ne s'installe sans vous.</td></tr>
+      <tr><td>Sauvegardes</td><td>Seulement si vous les activez. Voir <a href="{{root}}docs/backups/">Sauvegardes</a>.</td></tr>
+    </tbody>
+  </table>
+  <p>Sous le capot, chaque automatisation exécute un Workflow : un petit graphe d'étapes que vous pouvez ouvrir dans l'éditeur de flux de Workspace. Le cas d'usage <a href="{{root}}cookbook/automate/">Automatiser</a> propose d'autres idées.</p>
+</div>

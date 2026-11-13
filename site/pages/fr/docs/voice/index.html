@@ -1,0 +1,48 @@
+<!--page {"title": "Voix et Float Nova · Documentation RedLeaf", "description": "Parlez à vos agents en push-to-talk ou en appel vocal en direct, faites-les parler, et gardez Nova dans une petite fenêtre toujours au premier plan.", "layout": "docs", "section": "docs", "slug": "voice"}-->
+<header>
+  <p class="eyebrow">Au quotidien</p>
+  <h1>Voix et Float Nova.</h1>
+  <p class="doc-lede">Il y a trois façons d'utiliser votre voix avec un agent : maintenir une touche et parler, le faire répondre à voix haute, ou ouvrir un appel en direct. Chacune a besoin de son propre fournisseur : configurez seulement celles que vous voulez.</p>
+</header>
+
+<div class="prose">
+  <table class="doc-table">
+    <thead><tr><th>Fonction</th><th>Ce qu'elle fait</th><th>Prérequis</th></tr></thead>
+    <tbody>
+      <tr><td>Push-to-talk</td><td>Vous parlez, et cela devient votre message</td><td>Un fournisseur Speech to Text (reconnaissance vocale) : faster-whisper, en local</td></tr>
+      <tr><td>Réponses parlées</td><td>L'agent lit quelque chose à voix haute ou envoie un audio</td><td>Un fournisseur Text to Speech (synthèse vocale) : ElevenLabs dans le cloud, ou Qwen3-TTS en local</td></tr>
+      <tr><td>Mode vocal</td><td>Un appel en direct, dans les deux sens, avec l'agent</td><td>OpenAI GPT-Live, sur un compte OpenAI API</td></tr>
+    </tbody>
+  </table>
+  <p>Les fournisseurs locaux nécessitent une carte graphique NVIDIA et WSL 2, et RedLeaf les installe pour vous. Voir <a href="{{root}}docs/providers/">Fournisseurs d'IA et modèles locaux</a>.</p>
+
+  <h2>Push-to-talk</h2>
+  <p>Quand le champ de message est vide, un bouton micro apparaît à côté : maintenez <span class="ui">Hold to talk</span> enfoncé, parlez, puis relâchez. RedLeaf transcrit ce que vous avez dit, nettoie les hésitations et la ponctuation sans changer le sens, et l'envoie. Si l'agent vous a posé une question, cela devient votre réponse.</p>
+  <p>Vous pouvez aussi maintenir une touche à la place. Définissez-la d'abord : ouvrez <span class="ui">Settings › Nova</span> et choisissez une <span class="ui">Push-to-talk key</span> sous <span class="ui">Voice</span>. La touche par défaut, <kbd>F13</kbd>, n'existe pas sur la plupart des claviers. La même section contient votre <span class="ui">Microphone</span>, votre <span class="ui">Speaker</span> (haut-parleur) et <span class="ui">Voice processing</span>, qui active l'annulation d'écho et la réduction de bruit. Désactivez-le pour les câbles virtuels ou les entrées ligne.</p>
+
+  <h2>Réponses parlées</h2>
+  <p>Avec un fournisseur Text to Speech installé, un agent peut transformer du texte en parole : demandez-lui de lire quelque chose à voix haute, ou d'enregistrer un message. L'audio se lit directement dans la discussion. Pour donner à un agent sa propre voix, choisissez-en une dans son champ <span class="ui">Voice</span>, sur la page de l'agent. Voir <a href="{{root}}docs/agents/">Nova et vos propres agents</a>.</p>
+
+  <h2>Mode vocal</h2>
+  <p>Le mode vocal est un appel en direct. Ouvrez-le depuis le menu de la discussion avec <span class="ui">Voice</span>, ou appuyez sur <kbd>Alt</kbd>+<kbd>V</kbd>. Vous voyez le portrait de l'agent, des sous-titres en direct et un état : <span class="ui">Listening</span> (à l'écoute), <span class="ui">Speaking</span> (parle), ou <span class="ui">Working on that</span> (j'y travaille) quand il fait quelque chose de plus long. Appuyez sur <kbd>Esc</kbd> ou sur <span class="ui">End voice session</span> pour raccrocher.</p>
+  <p>Ce n'est pas une conversation à part. Tout ce qui est dit est enregistré dans la même discussion. Le modèle vocal en direct répond lui-même aux échanges simples. Tout ce qui demande la mémoire, les outils ou les fichiers de l'agent est transmis à l'agent lui-même : c'est là que vous voyez <span class="ui">Working on that</span>.</p>
+  <h3>Mise en place</h3>
+  <ol class="steps">
+    <li><b>Installez OpenAI GPT-Live</b>Depuis <span class="ui">Settings › Extensions</span>. Il est facturé à l'usage sur un compte OpenAI API. Un abonnement ChatGPT ne le couvre pas.</li>
+    <li><b>Enregistrez une clé de projet</b>Collez une clé de projet OpenAI, qui commence par <code>sk-proj-</code>, dans les réglages de l'extension.</li>
+    <li><b>Choisissez une Live Voice</b>Ouvrez la page de l'agent et choisissez une <span class="ui">Live Voice</span>. Lancez ensuite <span class="ui">Voice</span> depuis l'une de ses discussions.</li>
+  </ol>
+  <p>Si Voice ne démarre pas, vérifiez que la clé est enregistrée et que l'agent auquel vous parlez a une Live Voice. Le mode vocal fonctionne aussi sur téléphone, via l'<a href="{{root}}docs/remote-access/">accès à distance</a>.</p>
+
+  <h2>Float Nova</h2>
+  <p>Float Nova est une fenêtre compacte avec vos discussions, qui reste au premier plan, au-dessus de tout le reste. Ouvrez-la avec <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>, ou choisissez <span class="ui">Float</span> dans le menu d'une discussion. Tant qu'elle est ouverte, votre touche push-to-talk fonctionne depuis n'importe quelle appli. Choisissez <span class="ui">Dock</span> pour ramener la discussion dans RedLeaf.</p>
+  <table class="doc-table">
+    <thead><tr><th>Touche</th><th>Dans Float Nova</th></tr></thead>
+    <tbody>
+      <tr><td><kbd>Alt</kbd>+<kbd>N</kbd></td><td>Nouvelle discussion</td></tr>
+      <tr><td><kbd>Alt</kbd>+<kbd>←</kbd> / <kbd>→</kbd></td><td>Liste des discussions / le chat</td></tr>
+      <tr><td><kbd>Alt</kbd>+<kbd>↓</kbd> / <kbd>↑</kbd></td><td>Discussion suivante / précédente</td></tr>
+    </tbody>
+  </table>
+  <p>Float Nova est conçue pour les ordinateurs de bureau. La page principale de RedLeaf doit rester ouverte en arrière-plan. Si elle se ferme toute seule, gardez RedLeaf ouvert dans sa propre fenêtre et appuyez de nouveau sur <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>.</p>
+</div>

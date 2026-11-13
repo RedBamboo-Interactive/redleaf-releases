@@ -1,0 +1,55 @@
+<!--page {"title": "Niveaux d'accès · Documentation RedLeaf", "description": "Plan, Ask, Auto et Full : ce qu'un agent peut faire sans vous demander, où régler le niveau par défaut, par agent et par session, et ce qu'il faut savoir avant d'activer Full access.", "layout": "docs", "section": "docs", "slug": "access-levels"}-->
+<header>
+  <p class="eyebrow">Pour aller plus loin</p>
+  <h1>Niveaux d'accès.</h1>
+  <p class="doc-lede">Un niveau d'accès détermine ce qu'un agent peut faire dans une session sans vous demander d'abord. Il en existe quatre, de la simple lecture à l'exécution de n'importe quoi. Vous seul pouvez les modifier, depuis Settings, en personne.</p>
+</header>
+
+<div class="prose">
+  <h2>Les quatre niveaux</h2>
+  <table class="doc-table">
+    <thead><tr><th>Niveau</th><th>Ce que l'agent peut faire</th></tr></thead>
+    <tbody>
+      <tr><td>Plan</td><td>Il lit et planifie. Il ne modifie rien tant que vous ne le laissez pas passer à l'action.</td></tr>
+      <tr><td>Ask</td><td>Il modifie les fichiers du projet et vous demande avant toute autre chose, par exemple avant d'exécuter une commande.</td></tr>
+      <tr><td>Auto</td><td>Un contrôle de sécurité autorise les actions courantes et bloque les actions risquées.</td></tr>
+      <tr><td>Full</td><td>Il fait n'importe quoi sans demander. Disponible uniquement quand Full access est activé.</td></tr>
+    </tbody>
+  </table>
+  <p>Le niveau par défaut est <strong>Auto</strong>, avec Full access désactivé. Les heartbeats, les planifications et les autres sessions sans surveillance ne peuvent pas attendre qu'une personne autorise une étape : Auto leur permet de continuer à travailler tout en arrêtant ce qui est risqué.</p>
+  <p>Plan et Auto nécessitent un fournisseur qui les prend en charge. Sinon, la session utilise Ask à la place.</p>
+
+  <h2>Où le régler</h2>
+  <table class="doc-table">
+    <thead><tr><th>Portée</th><th>Où</th></tr></thead>
+    <tbody>
+      <tr><td>Tous les agents</td><td><span class="ui">Settings › Agent permissions › New sessions</span>. Utilisé par chaque agent qui n'a pas son propre niveau.</td></tr>
+      <tr><td>Un agent</td><td>La page de l'agent, dans son champ <span class="ui">Access level</span>. Choisissez un niveau, ou <span class="ui">Use default</span> (utiliser le niveau par défaut).</td></tr>
+      <tr><td>Une session</td><td>La boîte de dialogue <span class="ui">Info</span> de la session, sous <span class="ui">Permissions</span>. Le changement s'applique immédiatement.</td></tr>
+    </tbody>
+  </table>
+  <p>Une session ne peut pas dépasser le niveau avec lequel elle a démarré, et un agent ne peut jamais relever son propre niveau. Dans Code, <kbd>Shift</kbd>+<kbd>Tab</kbd> active ou désactive le mode Plan, et revient au niveau précédent quand vous en sortez.</p>
+
+  <h2>Autorisations</h2>
+  <p>Quand une action a besoin de votre permission, l'agent s'arrête et affiche une carte d'autorisation. Son carré d'étape prend un anneau ambre, et la discussion est marquée comme en attente de votre réponse.</p>
+  <ul>
+    <li><span class="ui">Allow once</span> (autoriser une fois) laisse cette seule action s'exécuter.</li>
+    <li><span class="ui">Allow for this session</span> (autoriser pour cette session) cesse de demander pour ce type d'action jusqu'à la fin de la session.</li>
+    <li><span class="ui">Deny</span> (refuser) la refuse, et l'agent continue sans elle.</li>
+  </ul>
+  <p>Les actions refusées par la politique, sans vous demander, apparaissent sous forme de courte note sous la dernière réponse de l'agent.</p>
+
+  <h2>Full access</h2>
+  <p>Activer <span class="ui">Full access</span> dans <span class="ui">Settings › Agent permissions</span> ouvre un avertissement que vous devez lire et accepter. En résumé, il dit ceci : avec Full access, un agent exécute n'importe quelle commande sans demander. Il peut supprimer des fichiers, réécrire l'historique git, effacer une base de données ou envoyer vos données ailleurs. Le plus souvent, ce serait une erreur. Parfois, c'est parce que quelque chose qu'il a lu, comme un message Discord, un e-mail ou une page web, le lui a demandé.</p>
+  <p>Avant de l'activer :</p>
+  <ul>
+    <li>gardez une sauvegarde hors de portée de l'agent, et testez une restauration au moins une fois ;</li>
+    <li>poussez votre code souvent ;</li>
+    <li>sachez ce que RedLeaf sauvegarde : sa propre base de données, pas vos autres fichiers ;</li>
+    <li>ne laissez pas de mots de passe ni de clés d'API dans des fichiers en clair ;</li>
+    <li>préférez Ask ou Auto pour tout ce qui lit du contenu non fiable, et utilisez Full pour une seule session à la fois, quand vous en avez besoin.</li>
+  </ul>
+  <p>Le désactiver ramène chaque niveau par défaut Full à Auto, et les sessions Full en cours à leur niveau par défaut. Si le texte de l'avertissement change, Full access se désactive jusqu'à ce que vous acceptiez la nouvelle version.</p>
+
+  <div class="callout warn">{{icon:warning}}<p><strong>Les agents lisent des choses que vous n'avez pas écrites.</strong> Les pages web, les e-mails et les messages peuvent contenir des instructions destinées à une IA. Plus le niveau d'accès est bas, moins une telle instruction peut faire de dégâts. C'est la vraie raison de réserver Full access aux moments où vous en avez besoin.</p></div>
+</div>

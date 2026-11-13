@@ -1,0 +1,60 @@
+<!--page {"title": "Installer sur Linux · Documentation RedLeaf", "description": "Installez FUSE 3, lancez l'installeur RedLeaf en une ligne sous votre propre compte et ouvrez RedLeaf dans votre navigateur. Testé sur Fedora avec SELinux en mode enforcing.", "layout": "docs", "section": "docs", "slug": "install-linux"}-->
+<header>
+  <p class="eyebrow">Premiers pas</p>
+  <h1>Installer sur Linux.</h1>
+  <p class="doc-lede">RedLeaf s'installe dans votre dossier personnel, sous votre compte, sans accès root. Un court script vérifie le lanceur par rapport à l'enregistrement de version signé, et le lanceur vérifie tout le reste avant d'installer.</p>
+</header>
+
+<div class="prose">
+  <h2>Avant de commencer</h2>
+  <ul>
+    <li><strong>Linux x64.</strong> RedLeaf est testé sur Fedora avec SELinux en mode enforcing. Il n'y a rien à réétiqueter ni à désactiver.</li>
+    <li><strong>FUSE 3</strong>, qui fournit votre dossier <code>~/Leaf</code>. Installez-le d'abord :
+      <pre><code># Fedora
+sudo dnf install fuse3
+# Debian and Ubuntu
+sudo apt install fuse3
+# Arch
+sudo pacman -S fuse3</code></pre></li>
+    <li><strong>Les outils habituels</strong> : <code>curl</code>, <code>tar</code>, <code>sha256sum</code>, <code>python3</code> et <code>mktemp</code>. La plupart des distributions les ont déjà.</li>
+    <li><strong>Un fournisseur d'IA auquel vous pouvez vous connecter.</strong> Voir <a href="{{root}}docs/providers/">Fournisseurs d'IA</a>.</li>
+    <li><strong>Git</strong>, depuis votre distribution, seulement si vous voulez utiliser Code sur vos propres projets.</li>
+  </ul>
+
+  <h2>Installer</h2>
+  <ol class="steps">
+    <li><b>Copiez la commande</b>Allez à la <a href="{{root}}#download">section de téléchargement</a>, choisissez l'onglet <span class="ui">Linux</span> et copiez la commande d'installation. Elle ressemble à <code>curl -fsSL https://…/install.sh | sh</code> et pointe toujours vers la version signée actuelle.</li>
+    <li><b>Exécutez-la sous votre propre compte</b>Collez-la dans un terminal. N'utilisez pas <code>sudo</code> : RedLeaf s'installe par utilisateur et refuse de tourner en root.</li>
+    <li><b>Laissez-le vérifier et installer</b>Le script lit le flux signé, télécharge le lanceur et compare sa taille exacte et son SHA-256 à l'enregistrement signé. Rien ne s'exécute s'ils ne correspondent pas. Le lanceur vérifie ensuite le flux à son tour et installe la suite.</li>
+    <li><b>Ouvrez RedLeaf</b>Votre navigateur ouvre <code>http://127.0.0.1:18804</code>. Sur une machine sans écran, par exemple en SSH, le lanceur affiche l'adresse à la place. Continuez avec <a href="{{root}}docs/first-run/">Configurer RedLeaf</a>.</li>
+  </ol>
+  <p>Vous préférez ne pas envoyer un script directement dans un shell ? Choisissez plutôt <span class="ui">Download Nightly</span> dans l'onglet Linux, vérifiez l'archive avec <span class="ui">Show SHA-256</span>, puis :</p>
+  <pre><code>tar -xzf redleaf-linux-x64.tar.gz redleaf-launcher
+./redleaf-launcher open</code></pre>
+
+  <div class="callout warn">{{icon:warning}}<p><strong>La version Linux n'est peut-être pas encore sortie.</strong> Si l'onglet Linux indique que la version Linux n'est pas publiée, il n'y a rien à installer pour l'instant. Les versions Windows sont publiées séparément.</p></div>
+
+  <h2>Où se trouve quoi</h2>
+  <table class="doc-table">
+    <thead><tr><th>Quoi</th><th>Où</th></tr></thead>
+    <tbody>
+      <tr><td>Le programme</td><td><code>~/.local/share/RedLeaf-Suite</code></td></tr>
+      <tr><td>Vos données</td><td><code>~/.local/share/RedLeaf</code> : les réglages, la base de données privée et les journaux. Sauvegardez ce dossier pour tout conserver.</td></tr>
+      <tr><td>Espaces de travail des agents</td><td><code>~/Leaf/Workspaces</code>, tant que RedLeaf tourne</td></tr>
+      <tr><td>Entrée de menu</td><td><span class="ui">RedLeaf</span> dans le menu des applications</td></tr>
+    </tbody>
+  </table>
+  <p>Si <code>XDG_DATA_HOME</code> est défini, RedLeaf l'utilise à la place de <code>~/.local/share</code>.</p>
+
+  <h2>Démarrer et arrêter</h2>
+  <p>Lancez RedLeaf depuis le menu des applications. Il n'y a pas d'icône dans la zone de notification sous Linux, et RedLeaf continue de tourner une fois le navigateur fermé. Pour l'arrêter :</p>
+  <pre><code>pkill -TERM -x RedLeaf</code></pre>
+  <p>Le moteur d'IA, la base de données privée et le dossier <code>~/Leaf</code> s'arrêtent avec lui.</p>
+
+  <h2>Différences avec Windows</h2>
+  <ul>
+    <li>Doctor, l'assistant de récupération, n'existe pour l'instant que sous Windows.</li>
+    <li>La copie de sauvegarde hors site n'est pas encore disponible sous Linux. Les sauvegardes locales de la base de données fonctionnent.</li>
+    <li>Certains fournisseurs de modèles locaux pour la voix et les images sont d'abord conçus pour Windows et peuvent ne pas être proposés sous Linux.</li>
+  </ul>
+</div>

@@ -1,0 +1,43 @@
+<!--page {"title": "L'API locale · Documentation RedLeaf", "description": "RedLeaf et son moteur d'IA se décrivent eux-mêmes grâce à la découverte. Comment les agents les appellent avec des jetons d'exécution signés, et comment chaque appel est rattaché à la personne qui l'a demandé.", "layout": "docs", "section": "docs", "slug": "api"}-->
+<header>
+  <p class="eyebrow">Pour aller plus loin</p>
+  <h1>L'API locale.</h1>
+  <p class="doc-lede">Tout ce que font les applis passe par une API locale, et tout ce que font vos agents aussi. Elle se décrit elle-même : un agent peut donc trouver le bon appel sans deviner, et chaque appel porte une identité signée qui dit qui l'a demandé et pour qui.</p>
+</header>
+
+<div class="prose">
+  <h2>Deux services</h2>
+  <table class="doc-table">
+    <thead><tr><th>Service</th><th>Adresse</th><th>Ce qu'il fait</th></tr></thead>
+    <tbody>
+      <tr><td>RedLeaf</td><td><code>http://127.0.0.1:18804</code></td><td>Entités, applis, extensions, discussions, automatisations, paramètres, authentification</td></tr>
+      <tr><td>RedCompute</td><td><code>http://127.0.0.1:18800</code></td><td>Le moteur d'IA : sessions, inférence, parole, images et autres tâches</td></tr>
+    </tbody>
+  </table>
+  <p>Les deux n'écoutent que sur votre propre machine. L'accès à distance passe par RedLeaf. Les ports sont indiqués dans <span class="ui">Settings › System</span> et dans les paramètres d'AI Compute.</p>
+
+  <h2>Découverte</h2>
+  <p>Commencez par <code>/discover</code> sur l'un ou l'autre service. C'est une courte carte des domaines, chacun avec ses routes, ses schémas et ses concepts. Cherchez-y, ou ouvrez un domaine :</p>
+  <pre><code>GET /discover                      la carte
+GET /discover/find?q=automations   la recherche
+GET /discover/automations          un domaine en entier
+GET /openapi.json                  le document OpenAPI</code></pre>
+  <p>Les extensions ajoutent leurs propres domaines : ce que vous voyez dépend donc de ce qui est installé. C'est tout l'intérêt : un agent lit la découverte pour obtenir le contrat en vigueur, au lieu de se fier à une route dont il se souvient.</p>
+
+  <h2>Authentification</h2>
+  <p>Chaque appel nécessite un jeton, envoyé sous la forme <code>Authorization: Bearer &lt;token&gt;</code>. La découverte indique <code>"authMode": "Required"</code> ; une route qui ne mentionne aucune authentification propre n'est pas publique pour autant.</p>
+  <ul>
+    <li><strong>Les applis</strong> dans votre navigateur génèrent, à partir de votre session, des jetons d'exécution de courte durée, pour une appli à la fois.</li>
+    <li><strong>Les agents</strong> en reçoivent un dans la variable d'environnement <code>REDLEAF_EXECUTION_TOKEN</code> de leur session.</li>
+  </ul>
+  <pre><code>curl -H "Authorization: Bearer $REDLEAF_EXECUTION_TOKEN" \
+  http://127.0.0.1:18804/auth/execution-context</code></pre>
+  <p><code>/auth/execution-context</code> indique au nom de qui parle le jeton : l'appli, l'acteur, le bénéficiaire, la discussion d'où il vient, son parent, et quand il expire. Un jeton n'accorde jamais plus que ce qu'a le droit de faire la personne pour qui il agit.</p>
+  <div class="callout warn">{{icon:shield-check}}<p><strong>Les jetons restent sur la machine.</strong> N'envoyez un jeton d'exécution qu'aux RedLeaf et RedCompute locaux. Ne le mettez jamais dans une URL, un journal ou le stockage d'un navigateur, et ne l'envoyez jamais à un autre site web. Les skills fournies avec Nova respectent ces règles ; respectez-les dans les vôtres.</p></div>
+
+  <h2>Chaque appel est consigné</h2>
+  <p>Comme chaque jeton est signé, RedLeaf sait de quelle appli, de quel agent et de quelle discussion vient chaque appel. Dans <span class="ui">Compute › Jobs</span>, chaque tâche affiche son origine, son acteur et son bénéficiaire, sa chronologie et son coût, et vous pouvez filtrer selon chacun de ces critères. C'est ainsi que vous répondez à « qui a lancé ceci, et pourquoi ? » pour tout ce qui s'est exécuté.</p>
+
+  <h2>Écrire vos propres outils</h2>
+  <p>Le plus simple pour automatiser RedLeaf, c'est de le demander à un agent : il détient déjà un jeton signé, lit la découverte, et montre ses appels sous forme de carrés d'étapes que vous pouvez vérifier. Pour tout ce qu'un agent doit faire toujours de la même façon, consignez-le dans une <a href="{{root}}docs/skills/">skill</a>.</p>
+</div>

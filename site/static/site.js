@@ -11,6 +11,12 @@ const channels = ["nightly"];
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
+// Strings for text this script writes, in the page's language (layout.mjs embeds them from i18n.mjs).
+const lang = document.documentElement.lang || "en";
+const strings = (() => { try { return JSON.parse($("#site-strings")?.textContent || "{}"); } catch { return {}; } })();
+const t = (key, vars = {}) => (strings[key] ?? key).replace(/\{(\w+)\}/g, (_, name) => vars[name] ?? "");
+const formatDate = (iso) => new Date(iso).toLocaleDateString(lang, { day: "numeric", month: "long", year: "numeric" });
+
 async function fetchJson(url) {
   const response = await fetch(url, { cache: "no-store" });
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
@@ -41,7 +47,7 @@ function detectPlatform() {
 const formatBytes = (bytes) => `${(bytes / 1024 / 1024).toFixed(0)} MB`;
 const titleCase = (channel) => channel[0].toUpperCase() + channel.slice(1);
 const footerVersion = $("#footer-version");
-const footers = { windows: "Nightly preview", linux: "Nightly preview" };
+const footers = { windows: t("footerDefault"), linux: t("footerDefault") };
 let platform = detectPlatform();
 
 function showPlatform(next) {
@@ -60,7 +66,7 @@ function failDownload(button, label, meta, note, message) {
   button.removeAttribute("href");
   button.setAttribute("aria-disabled", "true");
   label.textContent = message.label;
-  meta.textContent = "Try again later";
+  meta.textContent = t("tryLater");
   note.textContent = message.note;
 }
 
@@ -68,7 +74,7 @@ function wireHashToggle(toggle, hash) {
   toggle?.addEventListener("click", () => {
     const show = hash.hidden;
     hash.hidden = !show;
-    toggle.textContent = show ? "Hide SHA-256" : "Show SHA-256";
+    toggle.textContent = show ? t("hideHash") : t("showHash");
   });
 }
 
@@ -82,16 +88,16 @@ if ($("#download-button")) {
     win.button.download = "RedLeaf-Setup.exe";
     win.button.removeAttribute("aria-disabled");
     win.button.classList.remove("is-loading");
-    win.label.textContent = `Download ${channelName}`;
+    win.label.textContent = t("download", { channel: channelName });
     win.meta.textContent = `v${release.version} · ${formatBytes(release.artifact.sizeBytes)}`;
-    win.note.textContent = `${channelName} · Windows x64 · Published ${new Date(release.publishedAt).toLocaleDateString()}`;
+    win.note.textContent = t("published", { channel: channelName, platform: "Windows x64", date: formatDate(release.publishedAt) });
     win.hash.textContent = release.artifact.sha256;
     win.toggle.hidden = false;
-    footers.windows = `RedLeaf Setup ${release.version} · ${channelName}`;
+    footers.windows = t("footerWindows", { version: release.version, channel: channelName });
     if (platform === "windows" && footerVersion) footerVersion.textContent = footers.windows;
   }).catch(() => failDownload(win.button, win.label, win.meta, win.note, {
-    label: "Download temporarily unavailable",
-    note: "The signed release feed could not be reached. No unverified fallback is offered.",
+    label: t("unavailable"),
+    note: t("unavailableNote"),
   }));
 
   // The Linux launcher ships as redleaf-linux-x64.tar.gz with install.sh in the same release; the
@@ -104,21 +110,21 @@ if ($("#download-button")) {
     lin.button.download = "redleaf-linux-x64.tar.gz";
     lin.button.removeAttribute("aria-disabled");
     lin.button.classList.remove("is-loading");
-    lin.label.textContent = `Download ${channelName}`;
+    lin.label.textContent = t("download", { channel: channelName });
     lin.meta.textContent = `v${release.version}`;
     lin.command.textContent = `curl -fsSL ${releaseBase}/install.sh | sh`;
     lin.copy.disabled = false;
-    lin.note.textContent = `${channelName} · Linux x64 · Published ${new Date(release.publishedAt).toLocaleDateString()}`;
+    lin.note.textContent = t("published", { channel: channelName, platform: "Linux x64", date: formatDate(release.publishedAt) });
     lin.hash.textContent = `${release.artifact.sha256}  redleaf-launcher`;
     lin.toggle.hidden = false;
-    footers.linux = `RedLeaf ${release.version} for Linux · ${channelName}`;
+    footers.linux = t("footerLinux", { version: release.version, channel: channelName });
     if (platform === "linux" && footerVersion) footerVersion.textContent = footers.linux;
   }).catch(() => {
     failDownload(lin.button, lin.label, lin.meta, lin.note, {
-      label: "Linux download not available yet",
-      note: "The signed Linux release feed could not be reached. No unverified fallback is offered.",
+      label: t("linuxUnavailable"),
+      note: t("linuxUnavailableNote"),
     });
-    lin.command.textContent = "The Linux release is not published yet.";
+    lin.command.textContent = t("linuxNotPublished");
   });
 
   wireHashToggle(win.toggle, win.hash);
@@ -127,12 +133,12 @@ if ($("#download-button")) {
   lin.copy.addEventListener("click", async () => {
     try {
       await navigator.clipboard.writeText(lin.command.textContent);
-      lin.copy.textContent = "Copied";
+      lin.copy.textContent = t("copied");
     } catch {
       window.getSelection().selectAllChildren(lin.command);
-      lin.copy.textContent = "Press Ctrl+C";
+      lin.copy.textContent = t("pressCopy");
     }
-    setTimeout(() => { lin.copy.textContent = "Copy"; }, 2000);
+    setTimeout(() => { lin.copy.textContent = t("copy"); }, 2000);
   });
 }
 
@@ -225,7 +231,7 @@ class Demo {
 
   setControls() {
     $$("[data-demo-toggle]", this.root).forEach((button) => {
-      button.setAttribute("aria-label", this.playing ? "Pause demo" : "Play demo");
+      button.setAttribute("aria-label", this.playing ? t("pauseDemo") : t("playDemo"));
       button.dataset.state = this.playing ? "playing" : "paused";
     });
     this.root.dataset.playing = String(this.playing);
@@ -464,7 +470,7 @@ class DemoSet {
     if (!this.toggle) return;
     const playing = this.demo().playing;
     this.toggle.dataset.state = playing ? "playing" : "paused";
-    this.toggle.setAttribute("aria-label", playing ? "Pause demo" : "Play demo");
+    this.toggle.setAttribute("aria-label", playing ? t("pauseDemo") : t("playDemo"));
   }
 
   show(index, start = true) {
@@ -495,3 +501,20 @@ document.querySelectorAll(".doc-nav").forEach((nav) => {
   const active = nav.querySelector("a.active");
   if (active && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = active.offsetLeft - (nav.clientWidth - active.offsetWidth) / 2;
 });
+
+/* ───────────────────────── Language ─────────────────────────
+   Every page links to its translations. Choosing one is remembered; a visitor whose browser
+   prefers another available language is offered it once, and never redirected. */
+
+const langKey = "redleaf-lang";
+const storage = { get: () => { try { return localStorage.getItem(langKey); } catch { return null; } }, set: (v) => { try { localStorage.setItem(langKey, v); } catch {} } };
+$$("[data-lang-choice]").forEach((link) => link.addEventListener("click", () => storage.set(link.dataset.langChoice)));
+if (!storage.get()) {
+  const preferred = (navigator.languages?.length ? navigator.languages : [navigator.language || ""]).map((l) => l.toLowerCase().split("-")[0]);
+  const rank = (code) => { const i = preferred.indexOf(code); return i === -1 ? Infinity : i; };
+  const offer = $$("[data-lang-suggest]").find((el) => rank(el.dataset.langSuggest) < rank(lang));
+  if (offer) {
+    offer.hidden = false;
+    $("[data-lang-dismiss]", offer)?.addEventListener("click", () => { offer.hidden = true; storage.set(lang); });
+  }
+}

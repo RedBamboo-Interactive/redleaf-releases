@@ -1,0 +1,39 @@
+<!--page {"title": "Désinstaller et vos données · Documentation RedLeaf", "description": "Supprimez RedLeaf avec le lanceur, conservez ou effacez vos données, et sachez exactement quels dossiers RedLeaf utilise sous Windows et sous Linux.", "layout": "docs", "section": "docs", "slug": "uninstall"}-->
+<header>
+  <p class="eyebrow">Aide</p>
+  <h1>Désinstaller et vos données.</h1>
+  <p class="doc-lede">La désinstallation supprime le programme et conserve vos données : vous pouvez revenir plus tard et tout retrouver là où vous l'aviez laissé. Supprimer aussi les données est une étape distincte, et délibérée.</p>
+</header>
+
+<div class="prose">
+  <h2>Désinstaller</h2>
+  <p>RedLeaf se désinstalle avec son lanceur, le fichier même qui a servi à l'installer. Utilisez une copie téléchargée du lanceur, pas celle qui se trouve dans l'installation.</p>
+  <h3>Windows</h3>
+  <p>Ouvrez PowerShell dans le dossier où vous avez téléchargé le lanceur, par exemple Téléchargements, et lancez-le avec <code>uninstall</code> :</p>
+  <pre><code>.\redleaf-launcher-&lt;version&gt;-&lt;build&gt;-win-x64.exe uninstall</code></pre>
+  <p>Utilisez le nom complet du fichier que vous avez téléchargé ; il commence par <code>redleaf-launcher</code>.</p>
+  <p>Si vous ne l'avez plus, téléchargez-le à nouveau depuis la <a href="{{root}}#download">section de téléchargement</a>.</p>
+  <h3>Linux</h3>
+  <p>Téléchargez l'archive Linux depuis la <a href="{{root}}#download">section de téléchargement</a>, extrayez-en le lanceur, puis exécutez :</p>
+  <pre><code>tar -xzf redleaf-linux-x64.tar.gz redleaf-launcher
+./redleaf-launcher uninstall</code></pre>
+  <p>Le lanceur arrête RedLeaf, puis supprime le programme installé, son état de mise à jour et l'entrée du menu Démarrer ou du menu des applications. Sous Linux, il démonte aussi <code>~/Leaf</code>.</p>
+
+  <h2>Ce qui reste</h2>
+  <p>Vos données sont conservées : les paramètres, la base de données privée avec vos discussions, vos agents et leur mémoire, les clés de chiffrement, les ressources et les sauvegardes. Réinstallez plus tard, et RedLeaf les retrouve.</p>
+  <table class="doc-table">
+    <thead><tr><th>Quoi</th><th>Windows</th><th>Linux</th></tr></thead>
+    <tbody>
+      <tr><td>Paramètres, base de données, journaux, sauvegardes</td><td><code>%LOCALAPPDATA%\RedLeaf</code></td><td><code>~/.local/share/RedLeaf</code></td></tr>
+      <tr><td>Clés de chiffrement</td><td><code>%LOCALAPPDATA%\RedSuite</code></td><td>dans <code>~/.local/share</code></td></tr>
+      <tr><td>Le programme (supprimé)</td><td><code>%LOCALAPPDATA%\RedLeaf-Suite</code></td><td><code>~/.local/share/RedLeaf-Suite</code></td></tr>
+    </tbody>
+  </table>
+  <p>Les espaces de travail des agents sur <code>L:</code> ou dans <code>~/Leaf</code> ne sont pas des fichiers à part : ce sont une vue des pages de la base de données, et ils disparaissent quand RedLeaf n'est pas en marche.</p>
+
+  <h2>Supprimer vos données</h2>
+  <div class="callout warn">{{icon:warning}}<p><strong>Cette action est irréversible.</strong> Supprimer ces dossiers efface chaque discussion, agent, mémoire et sauvegarde qu'ils contiennent. Si une partie de ces données peut encore vous servir, gardez-en d'abord une copie, ou conservez votre <a href="{{root}}docs/backups/">copie hors site</a> et sa phrase de récupération.</p></div>
+  <p>Après la désinstallation, supprimez <code>%LOCALAPPDATA%\RedLeaf</code> et <code>%LOCALAPPDATA%\RedSuite</code> sous Windows, ou <code>~/.local/share/RedLeaf</code> sous Linux. WinFsp, installé pendant la configuration, est un programme distinct : désinstallez-le depuis <span class="ui">Settings › Apps</span> (Paramètres › Applications) dans Windows si rien d'autre ne l'utilise.</p>
+  <p>Les données conservées par vos fournisseurs d'IA, comme l'historique des conversations dans votre compte chez le fournisseur, relèvent de ces fournisseurs. RedLeaf ne peut pas les supprimer à votre place.</p>
+  <p>Si vous avez activé les statistiques d'utilisation anonymes, <span class="ui">Delete my data</span> dans <span class="ui">Settings › Usage sharing</span> supprime ce qui a été envoyé, comme le décrit la <a href="{{root}}privacy/usage-sharing/">notice des statistiques d'utilisation</a>. Faites-le avant de désinstaller.</p>
+</div>

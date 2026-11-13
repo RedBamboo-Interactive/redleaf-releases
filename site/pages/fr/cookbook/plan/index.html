@@ -1,0 +1,75 @@
+<!--page {"title": "Planifier : d'une idée vague à un plan qui tient · Cas d'usage RedLeaf", "description": "Réfléchissez à un voyage, un lancement ou une semaine chargée avec Nova, gardez le plan sous forme de page, et recevez un rappel aux moments qui comptent.", "layout": "doc", "section": "cookbook", "slug": "plan"}-->
+<header>
+  <p class="eyebrow">Cas d'usage · Planifier</p>
+  <h1>D'une idée vague à un plan qui tient.</h1>
+  <p class="doc-lede">Commencez par une demi-phrase. Nova, l'agent fourni avec RedLeaf, demande ce qui compte, propose quelque chose de concret et garde le résultat sous forme de page où vous pourrez revenir tous les deux. Quand une date compte, elle programme le rappel elle-même.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:folder-simple}}Workspace</span><span>{{icon:clock}}Planifications</span></div>
+</header>
+
+<div class="recipe-demo" data-demo aria-label="Reconstitution animée : Nova planifie un week-end, enregistre le plan et programme un rappel">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Lisbonne en mars</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Check-list de la semaine de lancement</b><small>Nova · Monday</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="400"><p>Trois jours à Lisbonne en mars. Rythme tranquille, bonne cuisine, une excursion à la journée. Je déteste me lever tôt.</p></div>
+            <div class="msg nova" data-step="20"><div><div class="frieze"><i class="sq p" style="--d:0ms"></i><i class="sq t" style="--d:90ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq t" style="--d:270ms"></i><i class="sq g" style="--d:360ms"></i></div><p data-step="20" data-fx="stream">Alors Sintra le samedi, départ à dix heures, et les sites les plus fréquentés dès le vendredi, avant la foule du week-end. Voici une première version, je l'ai enregistrée dans une page.</p></div></div>
+            <div class="plan-card" data-step="30" data-wait="600">
+              <div class="plan-head">{{icon:file-text}}<b>Lisbonne en mars</b><small>Page · Nova's workspace</small></div>
+              <div class="plan-days">
+                <div data-step="32" data-wait="450"><span>Ven</span><b>L'Alfama à pied</b><small>Déjeuner tardif, fado le soir</small></div>
+                <div data-step="34" data-wait="450"><span>Sam</span><b>Sintra</b><small>Train de 10 h 04 depuis Rossio</small></div>
+                <div data-step="36" data-wait="450"><span>Dim</span><b>Belém et le fleuve</b><small>Pastéis, puis le MAAT</small></div>
+              </div>
+            </div>
+            <div class="msg nova" data-step="50" data-wait="900"><div><div class="frieze"><i class="sq g" style="--d:0ms"></i></div><p data-step="50" data-fx="stream">Et j'ai programmé un rappel le 1er mars à 9 h pour réserver la table au fado. Les places partent vite.</p></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Parlez-en</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>Le plan</button></li>
+      <li><button type="button" data-seek="50"><span>03</span>Le rappel</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Mettre la démo en pause">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Rejouer la démo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">Une reconstitution simplifiée de RedLeaf. Le voyage est un exemple.</p>
+</div>
+
+<div class="prose">
+  <h2>Ce que vous pouvez demander</h2>
+  <ul class="prompt-list">
+    <li>Prépare-moi trois jours tranquilles à Lisbonne en mars, avec une excursion à la journée.</li>
+    <li>Je lance le 20. Remonte le calendrier et dis-moi ce qui doit être fait chaque semaine.</li>
+    <li>Voici ma semaine. Où est-ce que je peux caser deux heures de travail concentré chaque jour ?</li>
+    <li>Rappelle-moi une semaine avant la date limite du préavis de bail.</li>
+  </ul>
+
+  <h2>Comment ça marche</h2>
+  <ol class="steps">
+    <li><b>Ouvrez une discussion dédiée</b>Un sujet par discussion garde le contexte propre. Le voyage, le lancement et le déménagement peuvent avancer côte à côte.</li>
+    <li><b>Réfléchissez-y ensemble</b>Nova demande ce dont elle a besoin, utilise la recherche web de votre fournisseur quand il en a une, et propose quelque chose de concret plutôt qu'une liste d'options.</li>
+    <li><b>Le plan devient une page</b>Elle se trouve dans l'espace de travail de Nova : elle sera encore là le mois prochain, et vous pouvez la modifier directement.</li>
+    <li><b>Des rappels dont elle s'occupe</b>Demandez un rappel et Nova crée une planification. Au moment venu, elle publie un message dans votre fil Live avec le contexte, pas une simple notification.</li>
+  </ol>
+
+  <div class="callout">{{icon:star}}<p><strong>Demandez-lui de vous contredire.</strong> Nova est conçue pour vous dire quand un plan ne tient pas. Si le timing est trop serré ou qu'une étape manque, elle le dit.</p></div>
+
+  <h2>Ce qu'il vous faut</h2>
+  <div class="needs">
+    <div><b>Un fournisseur d'IA</b><span>N'importe quel fournisseur de chat pris en charge. La recherche web dépend du fournisseur.</span></div>
+    <div><b>RedLeaf en marche</b><span>Les rappels se déclenchent tant que RedLeaf tourne sur votre ordinateur.</span></div>
+  </div>
+</div>

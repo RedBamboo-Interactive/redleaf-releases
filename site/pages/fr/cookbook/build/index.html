@@ -1,0 +1,144 @@
+<!--page {"title": "Construire : votre jeu, votre appli ou votre site, avec Nova · Cas d'usage RedLeaf", "description": "Dites à Nova ce dont votre projet a besoin ensuite. Elle confie le travail à des sessions de code, plusieurs à la fois sur des branches séparées, vérifie les résultats, fusionne ce qui marche et tient la feuille de route.", "layout": "doc", "section": "cookbook", "slug": "build"}-->
+<header>
+  <p class="eyebrow">Cas d'usage · Construire</p>
+  <h1>Votre jeu, votre appli ou votre site, avec Nova.</h1>
+  <p class="doc-lede">Vous décidez de ce que le projet doit devenir. Nova, l'agent fourni avec RedLeaf, transforme chaque souhait en tâche, la confie à une session de code, vérifie le résultat et sait où en est chaque chose. Vous restez aux commandes ; vous n'avez pas à taper chaque ligne vous-même.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:terminal-window}}Code</span><span>{{icon:git-branch}}Branches</span></div>
+</header>
+
+<div class="recipe-demo" data-demo aria-label="Reconstitution animée : Nova lance une nouvelle appli et une session Code la construit">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen s-chat active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Carnet de voies pour la salle</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Moss Knight</b><small>Nova · yesterday</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="400"><p>Lance une petite appli pour ma salle d'escalade : une liste de voies avec leur cotation, et un bouton pour en marquer une comme enchaînée.</p></div>
+            <div class="msg nova" data-step="20"><div><div class="frieze"><i class="sq p"></i><i class="sq g" style="--d:100ms"></i><i class="sq k" style="--d:200ms"></i></div>
+              <p data-step="20" data-fx="stream">Bonne idée. J'ai créé un nouveau projet, route-log, et je l'ai confié à une session Code. Les voies enchaînées seront enregistrées sur le téléphone lui-même, donc pas besoin de serveur.</p></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="screen s-code" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon blue">{{icon:terminal-window}}</span><b>Code</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:terminal-window}}Sessions</span><span>{{icon:github-logo}}GitHub</span><span>{{icon:code}}Code</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Sessions</b><span>{{icon:plus}}New</span></div>
+          <div class="row selected"><span class="status-dot busy sd-1"></span><span><b>Construire le carnet de voies</b><small>route-log · main</small></span></div>
+        </aside>
+        <div class="session">
+          <div class="session-head"><span><b>Construire le carnet de voies</b><small>{{icon:git-branch}}main · from Nova</small></span><em class="badge working session-badge"><span class="when-running">{{icon:circle-notch}}running</span><span class="when-done">{{icon:check-circle}}done</span></em></div>
+          <div class="transcript session-thread">
+            <div class="msg user brief"><p>Construis une liste de voies avec leur cotation et un bouton « marquer comme enchaînée ». Enregistre les voies enchaînées sur l'appareil. Ajoute des tests.</p></div>
+            <div class="agent-turn">
+              <div class="frieze">
+                <i class="sq g run b1" data-step="40" data-wait="600"></i>
+                <i class="sq g run b2" data-step="41" data-wait="450" data-remove=".b1|run"></i>
+                <i class="sq g run b3" data-step="42" data-wait="450" data-remove=".b2|run"></i>
+                <i class="sq g run b4" data-step="43" data-wait="450" data-remove=".b3|run"></i>
+                <span class="sq-wrap"><i class="sq g run b5" data-step="45" data-wait="700" data-remove=".b4|run"></i><i class="fake-cursor" data-step="62" data-wait="800"></i></span>
+                <i class="sq g b6" data-step="48" data-wait="900" data-remove=".b5|run"></i>
+              </div>
+              <p class="session-note" data-step="50" data-wait="300" data-fx="stream">C'est fait : une liste de voies, des couleurs par cotation et un bouton qui retient les voies enchaînées. Les 6 tests passent, et tout est commité.</p>
+              <div class="app-preview" data-step="55" data-wait="700">
+                <div class="preview-bar">{{icon:globe-simple}}<span>localhost:5173</span></div>
+                <div class="preview-body">
+                  <b>Carnet de voies</b>
+                  <div class="route"><span class="grade g1">5c</span><span>Dalle bleue</span><em>Enchaînée</em></div>
+                  <div class="route r2"><span class="grade g2">6b</span><span>Toit orange</span><em data-step="58" data-wait="1100">Enchaînée</em><i class="send-btn">Marquer enchaînée</i><i data-step="58" data-fx="mark" data-add=".r2|is-sent"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="part-modal" data-step="64" data-wait="500">
+            <div class="pm-card">
+              <header><i class="sq g"></i><b>Bash</b><span class="pm-cat">shell</span><span class="pm-actions"><span class="pm-nav">‹ 5 / 6 ›</span></span></header>
+              <div class="pm-body">
+                <p class="pm-label">Input</p>
+                <pre>node --test</pre>
+                <p class="pm-label">Output</p>
+                <pre class="pm-out">✔ lists routes in grade order
+✔ marks a route as sent
+✔ keeps sends after a reload
+… 3 more
+ℹ tests 6  pass 6  fail 0</pre>
+              </div>
+            </div>
+          </div>
+          <i data-step="63" data-wait="450" data-fx="mark" data-add=".b5|hl"></i>
+          <i data-step="70" data-wait="3000" data-fx="mark" data-add=".part-modal|gone; .fake-cursor|gone" data-remove=".b5|hl"></i>
+          <i data-step="50" data-fx="mark" data-add=".session-badge|ok; .sd-1|done" data-remove=".session-badge|working"></i>
+        </div>
+      </div>
+    </section>
+    <i data-step="30" data-wait="1400" data-fx="mark" data-remove=".s-chat|active" data-add=".s-code|active"></i>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Décrivez-la</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>Code la construit</button></li>
+      <li><button type="button" data-seek="62"><span>03</span>Vérifiez chaque étape</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Mettre la démo en pause">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Rejouer la démo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">Une reconstitution simplifiée de RedLeaf. Le projet est un exemple.</p>
+</div>
+
+<div class="prose">
+  <h2>Ce que vous pouvez demander</h2>
+  <ul class="prompt-list">
+    <li>Lance une petite appli pour ma salle d'escalade : des voies, leurs cotations et un bouton pour en marquer une comme enchaînée.</li>
+    <li>Pour le jeu : un écran de sélection des niveaux, la prise en charge de la manette, et un saut moins flottant.</li>
+    <li>Mon site s'affiche mal sur les téléphones. Trouve pourquoi et corrige-le.</li>
+    <li>Qu'est-ce qui reste à faire avant que la démo soit prête ? Mets-le dans l'ordre.</li>
+  </ul>
+
+  <h2>Plusieurs choses à la fois</h2>
+  <p>Demandez trois choses et Nova peut lancer trois sessions. Chacune travaille sur sa propre <strong>branche</strong> : une copie séparée du projet, où elle peut être construite et testée sans déranger les autres. Quand une partie fonctionne, Nova la fusionne dans le vrai projet. Sinon, le vrai projet n'est jamais touché, et vous pouvez examiner cette partie, la modifier ou l'abandonner.</p>
+  <div class="lanes-card inline" aria-label="Trois changements développés côte à côte sur des branches séparées">
+    <div class="lanes">
+      <div class="lane main"><span>Le jeu</span></div>
+      <div class="lane b1"><span>Meilleur saut</span><em class="badge ok">{{icon:check-circle}}merged</em></div>
+      <div class="lane b2"><span>Prise en charge de la manette</span><em class="badge ok">{{icon:check-circle}}merged</em></div>
+      <div class="lane b3"><span>Sélection des niveaux</span><em class="badge review">{{icon:eye}}your turn</em></div>
+    </div>
+  </div>
+  <p>Vous choisissez la branche au lancement d'une session, ou vous laissez Nova choisir un nom. RedLeaf prépare la copie séparée pour vous, et Code indique quelles branches sont en avance, lesquelles sont fusionnées et lesquelles contiennent encore du travail non enregistré.</p>
+
+  <h2>Suivez chaque étape</h2>
+  <p>Tout ce que fait un agent apparaît sous forme de petit carré dans la conversation, dans l'ordre où cela s'est produit. Un carré oscille pendant que l'étape s'exécute. Cliquez sur n'importe quel carré pour voir exactement ce qui a été fait : le fichier ouvert, la modification apportée, la commande lancée et ce qu'elle a renvoyé.</p>
+  <div class="legend" aria-label="Ce que signifient les couleurs des carrés">
+    <span><i class="sq t"></i>Lecture et recherche</span>
+    <span><i class="sq g"></i>Modification de fichiers et exécution de commandes</span>
+    <span><i class="sq k"></i>Travail confié à un autre agent</span>
+    <span><i class="sq p"></i>Réflexion</span>
+    <span><i class="sq r"></i>Échec</span>
+  </div>
+
+  <h2>Comment ça marche</h2>
+  <ol class="steps">
+    <li><b>Apportez votre projet</b>Indiquez à Code le dossier d'un projet existant, ou demandez à Nova d'en lancer un nouveau. Code affiche son historique, ses tickets ouverts et ses tests.</li>
+    <li><b>Dites ce que vous voulez ensuite</b>Avec vos mots, comme vous expliqueriez la tâche à un ami qui code. Nova rédige les instructions de chaque session et précise ce qu'elle attend en retour.</li>
+    <li><b>Les sessions font le travail</b>Elles lisent le code, font les modifications, lancent les tests et enregistrent le résultat, au niveau d'accès que vous autorisez. Ouvrez n'importe quelle session pour suivre ou intervenir.</li>
+    <li><b>Nova vérifie et rend compte</b>Quand une session se termine, Nova la compare à ce que vous avez demandé, fusionne ce qui est prêt et vous signale ce qui demande votre regard. Demandez des changements et elle poursuit la même session.</li>
+    <li><b>Le projet est mémorisé</b>La feuille de route, les décisions et l'historique vivent dans la mémoire de Nova : la conversation de la semaine prochaine reprend là où celle-ci s'est arrêtée.</li>
+  </ol>
+
+  <div class="callout">{{icon:shield-check}}<p><strong>Vous décidez jusqu'où ça va.</strong> Chaque session s'exécute à un niveau d'accès : Plan ne fait que lire, Ask vous consulte avant les commandes, Auto décide de ce qui est sûr, et Full reste désactivé tant que vous ne l'activez pas.</p></div>
+
+  <h2>Ce qu'il vous faut</h2>
+  <div class="needs">
+    <div><b>Git</b><span>Git for Windows, ou le paquet git de votre distribution.</span></div>
+    <div><b>Un fournisseur pour le code</b><span>Par exemple Codex ou Anthropic, connecté pendant la configuration.</span></div>
+    <div><b>GitHub CLI, facultatif</b><span>Pour les tickets, les pull requests et la publication sur GitHub.</span></div>
+  </div>
+</div>

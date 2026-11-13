@@ -1,0 +1,75 @@
+<!--page {"title": "Plan: from a vague idea to a plan that holds · RedLeaf cookbook", "description": "Think a trip, a launch or a busy week through with Nova, keep the plan as a page, and get reminded at the moments that matter.", "layout": "doc", "section": "cookbook", "slug": "plan"}-->
+<header>
+  <p class="eyebrow">Use case · Plan</p>
+  <h1>From a vague idea to a plan that holds.</h1>
+  <p class="doc-lede">Start with half a sentence. Nova, the agent that comes with RedLeaf, asks what matters, proposes something concrete, and keeps the result as a page you can both come back to. When a date matters, she sets the reminder herself.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:folder-simple}}Workspace</span><span>{{icon:clock}}Schedules</span></div>
+</header>
+
+<div class="recipe-demo" data-demo aria-label="Animated recreation: Nova plans a weekend, saves the plan and schedules a reminder">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Lisbon in March</b><small>Nova · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Launch week checklist</b><small>Nova · Monday</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="thread">
+            <div class="msg user" data-step="10" data-wait="400"><p>Three days in Lisbon in March. Slow pace, good food, one day trip. I hate early starts.</p></div>
+            <div class="msg nova" data-step="20"><div><div class="frieze"><i class="sq p" style="--d:0ms"></i><i class="sq t" style="--d:90ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq t" style="--d:270ms"></i><i class="sq g" style="--d:360ms"></i></div><p data-step="20" data-fx="stream">Then Sintra on Saturday, leaving at ten, and the busy sights on Friday, before the weekend crowds. Here's a first version, I saved it as a page.</p></div></div>
+            <div class="plan-card" data-step="30" data-wait="600">
+              <div class="plan-head">{{icon:file-text}}<b>Lisbon in March</b><small>Page · Nova's workspace</small></div>
+              <div class="plan-days">
+                <div data-step="32" data-wait="450"><span>Fri</span><b>Alfama on foot</b><small>Late lunch, fado at night</small></div>
+                <div data-step="34" data-wait="450"><span>Sat</span><b>Sintra</b><small>10:04 train from Rossio</small></div>
+                <div data-step="36" data-wait="450"><span>Sun</span><b>Belém and the river</b><small>Pastéis, then the MAAT</small></div>
+              </div>
+            </div>
+            <div class="msg nova" data-step="50" data-wait="900"><div><div class="frieze"><i class="sq g" style="--d:0ms"></i></div><p data-step="50" data-fx="stream">And I set a reminder for 1 March at 09:00 to book the fado table. It fills up early.</p></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Talk it through</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>The plan</button></li>
+      <li><button type="button" data-seek="50"><span>03</span>Reminded</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Pause demo">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Replay demo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">A simplified recreation of RedLeaf. The trip is an example.</p>
+</div>
+
+<div class="prose">
+  <h2>What you can ask</h2>
+  <ul class="prompt-list">
+    <li>Plan three slow days in Lisbon in March with one day trip.</li>
+    <li>I launch on the 20th. Work backwards and tell me what has to happen each week.</li>
+    <li>Here's my week. Where do I fit two hours of focused work every day?</li>
+    <li>Remind me a week before the lease notice deadline.</li>
+  </ul>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><b>Start a discussion for it</b>One topic per discussion keeps the context clean. You can have the trip, the launch and the house move running side by side.</li>
+    <li><b>Think it through together</b>Nova asks what she needs, uses your provider's web search when it has one, and proposes something concrete rather than a list of options.</li>
+    <li><b>The plan becomes a page</b>It lives in Nova's workspace, so it is still there next month and you can edit it directly.</li>
+    <li><b>Reminders that she owns</b>Ask for a reminder and Nova creates a schedule. When it fires, she posts in your Live timeline with the context, not just a ping.</li>
+  </ol>
+
+  <div class="callout">{{icon:star}}<p><strong>Ask her to disagree.</strong> Nova is set up to tell you when a plan won't work. If the timing is too tight or a step is missing, she says so.</p></div>
+
+  <h2>What you need</h2>
+  <div class="needs">
+    <div><b>An AI provider</b><span>Any supported chat provider. Web search depends on the provider.</span></div>
+    <div><b>RedLeaf running</b><span>Reminders fire while RedLeaf is running on your computer.</span></div>
+  </div>
+</div>

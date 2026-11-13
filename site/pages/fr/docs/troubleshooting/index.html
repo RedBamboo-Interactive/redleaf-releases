@@ -1,0 +1,61 @@
+<!--page {"title": "Dépannage et Doctor · Documentation RedLeaf", "description": "Que faire quand RedLeaf ne démarre pas, qu'un fournisseur ne répond plus ou qu'une mise à jour échoue : l'écran de récupération, Setup & Health, les journaux, Doctor, et où demander de l'aide.", "layout": "docs", "section": "docs", "slug": "troubleshooting"}-->
+<header>
+  <p class="eyebrow">Aide</p>
+  <h1>Dépannage et Doctor.</h1>
+  <p class="doc-lede">La plupart des problèmes se manifestent à l'un de ces trois endroits : l'écran de récupération quand RedLeaf ne peut pas démarrer, <span class="ui">Setup &amp; Health</span> quand quelque chose dont il dépend ne va pas, ou un fournisseur qui ne répond plus. Voici ce que chacun signifie et ce qu'il faut faire.</p>
+</header>
+
+<div class="prose">
+  <h2>Vérifiez d'abord l'état de santé</h2>
+  <p>Ouvrez <span class="ui">Settings › Setup &amp; Health</span>. Cette page lance des vérifications en direct sur les services de base de RedLeaf, ses capacités et ses accès, et affiche <span class="ui">All systems healthy</span> (tout fonctionne) ou <span class="ui">System needs attention</span> (le système demande votre attention), avec les vérifications en échec et leur raison. Choisissez <span class="ui">Run health checks again</span> après avoir corrigé quelque chose.</p>
+
+  <h2>RedLeaf ne démarre pas</h2>
+  <p>Si RedLeaf n'arrive pas à terminer son démarrage sur une installation existante, il affiche <span class="ui">Recover RedLeaf</span> au lieu de la configuration. Il explique simplement ce qui a échoué, et ce qu'il est advenu de vos données. Par exemple, qu'il n'a pas pu joindre la base de données et qu'il n'y a donc rien lu ni rien modifié.</p>
+  <ul>
+    <li><span class="ui">Try again</span> relance tout le démarrage. Une mise à jour de la base de données peut prendre plusieurs minutes.</li>
+    <li><span class="ui">Open log folder</span> ouvre les journaux, un fichier par jour.</li>
+  </ul>
+  <p>Ne réinstallez pas RedLeaf et ne supprimez pas son dossier de données pour passer cet écran. Votre installation est toujours là, et la configuration n'a pas besoin d'être refaite. Si <span class="ui">Try again</span> ne suffit pas, demandez dans <strong>#bug-reports</strong> sur le <a href="https://discord.gg/FWMQtGzw3y">Discord de Leaf</a>, avec le fichier journal le plus récent et une capture d'écran de la page.</p>
+
+  <h2>Problèmes courants</h2>
+  <table class="doc-table">
+    <thead><tr><th>Vous voyez</th><th>Que faire</th></tr></thead>
+    <tbody>
+      <tr><td>« RedLeaf is already running. »</td><td>Il se trouve dans la zone de notification. Utilisez <span class="ui">Open RedLeaf</span> sur l'icône de la barre d'état.</td></tr>
+      <tr><td>« Server failed to start »</td><td>Un autre programme utilise le port de RedLeaf, 18804. Fermez-le et relancez RedLeaf.</td></tr>
+      <tr><td>« Drive L: is already in use »</td><td>Un autre lecteur ou un autre programme a pris la lettre de l'espace de travail. Libérez-la, ou choisissez un autre <span class="ui">Workspace drive</span> dans <span class="ui">Settings › Storage › Workspaces</span>.</td></tr>
+      <tr><td>Le lanceur vous demande de désactiver « Run this program as an administrator » (« Exécuter ce programme en tant qu'administrateur » dans Windows en français)</td><td>Décochez cette option dans <span class="ui">Properties › Compatibility</span> (Propriétés › Compatibilité) du fichier, puis relancez-le en tant que vous-même.</td></tr>
+      <tr><td>« must not run as root » sous Linux</td><td>Relancez l'installeur ou le lanceur sans <code>sudo</code>.</td></tr>
+      <tr><td>« The FUSE runtime is missing »</td><td>Installez <code>fuse3</code> depuis votre distribution, puis <span class="ui">Try again</span>.</td></tr>
+      <tr><td>Claude Code : « Installed, not signed in. »</td><td>Reconnectez-vous depuis les paramètres du fournisseur dans <span class="ui">Settings › Extensions</span>. Si RedLeaf ne trouve pas du tout Claude Code, installez-le, ou indiquez son emplacement dans les paramètres avancés de l'extension.</td></tr>
+      <tr><td>Codex ne s'installe pas sous Linux</td><td>Exécutez <code>curl -fsSL https://releases.openai.com/codex/install.sh | sh</code>, puis choisissez <span class="ui">Check again</span>.</td></tr>
+      <tr><td>« Session paused », limite d'utilisation atteinte</td><td>C'est la limite de votre fournisseur. Envoyez un message après sa réinitialisation, et la session reprend.</td></tr>
+      <tr><td>Une capacité affiche une lune violette dans Compute</td><td>Elle est en veille : ses requêtes sont donc gelées. Appuyez sur le bouton en forme de lune pour la réveiller.</td></tr>
+      <tr><td>Une mise à jour a échoué</td><td>Elle a été annulée. La raison se trouve dans le journal du lanceur, <code>update/logs/launcher.log</code> dans le dossier de données de RedLeaf.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Où sont les journaux</h2>
+  <table class="doc-table">
+    <thead><tr><th>Journal</th><th>Windows</th><th>Linux</th></tr></thead>
+    <tbody>
+      <tr><td>RedLeaf</td><td><code>%LOCALAPPDATA%\RedLeaf\Logs</code></td><td><code>~/.local/share/RedLeaf/Logs</code></td></tr>
+      <tr><td>Lanceur et mises à jour</td><td><code>%LOCALAPPDATA%\RedLeaf\update\logs\launcher.log</code></td><td><code>~/.local/share/RedLeaf/update/logs/launcher.log</code></td></tr>
+    </tbody>
+  </table>
+  <p>Pour une tâche qui a échoué, ouvrez-la dans <span class="ui">Compute › Jobs</span> : son détail contient l'erreur, la chronologie et la trace.</p>
+
+  <h2>Doctor</h2>
+  <p>Doctor est une trousse de réparation qui continue de fonctionner quand RedLeaf lui-même ne fonctionne plus. C'est une page distincte dans votre navigateur, avec des vérifications de santé, <span class="ui">Restart suite</span>, et des sessions de réparation où Claude Code ou Codex peuvent diagnostiquer et réparer l'installation avec vous. Il est installé avec RedLeaf et démarre avec lui. Doctor n'est disponible que sous Windows pour l'instant.</p>
+  <p>Configurez-le dès maintenant, tant que tout fonctionne :</p>
+  <ol class="steps">
+    <li><b>Créez son jeton d'accès</b>Dans les paramètres de Doctor, sous <span class="ui">Access</span>, choisissez <span class="ui">Rotate</span> (renouveler) et conservez le jeton dans votre gestionnaire de mots de passe. Il n'est affiché qu'une fois.</li>
+    <li><b>Ajoutez-le à vos favoris</b>Ouvrez <code>http://127.0.0.1:18899</code> et ajoutez la page à vos favoris.</li>
+    <li><b>Choisissez son IA</b>Sous <span class="ui">Repair sessions</span>, choisissez Claude Code ou Codex.</li>
+    <li><b>Décidez pour la réparation sans restriction</b>Elle est activée par défaut : la session de réparation peut agir sans demander à chaque étape. Désactivez-la si vous préférez autoriser chaque étape.</li>
+  </ol>
+  <p>Doctor n'est joignable que depuis votre ordinateur. Si sa page ne s'ouvre pas, vérifiez que Doctor est activé et que son port est libre, et utilisez <span class="ui">Restart Doctor</span> dans ses paramètres. Si vous avez perdu le jeton, renouvelez-le de nouveau ; il faut pour cela que RedLeaf soit en marche.</p>
+
+  <h2>Le problème persiste ?</h2>
+  <p>Demandez sur le <a href="https://discord.gg/FWMQtGzw3y">Discord de Leaf</a>, dans <strong>#bug-reports</strong>. Indiquez ce que vous faisiez, ce que vous avez vu, et joignez le fichier journal le plus récent. Vérifiez d'abord qu'il ne contient rien de privé.</p>
+</div>

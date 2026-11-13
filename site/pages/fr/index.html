@@ -1,0 +1,676 @@
+<!--page {"title": "RedLeaf : le système d'exploitation de vos agents IA", "description": "Une seule application pour Windows et Linux, où vos agents IA disposent des outils, des applications et d'une mémoire qui dure. Créez un jeu, apprenez une langue, préparez un voyage ou pilotez votre maison, et voyez chacune de leurs étapes.", "layout": "landing", "section": "product"}-->
+<section class="stage" id="demo" data-demo-set aria-labelledby="hero-title">
+  <div class="stage-app">
+    <!-- Story 1: a game developer. Nova -> Code -> Workspace board. -->
+    <div class="story" id="story-game" role="tabpanel" data-story data-demo data-pace=".7" data-duration="16000">
+      <img class="story-bg" src="{{root}}demo/bg-game.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen g-nova active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Moss Knight</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Bande-son de Moss Knight</b><small>Nova · yesterday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Site portfolio</b><small>Nova · Tuesday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Moss Knight</b><small>Nova · ton jeu de plateforme 2D</small></span></div>
+              <div class="thread">
+                <div class="msg user"><p>Le boss du monde 2 meurt beaucoup trop vite.</p></div>
+                <div class="msg nova"><div><div class="frieze"><i class="sq t"></i><i class="sq t"></i><i class="sq k"></i></div><p>Je lui ai donné une deuxième phase : sous la moitié de sa vie, il accélère et le sol de l'arène commence à s'effondrer. C'est fusionné, donc ce sera dans ton prochain build.</p><figure class="media-card"><img src="{{root}}demo/art-boss.webp" alt="" /><figcaption>{{icon:play}}boss-phase-two.mp4 · 0:12</figcaption></figure></div></div>
+                <div class="msg user" data-step="10" data-wait="350"><p>Ensuite : un écran de sélection des niveaux, la prise en charge de la manette, et un saut moins flottant.</p></div>
+                <div class="msg nova" data-step="20" data-wait="450"><div>
+                  <div class="frieze"><i class="sq p"></i><i class="sq t" style="--d:80ms"></i><i class="sq k run gk1" data-step="22" data-wait="200"></i><i class="sq k run gk2" data-step="23" data-wait="180" data-remove=".gk1|run"></i><i class="sq k gk3" data-step="24" data-wait="180" data-remove=".gk2|run"></i></div>
+                  <p data-step="24" data-fx="stream">Trois tâches, donc trois sessions, chacune sur sa propre branche. Rien n'arrive dans le jeu tant que ça ne marche pas.</p></div></div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen g-code" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon blue">{{icon:terminal-window}}</span><b>Code</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:terminal-window}}Sessions</span><span>{{icon:github-logo}}GitHub</span><span>{{icon:code}}Code</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Sessions</b><span>3 running</span></div>
+              <div class="row"><span class="status-dot busy gd-level"></span><span><b>Sélection des niveaux</b><small>moss-knight · level-select</small></span></div>
+              <div class="row"><span class="status-dot busy gd-pad"></span><span><b>Support manette</b><small>moss-knight · controller-support</small></span></div>
+              <div class="row selected"><span class="status-dot busy gd-jump"></span><span><b>Saut plus nerveux</b><small>moss-knight · jump-feel</small></span></div>
+            </aside>
+            <div class="session">
+              <div class="session-head"><span><b>Saut plus nerveux</b><small>{{icon:git-branch}}jump-feel · from Nova</small></span><em class="badge working session-badge g-badge"><span class="when-running">{{icon:circle-notch}}running</span><span class="when-done">{{icon:check-circle}}done</span></em></div>
+              <div class="transcript session-thread">
+                <div class="msg user brief"><p>Rends le saut moins flottant. Garde la même hauteur, et vérifie-le dans le niveau de test.</p></div>
+                <div class="agent-turn">
+                  <p class="session-note" data-step="40" data-wait="500" data-fx="stream">Je m'en occupe. Voyons d'abord comment le saut fonctionne aujourd'hui.</p>
+                  <div class="frieze">
+                    <i class="sq t run c1" data-step="40.4" data-wait="240"></i>
+                    <i class="sq t run c2" data-step="40.7" data-wait="260" data-remove=".c1|run"></i>
+                  </div>
+                  <p class="session-note" data-step="41" data-wait="300" data-fx="stream" data-remove=".c2|run">Trouvé : une seule gravité gère à la fois la montée et la chute, donc le chevalier reste suspendu en haut. Je la sépare en deux, je garde la même hauteur, et je vérifie dans le niveau de test.</p>
+                  <div class="frieze">
+                    <i class="sq p run c3" data-step="42" data-wait="260"></i>
+                    <span class="sq-wrap"><i class="sq g run c4" data-step="43" data-wait="320" data-remove=".c3|run"></i><i class="fake-cursor" data-step="50" data-wait="2900"></i></span>
+                    <i class="sq g run c5" data-step="44" data-wait="380" data-remove=".c4|run"></i>
+                    <i class="sq t c6" data-step="45" data-wait="420" data-remove=".c5|run"></i>
+                  </div>
+                  <p class="session-note" data-step="46" data-wait="250" data-fx="stream">Terminé : il monte plus vite et retombe plus tôt, à la même hauteur. Les 18 vérifications passent. Voici le saut de test :</p>
+                  <figure class="clip-card jump-clip" data-step="46.5" data-wait="250">
+                    <div class="clip-frame">
+                      <video muted playsinline loop preload="auto" poster="{{root}}demo/jump-poster.webp"><source src="{{root}}demo/jump.webm" type="video/webm" /><source src="{{root}}demo/jump.mp4" type="video/mp4" /></video>
+                      <span class="clip-play">{{icon:play-fill}}</span>
+                      <i class="fake-cursor" data-step="48.5" data-wait="420"></i>
+                    </div>
+                    <figcaption>{{icon:film-strip}}jump-test.mp4 · 0:03</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="part-modal" data-step="52" data-wait="150">
+                <div class="pm-card">
+                  <header><i class="sq g"></i><b>Edit</b><span class="pm-cat">mutating</span><span class="pm-actions"><span class="pm-btn">{{icon:code}}Open</span><span class="pm-nav">‹ 4 / 6 ›</span></span></header>
+                  <div class="pm-body">
+                    <p class="pm-label">Input</p>
+                    <p class="pm-path">{{icon:file-text}}scripts/player.gd</p>
+                    <pre><span class="del">- const GRAVITY = 980.0</span>
+<span class="add">+ const RISE_GRAVITY = 820.0</span>
+<span class="add">+ const FALL_GRAVITY = 1650.0</span></pre>
+                    <p class="pm-label">Output</p>
+                    <pre class="pm-out">The file scripts/player.gd has been updated.</pre>
+                  </div>
+                </div>
+              </div>
+              <i data-step="46" data-fx="mark" data-add=".g-badge|ok; .gd-jump|done" data-remove=".g-badge|working"></i>
+              <i data-step="47" data-wait="200" data-fx="mark" data-add=".gd-pad|done"></i>
+              <i data-step="48" data-wait="200" data-fx="mark" data-add=".gd-level|review"></i>
+              <i data-step="49" data-wait="1000" data-fx="play" data-play=".jump-clip video" data-add=".jump-clip|playing; .jump-clip .fake-cursor|gone"></i>
+              <i data-step="51" data-wait="250" data-fx="mark" data-add=".c4|hl"></i>
+              <i data-step="56" data-wait="1500" data-fx="mark" data-add=".g-code .part-modal|gone; .g-code .fake-cursor|gone" data-remove=".c4|hl"></i>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen g-board no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar tree">
+              <div class="tree-owner"><span class="app-icon blue">{{icon:game-controller}}</span><span><b>Moss Knight</b><small>Project</small></span></div>
+              <div class="tree-row selected">{{icon:columns}}<span>Feuille de route</span></div>
+              <div class="tree-row">{{icon:file-text}}<span>Notes de conception</span></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>Niveaux</span><small class="count">12</small></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>Graphismes</span><small class="count">48</small></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>Playtests</span><small class="count">5</small></div>
+            </aside>
+            <div class="board-view">
+              <div class="view-head">{{icon:columns}}<b>Feuille de route</b><small>9 items</small></div>
+              <div class="board">
+                <div class="board-col"><p>Idées <i>2</i></p>
+                  <div class="board-card"><b>{{icon:file-text}}Mode boss rush</b></div>
+                  <div class="board-card has-img"><img src="{{root}}demo/art-store.webp" alt="" /><b>{{icon:image-square}}Visuels de la page boutique</b><span class="chip">3 choix dans Gallery</span></div>
+                </div>
+                <div class="board-col"><p>En cours <i><span class="cnt-a">3</span><span class="cnt-b">0</span></i></p>
+                  <div class="board-card bc-jump"><b>{{icon:git-branch}}Saut plus nerveux</b><span class="chip mono">jump-feel</span></div>
+                  <div class="board-card bc-pad"><b>{{icon:git-branch}}Support manette</b><span class="chip mono">controller-support</span></div>
+                  <div class="board-card bc-level"><b>{{icon:git-branch}}Sélection des niveaux</b><span class="chip mono">level-select</span></div>
+                </div>
+                <div class="board-col"><p>À toi <i><span class="cnt-a">0</span><span class="cnt-b">1</span></i></p>
+                  <div class="board-card moved has-img" data-step="74" data-wait="900"><img src="{{root}}demo/art-levels.webp" alt="" /><b>{{icon:git-branch}}Sélection des niveaux</b><span class="chip review">{{icon:eye}}à tester sur sa branche</span></div>
+                </div>
+                <div class="board-col"><p>Terminé <i><span class="cnt-a">2</span><span class="cnt-b">4</span></i></p>
+                  <div class="board-card moved" data-step="70" data-wait="320"><b>{{icon:check-circle}}Saut plus nerveux</b><span class="chip ok">fusionné</span></div>
+                  <div class="board-card moved" data-step="72" data-wait="320"><b>{{icon:check-circle}}Support manette</b><span class="chip ok">fusionné</span></div>
+                  <div class="board-card"><b>{{icon:check-circle}}Boss du monde 2, deuxième phase</b></div>
+                  <div class="board-card"><b>{{icon:check-circle}}Sol de l'arène qui s'effondre</b></div>
+                </div>
+              </div>
+              <i data-step="70" data-fx="mark" data-add=".bc-jump|gone"></i>
+              <i data-step="72" data-fx="mark" data-add=".bc-pad|gone"></i>
+              <i data-step="74" data-fx="mark" data-add=".bc-level|gone; .board|settled"></i>
+            </div>
+          </div>
+        </section>
+
+        <div class="switcher" data-step="60" data-wait="550" aria-hidden="true"><div class="sw-card">
+          <span class="sw-row" style="--tile-i:0;--app:#d4618c"><span class="sw-icon">{{icon:star}}</span><span><b>Nova</b><small>Chat, voice and delegation</small></span></span>
+          <span class="sw-row active" style="--tile-i:1;--app:#6f97d6"><span class="sw-icon">{{icon:terminal-window}}</span><span><b>Code</b><small>Coding sessions and GitHub</small></span></span>
+          <span class="sw-row g-pick" style="--tile-i:2;--app:#63c077"><span class="sw-icon">{{icon:folder-simple}}</span><span><b>Workspace</b><small>Your projects and content</small></span><i class="fake-cursor" data-step="61" data-wait="350"></i></span>
+          <span class="sw-row" style="--tile-i:3;--app:#9a7cf0"><span class="sw-icon">{{icon:images}}</span><span><b>Gallery</b><small>Browse and curate your media</small></span></span>
+          <span class="sw-row" style="--tile-i:4;--app:#e0913a"><span class="sw-icon">{{icon:image-square}}</span><span><b>Image Studio</b><small>Generate and compare images</small></span></span>
+          <span class="sw-row" style="--tile-i:5;--app:#3fb3c4"><span class="sw-icon">{{icon:cpu}}</span><span><b>Compute</b><small>Models running on your GPU</small></span></span>
+          <span class="sw-row" style="--tile-i:6;--app:#d4a24c"><span class="sw-icon">{{icon:target}}</span><span><b>Life Coaching</b><small>Agenda, goals and progress</small></span></span>
+          <span class="sw-row" style="--tile-i:7;--app:#d4a24c"><span class="sw-icon">{{icon:house-line}}</span><span><b>Smart Home</b><small>Lights, speakers and music</small></span></span>
+        </div></div>
+        <i data-step="30" data-wait="450" data-fx="mark" data-remove=".g-nova|active" data-add=".g-code|active"></i>
+        <i data-step="62" data-wait="250" data-fx="mark" data-add=".g-pick|sel"></i>
+        <i data-step="64" data-wait="500" data-fx="mark" data-remove=".g-code|active" data-add=".g-board|active; .switcher|gone"></i>
+      </div>
+    </div>
+
+    <!-- Story 2: learning German with an agent of your own. Voice -> picture vocabulary in a Workspace gallery. -->
+    <div class="story" id="story-german" role="tabpanel" data-story data-demo data-pace=".7" data-duration="7800" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-german.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen l-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row selected"><img class="avatar" src="{{root}}demo/agent-leni.webp" alt="" /><span><b>Deutsch mit Leni</b><small>Leni · now</small></span></div>
+              <div class="row"><img class="avatar" src="{{root}}demo/agent-leni.webp" alt="" /><span><b>Wortschatz, Lektion 12</b><small>Leni · Monday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Week-end à Vienne</b><small>Nova · last week</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img class="avatar" src="{{root}}demo/agent-leni.webp" alt="" /><span><b>Deutsch mit Leni</b><small>Leni · ta prof d'allemand · B1</small></span></div>
+              <div class="thread">
+                <div class="msg nova"><div><div class="frieze"><i class="sq g"></i></div><p>Gut gemacht! 14 von 16 Wörtern richtig. Gute Reise nach Wien!</p></div></div>
+                <div class="msg user"><p>Danke, Leni! Bis Montag.</p></div>
+                <div class="msg nova" data-step="10" data-wait="300"><div><p>Hallo! Wie war die Reise nach Wien?</p></div></div>
+                <div class="msg user" data-step="30" data-wait="300"><p>Super! Ich habe mit dem Nachtzug nach Wien gefahren.</p></div>
+                <p class="msg-meta" data-step="30">{{icon:microphone}}Spoken · transcribed on this computer</p>
+                <div class="msg nova" data-step="40" data-wait="350"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq g" style="--d:90ms"></i><i class="sq g" style="--d:180ms"></i></div>
+                  <p data-step="40" data-fx="stream">Presque parfait ! Avec « fahren », on prend « sein » : Ich <strong>bin</strong> mit dem Nachtzug gefahren. Je t'ai fait des cartes avec les mots de ton voyage.</p></div></div>
+                <div class="voice-card" data-step="44" data-wait="350"><span class="play">{{icon:pause}}</span><div><b>Leni · 0:07</b><small>Spoken reply</small></div><div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="embed-card" data-step="46" data-wait="450"><span class="app-icon green">{{icon:cards}}</span><span><b>Reise nach Wien</b><small>Gallery view · 4 cards · Leni's workspace</small></span>{{icon:arrow-up-right}}<i class="fake-cursor" data-step="48" data-wait="450"></i></div>
+              </div>
+              <div class="composer l-composer"><span class="composer-placeholder">Talk to Leni…</span><span class="rec">{{icon:microphone}}<span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>Listening… 0:04</span><span class="mic">{{icon:microphone}}</span><span class="send">{{icon:paper-plane-right}}</span></div>
+              <i data-step="20" data-wait="900" data-fx="mark" data-add=".l-composer|recording"></i>
+              <i data-step="30" data-fx="mark" data-remove=".l-composer|recording"></i>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen l-vocab no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar tree">
+              <div class="tree-owner"><img class="avatar" src="{{root}}demo/agent-leni.webp" alt="" /><span><b>Leni</b><small>Agent workspace</small></span></div>
+              <div class="tree-row">{{icon:caret-down}}{{icon:folder-simple}}<span>Wortschatz</span><small class="count">212</small></div>
+              <div class="tree-row selected sub">{{icon:cards}}<span>Reise nach Wien</span></div>
+              <div class="tree-row sub">{{icon:cards}}<span>Lektion 12</span></div>
+              <div class="tree-row">{{icon:file-text}}<span>Fehler, die ich mache</span></div>
+              <div class="tree-row">{{icon:file-text}}<span>Lernplan B1</span></div>
+            </aside>
+            <div class="board-view">
+              <div class="view-head">{{icon:cards}}<b>Reise nach Wien</b><small>4 items</small></div>
+              <div class="vocab-grid">
+                <div class="vocab-card" data-step="60" data-wait="220"><img src="{{root}}demo/cover-4.webp" alt="" /><b>der Nachtzug</b><small>le train de nuit</small></div>
+                <div class="vocab-card" data-step="61" data-wait="220"><img src="{{root}}demo/cover-2.webp" alt="" /><b>das Abteil</b><small>le compartiment</small></div>
+                <div class="vocab-card" data-step="62" data-wait="220"><img src="{{root}}demo/cover-3.webp" alt="" /><b>der Bahnsteig</b><small>le quai</small></div>
+                <div class="vocab-card" data-step="63" data-wait="500"><img src="{{root}}demo/cover-1.webp" alt="" /><b>die Brücke</b><small>le pont</small></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <i data-step="50" data-wait="400" data-fx="mark" data-remove=".l-chat|active" data-add=".l-vocab|active"></i>
+        <div class="toast" data-step="66" data-wait="1300"><img class="avatar" src="{{root}}demo/agent-leni.webp" alt="" /><span><b>Quiz demain, 08:00</b><small>Cinq minutes sur ces quatre mots et sur « sein » avec les verbes de mouvement.</small></span></div>
+      </div>
+    </div>
+
+    <!-- Story 3: a busy week. Nova -> Workspace files -> Life Coaching agenda. -->
+    <div class="story" id="story-organize" role="tabpanel" data-story data-demo data-pace=".7" data-duration="7300" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-organize.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen o-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Cette semaine</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Idées d'anniversaire pour Sam</b><small>Nova · Tuesday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Checklist de la semaine de lancement</b><small>Nova · Monday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Cette semaine</b><small>Nova · Codex · Standard</small></span></div>
+              <div class="thread">
+                <div class="msg user"><p>Combien m'a coûté le vélo cette année ?</p></div>
+                <div class="msg nova"><div><div class="frieze"><i class="sq t"></i><i class="sq t"></i></div><p>214 € pour l'instant : la révision en mai, des pneus neufs en août et un antivol. Je les ai trouvés dans tes reçus.</p></div></div>
+                <div class="msg user" data-step="10" data-wait="350"><p>J'ai déposé 37 scans dans À trier. Range-les, et mets dans ma semaine tout ce qui a une échéance.</p></div>
+                <div class="msg nova" data-step="20" data-wait="400"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:50ms"></i><i class="sq t" style="--d:100ms"></i><i class="sq t" style="--d:150ms"></i><i class="sq t" style="--d:200ms"></i><i class="sq g" style="--d:250ms"></i><i class="sq g" style="--d:300ms"></i><i class="sq g" style="--d:350ms"></i></div>
+                  <p data-step="20" data-fx="stream">Classés et indexés. Une seule vraie échéance : le préavis du bail, avant le 31 décembre. J'ai rédigé la lettre et je l'ai mise lundi.</p></div></div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen o-ws" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar tree">
+              <div class="tree-owner"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Nova</b><small>Agent workspace</small></span></div>
+              <div class="tree-row">{{icon:caret-down}}{{icon:folder-simple}}<span>À trier</span><small class="count">0</small></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>Reçus</span><small class="count">21</small></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>Contrats</span><small class="count">6</small></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>Modes d'emploi</span><small class="count">7</small></div>
+              <div class="tree-row">{{icon:caret-right}}{{icon:folder-simple}}<span>À vérifier</span><small class="count">3</small></div>
+              <div class="tree-row selected">{{icon:file-text}}<span>Index des papiers</span></div>
+            </aside>
+            <article class="page-view">
+              <p class="crumb">Workspace / Nova / <b>Index des papiers</b></p>
+              <p class="entity-type">PAGE</p>
+              <h3>Index des papiers</h3>
+              <table class="mini-table">
+                <tr><th>Dossier</th><th>Fichiers</th><th>Notes</th></tr>
+                <tr data-step="34" data-wait="180"><td>Reçus</td><td>21</td><td>2024 : 9, 2025 : 12. La garantie de l'ordinateur portable se termine en mars.</td></tr>
+                <tr data-step="35" data-wait="180"><td>Contrats</td><td>6</td><td>Le bail de l'appartement se renouvelle le 1er avril ; préavis avant le 31 décembre.</td></tr>
+                <tr data-step="36" data-wait="180"><td>Modes d'emploi</td><td>7</td><td>Lave-vaisselle, chaudière, vélo, et 4 autres.</td></tr>
+                <tr data-step="37" data-wait="600"><td>À vérifier</td><td>3</td><td>Deux scans flous, une lettre en italien.</td></tr>
+              </table>
+            </article>
+          </div>
+        </section>
+
+        <section class="screen o-coach no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon gold">{{icon:target}}</span><b>Life Coaching</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:calendar-check}}Today</span><span>{{icon:lightning}}Progress</span><span>{{icon:check-circle}}Goals</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Coaching</b></div>
+              <div class="row selected nav-row">{{icon:calendar-check}}<span><b>Today</b></span></div>
+              <div class="row nav-row">{{icon:lightning}}<span><b>Progress</b></span></div>
+              <div class="row nav-row">{{icon:check-circle}}<span><b>Goals</b></span></div>
+            </aside>
+            <div class="coach-view">
+              <p class="coach-day"><small>Monday</small>16 November</p>
+              <div class="coach-note"><img src="{{root}}nova-avatar.webp" alt="" /><p>Une semaine chargée, mais tout rentre. La lettre pour le bail est déjà rédigée, donc celle-là te prendra cinq minutes. Tout le reste peut attendre après le déjeuner.</p></div>
+              <p class="coach-label">{{icon:clock}}Agenda</p>
+              <ol class="agenda">
+                <li class="new" data-step="50" data-wait="220"><time>09:00</time><b>Envoyer le préavis du bail</b><small>Le brouillon est dans Contrats. À envoyer avant le 31 décembre, réglé aujourd'hui.</small></li>
+                <li data-step="51" data-wait="200"><time>09:30</time><b>Plage de concentration</b><small>Lumières sur Concentrate, notifications en silencieux jusqu'à 11 h 30.</small></li>
+                <li data-step="52" data-wait="200"><time>12:30</time><b>Déjeuner avec Sam</b><small>Café Lumen, c'est ton tour de payer.</small></li>
+                <li class="new" data-step="53" data-wait="200"><time>16:00</time><b>Trois scans à vérifier</b><small>Deux flous, une lettre en italien. Je peux la traduire.</small></li>
+                <li data-step="54" data-wait="1400"><time>18:30</time><b>Escalade</b><small>Le sac est près de la porte.</small></li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <div class="switcher" data-step="40" data-wait="550" aria-hidden="true"><div class="sw-card">
+          <span class="sw-row" style="--tile-i:0;--app:#d4618c"><span class="sw-icon">{{icon:star}}</span><span><b>Nova</b><small>Chat, voice and delegation</small></span></span>
+          <span class="sw-row" style="--tile-i:1;--app:#6f97d6"><span class="sw-icon">{{icon:terminal-window}}</span><span><b>Code</b><small>Coding sessions and GitHub</small></span></span>
+          <span class="sw-row active" style="--tile-i:2;--app:#63c077"><span class="sw-icon">{{icon:folder-simple}}</span><span><b>Workspace</b><small>Your projects and content</small></span></span>
+          <span class="sw-row" style="--tile-i:3;--app:#9a7cf0"><span class="sw-icon">{{icon:images}}</span><span><b>Gallery</b><small>Browse and curate your media</small></span></span>
+          <span class="sw-row" style="--tile-i:4;--app:#e0913a"><span class="sw-icon">{{icon:image-square}}</span><span><b>Image Studio</b><small>Generate and compare images</small></span></span>
+          <span class="sw-row" style="--tile-i:5;--app:#3fb3c4"><span class="sw-icon">{{icon:cpu}}</span><span><b>Compute</b><small>Models running on your GPU</small></span></span>
+          <span class="sw-row o-pick" style="--tile-i:6;--app:#d4a24c"><span class="sw-icon">{{icon:target}}</span><span><b>Life Coaching</b><small>Agenda, goals and progress</small></span><i class="fake-cursor" data-step="41" data-wait="350"></i></span>
+          <span class="sw-row" style="--tile-i:7;--app:#d4a24c"><span class="sw-icon">{{icon:house-line}}</span><span><b>Smart Home</b><small>Lights, speakers and music</small></span></span>
+        </div></div>
+        <i data-step="30" data-wait="300" data-fx="mark" data-remove=".o-chat|active" data-add=".o-ws|active"></i>
+        <i data-step="42" data-wait="250" data-fx="mark" data-add=".o-pick|sel"></i>
+        <i data-step="44" data-wait="450" data-fx="mark" data-remove=".o-ws|active" data-add=".o-coach|active; .switcher|gone"></i>
+      </div>
+    </div>
+    <!-- Story 4: planning a trip. Nova searches -> hotel cards -> a Workspace trip page with a price watch. -->
+    <div class="story" id="story-trip" role="tabpanel" data-story data-demo data-pace=".7" data-duration="5700" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-trip.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen t-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Lisbonne en mars</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Idées d'anniversaire pour Sam</b><small>Nova · Tuesday</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Notes des visites d'appartements</b><small>Nova · last week</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Lisbonne en mars</b><small>Nova · Codex · Standard</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="10" data-wait="350"><p>Lisbonne, du 12 au 15 mars, à deux. Trouve un hôtel dans l'Alfama à moins de 180 € la nuit, idéalement avec une terrasse.</p></div>
+                <div class="msg nova" data-step="20" data-wait="350"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:60ms"></i><i class="sq t" style="--d:120ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq t" style="--d:240ms"></i><i class="sq t" style="--d:300ms"></i><i class="sq p" style="--d:360ms"></i></div>
+                  <p data-step="20" data-fx="stream">J'ai regardé 23 adresses. Ces trois-là conviennent, toutes avec annulation gratuite jusqu'au 5 mars.</p></div></div>
+                <div class="hotel-row">
+                  <article class="hotel-card h-pick" data-step="30" data-wait="200"><img src="{{root}}demo/hotel-1.webp" alt="" /><div><b>Casa do Miradouro</b><small>{{icon:map-pin}}Alfama · tram 28 à 4 min</small><p><span class="price">164 €</span> la nuit · {{icon:star-fill}}4,7</p><em class="tag">Terrasse sur le toit</em></div><i class="fake-cursor" data-step="40" data-wait="400"></i></article>
+                  <article class="hotel-card" data-step="31" data-wait="200"><img src="{{root}}demo/hotel-2.webp" alt="" /><div><b>Pátio das Laranjeiras</b><small>{{icon:map-pin}}Alfama · rue calme</small><p><span class="price">138 €</span> la nuit · {{icon:star-fill}}4,8</p><em class="tag">Cour carrelée</em></div></article>
+                  <article class="hotel-card" data-step="32" data-wait="500"><img src="{{root}}demo/hotel-3.webp" alt="" /><div><b>Rio Tejo Rooms</b><small>{{icon:map-pin}}En bordure d'Alfama · vue sur le fleuve</small><p><span class="price">176 €</span> la nuit · {{icon:star-fill}}4,6</p><em class="tag">Face au pont</em></div></article>
+                </div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen t-page no-side" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <article class="page-view trip-page">
+              <p class="crumb">Workspace / Nova / <b>Lisbonne en mars</b></p>
+              <div class="trip-hero"><img src="{{root}}demo/pic-lisbon.webp" alt="" /><div><p class="entity-type">PAGE</p><h3>Lisbonne en mars</h3><small>Du 12 au 15 mars · deux personnes</small></div></div>
+              <table class="mini-table">
+                <tr><th>Jour</th><th>Programme</th></tr>
+                <tr data-step="54" data-wait="160"><td>Jeu. 12</td><td>Arrivée à 11 h 40. Check-in à <b>Casa do Miradouro</b>, coucher de soleil sur la terrasse.</td></tr>
+                <tr data-step="55" data-wait="160"><td>Ven. 13</td><td>Tram 28 à 8 h, avant la foule. Déjeuner à Graça.</td></tr>
+                <tr data-step="56" data-wait="160"><td>Sam. 14</td><td>Belém au bord du fleuve, pastéis sur le chemin du retour.</td></tr>
+                <tr data-step="57" data-wait="300"><td>Dim. 15</td><td>Marché aux puces de la Feira da Ladra, vol à 18 h 05.</td></tr>
+              </table>
+              <div class="heartbeat-card note" data-step="60" data-wait="1300">{{icon:bell}}<div><b>Veille des prix, tous les matins à 9 h</b><small>Je te préviens si la chambre passe sous les 150 €, ou si elle est sur le point d'être complète.</small></div></div>
+            </article>
+          </div>
+        </section>
+        <i data-step="42" data-wait="250" data-fx="mark" data-add=".h-pick|picked"></i>
+        <i data-step="50" data-wait="400" data-fx="mark" data-remove=".t-chat|active" data-add=".t-page|active"></i>
+      </div>
+    </div>
+
+    <!-- Story 5: a podcast creator. Nova -> Image Studio covers -> back with the jingle and the voice. -->
+    <div class="story" id="story-create" role="tabpanel" data-story data-demo data-pace=".7" data-duration="7600" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-create.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen c-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Podcast Street Bites</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Notes de l'épisode 11</b><small>Nova · last week</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>E-mail au sponsor</b><small>Nova · last week</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Podcast Street Bites</b><small>Nova · Codex · Standard</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="10" data-wait="350"><p>L'épisode 12, c'est « Street food à Osaka ». Quatre propositions de couverture, un jingle d'intro de dix secondes, et lis la phrase d'ouverture.</p></div>
+                <div class="msg nova" data-step="20" data-wait="350"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq g" style="--d:80ms"></i><i class="sq g" style="--d:160ms"></i><i class="sq g" style="--d:240ms"></i></div>
+                  <p data-step="20" data-fx="stream">Je génère les trois sur ta carte graphique. Les couvertures d'abord.</p></div></div>
+                <div class="msg nova" data-step="60" data-wait="300"><div><p data-step="60" data-fx="stream">Tu as choisi la ruelle. Voici le jingle et la phrase d'ouverture.</p></div></div>
+                <div class="voice-card music" data-step="62" data-wait="250"><span class="play">{{icon:music-notes}}</span><div><b>Jingle d'intro · 0:10</b><small>Music · rendered locally</small></div><div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="voice-card" data-step="64" data-wait="1300"><span class="play">{{icon:pause}}</span><div><b>Phrase d'ouverture · 0:06</b><small>Warm voice · rendered locally</small></div><div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen c-studio" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon orange">{{icon:image-square}}</span><b>Image Studio</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:image-square}}Studio</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Workstreams</b><span class="plus-btn">{{icon:plus}}</span></div>
+              <div class="row selected">{{icon:folder-simple}}<span><b>Couvertures Street Bites</b><small>48 outputs · 11 picked</small></span></div>
+              <div class="row">{{icon:folder-simple}}<span><b>Miniatures de l'émission</b><small>120 outputs · 30 picked</small></span></div>
+              <div class="row">{{icon:folder-simple}}<span><b>Stickers pour le merch</b><small>16 outputs · 4 picked</small></span></div>
+            </aside>
+            <div class="board-view studio-view">
+              <div class="view-head">{{icon:folder-simple}}<b>Couvertures Street Bites</b><small>13 runs · 52 outputs</small></div>
+              <div class="studio-run">
+                <p class="run-label">Selected run</p>
+                <div class="run-title"><b>Épisode 12 · Street food à Osaka</b><em class="badge working session-badge c-badge"><span class="when-running">{{icon:circle-notch}}rendering</span><span class="when-done">{{icon:check-circle}}done</span></em></div>
+                <div class="gen-grid studio-grid">
+                  <div class="image-tile"><img data-step="32" data-wait="280" src="{{root}}demo/ep-1.webp" alt="" /></div>
+                  <div class="image-tile c-pick"><img data-step="33" data-wait="250" src="{{root}}demo/ep-2.webp" alt="" /><span class="pick-star">{{icon:star-fill}}</span><i class="fake-cursor" data-step="40" data-wait="350"></i></div>
+                  <div class="image-tile"><img data-step="34" data-wait="250" src="{{root}}demo/ep-3.webp" alt="" /></div>
+                  <div class="image-tile"><img data-step="35" data-wait="300" src="{{root}}demo/ep-4.webp" alt="" /></div>
+                </div>
+              </div>
+              <i data-step="35" data-fx="mark" data-add=".c-badge|ok" data-remove=".c-badge|working"></i>
+              <i data-step="42" data-wait="600" data-fx="mark" data-add=".c-pick|picked"></i>
+            </div>
+          </div>
+        </section>
+        <i data-step="30" data-wait="300" data-fx="mark" data-remove=".c-chat|active" data-add=".c-studio|active"></i>
+        <i data-step="50" data-wait="350" data-fx="mark" data-remove=".c-studio|active" data-add=".c-chat|active"></i>
+      </div>
+    </div>
+
+    <!-- Story 6: running the home. Nova sets a schedule -> 19:00 -> Smart Home scene and music. -->
+    <div class="story" id="story-home" role="tabpanel" data-story data-demo data-pace=".7" data-duration="5400" hidden>
+      <img class="story-bg" src="{{root}}demo/bg-home.webp" alt="" />
+      <div class="app-frame" data-stage>
+        <section class="screen hm-chat active" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+              <div class="row live"><span class="live-dot"></span><span><b>Live</b><small>now</small></span></div>
+              <div class="row selected"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Soirées à la maison</b><small>Nova · now</small></span></div>
+              <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Plantes et arrosage</b><small>Nova · Sunday</small></span></div>
+            </aside>
+            <div class="chat">
+              <div class="chat-head"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Soirées à la maison</b><small>Nova · Codex · Standard</small></span></div>
+              <div class="thread">
+                <div class="msg user" data-step="10" data-wait="350"><p>En semaine à 19 h, lumières chaudes dans le salon et ma playlist du soir.</p></div>
+                <div class="msg nova" data-step="20" data-wait="350"><div>
+                  <div class="frieze"><i class="sq t"></i><i class="sq t" style="--d:70ms"></i><i class="sq g" style="--d:140ms"></i></div>
+                  <p data-step="20" data-fx="stream">C'est fait. C'est maintenant une planification, donc elle tourne même quand on ne se parle pas.</p></div></div>
+                <div class="sched-card" data-step="24" data-wait="900">
+                  <div class="sched-head"><span class="app-icon amber">{{icon:clock}}</span><span><b>Soirée à la maison</b><small>Automation · Nova</small></span><em class="badge ok">{{icon:check-circle}}active</em></div>
+                  <dl><dt>When</dt><dd>Monday to Friday, 19:00</dd><dt>Does</dt><dd>Salon sur Relax, Playlist du soir sur l'enceinte du salon</dd></dl>
+                </div>
+              </div>
+              <div class="composer"><span class="composer-placeholder">Talk to Nova…</span><span class="send">{{icon:paper-plane-right}}</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen hm-home" aria-hidden="true">
+          <header class="app-header"><span class="app-identity"><span class="app-icon gold">{{icon:house-line}}</span><b>Smart Home</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:house-line}}Rooms</span><span>{{icon:music-notes}}Music</span></nav><span class="app-menu">{{icon:list}}</span></header>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="sidebar-title"><b>Rooms</b></div>
+              <div class="row selected nav-row">{{icon:lightbulb}}<span><b>Salon</b><small class="hm-lr">0/5 · speaker</small></span></div>
+              <div class="row nav-row">{{icon:lightbulb}}<span><b>Cuisine</b><small>0/4</small></span></div>
+              <div class="row nav-row">{{icon:lightbulb}}<span><b>Chambre</b><small>0/2 · speaker</small></span></div>
+              <div class="row nav-row">{{icon:lightbulb}}<span><b>Couloir</b><small>1/3</small></span></div>
+            </aside>
+            <div class="board-view home-view">
+              <div class="view-head">{{icon:house-line}}<b>Home</b><small class="clock">{{icon:clock}}<span class="hm-time-a">18:59</span><span class="hm-time-b">19:00</span></small></div>
+              <div class="home-body">
+                <p class="coach-label">{{icon:sparkle}}Scenes</p>
+                <div class="scene-chips"><span>Bright</span><span>Cooking</span><span>Concentrate</span><span class="hm-relax">Relax</span><span>Read</span><span>Nightlight</span></div>
+                <p class="coach-label">{{icon:house-line}}Rooms</p>
+                <div class="room-rows">
+                  <div class="room-row hm-room"><span class="room-icon">{{icon:lightbulb}}</span><b>Salon</b><span class="room-state"><span class="off">{{icon:lightbulb}}0/5</span><span class="on">{{icon:lightbulb}}5/5 · Relax</span></span><span class="room-music"><span class="off">Stopped</span><span class="on">{{icon:speaker-high}}Playlist du soir</span></span></div>
+                  <div class="room-row"><span class="room-icon">{{icon:lightbulb}}</span><b>Cuisine</b><span class="room-state">{{icon:lightbulb}}0/4</span><span class="room-music"></span></div>
+                  <div class="room-row"><span class="room-icon">{{icon:lightbulb}}</span><b>Chambre</b><span class="room-state">{{icon:lightbulb}}0/2</span><span class="room-music">Stopped</span></div>
+                </div>
+              </div>
+              <div class="now-playing hm-np"><span class="np-art"></span><span><b>Playlist du soir</b><small>Enceinte du salon</small></span><div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            </div>
+          </div>
+        </section>
+        <i data-step="30" data-wait="700" data-fx="mark" data-remove=".hm-chat|active" data-add=".hm-home|active"></i>
+        <i data-step="40" data-wait="400" data-fx="mark" data-add=".hm-home|evening"></i>
+        <i data-step="44" data-wait="400" data-fx="mark" data-add=".hm-home|lit"></i>
+        <div class="toast" data-step="48" data-wait="1400"><img class="avatar" src="{{root}}nova-avatar.webp" alt="" /><span><b>Soirée à la maison lancée à 19:00</b><small>Lumières sur Relax, playlist lancée dans le salon. Bon retour à la maison.</small></span></div>
+      </div>
+    </div>
+
+    <div class="stage-copy">
+      <p class="pill"><span class="pill-dot"></span>Préversion Nightly · Désormais sur Windows et Linux</p>
+      <h1 id="hero-title">Le système d'exploitation de vos <em>agents IA</em>.</h1>
+      <p class="lede">Une seule application pour Windows et Linux, où vos agents disposent des outils, des applications et d'une mémoire qui dure. Créez un jeu, apprenez une langue, préparez un voyage, pilotez votre maison, et voyez chacune de leurs étapes.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#download">{{icon:download-simple}}<span>Obtenir RedLeaf pour <span data-platform-label>Windows</span></span></a>
+        <a class="btn btn-ghost" href="{{root}}cookbook/">{{icon:book-open}}<span>Cas d'usage</span></a>
+      </div>
+      <div class="stage-bar">
+    <div class="story-tabs" role="tablist" aria-label="Choisir une histoire">
+        <button type="button" role="tab" data-story-tab aria-controls="story-game" aria-selected="true"><span class="tone tone-blue">{{icon:game-controller}}</span><span><b>Créer un jeu</b><small>Code · Tableau Workspace</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+        <button type="button" role="tab" data-story-tab aria-controls="story-german" aria-selected="false" tabindex="-1"><span class="tone tone-amber">{{icon:translate}}</span><span><b>Apprendre une langue</b><small>Voix · Vocabulaire en images</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+        <button type="button" role="tab" data-story-tab aria-controls="story-organize" aria-selected="false" tabindex="-1"><span class="tone tone-green">{{icon:calendar-check}}</span><span><b>S'organiser</b><small>Fichiers · Life Coaching</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab aria-controls="story-trip" aria-selected="false" tabindex="-1"><span class="tone tone-teal">{{icon:airplane-tilt}}</span><span><b>Préparer un voyage</b><small>Recherche web · Page de voyage</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab aria-controls="story-create" aria-selected="false" tabindex="-1"><span class="tone tone-violet">{{icon:music-notes}}</span><span><b>Faire un épisode</b><small>Image Studio · Musique · Voix</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      <button type="button" role="tab" data-story-tab aria-controls="story-home" aria-selected="false" tabindex="-1"><span class="tone tone-orange">{{icon:house-line}}</span><span><b>Piloter la maison</b><small>Planifications · Smart Home</small></span><i class="tab-progress" aria-hidden="true"></i></button>
+      </div>
+      <button class="demo-toggle" type="button" data-set-toggle aria-label="Mettre la démo en pause">{{icon:pause}}{{icon:play}}</button>
+      </div>
+    </div>
+  </div>
+  <p class="demo-caption">Reconstitutions simplifiées de l'interface de RedLeaf. Les personnes, les projets et les conversations sont des exemples.</p>
+</section>
+
+<section class="band meet" aria-labelledby="meet-title">
+  <div class="page-width meet-inner">
+    <img src="{{root}}nova-portrait.webp" alt="Nova, l'agent fourni avec RedLeaf, tenant une tablette dans une pièce pleine de plantes" width="900" height="900" loading="lazy" />
+    <div>
+      <p class="eyebrow">Agents</p>
+      <h2 id="meet-title">Voici Nova, votre premier agent.</h2>
+      <p class="meet-lede">Nova est livrée avec RedLeaf. C'est à elle que vous parlez : dites-lui ce que vous cherchez à faire, elle le planifie avec vous, confie le travail à la bonne application, se souvient de ce que vous avez fait ensemble et vous prévient quand quelque chose a besoin de vous.</p>
+      <ul class="meet-points">
+        <li>{{icon:chat-circle}}<div><b>Écrire ou parler</b><span>Dans le chat ou à la voix, selon ce qui vous tombe sous la main.</span></div></li>
+        <li>{{icon:book-open}}<div><b>Elle se souvient</b><span>Sa mémoire, ce sont des pages que vous pouvez ouvrir et modifier.</span></div></li>
+        <li>{{icon:lightning}}<div><b>D'une application à l'autre</b><span>Code, Workspace, images, voix et planifications.</span></div></li>
+      </ul>
+      <div class="meet-more">
+        <p><b>Puis créez les vôtres.</b> Un agent peut être ce dont vous avez besoin, avec son propre nom, sa personnalité, sa voix et son espace de travail. Quelques idées de ce que le vôtre pourrait être :</p>
+        <ul class="horde" aria-label="Exemples d'agents que vous pourriez créer">
+          <li style="--i:0"><img src="{{root}}demo/agent-leni.webp" alt="" /><b>Leni</b><span>Une prof d'allemand</span></li>
+          <li style="--i:1"><img src="{{root}}demo/agent-zib.webp" alt="" /><b>Zib</b><span>Un guide des étoiles pour les enfants</span></li>
+          <li style="--i:2"><img src="{{root}}demo/agent-mochi.webp" alt="" /><b>Mochi</b><span>Un conteur pour l'heure du coucher</span></li>
+          <li style="--i:3"><img src="{{root}}demo/agent-bolt.webp" alt="" /><b>Bolt</b><span>Un testeur pour vos builds</span></li>
+          <li style="--i:4"><img src="{{root}}demo/agent-ana.webp" alt="" /><b>Ana</b><span>Une coach de course à pied</span></li>
+          <li style="--i:5"><img src="{{root}}demo/agent-sage.webp" alt="" /><b>Sage</b><span>Un documentaliste pour vos recherches</span></li>
+          <li style="--i:6"><img src="{{root}}demo/agent-marco.webp" alt="" /><b>Marco</b><span>Un planificateur des repas de la semaine</span></li>
+        </ul>
+        <p class="horde-note">Ce ne sont que des exemples. Vous choisissez qui sont vos agents et ce qu'ils font.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band project" aria-labelledby="project-title">
+  <div class="page-width">
+    <div class="section-head">
+      <p class="eyebrow">Votre projet</p>
+      <h2 id="project-title">Nova garde tout le projet en tête.</h2>
+      <p>Vous décidez de ce que le projet doit devenir. Nova le découpe en tâches, confie chacune à une session de code, vérifie le résultat, et garde en mémoire la feuille de route, les décisions et l'historique.</p>
+    </div>
+    <div class="project-grid">
+      <div class="project-kinds">
+        <article><span class="tone tone-rose">{{icon:game-controller}}</span><div><h3>Un jeu vidéo</h3><p>Les mécaniques, les niveaux, les menus, et le bug qui n'arrive qu'au deuxième saut. Nova tient les notes de conception et la liste des tâches, et peut aussi créer les graphismes et les voix.</p></div></article>
+        <article><span class="tone tone-blue">{{icon:device-mobile}}</span><div><h3>Une application</h3><p>Du premier écran à un build que vous pouvez confier à vos amis. Les fonctionnalités avancent en parallèle, avec les tests lancés à chaque modification.</p></div></article>
+        <article><span class="tone tone-green">{{icon:globe-simple}}</span><div><h3>Un site web</h3><p>Un portfolio, une boutique, une page pour votre groupe. Décrivez-le, voyez-le tourner sur votre propre ordinateur, et modifiez-le avec des mots simples.</p></div></article>
+      </div>
+      <div class="lanes-card" aria-label="Trois modifications développées en parallèle sur des branches séparées, deux fusionnées dans le jeu, une en attente de relecture">
+        <p class="lanes-title">{{icon:git-branch}}Moss Knight · cet après-midi</p>
+        <div class="lanes">
+          <div class="lane main"><span>Le jeu</span></div>
+          <div class="lane b1"><span>Saut plus nerveux</span><em class="badge ok">{{icon:check-circle}}fusionné</em></div>
+          <div class="lane b2"><span>Support manette</span><em class="badge ok">{{icon:check-circle}}fusionné</em></div>
+          <div class="lane b3"><span>Sélection des niveaux</span><em class="badge review">{{icon:eye}}à vous</em></div>
+        </div>
+        <p class="lanes-note">Chaque tâche a sa propre branche : une copie séparée du projet où elle peut être construite et testée. Trois choses avancent en même temps sans casser le jeu. Ce qui marche est fusionné ; ce qui ne marche pas n'y touche jamais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band cookbook-teaser" aria-labelledby="cookbook-title">
+  <div class="page-width">
+    <div class="section-head split">
+      <div><p class="eyebrow">À quoi ça sert</p><h2 id="cookbook-title">Apportez un projet. Repartez avec le résultat.</h2></div>
+      <p>D'autres agents font vos courses dans le cloud. RedLeaf sert à créer : le projet d'abord, puis les visuels, le son, les plans et les connaissances qui l'entourent, réalisés sur votre machine et conservés sur place. <a href="{{root}}cookbook/">Voir les cas d'usage {{icon:arrow-right}}</a></p>
+    </div>
+    <div class="recipe-grid">
+{{recipes}}
+    </div>
+  </div>
+</section>
+
+<section class="band apps" aria-labelledby="apps-title">
+  <div class="page-width">
+    <div class="section-head">
+      <p class="eyebrow">Ce que vous installez</p>
+      <h2 id="apps-title">Quatre applications qui se connaissent.</h2>
+      <p>RedLeaf est un seul service local qui contient ses applications. Elles partagent les mêmes agents, les mêmes fichiers et le même historique, donc le travail passe de l'une à l'autre sans copier-coller.</p>
+    </div>
+    <div class="app-cards">
+      <article class="app-card rose"><span class="app-icon rose">{{icon:star}}</span><h3>Nova</h3><p>Votre agent principal, celui à qui vous parlez. Tient des discussions en parallèle, une chronologie Live, et un heartbeat qui surveille les choses pour vous.</p><ul><li>Une discussion par sujet</li><li>Plusieurs agents, chacun avec sa personnalité</li><li>La voix en entrée et en sortie</li></ul></article>
+      <article class="app-card blue"><span class="app-icon blue">{{icon:terminal-window}}</span><h3>Code</h3><p>Des sessions de code persistantes sur vos dépôts. Nova peut en lancer une, la suivre, relire le résultat et la reprendre plus tard.</p><ul><li>Des sessions qui survivent aux redémarrages</li><li>Commits, issues et tests par dépôt</li><li>Des niveaux d'accès de Plan à Full</li></ul></article>
+      <article class="app-card green"><span class="app-icon green">{{icon:folder-simple}}</span><h3>Workspace</h3><p>Les fichiers et la mémoire de chaque agent, sous forme de pages que vous pouvez ouvrir, modifier et relier. Également monté comme un vrai dossier sur votre disque.</p><ul><li>Une mémoire qui survit à la discussion</li><li>Pages, entités et liens</li><li>Un lecteur sous Windows, <code>~/Leaf</code> sous Linux</li></ul></article>
+      <article class="app-card amber"><span class="app-icon amber">{{icon:cpu}}</span><h3>Compute</h3><p>Là où tournent les modèles. Le chat, la voix, les images et la musique passent par un seul moteur, avec chaque tâche visible et chaque fournisseur remplaçable.</p><ul><li>Fournisseurs hébergés et locaux</li><li>Texte, voix, image et musique</li><li>Une liste des tâches que vous pouvez inspecter</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section class="band principles" aria-labelledby="principles-title">
+  <div class="page-width principles-grid">
+    <div class="section-head">
+      <p class="eyebrow">Comment c'est construit</p>
+      <h2 id="principles-title">Il tourne sur votre machine, et vous voyez ce qu'il fait.</h2>
+    </div>
+    <div class="facts">
+      <article>{{icon:eye}}<h3>Chaque étape consignée</h3><p>Chaque action d'un agent est un carré que vous pouvez ouvrir : le fichier qu'il a lu, la modification qu'il a faite, la commande qu'il a lancée et ce qu'elle a renvoyé. Les sessions de code gardent leur transcription complète, et chaque souvenir est une page que vous pouvez lire et corriger.</p></article>
+      <article>{{icon:lock-simple}}<h3>Privé par défaut</h3><p>Vos conversations, vos fichiers et la mémoire de vos agents restent sur votre ordinateur, et RedBamboo ne les reçoit jamais. Aucun outil d'analyse. Les statistiques d'utilisation anonymes, des comptes comme « 3 sessions aujourd'hui » et jamais leur contenu, restent désactivées tant que vous ne les activez pas.</p></article>
+      <article>{{icon:house}}<h3>Sur votre propre ordinateur</h3><p>RedLeaf, sa base de données et chaque espace de travail vivent sur votre machine, et les images, les voix et la musique peuvent être générées sur votre propre carte graphique.</p></article>
+      <article>{{icon:lightning}}<h3>L'IA de votre choix</h3><p>Connectez les comptes d'IA que vous utilisez déjà, ou faites tourner des modèles locaux. Les prompts ne vont qu'au fournisseur que vous choisissez, selon les conditions de ce fournisseur.</p></article>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="band download" id="download" aria-labelledby="download-title">
+  <div class="page-width download-grid">
+    <div class="download-copy">
+      <p class="eyebrow">Téléchargement</p>
+      <h2 id="download-title">Installer RedLeaf.</h2>
+      <p>Le programme d'installation installe la suite, prépare l'espace de travail des agents et vous guide pour votre compte et votre premier fournisseur d'IA. Cela prend quelques minutes.</p>
+      <ol class="install-steps">
+        <li><span>01</span><div><h3>Lancez l'installateur</h3><p>Sous Windows, RedLeaf Setup. Sous Linux, l'installation en une ligne dans un terminal, avec votre propre compte.</p></div></li>
+        <li><span>02</span><div><h3>Autorisez le système de fichiers des agents</h3><p>Windows demande une seule fois l'autorisation d'un administrateur pour installer WinFsp. Linux utilise FUSE 3, que vous installez au préalable.</p></div></li>
+        <li><span>03</span><div><h3>Créez le compte propriétaire local</h3><p>Votre compte RedLeaf et l'espace de travail des agents restent sur cette machine.</p></div></li>
+        <li><span>04</span><div><h3>Connectez un fournisseur d'IA</h3><p>Choisissez un fournisseur, terminez sa connexion, et ouvrez votre première discussion avec Nova.</p></div></li>
+      </ol>
+    </div>
+
+    <aside class="release-card" aria-label="Version actuelle de RedLeaf">
+      <div class="release-card-head"><span class="release-dot"></span><p>Préversion <span data-platform-label>Windows</span></p></div>
+      <div class="platform-switch" role="tablist" aria-label="Plateforme">
+        <button type="button" role="tab" id="platform-windows" aria-controls="panel-windows" aria-selected="true" data-platform="windows">{{icon:windows-logo}}Windows</button>
+        <button type="button" role="tab" id="platform-linux" aria-controls="panel-linux" aria-selected="false" data-platform="linux">{{icon:linux-logo}}Linux</button>
+      </div>
+      <div class="platform-panel" id="panel-windows" role="tabpanel" aria-labelledby="platform-windows" data-panel="windows">
+        <a class="download-button is-loading" id="download-button" aria-disabled="true">
+          <span><b id="download-label">Recherche de la dernière version…</b><small>Windows x64</small></span>
+          <em id="download-meta">Windows x64</em>
+          {{icon:download-simple}}
+        </a>
+        <p class="release-note" id="release-note">Lecture du flux de versions signé de RedLeaf.</p>
+        <button class="hash-toggle" id="hash-toggle" type="button" hidden>Afficher le SHA-256</button>
+        <code class="hash" id="release-hash" hidden></code>
+        <div class="trust-note">{{icon:shield-check}}<p><strong>Préversion Nightly.</strong> SmartScreen peut afficher « Éditeur inconnu » tant que la signature Windows est en attente. Choisissez Informations complémentaires, puis Exécuter quand même.</p></div>
+      </div>
+      <div class="platform-panel" id="panel-linux" role="tabpanel" aria-labelledby="platform-linux" data-panel="linux" hidden>
+        <p class="command-label">Installez depuis un terminal, avec votre propre compte (pas avec sudo) :</p>
+        <div class="command"><code id="linux-command">Recherche de la dernière version…</code><button class="copy-button" id="linux-copy" type="button" disabled>Copier</button></div>
+        <a class="download-button is-loading" id="linux-download" aria-disabled="true">
+          <span><b id="linux-label">Recherche de la dernière version…</b><small>Linux x64 · .tar.gz</small></span>
+          <em id="linux-meta">Linux x64</em>
+          {{icon:download-simple}}
+        </a>
+        <p class="release-note" id="linux-note">Lecture du flux de versions Linux signé de RedLeaf.</p>
+        <button class="hash-toggle" id="linux-hash-toggle" type="button" hidden>Afficher le SHA-256</button>
+        <code class="hash" id="linux-hash" hidden></code>
+        <div class="trust-note">{{icon:shield-check}}<p><strong>Avant d'installer.</strong> RedLeaf a besoin de FUSE 3 pour votre dossier <code>~/Leaf</code> : <code>sudo dnf install fuse3</code> sur Fedora, <code>sudo apt install fuse3</code> sur Debian et Ubuntu. Il fonctionne avec SELinux en mode enforcing ; il n'y a rien à réétiqueter ni à désactiver. Il s'installe dans votre dossier personnel et vérifie le lanceur d'après l'enregistrement de version signé avant de l'exécuter.</p></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="page-width requirements">
+    <h3>Configuration requise et dépendances</h3>
+    <div class="requirement-list">
+      <article><b>Windows x64 ou Linux x64</b><p>Linux est testé sur Fedora avec SELinux en mode enforcing.</p></article>
+      <article><b>FUSE 3 sous Linux</b><p>Fournit votre dossier <code>~/Leaf</code>. Installez d'abord le paquet <code>fuse3</code>.</p></article>
+      <article><b>Autorisation administrateur sous Windows</b><p>Nécessaire une seule fois pour WinFsp, qui fournit les lecteurs des espaces de travail des agents.</p></article>
+      <article><b>Un compte chez un fournisseur d'IA</b><p>Utilisez la procédure de connexion du fournisseur pris en charge que vous choisissez.</p></article>
+      <article><b>Git</b><p>Nécessaire quand Code travaille sur des dépôts locaux : Git for Windows, ou le paquet git de votre distribution. RedLeaf n'installe pas Git.</p></article>
+      <article><b>Accès à Internet</b><p>Pour télécharger les composants et joindre votre fournisseur d'IA.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="band community" aria-labelledby="community-title">
+  <div class="page-width community-inner no-img">
+    <div>
+      <p class="eyebrow">Préversion</p>
+      <h2 id="community-title">Venez le casser avec nous.</h2>
+      <p>RedLeaf est une préversion Nightly, testée par un petit groupe. Les bugs, les idées et les usages inattendus vont sur le Discord de Leaf, où les personnes qui le construisent suivent la conversation.</p>
+      <a class="btn btn-primary" href="https://discord.gg/FWMQtGzw3y">{{icon:discord-logo}}<span>Rejoindre le Discord de Leaf</span></a>
+    </div>
+  </div>
+</section>

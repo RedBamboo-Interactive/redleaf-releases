@@ -1,0 +1,52 @@
+<!--page {"title": "Branches et travail en parallèle · Documentation RedLeaf", "description": "Lancez plusieurs sessions de code à la fois, chacune sur sa propre branche dans son propre dossier, puis relisez, fusionnez et faites le ménage.", "layout": "docs", "section": "docs", "slug": "branches"}-->
+<header>
+  <p class="eyebrow">Au quotidien</p>
+  <h1>Branches et travail en parallèle.</h1>
+  <p class="doc-lede">Plusieurs sessions peuvent travailler sur le même projet en même temps sans se marcher dessus. Vous choisissez une branche ; Code lui donne son propre dossier, appelé worktree, et rien n'atteint votre copie de travail principale tant que vous ne l'avez pas fusionnée.</p>
+</header>
+
+<div class="prose">
+  <h2>Comment ça marche</h2>
+  <p>Un worktree est un second dossier du même dépôt Git, extrait sur une autre branche. Code les crée pour vous, à côté de votre projet : un projet situé dans <code>Projects/game</code> a ses worktrees dans <code>Projects/game.worktrees/&lt;branch&gt;</code>. Quand vous choisissez une branche pour une session :</p>
+  <ul>
+    <li>la branche déjà extraite utilise le dossier du projet lui-même ;</li>
+    <li>une branche qui a déjà un worktree le réutilise ;</li>
+    <li>toute autre branche, nouvelle ou existante, reçoit un nouveau worktree.</li>
+  </ul>
+  <p>La règle qui garantit la sécurité : un seul rédacteur par dossier. Votre copie de travail vous appartient, ou appartient à la session qui y travaille.</p>
+
+  <h2>Lancer une session sur une branche</h2>
+  <ol class="steps">
+    <li><b>Ouvrez le sélecteur de branche</b>Dans <span class="ui">Start Session</span>, après avoir choisi le projet, choisissez la ligne <span class="ui">Branch</span>.</li>
+    <li><b>Choisissez ou créez une branche</b>Chaque branche indique ce qui va se passer : <span class="ui">Repository folder</span> (dossier du dépôt), <span class="ui">Isolated workspace ready</span> (espace isolé prêt), ou <span class="ui">Code will prepare an isolated workspace</span> (Code va préparer un espace isolé). Pour en créer une, choisissez <span class="ui">New branch</span>, nommez-la (par exemple <code>feature/better-jump</code>), choisissez éventuellement son point de départ, puis choisissez <span class="ui">Use branch</span>.</li>
+    <li><b>Lancez</b>Code prépare le worktree et y démarre la session. La liste des sessions la signale par un badge <span class="ui">worktree</span>.</li>
+  </ol>
+  <p>Nova fait de même quand elle délègue : demandez-lui de travailler sur plusieurs choses à la fois, et elle peut donner à chacune sa propre branche.</p>
+
+  <h2>L'onglet Worktrees</h2>
+  <p>Dans l'onglet <span class="ui">GitHub</span> de Code, ouvrez un projet et choisissez <span class="ui">Worktrees</span>. Chaque ligne affiche la branche, son état, son avance ou son retard sur la branche par défaut, les modifications non commitées, son dernier commit, et les sessions et discussions qui l'utilisent.</p>
+  <table class="doc-table">
+    <thead><tr><th>État</th><th>Signification</th></tr></thead>
+    <tbody>
+      <tr><td>In use</td><td>Une session y travaille.</td></tr>
+      <tr><td>Uncommitted changes</td><td>Du travail qui n'a pas encore été commité.</td></tr>
+      <tr><td>Merged</td><td>Tout ce qui est sur la branche se trouve dans la branche par défaut. Vous pouvez le supprimer sans risque.</td></tr>
+      <tr><td>Idle</td><td>Rien en cours, rien en attente.</td></tr>
+      <tr><td>Folder missing</td><td>Le dossier a été supprimé en dehors de Code. <span class="ui">Clean up missing</span> l'oublie et conserve la branche.</td></tr>
+    </tbody>
+  </table>
+  <p>Depuis le menu d'une ligne : <span class="ui">Open in Code</span>, <span class="ui">New session here</span>, <span class="ui">Copy path</span> et <span class="ui">Remove worktree…</span>. <span class="ui">New worktree</span>, en haut, en crée un sans lancer de session.</p>
+
+  <h2>Branches autorisées, ou main uniquement</h2>
+  <p>Le menu en haut de l'onglet Worktrees définit la règle du projet. <span class="ui">Branches allowed</span> permet aux sessions de travailler sur une branche dans son propre worktree. <span class="ui">Main only</span> garde toutes les sessions dans la copie de travail : la ligne Branch disparaît de Start Session, et Nova ne délègue pas sur une branche. Utilisez-le pour les projets où un second dossier perturberait vos outils.</p>
+
+  <h2>Terminer : fusionner et faire le ménage</h2>
+  <ol class="steps">
+    <li><b>Commitez dans le worktree</b>Demandez à la session de commiter son travail, ou faites-le vous-même.</li>
+    <li><b>Fusionnez</b>Ouvrez une pull request, ou fusionnez la branche dans votre branche par défaut en local, depuis une copie de travail propre. Code ne fusionne pas les branches à votre place.</li>
+    <li><b>Supprimez le worktree</b>Choisissez <span class="ui">Remove worktree…</span>. Le dossier est supprimé ; la branche et ses commits sont conservés, sauf si vous cochez aussi <span class="ui">Also delete the branch</span>, proposé une fois la branche entièrement fusionnée.</li>
+  </ol>
+  <p>Code refuse de supprimer un worktree qui a des modifications non commitées. Il liste aussi les fichiers ignorés qui partiraient avec le dossier, comme les fichiers <code>.env</code> ou les environnements virtuels, pour que vous puissiez les récupérer avant. Si des sessions y tournent encore, le bouton propose de les arrêter d'abord.</p>
+
+  <div class="callout">{{icon:git-branch}}<p><strong>Quand découper, et quand s'en abstenir.</strong> Les branches brillent pour les tâches indépendantes : un écran de sélection de niveau, la prise en charge des manettes et un meilleur saut. Deux tâches qui touchent les mêmes fichiers gagnent à être faites l'une après l'autre, dans une seule session.</p></div>
+</div>

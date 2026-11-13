@@ -1,0 +1,38 @@
+<!--page {"title": "Base de données et vues · Documentation RedLeaf", "description": "Dans RedLeaf, tout est une entité. Créez vos propres types et champs, cherchez dans tout à la fois, et construisez des vues en tableau ou en liste dans vos projets.", "layout": "docs", "section": "docs", "slug": "database"}-->
+<header>
+  <p class="eyebrow">Pour aller plus loin</p>
+  <h1>Base de données et vues.</h1>
+  <p class="doc-lede">Sous les applis, tout dans RedLeaf est une entité : les pages, les agents, les skills, les dépôts, les automatisations, et tout ce que vous définissez vous-même. L'appli Database affiche l'ensemble, vous permet de créer vos propres types, et cherche dans tout à la fois.</p>
+</header>
+
+<div class="prose">
+  <h2>Entités et types</h2>
+  <p>Chaque entité a un type, et chaque type a des champs. Un type <span class="ui">Character</span> pour votre jeu pourrait avoir un nom, un portrait, une faction et une liste de quêtes. Les agents peuvent les lire et les remplir comme vous : c'est ainsi que la structure d'un projet reste partagée entre vous et eux.</p>
+  <ol class="steps">
+    <li><b>Ouvrez Database</b>Depuis le sélecteur d'applis, puis <span class="ui">Entities</span>. La liste affiche chaque <span class="ui">Entity Type</span> (type d'entité), rangé dans des dossiers. Les types propres à RedLeaf se trouvent dans la section verrouillée <span class="ui">System</span>, et le filtre <span class="ui">Scope</span> restreint la liste à une appli ou à un espace de travail.</li>
+    <li><b>Créez un type</b>Choisissez <span class="ui">New type</span> et donnez-lui un nom, par exemple Document, Character ou Item.</li>
+    <li><b>Ajoutez des champs</b>Dans les champs du type, ajoutez ce dont il a besoin et choisissez <span class="ui">Save Changes</span>.</li>
+    <li><b>Ajoutez des entités</b>Sous <span class="ui">Instances</span>, choisissez <span class="ui">New</span>. Ou demandez à un agent de les remplir à partir de vos notes.</li>
+  </ol>
+  <p>Types de champs : String, Number, Float, Boolean, Date, Select, Multi Select, Entity Ref, Entity List, Media, Color, JSON et Markdown. Entity Ref et Entity List relient des entités entre elles, par exemple une quête à ses personnages.</p>
+
+  <h2>Recherche</h2>
+  <p><span class="ui">Database › Search</span> est une recherche unique dans tout ce que vous avez le droit de lire. Cherchez dans <span class="ui">Entities</span> (noms, propriétés et références) ou dans <span class="ui">Records</span> (pages, discussions, sessions et autres flux indexés). Affinez par type d'entité, par champ à faire correspondre, ou par date. Les résultats respectent les permissions : chaque personne ne trouve que ce qu'elle peut voir.</p>
+
+  <h2>Des vues dans vos projets</h2>
+  <p>Dans un projet Workspace, <span class="ui">New view</span> affiche un ensemble d'entités dans la disposition de votre choix. Donnez-lui un nom, choisissez le type d'entité et un mode d'affichage, puis <span class="ui">Create View</span>.</p>
+  <table class="doc-table">
+    <thead><tr><th>Mode</th><th>Ce que vous obtenez</th></tr></thead>
+    <tbody>
+      <tr><td>Board</td><td>Des colonnes regroupées selon un champ de sélection, comme un statut. Faites glisser une carte vers une autre colonne pour changer la valeur du champ.</td></tr>
+      <tr><td>List</td><td>Une liste verticale, éventuellement regroupée selon un champ.</td></tr>
+    </tbody>
+  </table>
+  <p>Un tableau regroupé par statut, c'est une feuille de route : l'agent peut déplacer les cartes à mesure que le travail avance, et vous voyez le même tableau.</p>
+
+  <h2>Pages</h2>
+  <p>Un projet Workspace est une page, et les pages s'imbriquent. Ouvrez-en une pour y écrire, épinglez les éléments que vous utilisez le plus sous <span class="ui">Structure</span>, et choisissez <span class="ui">Share</span> pour créer un lien vers elle. Chaque modification est versionnée, avec <span class="ui">Undo this change</span> (annuler cette modification) dans son historique.</p>
+
+  <h2>Rôles</h2>
+  <p>RedLeaf a trois rôles : <span class="ui">Admin</span>, avec un accès complet, paramètres compris ; <span class="ui">Editor</span>, qui peut lire et écrire tout le contenu mais ne peut pas gérer les utilisateurs ni les rôles ; et <span class="ui">Viewer</span>, en lecture seule. Le compte propriétaire créé pendant la configuration est un admin. Pour d'autres personnes, il faut la connexion Google : voir <a href="{{root}}docs/remote-access/">Accès à distance</a>.</p>
+</div>

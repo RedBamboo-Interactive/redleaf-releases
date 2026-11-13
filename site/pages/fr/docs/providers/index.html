@@ -1,0 +1,58 @@
+<!--page {"title": "Fournisseurs d'IA et modèles locaux · Documentation RedLeaf", "description": "Les fournisseurs d'IA pris en charge par RedLeaf, comment s'y connecter, comment les niveaux de qualité choisissent le modèle, et comment faire tourner voix, transcription et images sur votre propre GPU.", "layout": "docs", "section": "docs", "slug": "providers"}-->
+<header>
+  <p class="eyebrow">Pour aller plus loin</p>
+  <h1>Fournisseurs d'IA et modèles locaux.</h1>
+  <p class="doc-lede">RedLeaf n'est pas livré avec un modèle à lui. Chaque capacité, de la discussion aux images, est assurée par un fournisseur que vous choisissez. Certains tournent dans le cloud, sur votre propre compte ; d'autres tournent sur votre carte graphique, gratuitement.</p>
+</header>
+
+<div class="prose">
+  <h2>Réflexion et discussion</h2>
+  <p>Ce sont eux qui font réfléchir vos agents. RedLeaf installe les trois, et vous vous connectez à au moins l'un d'eux pendant la configuration.</p>
+  <table class="doc-table">
+    <thead><tr><th>Fournisseur</th><th>Il vous faut</th><th>Connexion via</th></tr></thead>
+    <tbody>
+      <tr><td>Claude Code</td><td>Claude Code sur votre PC, et un abonnement Claude ou un compte Anthropic Console</td><td><span class="ui">Continue with Claude</span> ou <span class="ui">Use Anthropic Console</span></td></tr>
+      <tr><td>Codex</td><td>Un compte ChatGPT avec Codex, ou une clé d'API OpenAI. RedLeaf peut installer Codex pour vous.</td><td><span class="ui">Continue with ChatGPT</span> ou <span class="ui">Use an API key</span></td></tr>
+      <tr><td>OpenCode</td><td>OpenCode sur votre PC, connecté à n'importe quel fournisseur qu'il prend en charge</td><td><span class="ui">Open OpenCode sign-in</span>, dans un terminal</td></tr>
+    </tbody>
+  </table>
+  <p>Les connexions restent dans l'outil de chaque fournisseur, sur votre PC. Si RedLeaf ne trouve pas Claude Code parce qu'il est installé à un emplacement inhabituel, indiquez cet emplacement dans les paramètres avancés de l'extension. Par défaut, Codex ne peut modifier que les fichiers de son dossier de travail : c'est son <span class="ui">Sandbox mode</span> (mode bac à sable).</p>
+
+  <h2>Des niveaux de qualité plutôt que des noms de modèles</h2>
+  <p>Vous ne choisissez pas d'identifiants de modèles. Vous choisissez un niveau de qualité, et chaque fournisseur le fait correspondre à ses propres modèles :</p>
+  <table class="doc-table">
+    <thead><tr><th>Niveau</th><th>Idéal pour</th></tr></thead>
+    <tbody>
+      <tr><td>Fast</td><td>Réponses rapides, quiz, petites corvées</td></tr>
+      <tr><td>Standard</td><td>La plupart du travail, y compris les sessions de code</td></tr>
+      <tr><td>Deep</td><td>Les problèmes plus difficiles, qui méritent plus de réflexion</td></tr>
+      <tr><td>Research</td><td>Les enquêtes longues et minutieuses</td></tr>
+    </tbody>
+  </table>
+  <p>Chaque agent a un <span class="ui">Provider</span> (fournisseur) et un <span class="ui">Quality Tier</span> (niveau de qualité) par défaut. Remplacez-les au moment de lancer une discussion ou une session, ou modifiez-les plus tard dans <span class="ui">Info</span>, ce qui redémarre la session.</p>
+
+  <h2>Voix, transcription, images et musique</h2>
+  <p>Installez-les depuis <span class="ui">Settings › Extensions</span> quand vous en avez besoin.</p>
+  <table class="doc-table">
+    <thead><tr><th>Fournisseur</th><th>Assure</th><th>Exécution</th><th>Prérequis</th></tr></thead>
+    <tbody>
+      <tr><td>faster-whisper</td><td>Speech to Text</td><td>Locale</td><td>GPU NVIDIA, WSL 2, environ 1,6 Go</td></tr>
+      <tr><td>Qwen3-TTS</td><td>Text to Speech</td><td>Locale</td><td>GPU NVIDIA, WSL 2, environ 3,4 Go</td></tr>
+      <tr><td>ElevenLabs</td><td>Text to Speech</td><td>Cloud</td><td>Une clé d'API ElevenLabs (le secret complet, qui commence par <code>sk_</code>)</td></tr>
+      <tr><td>ComfyUI</td><td>Image Generation</td><td>Locale</td><td>GPU NVIDIA, environ 21 Go</td></tr>
+      <tr><td>Suno</td><td>Music Generation</td><td>Cloud</td><td>Une clé SunoAPI avec des crédits</td></tr>
+      <tr><td>OpenAI GPT-Live</td><td>Mode vocal</td><td>Cloud</td><td>Une clé de projet OpenAI qui commence par <code>sk-proj-</code></td></tr>
+    </tbody>
+  </table>
+  <p>Quand une capacité a plusieurs fournisseurs, choisissez le <span class="ui">Default provider</span> (fournisseur par défaut) dans les paramètres de la capacité.</p>
+
+  <h3>Modèles locaux</h3>
+  <p>Les fournisseurs locaux sont configurés pour vous. RedLeaf prépare l'environnement, télécharge le programme et ses modèles, le démarre, puis le teste avec une petite tâche. Le premier démarrage peut prendre plusieurs minutes. Sous Windows, la voix et la transcription tournent dans WSL 2. ComfyUI tourne en natif, et peut reprendre une installation que vous avez déjà si vous lui indiquez le dossier. RedLeaf démarre ComfyUI quand il en a besoin : vous n'avez jamais à l'ouvrir vous-même.</p>
+  <p>Avant l'installation, la fiche du Marketplace vous indique si votre machine convient : <span class="ui">Works on this PC</span>, <span class="ui">Needs WSL</span>, <span class="ui">Needs an NVIDIA GPU</span>, ou combien de mémoire graphique ou d'espace disque il manque.</p>
+
+  <h2>Clés et confidentialité</h2>
+  <p>Les clés d'API que vous enregistrez sont chiffrées dans le stockage propre à RedLeaf ; elles ne sont plus jamais affichées ni envoyées au navigateur. Les clés que vous donnez à Codex vont directement à Codex. Le contenu ne quitte votre ordinateur que lorsqu'un agent l'envoie au fournisseur que vous avez choisi : c'est donc votre choix de fournisseur qui décide de ce qui sort. Les fournisseurs locaux n'envoient rien à l'extérieur.</p>
+
+  <h2>Suivre la consommation</h2>
+  <p><span class="ui">Compute</span> affiche chaque tâche et son coût, et <span class="ui">Compute › Stats</span> y ajoute les totaux, les taux de réussite et le nombre de jetons au fil du temps. Quand un fournisseur indique un quota d'abonnement, un fin anneau autour de l'avatar de la discussion Live montre ce qu'il reste : bleu canard, puis doré à partir de 90 % utilisés, rouge à la limite. Survolez-le pour voir un résumé.</p>
+</div>

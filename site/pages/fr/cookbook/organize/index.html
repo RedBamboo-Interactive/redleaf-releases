@@ -1,0 +1,86 @@
+<!--page {"title": "Organiser : une mémoire que vous pouvez ouvrir et modifier · Cas d'usage RedLeaf", "description": "Déposez des fichiers dans l'espace de travail d'un agent, laissez-le les trier, et gardez notes, décisions et documents sous forme de pages que vous pouvez lire, modifier et relier.", "layout": "doc", "section": "cookbook", "slug": "organize"}-->
+<header>
+  <p class="eyebrow">Cas d'usage · Organiser</p>
+  <h1>Une mémoire que vous pouvez ouvrir et modifier.</h1>
+  <p class="doc-lede">Chaque agent a un espace de travail : des pages, des fichiers et des liens qui survivent à n'importe quelle conversation. C'est aussi un vrai dossier sur votre disque : vous pouvez y déposer une pile de documents, laisser l'agent les trier, et ouvrir le résultat dans l'appli de votre choix.</p>
+  <div class="recipe-meta"><span>{{icon:star}}Nova</span><span>{{icon:folder-simple}}Workspace</span><span>{{icon:database}}Database</span></div>
+</header>
+
+<div class="recipe-demo" data-demo aria-label="Reconstitution animée : Nova trie un dossier de documents en vrac et rédige une page d'index">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar tree">
+          <div class="tree-owner"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Nova</b><small>Agent workspace</small></span></div>
+          <div class="tree-row inbox">{{icon:caret-down}}{{icon:folder-simple}}<span>À trier</span><small class="count c-full">37</small><small class="count c-empty" data-step="40" data-wait="300">0</small></div>
+          <div class="tree-row l2 file f-a">{{icon:file-text}}<span>scan_0412.pdf</span></div>
+          <div class="tree-row l2 file f-b">{{icon:file-text}}<span>IMG_2291.jpg</span></div>
+          <div class="tree-row l2 file f-c">{{icon:file-text}}<span>contract-final-v3.pdf</span></div>
+          <div class="tree-row l2 file f-d">{{icon:file-text}}<span>…34 autres</span></div>
+          <div class="tree-row" data-step="30" data-wait="700">{{icon:caret-right}}{{icon:folder-simple}}<span>Reçus</span><small class="count">21</small></div>
+          <div class="tree-row" data-step="32" data-wait="350">{{icon:caret-right}}{{icon:folder-simple}}<span>Contrats</span><small class="count">6</small></div>
+          <div class="tree-row" data-step="34" data-wait="350">{{icon:caret-right}}{{icon:folder-simple}}<span>Notices</span><small class="count">7</small></div>
+          <div class="tree-row" data-step="36" data-wait="350">{{icon:caret-right}}{{icon:folder-simple}}<span>À vérifier</span><small class="count">3</small></div>
+          <div class="tree-row selected" data-step="50" data-wait="600">{{icon:file-text}}<span>Index des papiers</span></div>
+          <i data-step="40" data-fx="mark" data-add=".tree .file|gone; .c-full|gone"></i>
+        </aside>
+        <div class="split-main">
+          <div class="mini-chat">
+            <div class="msg user" data-step="10" data-wait="400"><p>J'ai déposé une pile de scans dans À trier. Range-les et fais-moi un index.</p></div>
+            <div class="msg nova" data-step="20"><div><div class="frieze"><i class="sq t" style="--d:0ms"></i><i class="sq t" style="--d:90ms"></i><i class="sq t" style="--d:180ms"></i><i class="sq p" style="--d:270ms"></i></div><p data-step="20" data-fx="stream">37 fichiers. Je les lis un par un, je les classe par type et par année, et je liste ceux que je n'arrive pas à placer.</p></div></div>
+          </div>
+          <article class="page-view compact" data-step="50">
+            <p class="entity-type">PAGE</p>
+            <h3>Index des papiers</h3>
+            <table class="mini-table">
+              <tr><th>Dossier</th><th>Fichiers</th><th>Notes</th></tr>
+              <tr data-step="55" data-wait="400"><td>Reçus</td><td>21</td><td>9 en 2024, 12 en 2025. La garantie de l'ordinateur portable se termine en mars.</td></tr>
+              <tr data-step="56" data-wait="350"><td>Contrats</td><td>6</td><td>Le bail de l'appartement se renouvelle le 1er avril ; préavis avant le 31 décembre.</td></tr>
+              <tr data-step="57" data-wait="350"><td>Notices</td><td>7</td><td>Lave-vaisselle, chaudière, vélo, et 4 autres.</td></tr>
+              <tr data-step="58" data-wait="350"><td>À vérifier</td><td>3</td><td>Deux scans flous, une lettre en italien.</td></tr>
+            </table>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Déposez</button></li>
+      <li><button type="button" data-seek="30"><span>02</span>Trié</button></li>
+      <li><button type="button" data-seek="50"><span>03</span>L'index</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Mettre la démo en pause">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Rejouer la démo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">Une reconstitution simplifiée de RedLeaf. Les fichiers sont des exemples.</p>
+</div>
+
+<div class="prose">
+  <h2>Ce que vous pouvez demander</h2>
+  <ul class="prompt-list">
+    <li>Range tout ce qu'il y a dans À trier par type et par année, et dis-moi ce que tu n'as pas pu placer.</li>
+    <li>Tiens une page de toutes les décisions qu'on prend sur ce projet, avec la date et la raison.</li>
+    <li>Qu'est-ce qu'on a décidé pour le logo le mois dernier ?</li>
+    <li>Cette note est fausse, l'échéance a été repoussée à vendredi. Corrige-la partout.</li>
+  </ul>
+
+  <h2>Comment ça marche</h2>
+  <ol class="steps">
+    <li><b>Chaque agent a un espace de travail</b>Il contient la mémoire de l'agent, sa configuration et ses fichiers. Ouvrez-le dans l'appli Workspace, comme un lecteur sous Windows, ou dans <code>~/Leaf</code> sous Linux.</li>
+    <li><b>La mémoire, ce sont des pages, pas une boîte noire</b>Ce dont un agent se souvient est écrit dans des pages que vous pouvez lire. Si quelque chose est faux, modifiez-le et l'agent travaille à partir de votre version.</li>
+    <li><b>De la structure quand vous en voulez</b>Les pages peuvent renvoyer les unes aux autres et à des entités comme des dépôts, des personnes ou des projets, que vous pouvez parcourir et filtrer dans Database.</li>
+    <li><b>Rien ne se perd</b>Ouvrez une nouvelle discussion la semaine prochaine et l'agent connaît toujours le projet, parce qu'il lit son espace de travail plutôt qu'un historique de chat.</li>
+  </ol>
+
+  <div class="callout">{{icon:house}}<p><strong>Vos fichiers restent les vôtres.</strong> L'espace de travail est sur votre ordinateur. Son contenu n'en sort que lorsqu'un agent l'envoie au fournisseur d'IA que vous avez choisi, pour le lire ou l'écrire.</p></div>
+
+  <h2>Ce qu'il vous faut</h2>
+  <div class="needs">
+    <div><b>Rien de plus</b><span>Les espaces de travail font partie de chaque installation.</span></div>
+    <div><b>Sous Linux</b><span>FUSE 3, pour le dossier <code>~/Leaf</code>.</span></div>
+    <div><b>Sous Windows</b><span>WinFsp, installé par le programme d'installation après une seule autorisation.</span></div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<!--page {"title": "Installer sur Windows · Documentation RedLeaf", "description": "Téléchargez le lanceur RedLeaf, exécutez-le sous votre propre compte, autorisez WinFsp une fois et ouvrez RedLeaf dans votre navigateur.", "layout": "docs", "section": "docs", "slug": "install-windows"}-->
+<header>
+  <p class="eyebrow">Premiers pas</p>
+  <h1>Installer sur Windows.</h1>
+  <p class="doc-lede">RedLeaf s'installe pour votre compte Windows, sans assistant d'installation ni service. Le lanceur vérifie chaque téléchargement par rapport au flux de versions signé, installe la suite et l'ouvre dans votre navigateur.</p>
+</header>
+
+<div class="prose">
+  <h2>Avant de commencer</h2>
+  <ul>
+    <li><strong>Windows x64.</strong> Les appareils ARM ne sont pas encore pris en charge.</li>
+    <li><strong>Un accès à Internet</strong>, pour télécharger les composants et joindre votre fournisseur d'IA.</li>
+    <li><strong>Un fournisseur d'IA auquel vous pouvez vous connecter</strong>, comme un abonnement Claude pour Claude Code ou un compte ChatGPT pour Codex. Voir <a href="{{root}}docs/providers/">Fournisseurs d'IA</a>.</li>
+    <li><strong>Git for Windows</strong>, seulement si vous voulez utiliser Code sur vos propres projets. RedLeaf n'installe pas Git.</li>
+  </ul>
+  <p>Vous n'avez pas besoin de carte graphique. Elle ne sert que si vous ajoutez plus tard des modèles locaux pour les images ou la voix.</p>
+
+  <h2>Installer</h2>
+  <ol class="steps">
+    <li><b>Téléchargez le lanceur</b>Allez à la <a href="{{root}}#download">section de téléchargement</a> et choisissez <span class="ui">Download Nightly</span>. Le nom du fichier commence par <code>redleaf-launcher</code>. Pour le vérifier, choisissez <span class="ui">Show SHA-256</span> et comparez l'empreinte avec celle que Windows calcule pour le fichier (<code>Get-FileHash</code> dans PowerShell).</li>
+    <li><b>Exécutez-le sous votre propre compte</b>Double-cliquez sur le fichier. Si SmartScreen affiche « Unknown publisher » (« Éditeur inconnu » sur un Windows en français), choisissez <span class="ui">More info</span> (Informations complémentaires), puis <span class="ui">Run anyway</span> (Exécuter quand même). Ne l'exécutez pas en tant qu'administrateur : RedLeaf s'installe pour votre compte et, si vous le faites, se relance de lui-même sans les droits d'administrateur.</li>
+    <li><b>Laissez-le installer</b>Le lanceur lit le flux de versions signé, vérifie la signature et l'empreinte de chaque composant, installe la suite et la démarre. Quand tout est prêt, votre navigateur ouvre RedLeaf à l'adresse <code>http://127.0.0.1:18804</code>.</li>
+    <li><b>Autorisez WinFsp une fois</b>La première étape de la configuration installe WinFsp, qui donne à vos agents le lecteur de leur espace de travail. Windows demande l'autorisation d'un administrateur pour cette seule installation. La suite est décrite dans <a href="{{root}}docs/first-run/">Configurer RedLeaf</a>.</li>
+  </ol>
+
+  <h2>Où se trouve quoi</h2>
+  <table class="doc-table">
+    <thead><tr><th>Quoi</th><th>Où</th></tr></thead>
+    <tbody>
+      <tr><td>Le programme</td><td><code>%LOCALAPPDATA%\RedLeaf-Suite</code></td></tr>
+      <tr><td>Vos données</td><td><code>%LOCALAPPDATA%\RedLeaf</code> : les réglages, la base de données privée, les journaux et les sauvegardes</td></tr>
+      <tr><td>Espaces de travail des agents</td><td>Le lecteur <code>L:</code>, sous <code>L:\Workspaces</code>, tant que RedLeaf tourne</td></tr>
+      <tr><td>Espace temporaire</td><td>Le lecteur <code>S:</code>, nettoyé automatiquement au bout de 30 jours</td></tr>
+      <tr><td>Menu Démarrer</td><td>Une entrée <span class="ui">RedLeaf</span>. Aucun raccourci n'est créé sur le bureau.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Ouvrir, fermer et démarrer avec Windows</h2>
+  <p>RedLeaf continue de tourner dans la zone de notification une fois l'onglet du navigateur fermé. Son icône propose <span class="ui">Open RedLeaf</span>, un menu <span class="ui">Apps</span> avec une entrée par appli, <span class="ui">Start with Windows</span>, <span class="ui">Restart</span> et <span class="ui">Exit</span>. Pour l'ouvrir plus tard, passez par le menu Démarrer ou par l'icône de la zone de notification ; si vous le lancez une deuxième fois, il vous indique simplement qu'il tourne déjà.</p>
+  <p>Pour l'épingler, ouvrez Démarrer, cherchez RedLeaf, faites un clic droit dessus et choisissez <span class="ui">Pin to taskbar</span> (Épingler à la barre des tâches). Pour qu'il démarre à l'ouverture de votre session, activez <span class="ui">Start with Windows</span> dans le menu de l'icône ou dans <span class="ui">Settings › System</span>.</p>
+
+  <div class="callout">{{icon:lightbulb}}<p><strong>Gardez le lanceur.</strong> Relancer le fichier téléchargé sur une machine où RedLeaf est installé répare l'installation et conserve vos choix. Les mises à jour, elles, s'installent depuis RedLeaf : voir <a href="{{root}}docs/updates/">Mises à jour</a>.</p></div>
+
+  <h2>En cas de problème</h2>
+  <ul>
+    <li><strong>Le bouton de téléchargement indique qu'il est indisponible.</strong> Le site n'a pas pu joindre le flux de versions signé. Il ne propose jamais de fichier non vérifié à la place : réessayez un peu plus tard.</li>
+    <li><strong>Windows continue de l'exécuter en tant qu'administrateur.</strong> Faites un clic droit sur le fichier, ouvrez <span class="ui">Properties › Compatibility</span> (Propriétés › Compatibilité), décochez « Run this program as an administrator » (« Exécuter ce programme en tant qu'administrateur »), puis relancez-le.</li>
+    <li><strong>Il a démarré, puis s'est arrêté.</strong> Le journal du lanceur se trouve dans <code>%LOCALAPPDATA%\RedLeaf\update\logs\launcher.log</code>. Voir <a href="{{root}}docs/troubleshooting/">Dépannage et Doctor</a>.</li>
+  </ul>
+</div>

@@ -1,0 +1,59 @@
+<!--page {"title": "Schedules and the heartbeat · RedLeaf docs", "description": "Ask an agent to check on something regularly, see what ran and what it cost, and understand the heartbeat and Live discussion.", "layout": "docs", "section": "docs", "slug": "automations"}-->
+<header>
+  <p class="eyebrow">Everyday use</p>
+  <h1>Schedules and the heartbeat.</h1>
+  <p class="doc-lede">Agents can do things while you're away: check a build every morning, watch a page, chase a deadline. You set it up by asking. And agents with a heartbeat look over the day on their own, and only speak up when something deserves it.</p>
+</header>
+
+<div class="prose">
+  <h2>Set one up by asking</h2>
+  <p>Say what to check, how often, and when it's worth telling you. The agent creates the automation and shows you what it set up.</p>
+  <ul class="prompt-list">
+    <li>Every morning at 7:30, check my repositories and tell me only what changed.</li>
+    <li>Watch this page and tell me when the tickets go on sale.</li>
+    <li>If the backup hasn't run for two days, tell me.</li>
+    <li>Every Sunday evening, ask me how the week went and update the running plan.</li>
+  </ul>
+  <p>To change or stop one, ask the same way: “Move the morning check to 8”, “Stop watching the ticket page”.</p>
+
+  <h2>Two kinds of checks</h2>
+  <table class="doc-table">
+    <thead><tr><th>Kind</th><th>How it works</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td>Simple check</td><td>Polls a web address and compares the answer with a condition, such as a status or a price.</td><td>No AI cost</td></tr>
+      <tr><td>Agent check</td><td>Runs a prompt through the agent's provider, when it takes judgment to decide.</td><td>Uses your provider</td></tr>
+    </tbody>
+  </table>
+  <p>Agents pick the simple kind when they can. Schedules run on your computer, while RedLeaf is running. Each schedule also has a rule for the runs it missed while RedLeaf was off.</p>
+
+  <h2>Seeing what ran</h2>
+  <ul>
+    <li><strong>Compute › Jobs.</strong> Every firing is a job, with when it ran, what it called, how long it took and what it cost. Filter by type or by the app that started it.</li>
+    <li><strong>The agent's Journal.</strong> The <span class="ui">Scheduled</span> filter shows the runs, and <span class="ui">Failed</span> the ones that went wrong.</li>
+    <li><strong>The agent's page.</strong> Its <span class="ui">Automations</span> field lists every schedule that runs as that agent.</li>
+    <li><strong>The Live discussion.</strong> When a check finds something, the agent tells you there.</li>
+  </ul>
+
+  <h2>The heartbeat</h2>
+  <p>An agent with <span class="ui">Live</span> turned on has two standing discussions: <span class="ui">Live</span>, where it talks to you, and <span class="ui">Heartbeat</span>, where it thinks on its own. About once an hour through the day, a heartbeat tick looks at what happened: your discussions, finished jobs, events from other apps. Then it decides whether anything needs doing. Most ticks are quiet, and that's fine.</p>
+  <p>What a tick may do is set by the agent's <span class="ui">Heartbeat Skills</span>. Nova's include:</p>
+  <ul>
+    <li><strong>Action items:</strong> catch commitments made in conversation and write them down before they're lost.</li>
+    <li><strong>Conversation nudges:</strong> prompt the Live discussion to reach out when you've been quiet for a while or something happened worth talking about.</li>
+    <li><strong>Initiatives:</strong> start useful work nobody asked for, each in its own discussion titled “Initiative: …”, at most one per tick. Without your permission, the heartbeat does nothing outside your machine, nothing in your name, nothing that spends money or destroys information.</li>
+  </ul>
+  <p>Remove a heartbeat skill from the agent's page and the next tick goes without it. Watch the ticks in the <span class="ui">Heartbeat</span> tab, or filter the Journal by <span class="ui">Ticks</span>. Turning <span class="ui">Live</span> off closes both discussions and pauses the heartbeat, keeping its schedule for later.</p>
+  <div class="callout">{{icon:shield-check}}<p><strong>Nobody is there to click Allow.</strong> Heartbeats and schedules run unattended, so they can't wait for an approval. That's why the default access level is Auto, where a safety check approves routine actions and blocks risky ones. See <a href="{{root}}docs/access-levels/">Access levels</a>.</p></div>
+
+  <h2>Schedules RedLeaf keeps itself</h2>
+  <table class="doc-table">
+    <thead><tr><th>What</th><th>When</th></tr></thead>
+    <tbody>
+      <tr><td>Live timeline</td><td>The Live discussion starts a fresh timeline every day. Earlier days stay in the archives. <span class="ui">Reset timeline</span> does it by hand.</td></tr>
+      <tr><td>Dream cycle</td><td>Every night, for agents with the dreaming skills. See <a href="{{root}}docs/memory/">Memory</a>.</td></tr>
+      <tr><td>Update checks</td><td>At startup and every 12 hours. Nothing installs without you.</td></tr>
+      <tr><td>Backups</td><td>Only if you turn them on. See <a href="{{root}}docs/backups/">Backups</a>.</td></tr>
+    </tbody>
+  </table>
+  <p>Under the hood, every automation runs a Workflow: a small graph of steps you can open in the Workspace flow editor. The <a href="{{root}}cookbook/automate/">Automate</a> recipe has more ideas.</p>
+</div>

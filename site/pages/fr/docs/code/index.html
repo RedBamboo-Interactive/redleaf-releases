@@ -1,0 +1,64 @@
+<!--page {"title": "Sessions de code · Documentation RedLeaf", "description": "Ajoutez un projet à Code, lancez une session de code, relisez ce qu'elle a modifié, utilisez les revues, les contrôles de santé, les issues et les tests, et laissez Nova déléguer le travail.", "layout": "docs", "section": "docs", "slug": "code"}-->
+<header>
+  <p class="eyebrow">Au quotidien</p>
+  <h1>Sessions de code.</h1>
+  <p class="doc-lede">Code est l'endroit où les agents travaillent sur vos projets. Une session est un travailleur IA persistant, attaché à un projet, que vous pouvez observer, orienter et retrouver plus tard. Autour d'elle, Code affiche vos commits, vos issues, vos tests et vos branches, et vous permet de modifier les fichiers vous-même.</p>
+</header>
+
+<div class="prose">
+  <h2>Ce qu'il vous faut</h2>
+  <ul>
+    <li><strong>Git</strong>, pour tout ce qui se fait dans Code. Git for Windows, ou le paquet <code>git</code> de votre distribution.</li>
+    <li><strong>La GitHub CLI</strong> (<code>gh</code>), connectée avec <code>gh auth login</code>, pour les fonctions GitHub : lister et créer des issues et des pull requests, et les tackles. Les commits, les branches, les tests, les revues et les contrôles de santé n'ont besoin que de Git.</li>
+    <li>La chaîne d'outils de votre projet, pour lancer ses tests.</li>
+  </ul>
+  <p>Les réglages de Code affichent une liste <span class="ui">Dependencies</span> avec ce qu'il a trouvé. Choisissez <span class="ui">Check again</span> après avoir installé quelque chose.</p>
+
+  <h2>Ajouter un projet</h2>
+  <p>Ouvrez l'onglet <span class="ui">GitHub</span> dans Code et choisissez <span class="ui">+</span> (<span class="ui">Add repository</span>) en haut de la liste <span class="ui">Repos</span>.</p>
+  <ul>
+    <li><span class="ui">Existing checkout</span> : un dossier qui est déjà un dépôt Git. Donnez-lui un nom et son chemin, puis choisissez <span class="ui">Register</span>. Le dépôt distant est détecté par Git.</li>
+    <li><span class="ui">New project</span> : Code crée le dossier, initialise Git sur <code>main</code> et l'enregistre. Choisissez <span class="ui">Create</span>.</li>
+  </ul>
+  <p>Code ne clone pas. Pour travailler sur un projet qui n'existe que sur GitHub, lancez d'abord <code>git clone</code>, puis enregistrez le dossier.</p>
+
+  <h2>Lancer une session</h2>
+  <ol class="steps">
+    <li><b>Nouvelle session</b>Dans <span class="ui">Sessions</span>, choisissez <span class="ui">New</span> ou appuyez sur <kbd>Ctrl</kbd>+<kbd>N</kbd>.</li>
+    <li><b>Choisissez le projet</b>Filtrez et sélectionnez-le. Si le projet autorise les branches, une ligne <span class="ui">Branch</span> vous permet d'en choisir ou d'en créer une : voir <a href="{{root}}docs/branches/">Branches et travail en parallèle</a>.</li>
+    <li><b>Choisissez le fournisseur et la qualité</b>Fast, Standard, Deep ou Research. Standard convient à la plupart des travaux ; Deep et Research prennent plus de temps et réfléchissent davantage. Choisissez ensuite <span class="ui">Go</span>.</li>
+    <li><b>Rédigez le brief</b>La session démarre vide : votre premier message est le brief. Dites ce que vous voulez, à quoi ressemble « terminé », et comment le vérifier.</li>
+  </ol>
+  <p>Depuis l'en-tête d'un dépôt dans l'onglet <span class="ui">GitHub</span>, <span class="ui">New Session</span> en lance une immédiatement avec les réglages par défaut.</p>
+
+  <h2>Travailler avec une session</h2>
+  <p>Une session fonctionne comme une discussion : des <a href="{{root}}docs/chat/">carrés d'étapes</a> pour chaque action, des cartes d'autorisation, des suites mises en file, <kbd>Esc</kbd> pour interrompre. Quelques points sont propres à Code :</p>
+  <ul>
+    <li><strong>Mode plan.</strong> Appuyez sur <kbd>Shift</kbd>+<kbd>Tab</kbd> et la session lit et planifie sans rien modifier. Quand le plan est prêt, choisissez <span class="ui">Execute Plan</span>, ou répondez pour le faire réviser.</li>
+    <li><strong>État.</strong> Le point de chaque session indique son état : doré quand elle travaille, bleu-vert quand elle est inactive, gris quand elle est arrêtée, rouge en cas d'erreur, ambre quand elle vous attend. L'onglet du navigateur affiche <code>(!)</code> tant qu'une session vous attend. <kbd>Alt</kbd>+<kbd>↑</kbd> et <kbd>Alt</kbd>+<kbd>↓</kbd> passent d'une session à l'autre.</li>
+    <li><strong>Info.</strong> <kbd>Alt</kbd>+<kbd>I</kbd> affiche le fournisseur, le modèle, la qualité, le coût et les jetons, ainsi que ses <span class="ui">Permissions</span> : le seul réglage que vous pouvez changer pendant qu'elle tourne.</li>
+    <li><strong>Reprendre.</strong> Envoyez un message à une session arrêtée et elle reprend. Si vous atteignez la limite d'utilisation de votre fournisseur, la session se met en pause ; envoyez un message une fois la limite réinitialisée.</li>
+    <li><strong>Stop, Dismiss, Close.</strong> <span class="ui">Stop</span> met fin au processus et garde la session dans la liste. <span class="ui">Dismiss</span> la masque sans l'arrêter. <span class="ui">Close</span> fait les deux. Retrouvez les sessions fermées dans <span class="ui">More › Browse archives</span> et rouvrez-les avec <span class="ui">Reopen</span>.</li>
+  </ul>
+
+  <h2>Relire ce qui a changé</h2>
+  <p>L'onglet <span class="ui">Code</span> est un explorateur et un éditeur de fichiers. Les fichiers modifiés récemment par une session IA portent une petite étincelle, et le panneau <span class="ui">Git</span> liste les <span class="ui">Recent AI Changes</span> (modifications récentes de l'IA), les modifications non commitées et les commits récents. Ouvrez un fichier modifié et choisissez <span class="ui">Diff against HEAD</span> pour voir exactement ce qui a bougé. Enregistrez vos propres modifications avec <kbd>Ctrl</kbd>+<kbd>S</kbd>.</p>
+  <p>Depuis ces panneaux, Code ne fait ni commit, ni push, ni fusion à votre place. Demandez à la session de commiter, ou utilisez Git vous-même.</p>
+
+  <h2>L'onglet GitHub</h2>
+  <table class="doc-table">
+    <thead><tr><th>Onglet</th><th>Ce que vous pouvez faire</th></tr></thead>
+    <tbody>
+      <tr><td>Commits</td><td>Parcourir les commits et les pull requests. Sur un commit : <span class="ui">Auto Review</span> fait relire le diff par une IA, qui rend un verdict avec ses constats ; <span class="ui">Health Check</span> exécute toutes les suites de tests à ce commit, sans IA. <span class="ui">Align to revision</span> extrait le commit dans le dossier de votre projet : ne l'utilisez donc que sur une copie de travail propre.</td></tr>
+      <tr><td>Issues</td><td><span class="ui">New Issue</span> rédige une issue complète à partir de votre courte description, avec le contexte et les critères d'acceptation. <span class="ui">Auto Tackle</span> confie une issue à une IA : elle crée une branche, implémente, teste et ouvre une pull request. Vous l'approuvez avec <span class="ui">Approve</span>, puis la fusionnez avec <span class="ui">Merge</span>, ou l'écartez avec <span class="ui">Dismiss</span>.</td></tr>
+      <tr><td>Tests</td><td>Les suites de tests détectées, avec <span class="ui">Run Suite</span>, <span class="ui">Run All</span>, l'historique et la sortie en direct. Code détecte les suites .NET, npm et pytest ; décrivez les autres dans <code>.codered/tests.json</code>.</td></tr>
+      <tr><td>Worktrees</td><td>Les branches du projet et leurs dossiers. Voir <a href="{{root}}docs/branches/">Branches et travail en parallèle</a>.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">{{icon:warning}}<p><strong>Les tackles travaillent dans le dossier de votre projet.</strong> Un tackle change de branche dans la copie de travail principale. N'en lancez pas pendant que vous ou une autre session y travaillez.</p></div>
+
+  <h2>Laisser Nova déléguer</h2>
+  <p>Vous n'êtes pas obligé de lancer les sessions vous-même. Demandez le travail à Nova dans une discussion, et elle peut le confier à une session Code sur le bon projet, sur sa propre branche si le projet le permet. La discussion affiche une carte <span class="ui">Delegated to Code</span> avec <span class="ui">Open in Code</span>, et un cercle rose tant qu'elle tourne. Quand la session se termine, Nova reçoit le résultat, le relit et vous dit ce qui s'est passé. Elle peut renvoyer des retours à la même session jusqu'à ce que ce soit bon.</p>
+  <p>Vous pouvez ouvrir la session déléguée dans Code à tout moment pour la suivre, approuver une étape ou ajouter un message.</p>
+  <p>Une session déléguée ne partage ni la mémoire de Nova ni la discussion. Nova écrit dans le brief ce dont la session a besoin, et c'est une raison de plus pour garder les décisions de votre projet dans son espace de travail.</p>
+</div>

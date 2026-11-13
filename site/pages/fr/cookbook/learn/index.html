@@ -1,0 +1,90 @@
+<!--page {"title": "Apprendre : des agents avec une personnalité et un but · Cas d'usage RedLeaf", "description": "Créez votre propre agent, par exemple un professeur de langue ou un coach, avec sa personnalité, sa voix, ses skills et la mémoire de vos progrès.", "layout": "doc", "section": "cookbook", "slug": "learn"}-->
+<header>
+  <p class="eyebrow">Cas d'usage · Apprendre</p>
+  <h1>Des agents avec une personnalité et un but.</h1>
+  <p class="doc-lede">Nova, l'agent fourni avec RedLeaf, est celui avec lequel vous commencez, pas le seul. Créez un professeur, un coach ou un partenaire d'entraînement, donnez-lui un caractère et une mission, et il garde son propre espace de travail avec ce qu'il sait de vos progrès.</p>
+  <div class="recipe-meta"><span>{{icon:robot}}Agents</span><span>{{icon:chat-circle}}Discussions</span><span>{{icon:speaker-high}}Voix</span></div>
+</header>
+
+<div class="recipe-demo" data-demo aria-label="Reconstitution animée : création d'un agent professeur d'allemand, puis entraînement avec lui">
+  <div class="window single" data-stage>
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RedLeaf</span></div>
+    <section class="screen s-new active" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon green">{{icon:folder-simple}}</span><b>Workspace</b>{{icon:caret-down}}</span><nav></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Agents</b><span>{{icon:plus}}New</span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Nova</b><small>Assistante personnelle</small></span></div>
+          <div class="row selected" data-step="40" data-wait="500"><img class="avatar" src="{{root}}demo/agent-leni.webp" alt="" /><span><b>Leni</b><small>Prof d'allemand</small></span></div>
+        </aside>
+        <div class="panel form-panel">
+          <h5>New agent</h5>
+          <div class="field"><label>Name</label><div class="input"><span data-step="10" data-fx="type" data-wait="500">Leni</span></div></div>
+          <div class="field"><label>Personality and purpose</label><div class="input area"><span data-step="15" data-fx="type" data-wait="400">Une prof d'allemand patiente, originaire de Munich. Parle allemand à mon niveau (B1), corrige une erreur à la fois et garde la trace de ce que je rate.</span></div></div>
+          <div class="field"><label>Voice</label><div class="chip-row"><span class="chip">Calme</span><span class="chip v-warm">Chaleureuse · allemand</span><span class="chip">Lumineuse</span></div></div>
+          <div class="field"><label>Skills</label><div class="chip-row"><span class="chip picked" data-step="25" data-wait="500">Pratique des langues</span><span class="chip picked" data-step="27" data-wait="300">Voix</span><span class="chip">Code</span></div></div>
+          <span class="app-btn create-btn">{{icon:plus}}Create agent</span>
+          <i data-step="20" data-wait="600" data-fx="mark" data-add=".v-warm|picked"></i>
+          <i data-step="35" data-wait="800" data-fx="mark" data-add=".create-btn|pressed"></i>
+        </div>
+      </div>
+    </section>
+    <section class="screen s-talk" aria-hidden="true">
+      <header class="app-header"><span class="app-identity"><span class="app-icon rose">{{icon:star}}</span><b>Nova</b>{{icon:caret-down}}</span><nav><span class="active">{{icon:chat-circle}}Chat</span></nav><span class="app-menu">{{icon:list}}</span></header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <div class="sidebar-title"><b>Discussions</b><span>{{icon:plus}}New</span></div>
+          <div class="row selected"><img class="avatar" src="{{root}}demo/agent-leni.webp" alt="" /><span><b>Mein Wochenende</b><small>Leni · now</small></span></div>
+          <div class="row"><img src="{{root}}nova-avatar.webp" alt="" /><span><b>Carnet de voies pour la salle</b><small>Nova · today</small></span></div>
+        </aside>
+        <div class="chat">
+          <div class="thread">
+            <div class="msg nova leni" data-step="60" data-wait="300"><div><p>Hallo! Erzähl mir von deinem Wochenende. Was hast du gemacht?</p></div></div>
+            <div class="msg user" data-step="65" data-wait="1200"><p>Ich habe nach Luzern gefahren und wir haben am See gegessen.</p></div>
+            <div class="msg nova leni" data-step="70"><div><div class="frieze"><i class="sq t" style="--d:0ms"></i><i class="sq g" style="--d:90ms"></i></div><p data-step="70" data-fx="stream">Fast perfekt! Mit „fahren“ nimmst du „sein“: Ich <strong>bin</strong> nach Luzern gefahren. Und was habt ihr am See gegessen?</p></div></div>
+            <div class="voice-card" data-step="75" data-wait="500"><span class="play">{{icon:play-fill}}</span><div><b>Leni · 0:06</b><small>Spoken reply</small></div><div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <div class="heartbeat-card note" data-step="80" data-wait="900">{{icon:file-text}}<div><b>Noté dans l'espace de travail de Leni</b><small>Perfekt avec « sein » : travailler les verbes de mouvement la prochaine fois</small></div></div>
+          </div>
+          <div class="composer"><span class="composer-placeholder">Talk to Leni…</span><span class="mic">{{icon:microphone}}</span><span class="send">{{icon:paper-plane-right}}</span></div>
+        </div>
+      </div>
+    </section>
+    <i data-step="50" data-wait="1300" data-fx="mark" data-remove=".s-new|active" data-add=".s-talk|active"></i>
+  </div>
+  <div class="demo-controls">
+    <ol class="chapters">
+      <li><button type="button" data-seek="0"><span>01</span>Créez l'agent</button></li>
+      <li><button type="button" data-seek="50"><span>02</span>Entraînez-vous</button></li>
+      <li><button type="button" data-seek="80"><span>03</span>Il s'en souvient</button></li>
+    </ol>
+    <button class="demo-toggle" type="button" data-demo-toggle aria-label="Mettre la démo en pause">{{icon:pause}}{{icon:play}}</button>
+    <button class="demo-replay" type="button" data-demo-replay aria-label="Rejouer la démo">{{icon:arrow-counter-clockwise}}</button>
+  </div>
+  <p class="demo-caption">Une reconstitution simplifiée de RedLeaf. Leni est un exemple d'agent.</p>
+</div>
+
+<div class="prose">
+  <h2>Ce que vous pouvez demander</h2>
+  <ul class="prompt-list">
+    <li>Fais-moi pratiquer l'allemand au niveau B1, et corrige une erreur à la fois.</li>
+    <li>Sois mon coach de course à pied : chaque dimanche, demande-moi comment s'est passée la semaine et ajuste le plan.</li>
+    <li>Joue un investisseur sceptique et démonte mon pitch.</li>
+    <li>Interroge-moi sur les chapitres que j'ai lus cette semaine.</li>
+  </ul>
+
+  <h2>Comment ça marche</h2>
+  <ol class="steps">
+    <li><b>Créez un agent</b>Donnez-lui un nom, une personnalité et un but dans son identité, et choisissez les skills qu'il peut utiliser. Donnez-lui une page d'espace de travail et il tient sa propre mémoire. <a href="{{root}}docs/agents/">Comment en créer un</a>.</li>
+    <li><b>Ouvrez une discussion avec lui</b>Choisissez l'agent quand vous ouvrez une nouvelle discussion. Chacun garde son propre historique, distinct de celui de Nova.</li>
+    <li><b>Utilisez votre voix</b>Parlez au lieu de taper ; la transcription peut se faire en local. L'agent peut répondre à voix haute avec la voix que vous avez choisie.</li>
+    <li><b>Il suit vos progrès</b>L'agent note ce qu'il remarque dans son espace de travail : la session suivante reprend là où la précédente s'est arrêtée.</li>
+  </ol>
+
+  <div class="callout">{{icon:users-three}}<p><strong>Les agents peuvent travailler ensemble.</strong> Nova voit ce que font vos autres agents et fait passer le travail de l'un à l'autre, si bien que votre professeur et vos sessions de code n'ont jamais besoin de vous comme messager.</p></div>
+
+  <h2>Ce qu'il vous faut</h2>
+  <div class="needs">
+    <div><b>Un fournisseur d'IA</b><span>N'importe quel fournisseur de chat pris en charge. Chaque agent peut en utiliser un différent.</span></div>
+    <div><b>Pour la voix</b><span>Les fournisseurs vocaux locaux gratuits, sur une carte graphique NVIDIA, ou ElevenLabs dans le cloud.</span></div>
+  </div>
+</div>

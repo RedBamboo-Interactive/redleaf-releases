@@ -1,0 +1,49 @@
+<!--page {"title": "Nova et vos propres agents · Documentation RedLeaf", "description": "De quoi un agent est fait, comment Nova est configurée, et comment créer votre propre agent avec son nom, sa personnalité, son fournisseur, son espace de travail et ses skills.", "layout": "docs", "section": "docs", "slug": "agents"}-->
+<header>
+  <p class="eyebrow">Au quotidien</p>
+  <h1>Nova et vos propres agents.</h1>
+  <p class="doc-lede">Un agent est un personnage avec un rôle : un nom, une personnalité, le fournisseur d'IA qui assure sa réflexion, un espace de travail pour sa mémoire, et les skills qu'il peut utiliser. Nova est le premier. Vous pouvez en créer autant que vous voulez.</p>
+</header>
+
+<div class="prose">
+  <h2>Nova</h2>
+  <p>La configuration crée Nova pour vous : une assistante chaleureuse et compétente, avec une personnalité de départ, un avatar, un ensemble de skills, le fournisseur que vous avez choisi, et un espace de travail appelé <span class="ui">Nova</span>. Elle part de ce modèle et construit sa relation avec vous à partir de là, dans sa mémoire. Tout ce qui la concerne peut être modifié, de la même façon que pour n'importe quel autre agent.</p>
+  <p>Nova n'est pas un modèle. La réflexion est assurée par le fournisseur qu'elle utilise. Changez-le pour une discussion quand vous la lancez, ou durablement dans ses champs <span class="ui">Provider</span> et <span class="ui">Quality Tier</span>.</p>
+
+  <h2>De quoi un agent est fait</h2>
+  <p>Chaque agent est une page de RedLeaf, avec les champs ci-dessous. Ouvrez la page d'un agent depuis la fenêtre <span class="ui">Info</span> d'une discussion, ou depuis <span class="ui">Database › Entities › Agent</span>.</p>
+  <table class="doc-table">
+    <thead><tr><th>Champ</th><th>À quoi il sert</th></tr></thead>
+    <tbody>
+      <tr><td>Description</td><td>Une ligne sur ce que fait l'agent. Elle s'affiche quand vous choisissez un agent pour une nouvelle discussion.</td></tr>
+      <tr><td>Avatar</td><td>Son image.</td></tr>
+      <tr><td>Identity</td><td>Sa personnalité, sa façon de parler et son comportement, en mots simples. C'est le cœur de l'agent.</td></tr>
+      <tr><td>Output Protocol</td><td>Les règles qu'il vérifie avant chaque réponse : ton, mise en forme, choses à éviter.</td></tr>
+      <tr><td>Protocols</td><td>De courtes règles de conduite que vous pouvez partager entre agents. Voir <a href="{{root}}docs/skills/">Skills et protocoles</a>.</td></tr>
+      <tr><td>Skills</td><td>Des ensembles d'instructions réutilisables qu'il peut utiliser.</td></tr>
+      <tr><td>Provider, Quality Tier</td><td>L'IA qui assure sa réflexion par défaut, et à quel niveau de qualité : Fast, Standard, Deep ou Research.</td></tr>
+      <tr><td>Workspace</td><td>La page sous laquelle vivent sa mémoire, sa configuration et ses fichiers. Sans elle, l'agent oublie tout d'une discussion à l'autre.</td></tr>
+      <tr><td>Access level</td><td>Ce qu'il peut faire sans demander. Laissez la valeur par défaut, sauf si cet agent a besoin d'autre chose. Voir <a href="{{root}}docs/access-levels/">Niveaux d'accès</a>.</td></tr>
+      <tr><td>Voice, Live Voice</td><td>Sa voix quand il parle, et en mode vocal. Voir <a href="{{root}}docs/voice/">Voix</a>.</td></tr>
+      <tr><td>Live</td><td>Lui donne une discussion Live permanente et un heartbeat. Voir <a href="{{root}}docs/automations/">Planifications et heartbeat</a>.</td></tr>
+      <tr><td>Automations</td><td>Les planifications qui s'exécutent sous l'identité de cet agent. En lecture seule.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Créer un agent</h2>
+  <ol class="steps">
+    <li><b>Créez son espace de travail</b>Dans <span class="ui">Workspace</span>, choisissez <span class="ui">New Project</span> et donnez-lui le nom de l'agent. Cette page devient sa mémoire.</li>
+    <li><b>Créez l'agent</b>Ouvrez <span class="ui">Database</span>, choisissez <span class="ui">Entities</span>, puis <span class="ui">Agent</span> dans la liste des types. Sous <span class="ui">Instances</span>, choisissez <span class="ui">New</span>.</li>
+    <li><b>Donnez-lui un caractère</b>Remplissez son nom, sa description et son identité. Choisissez son fournisseur et son niveau de qualité, et réglez <span class="ui">Workspace</span> sur la page de l'étape 1. Choisissez <span class="ui">Create Entity</span>.</li>
+    <li><b>Parlez-lui</b>Lancez une nouvelle discussion et choisissez-le dans la liste.</li>
+  </ol>
+  <p>Un agent sans espace de travail fonctionne quand même, mais la liste des nouvelles discussions le signale par <span class="ui">Disposable storage · no cross-discussion memory</span> (stockage jetable, pas de mémoire d'une discussion à l'autre).</p>
+
+  <h3>Bien écrire une identité</h3>
+  <p>Rédigez-la comme les consignes que vous donneriez à une personne. Qui elle est, à quoi elle sert, comment elle parle, et ce qu'elle ne doit jamais faire. Soyez précis : « un professeur d'allemand patient, qui corrige une erreur à la fois et répond en allemand sauf si je demande autre chose » fonctionne bien mieux que « un professeur serviable ». Laissez hors de l'identité les faits qui changent, comme vos progrès ou vos préférences : l'agent les écrit lui-même dans sa mémoire.</p>
+  <div class="callout">{{icon:lightbulb}}<p><strong>Modifiez l'agent, pas ses fichiers.</strong> L'espace de travail d'un agent contient des fichiers d'instructions générés pour son fournisseur d'IA, comme <code>CLAUDE.md</code> et <code>AGENTS.md</code>. Ils sont reconstruits à partir de la page de l'agent : modifiez la page, et les fichiers suivent.</p></div>
+
+  <h2>Plusieurs agents</h2>
+  <p>Chaque discussion appartient à un agent et garde son propre historique. Avec plus d'un agent, la barre latérale <span class="ui">Discussions</span> peut filtrer par agent. Les agents peuvent utiliser des fournisseurs différents : un rapide pour un partenaire de quiz, un approfondi pour un documentaliste de recherche.</p>
+  <p>Vous ne savez pas quoi créer ? Le cas d'usage <a href="{{root}}cookbook/learn/">Apprendre</a> propose un professeur, un coach et un partenaire d'entraînement pour commencer.</p>
+</div>
