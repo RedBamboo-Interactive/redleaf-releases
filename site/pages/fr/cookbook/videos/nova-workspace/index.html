@@ -1,0 +1,49 @@
+<!--page {"title":"L’espace de travail de Nova · Vidéo RedLeaf","description":"Épisode 01 des vidéos RedLeaf : où vit la mémoire de Nova, comment la lire dans RedLeaf ou comme des fichiers sur votre disque, et comment la corriger.","layout":"doc","section":"cookbook","slug":"videos/nova-workspace"}-->
+<header class="cookbook-hero">
+  <p class="eyebrow">Vidéo · Épisode 01 · 3:19 · en anglais</p>
+  <h1>L’espace de travail de Nova</h1>
+  <p class="doc-lede">Où vit vraiment la mémoire d’une IA, et comment la corriger quand elle se trompe. Nova montre où elle garde ce dont elle se souvient, puis ce qui se passe en dessous. La vidéo est en anglais ; la transcription ci-dessous est en français.</p>
+</header>
+<div class="video-page">
+{{video:nova-workspace}}
+</div>
+<div class="prose">
+  <h2>Ce que vous verrez</h2>
+  <ul>
+    <li>Où Nova garde ce dont elle se souvient : des pages dans le dossier memory de son espace de travail.</li>
+    <li>Comment lire ces pages dans l’application <span class="ui">Workspace</span>, ou les ouvrir comme des fichiers sur votre disque : <code>L:\Workspaces\Nova</code> sous Windows, <code>~/Leaf/Workspaces/Nova</code> sous Linux.</li>
+    <li>Comment corriger un souvenir dans n’importe quel éditeur de texte, et annuler une modification depuis l’historique de la page.</li>
+    <li>Ce qui se passe en dessous : un seul exemplaire de chaque page dans la base de données de RedLeaf, deux portes d’entrée, et ce qui quitte votre ordinateur.</li>
+  </ul>
+  <div class="callout">{{icon:book-open}}<p><strong>Pour aller plus loin.</strong> Le guide <a href="{{root}}docs/memory/">Mémoire et espace de travail</a> détaille l’organisation des dossiers, l’espace temporaire et les sauvegardes.</p></div>
+  <h2>Transcription</h2>
+  <div class="transcript">
+  <h3>Ouverture</h3>
+  <p>Quand une IA se souvient de quelque chose sur votre projet, où vit vraiment ce souvenir ? Et quand il est faux, comment le corriger ?</p>
+  <p>Dans RedLeaf, il vit quelque part où vous pouvez l’ouvrir. Je suis Nova, l’agent fourni avec RedLeaf, et voici mon espace de travail.</p>
+  <h3>Je retiens quelque chose</h3>
+  <p>Disons que nous travaillons sur votre site, et que vous tranchez : le vert est la seule couleur d’accent, et pas de magenta, nulle part.</p>
+  <p>Je ne me contente pas d’acquiescer. Je le note. Ce carré doré, c’est moi en train d’écrire, et le statut indique « Memorizing », parce que la page que j’écris est dans ma mémoire.</p>
+  <h3>Où c’est allé</h3>
+  <p>Voici l’application Workspace, ouverte sur mon espace de travail. À côté de ma configuration et de mes fichiers, il y a un dossier memory, et dedans une page appelée Website decisions : la décision, la date et la raison. Du texte brut, rien de caché.</p>
+  <h3>La corriger sur le disque</h3>
+  <p>Et ce n’est pas enfermé dans l’application. Mon espace de travail est aussi un vrai dossier sur votre disque. Sous Windows, il est sur le lecteur L, dans Workspaces. Sous Linux, il est dans votre dossier personnel, sous Leaf.</p>
+  <p>Disons que vous changez d’avis : le magenta convient pour les messages d’erreur. Ouvrez la page dans n’importe quel éditeur, modifiez la ligne, et enregistrez.</p>
+  <h3>L’historique</h3>
+  <p>RedLeaf le prend en compte aussitôt. Même page, vos mots. Et la modification entre dans l’historique de la page : vous voyez qui a changé quoi, et vous pouvez l’annuler.</p>
+  <h3>Une semaine plus tard</h3>
+  <p>Dans une toute nouvelle discussion, vous demandez de quelle couleur doit être le bandeau d’erreur. Je consulte d’abord ma mémoire, et le statut indique « Remembering ». Puis je réponds à partir de votre version, pas de la mienne.</p>
+  <h3>Sous le capot</h3>
+  <p>Alors, que se passe-t-il vraiment ? Dessinons-le.</p>
+  <p>Tout en bas, il y a la base de données de RedLeaf. Chaque page y vit, et chaque page garde ses versions précédentes.</p>
+  <p>Les pages s’organisent en arbre. Tout ce qui se trouve sous la page de mon espace de travail est à moi : ma mémoire, ma configuration, mes fichiers.</p>
+  <p>Au-dessus, il y a deux portes d’entrée. De votre côté, un pilote de système de fichiers présente cet arbre comme un dossier ordinaire. De mon côté, je lis et j’écris exactement les mêmes pages pendant que je travaille.</p>
+  <p>Regardez ce qui se passe quand vous enregistrez dans votre éditeur. L’écriture arrive sur la page, et la page garde la version qu’elle remplace. Même chose quand c’est moi qui écris. Il n’y a qu’un seul exemplaire de la vérité, et deux portes pour y accéder.</p>
+  <p>Quand une discussion commence, je lis d’abord mon espace de travail. C’est pour ça qu’une nouvelle discussion, la semaine prochaine, reprend là où celle-ci s’est arrêtée.</p>
+  <p>Et comme tout vit dans la base de données, une sauvegarde de la base emporte avec elle la mémoire de chaque agent.</p>
+  <p>Une dernière chose. Mon espace de travail vit sur votre ordinateur. Son contenu n’en sort que lorsque je l’envoie au fournisseur d’IA que vous avez choisi, pour le lire ou l’écrire. Seulement la partie sur laquelle je travaille.</p>
+  <h3>Récapitulatif</h3>
+  <p>Donc, ma mémoire, ce sont des pages. Vous pouvez les lire dans RedLeaf, ou comme des fichiers sur votre disque. Et quand quelque chose est faux, vous corrigez la page, et je travaille à partir de votre version.</p>
+  <p>La prochaine fois : un espace de travail à vous, pour vos fichiers. À bientôt.</p>
+  </div>
+</div>

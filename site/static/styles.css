@@ -466,6 +466,35 @@ img { max-width: 100%; }
 .pager .next { text-align: right; }
 .cookbook-hero { max-width: 760px; margin-bottom: 44px; }
 .cookbook-grid { grid-template-columns: repeat(2, 1fr); }
+/* Cookbook video series: a featured episode with a click-to-load player, then what's next. */
+.video-series { margin: 0 0 56px; }
+.video-feature { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 32px; align-items: center; }
+.video-player { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; padding: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: #0d0e12; box-shadow: 0 40px 90px -40px rgba(0,0,0,.8); cursor: pointer; font: inherit; color: inherit; }
+.video-player img, .video-player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+.video-play { position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 84px; height: 84px; translate: -50% -50%; border-radius: 50%; color: #0d1a10; background: var(--green-bright); box-shadow: 0 18px 40px -12px rgba(0,0,0,.7); transition: scale .2s ease; }
+.video-play .i { width: 34px; height: 34px; margin-left: 4px; }
+.video-player:not(:disabled):hover .video-play, .video-player:not(:disabled):focus-visible .video-play { scale: 1.08; }
+.video-player:disabled { cursor: default; }
+.video-player:disabled .video-play { color: rgba(255,255,255,.85); background: rgba(13,14,18,.55); border: 1px solid rgba(255,255,255,.2); backdrop-filter: blur(10px); }
+.video-soon { position: absolute; right: 16px; bottom: 16px; padding: 7px 14px; border-radius: 999px; font-size: .78rem; font-weight: 700; letter-spacing: .04em; color: #fff; background: rgba(13,14,18,.6); border: 1px solid rgba(255,255,255,.16); backdrop-filter: blur(10px); }
+.video-player:not(:disabled) .video-soon { display: none; }
+.video-meta h3 a { color: inherit; text-decoration: none; }
+.video-meta h3 a:hover { color: var(--green-bright); }
+.video-more { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; color: var(--green-bright); font-size: .86rem; font-weight: 650; text-decoration: none; }
+.video-more .i { width: 14px; height: 14px; }
+.video-next b a { color: inherit; text-decoration: none; }
+.video-page { max-width: 1000px; margin: 0 0 12px; }
+.transcript h3 { margin: 32px 0 6px; color: var(--muted); font-size: .76rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+.transcript p { margin: 0 0 12px; }
+.video-meta small { color: var(--green-bright); font-size: .74rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+.video-meta h3 { margin: 8px 0 12px; font-size: 1.9rem; line-height: 1.15; letter-spacing: -.03em; }
+.video-meta > p { margin: 0; color: var(--muted); font-size: .98rem; }
+.video-next { margin: 26px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.video-next li { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); font-size: .92rem; }
+.video-next span { color: var(--muted); font-weight: 700; font-variant-numeric: tabular-nums; }
+.video-next b { flex: 1; font-weight: 650; }
+.video-next em { color: var(--muted); font-size: .78rem; font-style: normal; }
+@media (max-width: 900px) { .video-feature { grid-template-columns: 1fr; } }
 .recipe-group { margin: 0 0 16px; color: var(--muted); font-size: .78rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
 .cookbook-grid + .recipe-group { margin-top: 48px; }
 

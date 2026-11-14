@@ -7,12 +7,13 @@
 //
 // Each page starts with <!--page {json}--> naming its title, description and layout. Bodies may use
 // {{root}} (resolved to the page's language for pages, to the site root for files in static/),
-// {{site}} (always the site root), {{icon:name}} and {{recipes}} or {{recipes:featured|personal|work}}.
+// {{site}} (always the site root), {{icon:name}}, {{recipes}} or {{recipes:featured|personal|work}},
+// {{videos}} (the cookbook's video block) and {{video:slug}} (one episode's player).
 import { cp, mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { icon, recipeCards, render } from "./layout.mjs";
+import { icon, recipeCards, render, videoPlayer, videoSeries } from "./layout.mjs";
 import { SITE_URL, checkStrings, defaultLocale, localePrefix, locales, strings } from "./i18n.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -112,6 +113,8 @@ for (const relative of pagePaths) {
 
     let html = render(page, body, ctx)
       .replace(/\{\{recipes(?::([a-z]+))?\}\}/g, (_, filter) => recipeCards(ctx, filter))
+      .replaceAll("{{videos}}", () => videoSeries(ctx))
+      .replace(/\{\{video:([a-z0-9-]+)\}\}/g, (_, slug) => videoPlayer(ctx, slug))
       .replace(/\{\{icon:([a-z0-9-]+)\}\}/g, (_, name) => icon(name))
       .replace(/\{\{root\}\}([^"'\s)<>]*)/g, (_, rest) => {
         const first = rest.split(/[/#?]/)[0];

@@ -22,6 +22,17 @@ export const recipes = [
   { slug: "sprints", icon: "kanban", tone: "orange", group: "work", featured: true },
 ].map((r) => ({ group: "personal", featured: ["build", "create", "plan"].includes(r.slug), ...r }));
 
+/**
+ * Cookbook videos, in episode order. Titles live in i18n.mjs under `videos`. An episode with a poster
+ * has its own page at cookbook/videos/<slug>/ and appears in the sidebar; the others are listed as
+ * coming soon. `youtube` stays empty until the video is public, which keeps its player a disabled poster.
+ */
+export const videos = [
+  { slug: "nova-workspace", number: "01", duration: "3:19", poster: "videos/01-nova-workspace.webp", youtube: "" },
+  { slug: "your-workspace", number: "02" },
+  { slug: "projects", number: "03" },
+];
+
 /** Cookbook sections, in order. Their labels live in i18n.mjs under `cookbook.groups`. */
 export const recipeGroups = ["personal", "work"];
 
@@ -116,6 +127,8 @@ function footer(ctx) {
 function cookbookNav(page, { t }) {
   return `<nav class="doc-nav" aria-label="${t.cookbook.navLabel}">
   <a class="doc-nav-home${page.slug === "" ? " active" : ""}" href="{{root}}cookbook/">${icon("book-open")}<span>${t.cookbook.overview}</span></a>
+  <p>${t.cookbook.groups.videos}</p>
+  ${videos.filter((v) => v.poster).map((v) => `<a href="{{root}}cookbook/videos/${v.slug}/"${page.slug === `videos/${v.slug}` ? ' class="active" aria-current="page"' : ""}><span class="tone tone-green">${icon("play-fill")}</span><span><b>${t.videos[v.slug].title}</b><small>${t.cookbook.episode} ${v.number} · ${v.duration}</small></span></a>`).join("\n  ")}
   ${recipeGroups.map((group) => `<p>${t.cookbook.groups[group]}</p>
   ${recipes.filter((r) => r.group === group).map((r) => `<a href="{{root}}cookbook/${r.slug}/"${r.slug === page.slug ? ' class="active" aria-current="page"' : ""}><span class="tone tone-${r.tone}">${icon(r.icon)}</span><span><b>${t.recipes[r.slug].title}</b><small>${t.recipes[r.slug].headline}</small></span></a>`).join("\n  ")}`).join("\n  ")}
 </nav>`;
@@ -130,6 +143,39 @@ function recipePager(slug, { t }) {
   ${prev ? `<a class="prev" href="{{root}}cookbook/${prev.slug}/"><small>${t.pager.previous}</small><b>${t.recipes[prev.slug].title}</b></a>` : "<span></span>"}
   ${next ? `<a class="next" href="{{root}}cookbook/${next.slug}/"><small>${t.pager.next}</small><b>${t.recipes[next.slug].title}</b></a>` : `<a class="next" href="{{root}}#download"><small>${t.cookbook.ready}</small><b>${t.cookbook.download}</b></a>`}
 </nav>`;
+}
+
+/** A video's click-to-load player, placed with {{video:slug}}. site.js swaps in YouTube on click. */
+export function videoPlayer({ t }, slug) {
+  const v = videos.find((x) => x.slug === slug);
+  if (!v?.poster) throw new Error(`No published video "${slug}" for {{video:${slug}}}`);
+  return `<button type="button" class="video-player" data-youtube="${v.youtube}" data-title="${escapeAttr(t.videos[slug].title)}" aria-label="${t.cookbook.play}" disabled>`
+    + `<img src="{{site}}${v.poster}" alt="" width="1280" height="720" /><span class="video-play">${icon("play-fill")}</span><span class="video-soon">${t.cookbook.soon}</span></button>`;
+}
+
+/** The cookbook overview's video block, placed with {{videos}}: the latest episode, then what comes next. */
+export function videoSeries(ctx) {
+  const { t } = ctx;
+  const published = videos.filter((v) => v.poster);
+  const latest = published[published.length - 1];
+  const rest = videos.filter((v) => v !== latest);
+  return `<section class="video-series" aria-labelledby="video-series-title">
+  <h2 class="recipe-group" id="video-series-title">${t.cookbook.groups.videos}</h2>
+  <div class="video-feature">
+    ${videoPlayer(ctx, latest.slug)}
+    <div class="video-meta">
+      <small>${t.cookbook.episode} ${latest.number} · ${latest.duration}${t.cookbook.inEnglish}</small>
+      <h3><a href="{{root}}cookbook/videos/${latest.slug}/">${t.videos[latest.slug].title}</a></h3>
+      <p>${t.videos[latest.slug].summary}</p>
+      <a class="video-more" href="{{root}}cookbook/videos/${latest.slug}/">${t.cookbook.details} ${icon("arrow-right")}</a>
+      <ol class="video-next">
+        ${rest.map((v) => v.poster
+          ? `<li><span>${v.number}</span><b><a href="{{root}}cookbook/videos/${v.slug}/">${t.videos[v.slug].title}</a></b><em>${v.duration}</em></li>`
+          : `<li><span>${v.number}</span><b>${t.videos[v.slug].title}</b><em>${t.cookbook.soon}</em></li>`).join("\n        ")}
+      </ol>
+    </div>
+  </div>
+</section>`;
 }
 
 /** The recipe grid that pages place with {{recipes}} (every use case), {{recipes:featured}}, {{recipes:personal}} or {{recipes:work}}. */

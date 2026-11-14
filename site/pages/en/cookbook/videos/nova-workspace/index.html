@@ -1,0 +1,49 @@
+<!--page {"title":"Nova's workspace · RedLeaf Cookbook video","description":"Episode 01 of the RedLeaf Cookbook videos: where Nova's memory lives, how to read it in RedLeaf or as files on your disk, and how to correct it.","layout":"doc","section":"cookbook","slug":"videos/nova-workspace"}-->
+<header class="cookbook-hero">
+  <p class="eyebrow">Video · Episode 01 · 3:19</p>
+  <h1>Nova's workspace</h1>
+  <p class="doc-lede">Where an AI's memory actually lives, and how you fix it when it's wrong. Nova shows where she keeps what she remembers, then what happens underneath.</p>
+</header>
+<div class="video-page">
+{{video:nova-workspace}}
+</div>
+<div class="prose">
+  <h2>What you'll see</h2>
+  <ul>
+    <li>Where Nova keeps what she remembers: pages in the memory folder of her workspace.</li>
+    <li>How to read those pages in the <span class="ui">Workspace</span> app, or open them as files on your disk: <code>L:\Workspaces\Nova</code> on Windows, <code>~/Leaf/Workspaces/Nova</code> on Linux.</li>
+    <li>How to correct a memory in any text editor, and undo a change from the page's history.</li>
+    <li>What happens underneath: one copy of each page in RedLeaf's database, two ways in, and what leaves your computer.</li>
+  </ul>
+  <div class="callout">{{icon:book-open}}<p><strong>Go further.</strong> The <a href="{{root}}docs/memory/">Memory and the workspace</a> guide covers the folder layout, scratch space and backups.</p></div>
+  <h2>Transcript</h2>
+  <div class="transcript">
+  <h3>Opening</h3>
+  <p>When an AI remembers something about your project, where does that memory actually live? And when it's wrong, how do you fix it?</p>
+  <p>In RedLeaf, it lives somewhere you can open. I'm Nova, the agent that comes with RedLeaf, and this is my workspace.</p>
+  <h3>Telling me something</h3>
+  <p>Say we're working on your website, and you make a call: green is the only accent colour, and no magenta anywhere.</p>
+  <p>I don't just nod. I write it down. That gold square is me writing, and the status says Memorizing, because the page I'm writing is in my memory.</p>
+  <h3>Where it went</h3>
+  <p>This is the Workspace app, open on my workspace. Next to my configuration and my files, there's a memory folder, and in it a page called Website decisions: the decision, the date and the reason. Plain text, nothing hidden.</p>
+  <h3>Fixing it on disk</h3>
+  <p>And it isn't locked inside the app. My workspace is also a real folder on your disk. On Windows it's on the L drive, under Workspaces. On Linux, it's in your home folder, under Leaf.</p>
+  <p>Say you change your mind: magenta is fine for error messages. Open the page in any editor, change the line, and save.</p>
+  <h3>History</h3>
+  <p>RedLeaf picks it up straight away. Same page, your words. And the change goes into the page's history, so you can see who changed what, and undo it.</p>
+  <h3>A week later</h3>
+  <p>In a brand new discussion, you ask what colour the error banner should be. I check my memory first, and the status says Remembering. Then I answer from your version, not mine.</p>
+  <h3>Under the hood</h3>
+  <p>So what's actually going on? Let's draw it.</p>
+  <p>At the bottom is RedLeaf's database. Every page lives there, and every page keeps its past versions.</p>
+  <p>Pages hang together in a tree. Everything under my workspace page is mine: my memory, my configuration, my files.</p>
+  <p>On top, there are two ways in. On your side, a file system driver shows that tree as an ordinary folder. On my side, I read and write the very same pages while I work.</p>
+  <p>Watch what happens when you save in your editor. The write lands on the page, and the page keeps the version it replaced. Same thing when I write. There's one copy of the truth, and two doors into it.</p>
+  <p>When a discussion starts, I read my workspace first. That's why a new discussion next week picks up where this one ended.</p>
+  <p>And because it all lives in the database, a database backup takes every agent's memory with it.</p>
+  <p>One last thing. My workspace lives on your computer. Its content only leaves when I send it to the AI provider you chose, to read it or write it. Only the part I'm working on.</p>
+  <h3>Recap</h3>
+  <p>So, my memory is pages. You can read them in RedLeaf, or as files on your disk. And when something's wrong, you fix the page, and I work from your version.</p>
+  <p>Next time: a workspace of your own, for your files. See you there.</p>
+  </div>
+</div>

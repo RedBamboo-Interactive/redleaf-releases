@@ -558,3 +558,20 @@ langMenus.forEach((menu) => {
 document.addEventListener("click", (event) => {
   langMenus.forEach((menu) => { if (menu.open && !menu.contains(event.target)) menu.open = false; });
 });
+
+// Cookbook videos: a poster until clicked, then a privacy-enhanced YouTube player, so the page makes
+// no request to YouTube before someone presses play. An empty data-youtube keeps the poster disabled.
+$$(".video-player").forEach((player) => {
+  const id = player.dataset.youtube?.trim();
+  if (!id) return;
+  player.disabled = false;
+  player.addEventListener("click", () => {
+    const frame = document.createElement("iframe");
+    frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0`;
+    frame.title = player.dataset.title || "";
+    frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    frame.allowFullscreen = true;
+    player.replaceChildren(frame);
+    player.disabled = true;
+  }, { once: true });
+});
