@@ -420,8 +420,8 @@ img { max-width: 100%; }
 .doc-nav a.active { color: var(--fg); background: var(--surface-2); }
 .doc-nav .tone { width: 26px; height: 26px; border-radius: 8px; }
 .video-tone { position: relative; }
-.play-badge { position: absolute; right: -5px; bottom: -5px; display: grid; place-items: center; width: 15px; height: 15px; border-radius: 50%; color: #fff; background: var(--green); box-shadow: 0 0 0 2px var(--canvas); }
-.doc-nav .play-badge .i { width: 8px; height: 8px; margin-left: 1px; }
+.play-badge { position: absolute; right: -5px; bottom: -5px; display: grid; place-items: center; width: 16px; height: 16px; border-radius: 50%; color: #fff; background: var(--green); box-shadow: 0 0 0 2px var(--canvas); }
+.doc-nav .tone .play-badge .i { width: 7px; height: 7px; margin-left: 1px; }
 .doc-nav .tone .i { width: 14px; height: 14px; }
 .doc-nav-home .i { width: 18px; height: 18px; margin: 0 4px; }
 .doc-main { min-width: 0; }
