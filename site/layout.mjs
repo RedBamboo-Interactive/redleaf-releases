@@ -28,9 +28,10 @@ export const recipes = [
  * coming soon. `youtube` stays empty until the video is public, which keeps its player a disabled poster.
  */
 export const videos = [
-  { slug: "nova-workspace", number: "01", duration: "3:19", poster: "videos/01-nova-workspace.webp", youtube: "" },
-  { slug: "your-workspace", number: "02" },
-  { slug: "projects", number: "03" },
+  { slug: "nova-workspace", number: "01", icon: "star", tone: "rose", duration: "3:16", poster: "videos/01-nova-workspace.webp", youtube: "" },
+  { slug: "your-workspace", number: "02", icon: "folder-simple", tone: "green", duration: "2:34", poster: "videos/02-your-workspace.webp", youtube: "" },
+  { slug: "projects", number: "03", icon: "calendar-check", tone: "amber", duration: "2:07", poster: "videos/03-projects.webp", youtube: "" },
+  { slug: "while-away", number: "04", icon: "heartbeat", tone: "violet", duration: "2:31", poster: "videos/04-while-away.webp", youtube: "" },
 ];
 
 /** Cookbook sections, in order. Their labels live in i18n.mjs under `cookbook.groups`. */
@@ -128,7 +129,7 @@ function cookbookNav(page, { t }) {
   return `<nav class="doc-nav" aria-label="${t.cookbook.navLabel}">
   <a class="doc-nav-home${page.slug === "" ? " active" : ""}" href="{{root}}cookbook/">${icon("book-open")}<span>${t.cookbook.overview}</span></a>
   <p>${t.cookbook.groups.videos}</p>
-  ${videos.filter((v) => v.poster).map((v) => `<a href="{{root}}cookbook/videos/${v.slug}/"${page.slug === `videos/${v.slug}` ? ' class="active" aria-current="page"' : ""}><span class="tone tone-green">${icon("play-fill")}</span><span><b>${t.videos[v.slug].title}</b><small>${t.cookbook.episode} ${v.number} · ${v.duration}</small></span></a>`).join("\n  ")}
+  ${videos.filter((v) => v.poster).map((v) => `<a href="{{root}}cookbook/videos/${v.slug}/"${page.slug === `videos/${v.slug}` ? ' class="active" aria-current="page"' : ""}><span class="tone tone-${v.tone} video-tone">${icon(v.icon)}<span class="play-badge">${icon("play-fill")}</span></span><span><b>${t.videos[v.slug].title}</b><small>${t.cookbook.episode} ${v.number} · ${v.duration}</small></span></a>`).join("\n  ")}
   ${recipeGroups.map((group) => `<p>${t.cookbook.groups[group]}</p>
   ${recipes.filter((r) => r.group === group).map((r) => `<a href="{{root}}cookbook/${r.slug}/"${r.slug === page.slug ? ' class="active" aria-current="page"' : ""}><span class="tone tone-${r.tone}">${icon(r.icon)}</span><span><b>${t.recipes[r.slug].title}</b><small>${t.recipes[r.slug].headline}</small></span></a>`).join("\n  ")}`).join("\n  ")}
 </nav>`;
@@ -153,28 +154,16 @@ export function videoPlayer({ t }, slug) {
     + `<img src="{{site}}${v.poster}" alt="" width="1280" height="720" /><span class="video-play">${icon("play-fill")}</span><span class="video-soon">${t.cookbook.soon}</span></button>`;
 }
 
-/** The cookbook overview's video block, placed with {{videos}}: the latest episode, then what comes next. */
-export function videoSeries(ctx) {
-  const { t } = ctx;
-  const published = videos.filter((v) => v.poster);
-  const latest = published[published.length - 1];
-  const rest = videos.filter((v) => v !== latest);
+/** The cookbook overview's video block, placed with {{videos}}: the whole series in order, starting at 01. */
+export function videoSeries({ t }) {
   return `<section class="video-series" aria-labelledby="video-series-title">
   <h2 class="recipe-group" id="video-series-title">${t.cookbook.groups.videos}</h2>
-  <div class="video-feature">
-    ${videoPlayer(ctx, latest.slug)}
-    <div class="video-meta">
-      <small>${t.cookbook.episode} ${latest.number} · ${latest.duration}${t.cookbook.inEnglish}</small>
-      <h3><a href="{{root}}cookbook/videos/${latest.slug}/">${t.videos[latest.slug].title}</a></h3>
-      <p>${t.videos[latest.slug].summary}</p>
-      <a class="video-more" href="{{root}}cookbook/videos/${latest.slug}/">${t.cookbook.details} ${icon("arrow-right")}</a>
-      <ol class="video-next">
-        ${rest.map((v) => v.poster
-          ? `<li><span>${v.number}</span><b><a href="{{root}}cookbook/videos/${v.slug}/">${t.videos[v.slug].title}</a></b><em>${v.duration}</em></li>`
-          : `<li><span>${v.number}</span><b>${t.videos[v.slug].title}</b><em>${t.cookbook.soon}</em></li>`).join("\n        ")}
-      </ol>
-    </div>
-  </div>
+  <p class="video-intro">${t.cookbook.seriesIntro}</p>
+  <ol class="video-grid">
+    ${videos.map((v, i) => v.poster
+      ? `<li><a class="video-card" href="{{root}}cookbook/videos/${v.slug}/"><span class="video-thumb"><img src="{{site}}${v.poster}" alt="" width="1280" height="720" loading="lazy" /><span class="video-num">${v.number}</span><span class="video-dur">${v.duration}</span>${i === 0 ? `<span class="video-start">${t.cookbook.startHere}</span>` : ""}</span><b>${t.videos[v.slug].title}</b><p>${t.videos[v.slug].summary}</p></a></li>`
+      : `<li><div class="video-card soon"><span class="video-thumb"><span class="video-num">${v.number}</span><span class="video-dur">${t.cookbook.soon}</span></span><b>${t.videos[v.slug].title}</b></div></li>`).join("\n    ")}
+  </ol>
 </section>`;
 }
 
