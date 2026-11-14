@@ -28,6 +28,7 @@ export const recipes = [
  * coming soon. `youtube` stays empty until the video is public, which keeps its player a disabled poster.
  */
 export const videos = [
+  { slug: "talking-to-nova", number: "00", icon: "chats-circle", tone: "blue", duration: "2:18", poster: "videos/00-talking-to-nova.webp", youtube: "" },
   { slug: "nova-workspace", number: "01", icon: "star", tone: "rose", duration: "3:16", poster: "videos/01-nova-workspace.webp", youtube: "" },
   { slug: "your-workspace", number: "02", icon: "folder-simple", tone: "green", duration: "2:34", poster: "videos/02-your-workspace.webp", youtube: "" },
   { slug: "projects", number: "03", icon: "calendar-check", tone: "amber", duration: "2:07", poster: "videos/03-projects.webp", youtube: "" },
@@ -154,7 +155,7 @@ export function videoPlayer({ t }, slug) {
     + `<img src="{{site}}${v.poster}" alt="" width="1280" height="720" /><span class="video-play">${icon("play-fill")}</span><span class="video-soon">${t.cookbook.soon}</span></button>`;
 }
 
-/** The cookbook overview's video block, placed with {{videos}}: the whole series in order, starting at 01. */
+/** The cookbook overview's video block, placed with {{videos}}: the whole series in order, starting at 00. */
 export function videoSeries({ t }) {
   return `<section class="video-series" aria-labelledby="video-series-title">
   <h2 class="recipe-group" id="video-series-title">${t.cookbook.groups.videos}</h2>

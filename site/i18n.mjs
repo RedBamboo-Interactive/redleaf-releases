@@ -32,6 +32,7 @@ const en = {
   },
   legal: { privacy: "Privacy", terms: "Terms of use", notice: "Legal notice", security: "Security", usage: "Usage statistics", navLabel: "Legal pages" },
   videos: {
+    "talking-to-nova": { title: "Talking to Nova", summary: "A first real conversation: plain words in, a plan out, every step shown as it happens, approval before anything risky, and everything one discussion can lead to." },
     "nova-workspace": { title: "Nova's workspace", summary: "Where an AI's memory actually lives, and how you fix it when it's wrong: pages you can read in RedLeaf or open as files on your disk, with every change kept in their history." },
     "your-workspace": { title: "Your own workspace", summary: "A project of your own for your files, separate from Nova's memory: pages in RedLeaf and a real folder on your disk, sorted with Nova's help." },
     projects: { title: "Projects and planning", summary: "A plan saved as a page in your project, a reminder Nova owns, and what really runs when it fires: a schedule, a workflow and a job." },
@@ -100,6 +101,7 @@ const fr = {
   },
   legal: { privacy: "Confidentialité", terms: "Conditions d’utilisation", notice: "Mentions légales", security: "Sécurité", usage: "Statistiques d’utilisation", navLabel: "Pages juridiques" },
   videos: {
+    "talking-to-nova": { title: "Parler à Nova", summary: "Une première vraie conversation : vos mots, un plan en retour, chaque étape affichée au moment où elle se fait, une autorisation avant toute action risquée, et tout ce qu’une discussion peut lancer." },
     "nova-workspace": { title: "L’espace de travail de Nova", summary: "Où vit vraiment la mémoire d’une IA, et comment la corriger quand elle se trompe : des pages que vous lisez dans RedLeaf ou ouvrez comme des fichiers sur votre disque, chaque modification gardée dans leur historique." },
     "your-workspace": { title: "Votre propre espace de travail", summary: "Un projet à vous pour vos fichiers, séparé de la mémoire de Nova : des pages dans RedLeaf et un vrai dossier sur votre disque, rangés avec l’aide de Nova." },
     projects: { title: "Projets et planification", summary: "Un plan enregistré dans une page de votre projet, un rappel dont Nova s’occupe, et ce qui tourne vraiment quand il se déclenche : une planification, un workflow et un job." },
