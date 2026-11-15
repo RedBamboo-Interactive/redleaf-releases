@@ -18,6 +18,18 @@
   </table>
   <p>Chaque page y est un fichier Markdown. Chaque fichier s'appuie sur une page et son historique : une modification faite dans un éditeur de texte apparaît dans RedLeaf, et inversement. Déposez un document dans le dossier, et l'agent peut le lire, le trier ou le classer.</p>
 
+  <h2>Vos propres projets sous forme de dossiers</h2>
+  <p>Les projets que vous créez dans <span class="ui">Workspace</span> sont des dossiers sur le même lecteur, à côté des espaces de travail des agents :</p>
+  <table class="doc-table">
+    <thead><tr><th>Plateforme</th><th>Où</th></tr></thead>
+    <tbody>
+      <tr><td>Windows</td><td><code>L:\Projects\&lt;projet&gt;</code></td></tr>
+      <tr><td>Linux</td><td><code>~/Leaf/Projects/&lt;projet&gt;</code></td></tr>
+    </tbody>
+  </table>
+  <p>Ils fonctionnent comme un espace de travail : les pages sont des fichiers Markdown, les modifications vont dans les deux sens et gardent leur historique, et vous pouvez aussi y ranger des images et d'autres fichiers. Créez, renommez ou supprimez un projet dans <span class="ui">Workspace</span>, et son dossier suit en une seconde, tant que RedLeaf tourne. Un projet qui est l'espace de travail d'un agent n'apparaît qu'une fois, sous <code>Workspaces</code>.</p>
+  <p>Tout ce qui accède au lecteur peut lire ces dossiers : les projets et les pages confidentiels n'y figurent donc pas. Ouvrez-les dans RedLeaf.</p>
+
   <h2>Lire et corriger la mémoire</h2>
   <ol class="steps">
     <li><b>Ouvrez l'espace de travail</b>Dans <span class="ui">Workspace</span>, ouvrez le projet de l'agent, par exemple <span class="ui">Nova</span>. Ou ouvrez son dossier sur votre disque.</li>
@@ -41,5 +53,5 @@
   <h2>Espace temporaire</h2>
   <p>Les agents disposent aussi d'un espace temporaire jetable pour les téléchargements, les expériences et les fichiers provisoires : le lecteur <code>S:</code> sous Windows. Tout ce qui y reste est supprimé après 30 jours d'inactivité. Vous pouvez changer cela dans <span class="ui">Settings › Storage › Scratch</span>. Tout ce qui mérite d'être gardé a sa place dans l'espace de travail.</p>
 
-  <div class="callout">{{icon:database}}<p><strong>La mémoire fait partie de vos sauvegardes.</strong> Comme les pages des espaces de travail sont stockées dans la base de données de RedLeaf, une sauvegarde de la base inclut la mémoire de tous les agents. Les fichiers situés ailleurs sur votre disque ne sont pas sauvegardés par RedLeaf. Voir <a href="{{root}}docs/backups/">Sauvegardes</a>.</p></div>
+  <div class="callout">{{icon:database}}<p><strong>La mémoire fait partie de vos sauvegardes.</strong> Comme les pages des espaces de travail et des projets sont stockées dans la base de données de RedLeaf, une sauvegarde de la base inclut la mémoire de tous les agents et tous les projets. Les fichiers situés ailleurs sur votre disque ne sont pas sauvegardés par RedLeaf. Voir <a href="{{root}}docs/backups/">Sauvegardes</a>.</p></div>
 </div>
