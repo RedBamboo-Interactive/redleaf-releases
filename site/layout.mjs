@@ -28,7 +28,7 @@ export const recipes = [
  * coming soon. `youtube` stays empty until the video is public, which keeps its player a disabled poster.
  */
 export const videos = [
-  { slug: "talking-to-nova", number: "00", icon: "chats-circle", tone: "blue", duration: "2:18", poster: "videos/00-talking-to-nova.webp", youtube: "" },
+  { slug: "talking-to-nova", number: "00", icon: "chats-circle", tone: "blue", duration: "2:12", poster: "videos/00-talking-to-nova.webp", youtube: "" },
   { slug: "nova-workspace", number: "01", icon: "star", tone: "rose", duration: "3:16", poster: "videos/01-nova-workspace.webp", youtube: "" },
   { slug: "your-workspace", number: "02", icon: "folder-simple", tone: "green", duration: "2:34", poster: "videos/02-your-workspace.webp", youtube: "" },
   { slug: "projects", number: "03", icon: "calendar-check", tone: "amber", duration: "2:07", poster: "videos/03-projects.webp", youtube: "" },
