@@ -1,0 +1,41 @@
+<!--page {"title":"Choisir votre IA · Vidéo RedLeaf","description":"Épisode 08 des vidéos RedLeaf : se connecter à un fournisseur, un fournisseur et un niveau de qualité pour chaque agent, un modèle local pour une paie confidentielle, et ce qu’a coûté chaque job.","layout":"doc","section":"cookbook","slug":"videos/choosing-your-ai"}-->
+<header class="cookbook-hero">
+  <p class="eyebrow">Vidéo · Épisode 08 · 2:34 · en anglais</p>
+  <h1>Choisir votre IA</h1>
+  <p class="doc-lede">Nova ne réfléchit pas toute seule. C’est un modèle qui le fait, et c’est vous qui le choisissez : un modèle puissant pour le travail de tous les jours, un modèle privé pour les fichiers qui ne doivent jamais sortir, et ce que coûte chaque job. La vidéo est en anglais ; la transcription ci-dessous est en français.</p>
+</header>
+<div class="video-page">
+{{video:choosing-your-ai}}
+</div>
+<div class="prose">
+  <h2>Ce que vous verrez</h2>
+  <ul>
+    <li>Connecter un fournisseur à l’étape <span class="ui">Connect AI</span> de l’installation : se connecter avec un abonnement ou une clé d’API, puis une requête sans risque pour le vérifier.</li>
+    <li>La fenêtre <span class="ui">New Discussion</span>, où chaque agent apporte son propre fournisseur et son niveau de qualité, de <span class="ui">Fast</span> à <span class="ui">Research</span>, et où vous pouvez en choisir un autre le temps d’une discussion.</li>
+    <li>Archie, l’agent de l’équipe pour la paie et les contrats, qui vérifie la paie de mars sur un modèle local, sans que rien ne sorte de l’ordinateur.</li>
+    <li>Les deux jobs dans <span class="ui">Compute › Jobs</span> : le devis parti dans le cloud, avec son modèle et son coût, et la vérification de la paie faite en local, sans rien payer.</li>
+    <li>Ce qui se passe en dessous : comment la demande d’un agent devient une session et un job, ce qui quitte votre ordinateur avec un fournisseur cloud, où restent les connexions, et pourquoi un modèle local n’envoie rien à l’extérieur.</li>
+  </ul>
+  <div class="callout">{{icon:book-open}}<p><strong>Pour aller plus loin.</strong> <a href="{{root}}docs/providers/">Fournisseurs d’IA et modèles locaux</a> détaille la connexion, les niveaux de qualité, les modèles locaux et le suivi de la consommation, et <a href="{{root}}docs/agents/">Nova et vos propres agents</a> montre où se règlent les choix par défaut de chaque agent.</p></div>
+  <h2>Transcription</h2>
+  <div class="transcript">
+  <h3>Ouverture</h3>
+  <p>Je ne réfléchis pas toute seule. C’est un modèle qui le fait, et c’est vous qui choisissez lequel.</p>
+  <p>Alors aujourd’hui : un modèle puissant pour le travail de tous les jours, un modèle privé pour les fichiers qui ne doivent jamais sortir, et ce que coûte chaque job.</p>
+  <h3>Connecter un fournisseur</h3>
+  <p>RedLeaf n’est pas livré avec son propre modèle. Pendant l’installation, vous choisissez qui fait ma réflexion, et vous vous connectez avec ce que vous avez déjà : un abonnement, ou une clé d’API. Une fois la connexion faite, RedLeaf envoie une requête sans risque, pour vérifier que je peux l’utiliser.</p>
+  <h3>Un fournisseur par agent</h3>
+  <p>Chaque agent garde son propre fournisseur. Moi, je tourne sur un modèle puissant dans le cloud, pour le travail de tous les jours. Et vous ne choisissez pas de noms de modèles. Vous choisissez un niveau de qualité, du plus rapide à la recherche, et chaque fournisseur le fait correspondre à ses propres modèles. Archie, l’agent de l’équipe pour la paie et les contrats, tourne plutôt sur un modèle local. Pour une seule discussion, vous pouvez quand même en choisir un autre, ici même.</p>
+  <h3>La paie, à la maison</h3>
+  <p>Alors quand quelqu’un demande à Archie de vérifier la paie de mars, il lit le tableau des salaires et les contrats, et c’est un modèle sur la propre carte graphique de cet ordinateur qui fait la réflexion. Rien ne quitte l’ordinateur.</p>
+  <h3>Ce que ça a coûté</h3>
+  <p>Chaque session est aussi un job dans Compute, la partie de RedLeaf qui exécute tout le travail d’IA. Mon devis pour Brightwell est passé par le cloud, et vous voyez exactement ce qu’il a coûté. La vérification de la paie d’Archie a tourné sur la carte graphique, gratuitement.</p>
+  <h3>Sous le capot</h3>
+  <p>Alors, que se passe-t-il quand un agent réfléchit ? L’agent fait sa demande, avec son fournisseur et son niveau de qualité. Compute lance une session avec ce fournisseur, et l’enregistre comme un job.</p>
+  <p>Avec un fournisseur cloud, le modèle tourne sur les serveurs du fournisseur. Ce qui quitte votre ordinateur, c’est le message, et ce que l’agent a lu pour y répondre. Vous vous connectez avec un abonnement ou une clé d’API, et la connexion reste dans l’outil du fournisseur, sur votre ordinateur.</p>
+  <p>Avec un modèle local, la session tourne sur votre propre carte graphique. Rien ne sort, et il n’y a rien à payer. Dans les deux cas, chaque job garde son fournisseur, son modèle, et ce qu’il a coûté.</p>
+  <h3>Récapitulatif</h3>
+  <p>Donc : chaque agent réfléchit avec le fournisseur que vous choisissez. Le travail confidentiel reste sur un modèle local. Et chaque job montre ce qu’il a coûté.</p>
+  <p>La prochaine fois : créer sur votre propre GPU. À bientôt.</p>
+  </div>
+</div>

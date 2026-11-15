@@ -1,0 +1,41 @@
+<!--page {"title":"Confier le travail à Code · Vidéo RedLeaf","description":"Épisode 10 des vidéos RedLeaf : un rapport de bug confié à une session Code sur sa propre branche et son propre worktree, des tests et une pull request, une relecture, et une fusion que vous approuvez.","layout":"doc","section":"cookbook","slug":"videos/handing-to-code"}-->
+<header class="cookbook-hero">
+  <p class="eyebrow">Vidéo · Épisode 10 · 2:33 · en anglais</p>
+  <h1>Confier le travail à Code</h1>
+  <p class="doc-lede">Un client trouve un bug, et quelqu’un doit le corriger sans casser ce qui fonctionne déjà. Nova confie le travail à une session de code et vous le rapporte, prêt à fusionner. La vidéo est en anglais ; la transcription ci-dessous est en français.</p>
+</header>
+<div class="video-page">
+{{video:handing-to-code}}
+</div>
+<div class="prose">
+  <h2>Ce que vous verrez</h2>
+  <ul>
+    <li>Le rapport de bug d’un client dans une discussion, et Nova qui confie la correction à Code avec un brief : une carte <span class="ui">Delegated to Code</span> avec <span class="ui">Open in Code</span>, et un cercle rose tant que la session tourne.</li>
+    <li>La branche et le worktree de la session dans l’onglet <span class="ui">Worktrees</span> de Code, à côté de votre copie de travail principale, intacte.</li>
+    <li>La session au travail : elle trouve la cause, la corrige avec des tests, lance toutes les suites de tests et ouvre une pull request.</li>
+    <li>Le callback dans la discussion, la relecture de Nova avec <span class="ui">Auto Review</span>, et la fusion, qui attend votre autorisation.</li>
+    <li>Ce qui se passe en dessous : le brief, la session dans Code, un seul rédacteur par dossier, les tests dans le worktree, le callback, et un nouveau passage demandé à la même session.</li>
+  </ul>
+  <div class="callout">{{icon:book-open}}<p><strong>Pour aller plus loin.</strong> <a href="{{root}}docs/code/">Sessions de code</a> détaille la délégation et les revues, et <a href="{{root}}docs/branches/">Branches et travail en parallèle</a> explique les worktrees.</p></div>
+  <h2>Transcription</h2>
+  <div class="transcript">
+  <h3>Ouverture</h3>
+  <p>Un client trouve un bug dans votre produit. Quelqu’un doit le corriger, sans casser ce qui fonctionne déjà.</p>
+  <p>Alors je confie le travail à une session de code, et je vous le rapporte, prêt à fusionner.</p>
+  <h3>Le rapport</h3>
+  <p>Tout commence dans une discussion : le rapport de bug d’un client. Code est l’application de RedLeaf pour les projets logiciels, et une session y est un travailleur de code qui reste sur un projet jusqu’à ce que le travail soit fini. Alors j’écris un brief, et je confie la correction à une session. Le cercle rose reste allumé tant qu’elle travaille.</p>
+  <h3>Sa propre branche</h3>
+  <p>La session a sa propre branche, et Code donne à cette branche son propre dossier, appelé worktree. Votre copie de travail principale, le dossier du projet dans lequel vous travaillez, n’est pas touchée, donc vous pouvez continuer à y travailler.</p>
+  <h3>La regarder travailler</h3>
+  <p>Ouvrez la session, et vous pouvez la regarder travailler. Elle trouve la cause, la corrige, avec un test, lance toutes les suites de tests, puis ouvre une pull request : la modification, prête à être relue.</p>
+  <h3>Relecture et fusion</h3>
+  <p>Quand elle a fini, la discussion reçoit un callback, une note qui dit que la session est terminée, et je le prends en main. Je lis la modification, et je lance Auto Review, la relecture par IA propre à Code. La correction est petite, et tous les tests passent. Fusionner, c’est votre décision. Vous approuvez, je fusionne, et la réponse au client est prête, il ne vous reste qu’à l’envoyer.</p>
+  <h3>Sous le capot</h3>
+  <p>Alors, qu’y a-t-il en dessous ? Une discussion, et un brief. La session ne partage pas ma mémoire, alors j’écris ce dont elle a besoin. Elle tourne dans Code, sur le dépôt de votre projet, et vous pouvez l’ouvrir à tout moment pour la regarder, autoriser une étape ou ajouter un message.</p>
+  <p>Sa branche a un worktree, à côté de votre projet. Un seul rédacteur par dossier, donc votre copie de travail reste la vôtre. Les tests tournent dans le worktree, et le travail revient sous forme de pull request.</p>
+  <p>Quand la session a fini, le callback me fait revenir. Je relis, avec Auto Review comme second avis, et rien n’atteint votre branche principale avant que vous l’approuviez. S’il faut un autre passage, j’envoie mes remarques à la même session, et elle reprend là où elle s’était arrêtée.</p>
+  <h3>Récapitulatif</h3>
+  <p>Donc : je confie le travail à une session Code, avec un brief. Elle travaille sur sa propre branche, et votre copie de travail reste la vôtre. Et rien n’est fusionné tant que vous ne l’avez pas approuvé.</p>
+  <p>Ensuite : les cas d’usage, de vrais travaux du début à la fin. À bientôt.</p>
+  </div>
+</div>

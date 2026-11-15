@@ -1,0 +1,41 @@
+<!--page {"title":"Choosing your AI · RedLeaf Cookbook video","description":"Episode 08 of the RedLeaf Cookbook videos: signing in to a provider, a provider and quality tier for each agent, a local model for confidential payroll, and what every job cost.","layout":"doc","section":"cookbook","slug":"videos/choosing-your-ai"}-->
+<header class="cookbook-hero">
+  <p class="eyebrow">Video · Episode 08 · 2:34</p>
+  <h1>Choosing your AI</h1>
+  <p class="doc-lede">Nova doesn't think on her own. A model does, and you choose which one: a strong model for everyday work, a private one for files that must never leave, and what each job costs.</p>
+</header>
+<div class="video-page">
+{{video:choosing-your-ai}}
+</div>
+<div class="prose">
+  <h2>What you'll see</h2>
+  <ul>
+    <li>Connecting a provider in the <span class="ui">Connect AI</span> step of setup: signing in with a subscription or an API key, then one harmless request to verify it.</li>
+    <li>The <span class="ui">New Discussion</span> dialog, where each agent brings its own provider and quality tier, from <span class="ui">Fast</span> to <span class="ui">Research</span>, and you can pick another one for a single discussion.</li>
+    <li>Archie, the team's agent for payroll and contracts, checking March payroll on a local model, with nothing leaving the computer.</li>
+    <li>Both jobs in <span class="ui">Compute › Jobs</span>: the quote that went to the cloud, with its model and cost, and the payroll check that ran locally for nothing.</li>
+    <li>What happens underneath: how an agent's request becomes a session and a job, what leaves your computer with a cloud provider, where sign-ins stay, and why a local model sends nothing out.</li>
+  </ul>
+  <div class="callout">{{icon:book-open}}<p><strong>Go further.</strong> <a href="{{root}}docs/providers/">AI providers and local models</a> covers signing in, quality tiers, local models and watching usage, and <a href="{{root}}docs/agents/">Nova and your own agents</a> shows where each agent's default is set.</p></div>
+  <h2>Transcript</h2>
+  <div class="transcript">
+  <h3>Opening</h3>
+  <p>I don't think on my own. A model does, and you choose which one.</p>
+  <p>So today: a strong model for everyday work, a private one for files that must never leave, and what each job costs.</p>
+  <h3>Connecting a provider</h3>
+  <p>RedLeaf doesn't come with a model of its own. During setup, you choose who does my thinking, and sign in with what you already have: a subscription, or an API key. Once you're signed in, RedLeaf sends one harmless request, to check that I can use it.</p>
+  <h3>One provider per agent</h3>
+  <p>Each agent keeps its own provider. I run on a strong cloud model, for everyday work. And you don't pick model names. You pick a quality tier, from fast to research, and each provider maps it to its own models. Archie, the team's agent for payroll and contracts, runs on a local model instead. For a single discussion, you can still pick another one, right here.</p>
+  <h3>Payroll, at home</h3>
+  <p>So when someone asks Archie to check March payroll, he reads the salary sheet and the contracts, and a model on this computer's own graphics card does the thinking. Nothing leaves the computer.</p>
+  <h3>What it cost</h3>
+  <p>Every session is also a job in Compute, the part of RedLeaf that runs all the AI work. My quote for Brightwell went to the cloud, and you see exactly what it cost. Archie's payroll check ran on the graphics card, for free.</p>
+  <h3>Under the hood</h3>
+  <p>So what happens when an agent thinks? The agent asks, with its provider and its quality tier. Compute starts a session through that provider, and records it as a job.</p>
+  <p>With a cloud provider, the model runs on the provider's servers. What leaves your computer is the message, and what the agent read to answer it. You sign in with a subscription or an API key, and the sign-in stays in the provider's own tool, on your computer.</p>
+  <p>With a local model, the session runs on your own graphics card. Nothing leaves, and there's nothing to pay. Either way, each job keeps its provider, its model, and what it cost.</p>
+  <h3>Recap</h3>
+  <p>So: each agent thinks through the provider you pick. Confidential work stays on a local model. And every job shows what it cost.</p>
+  <p>Next time: creating on your own GPU. See you there.</p>
+  </div>
+</div>
