@@ -24,6 +24,7 @@ const en = {
   discordLabel: "Join the Leaf Discord",
   githubLabel: "RedLeaf Releases on GitHub",
   language: "Language",
+  darkTheme: "Dark theme",
   footer: {
     tagline: "A local home for AI agents, their conversations, their code sessions and their memory. Made by RedBamboo Interactive.",
     product: "Product", download: "Download", cookbook: "Cookbook", docs: "Documentation", releases: "Release history",
@@ -99,6 +100,7 @@ const fr = {
   discordLabel: "Rejoindre le Discord de Leaf",
   githubLabel: "RedLeaf Releases sur GitHub",
   language: "Langue",
+  darkTheme: "Thème sombre",
   footer: {
     tagline: "Un foyer local pour vos agents IA, leurs conversations, leurs sessions de code et leur mémoire. Conçu par RedBamboo Interactive.",
     product: "Produit", download: "Télécharger", cookbook: "Cas d’usage", docs: "Documentation", releases: "Historique des versions",

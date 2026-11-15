@@ -15,6 +15,32 @@ const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const lang = document.documentElement.lang || "en";
 const strings = (() => { try { return JSON.parse($("#site-strings")?.textContent || "{}"); } catch { return {}; } })();
 const t = (key, vars = {}) => (strings[key] ?? key).replace(/\{(\w+)\}/g, (_, name) => vars[name] ?? "");
+/* ───────────────────────── Theme ─────────────────────────
+   The head script picks the theme before the first paint: the visitor's choice if they made one,
+   otherwise their system setting. The header toggle switches it. Choosing the theme the system
+   already prefers forgets the choice, so the site follows the system again from then on. */
+
+const themeKey = "redleaf-theme";
+const systemLight = window.matchMedia("(prefers-color-scheme: light)");
+const systemTheme = () => (systemLight.matches ? "light" : "dark");
+const savedTheme = () => { try { const v = localStorage.getItem(themeKey); return v === "light" || v === "dark" ? v : null; } catch { return null; } };
+// Artwork with a daytime variant (<source media="(prefers-color-scheme: light)">) follows the chosen theme, not the system.
+const themedSources = $$('source[media="(prefers-color-scheme: light)"]');
+const themeColor = $('meta[name="theme-color"]');
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  themedSources.forEach((source) => { source.media = theme === "light" ? "all" : "not all"; });
+  themeColor?.setAttribute("content", theme === "light" ? "#f6f7f9" : "#1d1f25");
+  $$("[data-theme-toggle]").forEach((button) => button.setAttribute("aria-pressed", String(theme === "dark")));
+}
+applyTheme(document.documentElement.dataset.theme === "light" ? "light" : "dark");
+$$("[data-theme-toggle]").forEach((button) => button.addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+  try { if (next === systemTheme()) localStorage.removeItem(themeKey); else localStorage.setItem(themeKey, next); } catch {}
+  applyTheme(next);
+}));
+systemLight.addEventListener("change", () => { if (!savedTheme()) applyTheme(systemTheme()); });
+
 const formatDate = (iso) => new Date(iso).toLocaleDateString(lang, { day: "numeric", month: "long", year: "numeric" });
 
 async function fetchJson(url) {

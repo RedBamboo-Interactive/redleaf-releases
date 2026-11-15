@@ -92,6 +92,18 @@ function languageSuggestions(ctx) {
   }).join("");
 }
 
+/**
+ * Light/dark switch, beside the header's language menu. The head script sets <html data-theme> before
+ * the first paint (the visitor's choice, else their system setting); without scripts the button stays
+ * hidden and the site is dark. It shows the current theme's icon and is pressed while the theme is dark.
+ */
+function themeToggle({ t }) {
+  return `<button type="button" class="theme-toggle" data-theme-toggle aria-pressed="true" aria-label="${t.darkTheme}" title="${t.darkTheme}">${icon("moon", "theme-icon-dark")}${icon("sun", "theme-icon-light")}</button>`;
+}
+
+/** Runs in <head> before the stylesheet applies, so the page never flashes the other theme. site.js uses the same key. */
+const themeBoot = `<script>(() => { let theme; try { theme = localStorage.getItem("redleaf-theme"); } catch {} if (theme !== "light" && theme !== "dark") theme = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"; document.documentElement.dataset.theme = theme; })();</script>`;
+
 function header(page, ctx) {
   const { t } = ctx;
   const current = (section) => (page.section === section ? ' aria-current="page"' : "");
@@ -107,6 +119,7 @@ ${languageSuggestions(ctx)}
     </nav>
     <div class="header-links">
       ${languageMenu(ctx, "down")}
+      ${themeToggle(ctx)}
       <a class="header-link" href="${DISCORD_URL}" aria-label="${t.discordLabel}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${discordPath}" /></svg><span>Discord</span></a>
       <a class="header-link" href="${GITHUB_URL}" aria-label="${t.githubLabel}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${githubPath}" /></svg><span>GitHub</span></a>
       <a class="header-cta" href="{{root}}#download"${current("download")}>${icon("download-simple")}<span>${t.nav.download}</span></a>
@@ -237,6 +250,7 @@ export function render(page, body, ctx) {
     <title>${page.title}</title>
     <meta name="description" content="${escapeAttr(page.description)}" />
     <meta name="theme-color" content="#1d1f25" />
+    ${themeBoot}
     <link rel="canonical" href="${self.abs}" />
     ${alternateLinks}
     <meta property="og:title" content="${escapeAttr(page.title)}" />
