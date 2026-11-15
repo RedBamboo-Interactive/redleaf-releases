@@ -32,7 +32,7 @@ export const videos = [
   { slug: "nova-workspace", number: "01", icon: "star", tone: "rose", duration: "3:16", poster: "videos/01-nova-workspace.webp", youtube: "" },
   { slug: "your-workspace", number: "02", icon: "folder-simple", tone: "green", duration: "2:34", poster: "videos/02-your-workspace.webp", youtube: "" },
   { slug: "projects", number: "03", icon: "calendar-check", tone: "amber", duration: "2:07", poster: "videos/03-projects.webp", youtube: "" },
-  { slug: "while-away", number: "04", icon: "heartbeat", tone: "violet", duration: "2:31", poster: "videos/04-while-away.webp", youtube: "" },
+  { slug: "while-away", number: "04", icon: "heartbeat", tone: "violet", duration: "2:32", poster: "videos/04-while-away.webp", youtube: "" },
 ];
 
 /** Cookbook sections, in order. Their labels live in i18n.mjs under `cookbook.groups`. */
