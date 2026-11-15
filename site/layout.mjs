@@ -25,20 +25,20 @@ export const recipes = [
 /**
  * Cookbook videos, in episode order. Titles live in i18n.mjs under `videos`. An episode with a poster
  * has its own page at cookbook/videos/<slug>/ and appears in the sidebar; the others are listed as
- * coming soon. `youtube` stays empty until the video is public, which keeps its player a disabled poster.
+ * coming soon. `youtube` stays empty until the video is on YouTube (public or unlisted), which keeps its player a disabled poster.
  */
 export const videos = [
-  { slug: "talking-to-nova", number: "00", icon: "chats-circle", tone: "blue", duration: "2:12", poster: "videos/00-talking-to-nova.webp", youtube: "" },
-  { slug: "nova-workspace", number: "01", icon: "star", tone: "rose", duration: "3:16", poster: "videos/01-nova-workspace.webp", youtube: "" },
-  { slug: "your-workspace", number: "02", icon: "folder-simple", tone: "green", duration: "2:34", poster: "videos/02-your-workspace.webp", youtube: "" },
-  { slug: "projects", number: "03", icon: "calendar-check", tone: "amber", duration: "2:07", poster: "videos/03-projects.webp", youtube: "" },
-  { slug: "while-away", number: "04", icon: "heartbeat", tone: "violet", duration: "2:32", poster: "videos/04-while-away.webp", youtube: "" },
-  { slug: "teaching-skills", number: "05", icon: "sparkle", tone: "teal", duration: "2:24", poster: "videos/05-teaching-skills.webp", youtube: "" },
-  { slug: "what-i-can-reach", number: "06", icon: "puzzle-piece", tone: "orange", duration: "2:42", poster: "videos/06-what-i-can-reach.webp", youtube: "" },
-  { slug: "your-own-agents", number: "07", icon: "robot", tone: "rose", duration: "2:32", poster: "videos/07-your-own-agents.webp", youtube: "" },
-  { slug: "choosing-your-ai", number: "08", icon: "cpu", tone: "blue", duration: "2:34", poster: "videos/08-choosing-your-ai.webp", youtube: "" },
-  { slug: "create-on-your-gpu", number: "09", icon: "images", tone: "green", duration: "2:30", poster: "videos/09-create-on-your-gpu.webp", youtube: "" },
-  { slug: "handing-to-code", number: "10", icon: "code", tone: "amber", duration: "2:33", poster: "videos/10-handing-to-code.webp", youtube: "" },
+  { slug: "talking-to-nova", number: "00", icon: "chats-circle", tone: "blue", duration: "2:12", poster: "videos/00-talking-to-nova.webp", youtube: "Tci0ta5Ug_o" },
+  { slug: "nova-workspace", number: "01", icon: "star", tone: "rose", duration: "3:16", poster: "videos/01-nova-workspace.webp", youtube: "Jx3IzHeapG8" },
+  { slug: "your-workspace", number: "02", icon: "folder-simple", tone: "green", duration: "2:34", poster: "videos/02-your-workspace.webp", youtube: "1XtTWPKVH3k" },
+  { slug: "projects", number: "03", icon: "calendar-check", tone: "amber", duration: "2:07", poster: "videos/03-projects.webp", youtube: "0nOC2Xe4keA" },
+  { slug: "while-away", number: "04", icon: "heartbeat", tone: "violet", duration: "2:32", poster: "videos/04-while-away.webp", youtube: "auAluT2umco" },
+  { slug: "teaching-skills", number: "05", icon: "sparkle", tone: "teal", duration: "2:24", poster: "videos/05-teaching-skills.webp", youtube: "OZz63fmMJ4g" },
+  { slug: "what-i-can-reach", number: "06", icon: "puzzle-piece", tone: "orange", duration: "2:42", poster: "videos/06-what-i-can-reach.webp", youtube: "tThZfBREfxE" },
+  { slug: "your-own-agents", number: "07", icon: "robot", tone: "rose", duration: "2:32", poster: "videos/07-your-own-agents.webp", youtube: "IOMvbrFKr5E" },
+  { slug: "choosing-your-ai", number: "08", icon: "cpu", tone: "blue", duration: "2:34", poster: "videos/08-choosing-your-ai.webp", youtube: "i9o6FVoikzw" },
+  { slug: "create-on-your-gpu", number: "09", icon: "images", tone: "green", duration: "2:30", poster: "videos/09-create-on-your-gpu.webp", youtube: "5QAII1PAQ0w" },
+  { slug: "handing-to-code", number: "10", icon: "code", tone: "amber", duration: "2:33", poster: "videos/10-handing-to-code.webp", youtube: "nh1BBGnHPEA" },
 ];
 
 /** Cookbook sections, in order. Their labels live in i18n.mjs under `cookbook.groups`. */

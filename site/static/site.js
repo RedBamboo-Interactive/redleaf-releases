@@ -567,7 +567,10 @@ $$(".video-player").forEach((player) => {
   player.disabled = false;
   player.addEventListener("click", () => {
     const frame = document.createElement("iframe");
-    frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0`;
+    // The videos are in English: on a French page the player starts with French subtitles on.
+    const lang = document.documentElement.lang?.slice(0, 2);
+    const subtitles = lang && lang !== "en" ? `&hl=${lang}&cc_lang_pref=${lang}&cc_load_policy=1` : "";
+    frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0${subtitles}`;
     frame.title = player.dataset.title || "";
     frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
     frame.allowFullscreen = true;
