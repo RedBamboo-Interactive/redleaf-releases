@@ -39,6 +39,7 @@ export const videos = [
   { slug: "choosing-your-ai", number: "08", icon: "cpu", tone: "blue", duration: "2:34", poster: "videos/08-choosing-your-ai.webp", youtube: "i9o6FVoikzw" },
   { slug: "create-on-your-gpu", number: "09", icon: "images", tone: "green", duration: "2:30", poster: "videos/09-create-on-your-gpu.webp", youtube: "5QAII1PAQ0w" },
   { slug: "handing-to-code", number: "10", icon: "code", tone: "amber", duration: "2:33", poster: "videos/10-handing-to-code.webp", youtube: "nh1BBGnHPEA" },
+  { slug: "just-ask", number: "11", icon: "paper-plane-right", tone: "violet", duration: "2:16", poster: "videos/11-just-ask.webp", youtube: "Mc16xuThni4" },
 ];
 
 /** Cookbook sections, in order. Their labels live in i18n.mjs under `cookbook.groups`. */
