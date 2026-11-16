@@ -1,0 +1,63 @@
+<!--page {"title":"Faire un jeu · Vidéo RedLeaf","description":"Épisode 12 des vidéos RedLeaf : Mossbound, de la première conversation à une première version jouable, avec un document de conception, des concepts visuels, un tableau de tâches, un thème, une session Code qui construit sur des fondations testées, et un test dans le navigateur.","layout":"doc","section":"cookbook","slug":"videos/making-a-game"}-->
+<header class="cookbook-hero">
+  <p class="eyebrow">Vidéo · Épisode 12 · 4:59 · en anglais</p>
+  <h1>Faire un jeu</h1>
+  <p class="doc-lede">Un petit chevalier couvert de mousse, d’une conversation à une première version jouable. Pas une démo vite faite : les décisions sont écrites, le travail est planifié en petites tâches, et le code repose sur des fondations testées, puis il est joué dans un vrai navigateur. La vidéo est en anglais ; la transcription ci-dessous est en français.</p>
+</header>
+<div class="video-page">
+{{video:making-a-game}}
+</div>
+<div class="prose">
+  <h2>Ce que vous verrez</h2>
+  <ul>
+    <li>Une seule discussion du début à la fin : Nova demande pour qui est le jeu, propose un pitch, trois piliers et ce qui reste hors du périmètre, et votre idée l’améliore.</li>
+    <li>Un document de conception sous forme de page dans le projet, avec les mouvements du chevalier en valeurs ajustables, et chaque modification dans son historique.</li>
+    <li>Des concepts visuels explorés large sur votre carte graphique, trois directions avec trois essais chacune, puis affinés. Les images retenues vont sur une page de direction artistique, avec le prompt et la graine de chacune.</li>
+    <li>La première version jouable découpée en petites tâches sur un tableau, chacune avec un « terminé quand » clair, et le graphisme définitif laissé dans le backlog.</li>
+    <li>Le thème créé dans la même discussion, deux versions à choisir, enregistré dans le projet avec une boucle propre pour le jeu.</li>
+    <li>La construction confiée à une session Code avec un brief écrit : une boucle à pas fixe, les entrées en actions, le chevalier en machine à états et un seul fichier de réglages, avec des tests pour les règles, lancés depuis l’onglet Tests de Code.</li>
+    <li>Un test dans le navigateur qui joue la salle jusqu’au bout, la première version jouable elle-même, et une évaluation au regard des piliers qui renvoie un changement à la même session Code.</li>
+  </ul>
+  <div class="callout">{{icon:book-open}}<p><strong>Pour aller plus loin.</strong> <a href="{{root}}cookbook/videos/handing-to-code/">Confier le travail à Code</a> montre une délégation pas à pas, et <a href="{{root}}cookbook/videos/create-on-your-gpu/">Créer sur votre propre GPU</a> couvre les images et la musique.</p></div>
+  <h2>Transcription</h2>
+  <div class="transcript">
+  <h3>Introduction</h3>
+  <p>Dans l’épisode neuf, on a fait les visuels de lancement d’un jeu appelé Mossbound. Maintenant, on fait le jeu.</p>
+  <p>Pas une démo vite faite. Une première version jouable, sur des fondations qui tiendront.</p>
+  <h3>En parler d’abord</h3>
+  <p>Un jeu commence par une conversation, pas par du code.</p>
+  <p>Avant de supposer quoi que ce soit, je demande ce qui compte : pour qui, et quelles sensations il doit donner. Vous répondez.</p>
+  <p>Ensuite, je propose un pitch et trois piliers, et, tout aussi important, ce que le jeu ne fera pas encore. Vous objectez, et l’idée s’améliore.</p>
+  <h3>Le document de conception</h3>
+  <p>Les décisions vont dans un document de conception : une page dans le projet. Les piliers, les mouvements du chevalier avec des valeurs que vous pouvez ajuster, et une première version jouable assez petite pour être finie.</p>
+  <p>Chaque modification est dans son historique, pour voir ce qui a été décidé, et pourquoi. Tout le monde travaille à partir de cette page, moi comprise.</p>
+  <h3>Concepts visuels</h3>
+  <p>Puis le style. Explorez large avant de vous engager : trois directions, trois essais chacune.</p>
+  <p>Le chevalier peint est magnifique, mais il paraît grand et sombre. Le pixel art reste lisible à la taille du jeu. Et celui du livre d’images a un escargot sur son casque.</p>
+  <p>Alors on repart du chevalier en pixel art, on garde l’escargot, et on le tourne de profil, comme il faut pour un jeu de plateforme. Les images retenues vont dans le projet, sur une page de direction artistique, et chacune garde le prompt et la graine qui l’ont produite.</p>
+  <h3>Le plan</h3>
+  <p>Ensuite, le plan. Je découpe la première version jouable en petites tâches, sur un tableau dans le projet. Chacune a un « terminé quand » clair.</p>
+  <p>Les sprites définitifs et les finitions attendent dans le backlog : les sensations d’abord, le graphisme ensuite. Quand une tâche démarre, sa carte se déplace, et tout le monde voit où on en est.</p>
+  <h3>Le thème</h3>
+  <p>La musique a droit au même soin. Décrivez l’ambiance, et je fais quelques versions parmi lesquelles choisir.</p>
+  <p>Vous choisissez celle qui convient. Je l’enregistre dans le projet, et je coupe une boucle propre pour le jeu, pour qu’elle ne claque jamais quand elle se répète.</p>
+  <h3>Les fondations</h3>
+  <p>Maintenant le code, là où les démos rapides prennent souvent des raccourcis. Je crée un nouveau dépôt, et je confie la construction à une session Code, avec un brief tiré du document de conception et du tableau.</p>
+  <p>Elle pose d’abord les fondations. Une boucle de jeu à pas fixe, pour que les mêmes entrées donnent toujours le même résultat. Les touches associées à des actions. Le chevalier sous forme d’un ensemble clair d’états. Et chaque valeur de jouabilité dans un seul fichier de réglages, pas enfouie dans le code.</p>
+  <p>Les tests arrivent avec les règles : les états, le temps de grâce au bord des plateformes, les dégâts, les soins.</p>
+  <p>Dans l’onglet Tests de Code, ils se lancent en un clic.</p>
+  <h3>Première version jouable</h3>
+  <p>Ensuite, il faut que ça marche dans un vrai navigateur. Je lance un test de jeu qui ouvre le jeu, joue la salle du début à la fin, et vérifie le résultat. Les captures d’écran arrivent dans la discussion.</p>
+  <p>Le voici : la première version jouable.</p>
+  <h3>L’évaluation</h3>
+  <p>Puis je l’évalue au regard des piliers, pas seulement des tests. Le combat est lisible : chaque nuage de spores est annoncé. Le saut est agréable. Mais le petit bond de l’attaque rend les combats flottants.</p>
+  <p>Vous êtes d’accord, donc il disparaît. Le fichier de réglages change, le document consigne pourquoi, et les cartes terminées passent dans Terminé.</p>
+  <h3>Sous le capot</h3>
+  <p>Alors, qu’est-ce qu’il a fallu ? Une seule discussion, du début à la fin. Le document de conception est une page, et chaque modification est conservée. Les concepts visuels ont tourné sur votre carte graphique, et le plan est un tableau de tâches dans le même projet.</p>
+  <p>Le thème est venu de la même discussion, et sa boucle est un fichier du projet. Le code vit dans son propre dépôt, construit par une session Code à partir d’un brief écrit, avec des tests pour les règles, et un navigateur qui joue au jeu sur votre machine.</p>
+  <p>Et c’est une boucle, pas un coup unique : décider, construire, tester, évaluer, et noter ce qui a changé.</p>
+  <h3>Récapitulatif</h3>
+  <p>Donc : parlez d’abord, et notez les décisions. Explorez large, puis planifiez en petites tâches. Construisez les fondations et les tests avant les fonctionnalités, et jouez dans un navigateur après chaque changement.</p>
+  <p>La prochaine fois : de la première version jouable à la tranche verticale. À bientôt.</p>
+  </div>
+</div>

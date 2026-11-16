@@ -1,0 +1,63 @@
+<!--page {"title":"Making a game · RedLeaf Cookbook video","description":"Episode 12 of the RedLeaf Cookbook videos: Mossbound, from the first conversation to a first playable, with a design document, concept art, a task board, a theme, a Code session building on tested foundations, and a browser playtest.","layout":"doc","section":"cookbook","slug":"videos/making-a-game"}-->
+<header class="cookbook-hero">
+  <p class="eyebrow">Video · Episode 12 · 4:59</p>
+  <h1>Making a game</h1>
+  <p class="doc-lede">A small knight covered in moss, taken from a conversation to a first playable. Not a one-shot demo: the decisions are written down, the work is planned in small tasks, and the code is built on foundations with tests, then played in a real browser.</p>
+</header>
+<div class="video-page">
+{{video:making-a-game}}
+</div>
+<div class="prose">
+  <h2>What you'll see</h2>
+  <ul>
+    <li>One discussion from start to finish: Nova asks who the game is for, proposes a pitch, three pillars and what's out of scope, and your idea makes it better.</li>
+    <li>A game design document as a page in the project, with the knight's moves as numbers you can tune, and every change in its history.</li>
+    <li>Concept art explored wide on your graphics card, three directions with three takes each, then iterated. The keepers go on an Art direction page with the prompt and seed of each.</li>
+    <li>The first playable broken into small tasks on a board, each with a clear "done when", and final art left in the backlog.</li>
+    <li>The theme made in the same discussion, two takes to pick from, saved to the project with a clean loop for the game.</li>
+    <li>The build handed to a Code session with a written brief: a fixed-step loop, input as actions, the knight as a state machine and one tuning file, with tests for the rules, run from Code's Tests tab.</li>
+    <li>A browser playtest that plays the room to the end, the first playable itself, and a review against the pillars that sends one change back to the same Code session.</li>
+  </ul>
+  <div class="callout">{{icon:book-open}}<p><strong>Go further.</strong> <a href="{{root}}cookbook/videos/handing-to-code/">Handing work to Code</a> shows a delegation step by step, and <a href="{{root}}cookbook/videos/create-on-your-gpu/">Create on your own GPU</a> covers images and music.</p></div>
+  <h2>Transcript</h2>
+  <div class="transcript">
+  <h3>Opening</h3>
+  <p>In episode nine, we made the launch art for a game called Mossbound. Now we make the game.</p>
+  <p>Not a one-shot demo. A first playable, on foundations that will hold.</p>
+  <h3>Talk it through</h3>
+  <p>A game starts as a conversation, not as code.</p>
+  <p>Before I assume anything, I ask what matters: who it's for, and how it should feel. You answer.</p>
+  <p>Then I propose a pitch and three pillars, and just as important, what the game won't do yet. You push back, and the idea gets better.</p>
+  <h3>The design document</h3>
+  <p>The decisions go into a design document: a page in the project. The pillars, the knight's moves with numbers you can tune, and a first playable small enough to finish.</p>
+  <p>Every change is in its history, so you can see what was decided, and why. Everyone works from this page, me included.</p>
+  <h3>Concept art</h3>
+  <p>Then the look. Explore wide before you commit: three directions, three takes each.</p>
+  <p>The painterly knight is beautiful, but it reads tall and grim. Pixel art reads at game size. And the storybook one has a snail on its helmet.</p>
+  <p>So we iterate from the pixel knight, keep the snail, and turn it side-on, the way a platformer needs. The keepers go into the project, on an art direction page, and every image keeps the prompt and seed that made it.</p>
+  <h3>The plan</h3>
+  <p>Next, the plan. I break the first playable into small tasks, on a board in the project. Each one has a clear "done when".</p>
+  <p>Final sprites and polish wait in the backlog: feel first, art later. When a task starts, its card moves, and everyone can see where things stand.</p>
+  <h3>The theme</h3>
+  <p>The music gets the same care. Describe the feel, and I make a couple of takes to choose from.</p>
+  <p>You pick the one that fits. I save it to the project, and cut a clean loop for the game, so it never clicks when it repeats.</p>
+  <h3>Foundations</h3>
+  <p>Now the code, where quick demos usually cut corners. I start a new repository, and hand the build to a Code session, with a brief written from the design document and the board.</p>
+  <p>It lays the foundations first. A fixed-step game loop, so the same inputs always give the same result. Keys mapped to actions. The knight as a clear set of states. And every feel number in one tuning file, not buried in the code.</p>
+  <p>Tests come with the rules: states, coyote time, damage, healing.</p>
+  <p>In Code's Tests tab, they run with one click.</p>
+  <h3>First playable</h3>
+  <p>Then it has to work in a real browser. I run a playtest that opens the game, plays the room from start to finish, and checks the result. The screenshots land in the discussion.</p>
+  <p>Here it is: the first playable.</p>
+  <h3>Review</h3>
+  <p>Then I review it against the pillars, not just the tests. Combat is readable: every spore cloud is announced. The jump feels good. But the strike's little hop makes fights floaty.</p>
+  <p>You agree, so it goes. The tuning file changes, the document records why, and the finished cards move to Done.</p>
+  <h3>Under the hood</h3>
+  <p>So what did that take? One discussion, from start to finish. The design document is a page, and every change is kept. The concept art ran on your graphics card, and the plan is a board of tasks in the same project.</p>
+  <p>The theme came from the same discussion, and its loop is a file in the project. The code lives in its own repository, built by a Code session from a written brief, with tests for the rules, and a browser that plays the game on your machine.</p>
+  <p>And it's a loop, not a one-shot: decide, build, test, review, and write down what changed.</p>
+  <h3>Recap</h3>
+  <p>So: talk first, and write the decisions down. Explore wide, then plan in small tasks. Build the foundations and the tests before the features, and play it in a browser after every change.</p>
+  <p>Next time: from first playable to vertical slice. See you there.</p>
+  </div>
+</div>
