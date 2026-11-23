@@ -1,0 +1,59 @@
+<!--page {"title":"From first playable to vertical slice · RedLeaf Cookbook video","description":"Episode 13 of the RedLeaf Cookbook videos: Mossbound grows from a first playable into a vertical slice, with a definition of done, GitHub and CI, four Code sessions on their own branches and worktrees, reviewed pull requests, and three rounds of your feedback.","layout":"doc","section":"cookbook","slug":"videos/vertical-slice"}-->
+<header class="cookbook-hero">
+  <p class="eyebrow">Video · Episode 13 · 4:48</p>
+  <h1>From first playable to vertical slice</h1>
+  <p class="doc-lede">The small knight covered in moss grows from one room into a vertical slice: a menu, a level in three places, a boss fight and a level up, at the quality of the finished game. It all happens in one discussion, and your feedback shapes every round.</p>
+</header>
+<div class="video-page">
+{{video:vertical-slice}}
+</div>
+<div class="prose">
+  <h2>What you'll see</h2>
+  <ul>
+    <li>The scope and a definition of done written on the design page: one unbroken run, from the menu back to the menu, at final quality.</li>
+    <li>A GitHub repository created from the chat, with CI that runs every test and has a real browser play the game on every push.</li>
+    <li>Four Code sessions at once, each on its own branch in its own worktree: the menu, the level, the boss and the skills.</li>
+    <li>Pull requests checked by CI and reviewed before they merge, a real conflict resolved by merging main in, and one test that plays the whole slice with real key presses.</li>
+    <li>Your feedback typed in the discussion, round after round: the boss becomes the giant from the launch art, each place gets its own light and weather, and the menus and attacks get a polish pass.</li>
+    <li>A session sent back for lightening the storm to pass a test, and the boss rethought: the giant strikes with its own arms, shown as a pose sheet and in real gameplay.</li>
+    <li>Fairness as tests: every attack announced for at least three quarters of a second, a safe answer for each, and lightning that never hides a warning.</li>
+  </ul>
+  <div class="callout">{{icon:book-open}}<p><strong>Go further.</strong> <a href="{{root}}docs/branches/">Branches and parallel work</a> explains worktrees and merging, <a href="{{root}}docs/code/">Coding sessions</a> covers the GitHub tab and letting Nova delegate, and <a href="{{root}}cookbook/videos/making-a-game/">Making a game</a> is where Mossbound started.</p></div>
+  <h2>Transcript</h2>
+  <div class="transcript">
+  <h3>Opening</h3>
+  <p>Last time, Mossbound became a first playable: one room, one enemy, placeholder art. Now we make a vertical slice.</p>
+  <p>A vertical slice is one small piece of the game, through every system, at the quality of the finished thing.</p>
+  <h3>You ask, it gets written down</h3>
+  <p>First, we write down what it means. A main menu. One level, in three different places. A boss fight. And a level up, where you choose a skill.</p>
+  <p>And a definition of done: one unbroken run, from the menu back to the menu, at the quality of the finished game.</p>
+  <h3>GitHub, from the chat</h3>
+  <p>The game gets its own repository, on GitHub. And continuous integration: every time code is pushed, GitHub runs every test, and a real browser plays the game.</p>
+  <p>Nothing reaches the main branch unless that passes.</p>
+  <h3>Four at once</h3>
+  <p>Then the work splits. A branch is a separate line of changes, and a worktree is its own folder on your computer, so four sessions can work at once without touching each other.</p>
+  <p>Menu. Level. Boss. Skills. Four Code sessions, four branches, side by side.</p>
+  <h3>Pull requests</h3>
+  <p>Each one finishes with a pull request: here is my change, here are the tests. CI checks it. I review it, and merge it.</p>
+  <p>Then the second one conflicts. Menu and skills both changed the same files. So the skills session brings the new main into its branch, keeps both sides, and CI goes green again.</p>
+  <p>The last branch joins it all together. One test now presses real keys: start, walk three rooms, beat the boss, choose a skill, read the summary, and land back on the menu.</p>
+  <h3>Your first feedback</h3>
+  <p>Then you look at it. "The boss is very ugly. Use the concept art we already made. A giant in the background, and you fight his hands."</p>
+  <p>So the Rootwarden becomes the giant from the launch art. Huge, half in the fog, and it fights with its fists: one slams where you stand, one drags across the ground, and you strike the rune on its knuckles.</p>
+  <h3>Mood</h3>
+  <p>"The levels need more mood." So each place gets its own light and weather. Morning mist in the grove. Darkness in the hollow tree. And a storm in the clearing, that breaks into sunlight when the giant tears the canopy open.</p>
+  <p>One session made the storm lighter, just to pass a test. I sent it back. The test serves the art, not the other way round.</p>
+  <h3>Not good enough yet</h3>
+  <p>Then you look again. "The main menu is way too simple, and the logo is boring. The boss's attacks look very weird. Spend more time on quality and consistency."</p>
+  <p>Three sessions again, side by side: the title, the boss, and everything in between. I check every animation frame by frame. The boss took longest. Every hand we drew looked bolted on. So we stopped patching and rethought it: the giant strikes with its own arms, and walks to where it hits.</p>
+  <p>Now the game opens like this.</p>
+  <h3>Fair, and tested</h3>
+  <p>Fairness is a test too. Every attack is announced for at least three quarters of a second, every attack has a safe answer, and lightning never hides a warning.</p>
+  <h3>Under the hood</h3>
+  <p>So what did that take? A design page that changed seven times, with its history. A repository on GitHub, branches in their own worktrees, a Code session on each, and CI on every push.</p>
+  <p>Eighteen pull requests, each reviewed before it merged. Over three hundred unit tests, and a browser that plays the whole slice.</p>
+  <h3>Recap</h3>
+  <p>So: write down what done means. Split the work into branches that can run side by side. Let CI check everything, review every merge, and keep listening when the result isn't good enough yet.</p>
+  <p>Next time: tests that play the game for you.</p>
+  </div>
+</div>

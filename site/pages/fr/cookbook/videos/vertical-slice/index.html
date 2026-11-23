@@ -1,0 +1,59 @@
+<!--page {"title":"De la première version jouable à la tranche verticale · Vidéo RedLeaf","description":"Épisode 13 des vidéos RedLeaf : Mossbound passe d’une première version jouable à une tranche verticale, avec une définition de « terminé », GitHub et l’intégration continue, quatre sessions Code sur leurs propres branches et worktrees, des pull requests relues, et trois séries de retours de votre part.","layout":"doc","section":"cookbook","slug":"videos/vertical-slice"}-->
+<header class="cookbook-hero">
+  <p class="eyebrow">Vidéo · Épisode 13 · 4:48 · en anglais</p>
+  <h1>De la première version jouable à la tranche verticale</h1>
+  <p class="doc-lede">Le petit chevalier couvert de mousse passe d’une seule salle à une tranche verticale : un menu, un niveau dans trois lieux, un combat de boss et une montée de niveau, à la qualité du jeu fini. Tout se passe dans une seule discussion, et vos retours orientent chaque étape. La vidéo est en anglais ; la transcription ci-dessous est en français.</p>
+</header>
+<div class="video-page">
+{{video:vertical-slice}}
+</div>
+<div class="prose">
+  <h2>Ce que vous verrez</h2>
+  <ul>
+    <li>Le périmètre et une définition de « terminé » écrits sur la page de conception : une partie d’une seule traite, du menu jusqu’au menu, à la qualité finale.</li>
+    <li>Un dépôt GitHub créé depuis le chat, avec une intégration continue qui lance tous les tests et fait jouer le jeu par un vrai navigateur à chaque push.</li>
+    <li>Quatre sessions Code en même temps, chacune sur sa propre branche dans son propre worktree : le menu, le niveau, le boss et les compétences.</li>
+    <li>Des pull requests vérifiées par la CI et relues avant d’être fusionnées, un vrai conflit résolu en ramenant la branche principale, et un test qui joue toute la tranche avec de vraies touches.</li>
+    <li>Vos retours tapés dans la discussion, étape après étape : le boss devient le géant des visuels de lancement, chaque lieu reçoit sa propre lumière et sa propre météo, et les menus et les attaques passent par une phase de finition.</li>
+    <li>Une session renvoyée pour avoir éclairci l’orage afin de faire passer un test, et le boss repensé : le géant frappe avec ses propres bras, montré sur une planche de poses et en jeu.</li>
+    <li>L’équité sous forme de tests : chaque attaque annoncée au moins trois quarts de seconde à l’avance, une réponse sans risque pour chacune, et un éclair qui ne masque jamais un avertissement.</li>
+  </ul>
+  <div class="callout">{{icon:book-open}}<p><strong>Pour aller plus loin.</strong> <a href="{{root}}docs/branches/">Branches et travail en parallèle</a> explique les worktrees et la fusion, <a href="{{root}}docs/code/">Sessions de code</a> couvre l’onglet GitHub et la délégation par Nova, et <a href="{{root}}cookbook/videos/making-a-game/">Faire un jeu</a> montre les débuts de Mossbound.</p></div>
+  <h2>Transcription</h2>
+  <div class="transcript">
+  <h3>Introduction</h3>
+  <p>La dernière fois, Mossbound est devenu une première version jouable : une salle, un ennemi, des graphismes provisoires. Maintenant, on fait une tranche verticale.</p>
+  <p>Une tranche verticale, c’est un petit morceau du jeu, qui traverse tous les systèmes, à la qualité du jeu fini.</p>
+  <h3>Vous demandez, c’est écrit</h3>
+  <p>D’abord, on écrit ce que ça veut dire. Un menu principal. Un niveau, dans trois lieux différents. Un combat de boss. Et une montée de niveau, où vous choisissez une compétence.</p>
+  <p>Et une définition de « terminé » : une partie d’une seule traite, du menu jusqu’au menu, à la qualité du jeu fini.</p>
+  <h3>GitHub, depuis le chat</h3>
+  <p>Le jeu a son propre dépôt, sur GitHub. Et l’intégration continue : chaque fois que du code est poussé, GitHub lance tous les tests, et un vrai navigateur joue au jeu.</p>
+  <p>Rien n’arrive sur la branche principale sans que tout ça passe.</p>
+  <h3>Quatre à la fois</h3>
+  <p>Ensuite, le travail se répartit. Une branche est une ligne de modifications à part, et un worktree est son propre dossier sur votre ordinateur, pour que quatre sessions travaillent en même temps sans se gêner.</p>
+  <p>Le menu. Le niveau. Le boss. Les compétences. Quatre sessions Code, quatre branches, côte à côte.</p>
+  <h3>Les pull requests</h3>
+  <p>Chacune se termine par une pull request : voici ma modification, voici les tests. La CI la vérifie. Je la relis, et je la fusionne.</p>
+  <p>Puis la deuxième entre en conflit. Le menu et les compétences ont modifié les mêmes fichiers. Alors la session des compétences ramène la nouvelle branche principale dans la sienne, garde les deux côtés, et la CI repasse au vert.</p>
+  <p>La dernière branche relie tout. Un test appuie maintenant sur de vraies touches : démarrer, traverser trois salles, battre le boss, choisir une compétence, lire le récapitulatif, et revenir au menu.</p>
+  <h3>Vos premiers retours</h3>
+  <p>Puis vous le regardez. « Le boss est très moche. Il faut reprendre les concepts visuels qu’on a déjà faits. Un géant à l’arrière-plan, et on combat ses mains ».</p>
+  <p>Alors le Rootwarden devient le géant des visuels de lancement. Immense, à moitié dans la brume, et il se bat avec ses poings : l’un s’abat là où vous êtes, l’autre racle le sol, et vous frappez la rune sur ses jointures.</p>
+  <h3>L’ambiance</h3>
+  <p>« Les niveaux manquent d’ambiance ». Alors chaque lieu a sa propre lumière et sa propre météo. La brume du matin dans le bosquet. L’obscurité dans l’arbre creux. Et un orage sur la clairière, qui laisse place au soleil quand le géant déchire la canopée.</p>
+  <p>Une session a éclairci l’orage, juste pour faire passer un test. Je l’ai renvoyée. Le test est au service de l’art, pas l’inverse.</p>
+  <h3>Pas encore assez bien</h3>
+  <p>Puis vous regardez de nouveau. « Le menu principal est beaucoup trop simple, et le logo est ennuyeux. Les attaques du boss ont l’air vraiment bizarres. Il faut passer plus de temps sur la qualité et la cohérence ».</p>
+  <p>De nouveau trois sessions, côte à côte : l’écran titre, le boss, et tout ce qu’il y a entre les deux. Je vérifie chaque animation image par image. C’est le boss qui a pris le plus de temps. Chaque main qu’on dessinait avait l’air plaquée. Alors on a arrêté de rafistoler et on a tout repensé : le géant frappe avec ses propres bras, et marche jusqu’à l’endroit qu’il frappe.</p>
+  <p>Maintenant, le jeu s’ouvre comme ceci.</p>
+  <h3>Équitable, et testé</h3>
+  <p>L’équité se teste, elle aussi. Chaque attaque est annoncée au moins trois quarts de seconde à l’avance, chaque attaque a une réponse sans risque, et un éclair ne masque jamais un avertissement.</p>
+  <h3>Sous le capot</h3>
+  <p>Alors, qu’est-ce qu’il a fallu ? Une page de conception modifiée sept fois, avec son historique. Un dépôt sur GitHub, des branches dans leurs propres worktrees, une session Code sur chacune, et la CI à chaque push.</p>
+  <p>Dix-huit pull requests, chacune relue avant d’être fusionnée. Plus de trois cents tests unitaires, et un navigateur qui joue toute la tranche verticale.</p>
+  <h3>Récapitulatif</h3>
+  <p>Donc : écrivez ce que « terminé » veut dire. Répartissez le travail en branches qui peuvent avancer côte à côte. Laissez la CI tout vérifier, relisez chaque fusion, et continuez d’écouter quand le résultat n’est pas encore assez bon.</p>
+  <p>La prochaine fois : des tests qui jouent au jeu pour vous.</p>
+  </div>
+</div>
