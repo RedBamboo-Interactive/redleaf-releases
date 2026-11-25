@@ -138,7 +138,11 @@ if ($("#download-button")) {
     lin.button.classList.remove("is-loading");
     lin.label.textContent = t("download", { channel: channelName });
     lin.meta.textContent = `v${release.version}`;
-    lin.command.textContent = `curl -fsSL ${releaseBase}/install.sh | sh`;
+    // One line for every distribution: stock Ubuntu Desktop has wget but no curl, Fedora has curl. curl is only run
+    // when present, so a missing one never prints Ubuntu's "command not found" advice before wget takes over.
+    const installer = `${releaseBase}/install.sh`;
+    lin.command.textContent =
+      `(command -v curl >/dev/null && curl -fsSL ${installer} || wget -qO- ${installer}) | sh`;
     lin.copy.disabled = false;
     lin.note.textContent = t("published", { channel: channelName, platform: "Linux x64", date: formatDate(release.publishedAt) });
     lin.hash.textContent = `${release.artifact.sha256}  redleaf-launcher`;
