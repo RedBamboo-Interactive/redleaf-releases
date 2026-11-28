@@ -13,6 +13,7 @@
       <section aria-labelledby="what">
         <h2 id="what">What is collected, and only if you opt in</h2>
         <p>“Usage sharing” is the RedLeaf setting for anonymous usage statistics: daily counts of how RedLeaf is used, so the people building it can see what works. It never includes your conversations, prompts, files, generated content or anything your AI providers send back. It is off by default. If you turn it on, your installation sends one small report per day for each question listed in Settings &gt; Usage sharing. A report contains a random identifier, the question and its version, the day, and counts grouped by fixed categories (for example “Codex: 3 sessions”). If you choose to share with a name, the name you typed is stored with your identifier. Reports never contain your messages, prompts, generated content, file or project names, titles, account details or exact times. The usage server uses your IP address only to limit how often reports can be sent. It does not store it or write it to its logs. Cloudflare, which runs that server, necessarily sees the address when your installation connects.</p>
+        <p><strong>Daily active accounts (self-hosted RedLeaf)</strong> has its own switch in Settings &gt; Usage sharing. It starts off for every account, including people who already share other usage statistics. After you opt in, RedLeaf counts your signed-in account once per UTC day when you interact with the app. After the day closes, your installation sends only the UTC day, its count of active opted-in accounts, and a random retry code for that day's submission. The report contains no account or installation identifier, name, activity details or content. Counts cover participating self-hosted accounts only, and someone with accounts on several installations may be counted more than once.</p>
       </section>
 
       <section aria-labelledby="why">
@@ -33,9 +34,10 @@
       <section aria-labelledby="how-long">
         <h2 id="how-long">How long</h2>
         <p>While a question is active and you are sharing. When a question is retired, the answers linked to people are deleted after 30 days; only totals across at least five testers may be kept, with no identifier. Identifiers with no report for 180 days are deleted.</p>
+        <p>For Daily active accounts, the installation keeps daily account records while a submission is pending, through at most seven closed UTC days. The usage server stores a digest of the retry code until the day leaves that seven-day window, and keeps daily totals for 400 days. Expired records are removed by scheduled cleanup.</p>
       </section>
 
       <section aria-labelledby="rights">
         <h2 id="rights">Your rights</h2>
-        <p>You can see everything you send in Settings &gt; Usage sharing, export it with your account data, delete it at any time with Delete my data, and contact Laurent with any question. You can also complain to your data protection authority (in France, the CNIL, which oversees us; elsewhere in the EU, your national authority; in Switzerland, the FDPIC).</p>
+        <p>You can see your subject-based reports in Settings &gt; Usage sharing, export them with your account data, or delete them with Delete my data. Turn off the separate Daily active accounts switch to stop counting and remove your pending contribution. The server cannot remove one account's contribution from a daily total it has already received. You can contact Laurent with any question. You can also complain to your data protection authority (in France, the CNIL, which oversees us; elsewhere in the EU, your national authority; in Switzerland, the FDPIC).</p>
       </section>
